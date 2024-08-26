@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Expected Value Example: Rice – The EV Foundation</title>
+<title>Value Example: The Gambler’s Problem – The EV Foundation</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -107,9 +107,11 @@ window.Quarto = {
 };
 </script>
 
-<meta property="og:title" content="Expected Value Example: Rice – The EV Foundation">
+<meta property="og:title" content="Value Example: The Gambler’s Problem – The EV Foundation">
+<meta property="og:description" content="">
 <meta property="og:site_name" content="The EV Foundation">
-<meta name="twitter:title" content="Expected Value Example: Rice – The EV Foundation">
+<meta name="twitter:title" content="Value Example: The Gambler’s Problem – The EV Foundation">
+<meta name="twitter:description" content="">
 <meta name="twitter:creator" content="@chisness">
 <meta name="twitter:card" content="summary">
 </head>
@@ -152,7 +154,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Expected Value Example: Rice</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./dice.html">EV EXAMPLES</a></li><li class="breadcrumb-item"><a href="./gambler.html">Gambler Problem</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -216,7 +218,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./gambler.html" class="sidebar-item-text sidebar-link">
+  <a href="./gambler.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Gambler Problem</span></a>
   </div>
 </li>
@@ -267,15 +269,25 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#the-gamblers-problem" id="toc-the-gamblers-problem" class="nav-link active" data-scroll-target="#the-gamblers-problem">The Gambler’s Problem</a></li>
+  <li><a href="#policy-iteration" id="toc-policy-iteration" class="nav-link" data-scroll-target="#policy-iteration">Policy Iteration</a></li>
+  <li><a href="#value-iteration" id="toc-value-iteration" class="nav-link" data-scroll-target="#value-iteration">Value Iteration</a></li>
+  <li><a href="#value-and-policy-iteration-differences" id="toc-value-and-policy-iteration-differences" class="nav-link" data-scroll-target="#value-and-policy-iteration-differences">Value and Policy Iteration Differences</a></li>
+  <li><a href="#code-for-gambler-graphs" id="toc-code-for-gambler-graphs" class="nav-link" data-scroll-target="#code-for-gambler-graphs">Code for Gambler Graphs</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./dice.html">EV EXAMPLES</a></li><li class="breadcrumb-item"><a href="./gambler.html">Gambler Problem</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Expected Value Example: Rice</h1>
+<h1 class="title">Value Example: The Gambler’s Problem</h1>
 </div>
 
 
@@ -292,9 +304,51 @@ window.Quarto = {
 </header>
 
 
+<section id="the-gamblers-problem" class="level2">
+<h2 class="anchored" data-anchor-id="the-gamblers-problem">The Gambler’s Problem</h2>
+<p>We are going to illustrate value iteration and policy iteration with the Gambler’s Problem from the Reinforcement Learning book by Sutton and Barto (Section 4.4, Example 4.2). These are dynamic programming algorithms, which are algorithms that can be used to compute optimal policies given a perfect model of the environment as a Markov decision process (MDP).</p>
+<p>The gambling event is to bet an amount on coin outcomes where heads is a winning wager and tails is losing. We take the probability of heads being selected as a parameter and the gambler’s goal is to get to a score of 100. Getting to 0 is a loss. The gambler can have current states from 1, 2, …, 99 (i.e., the amount of money he has).</p>
+<p>Bets can be made up to the amount of money that the gambler has, but not an amount that would bring the total to over 100 in the event of a winning bet.</p>
+<p>For example, if the gambler has 60, the maximum bet is 40 because anything over 40 would result in a score of over 100 with a win.</p>
+<p>So we have betting options of 0, 1, …, min(s, 100-s), where the state s is from 1 to 99.</p>
+<p>The reward is given as +1 for reaching 100 and otherwise 0.</p>
+<p>We will use value iteration and policy iteration to find the optimal policy and game value at each state. The results are shown below and the next sections explain how the algorithms work.</p>
+<p><br><img src="../assets/gambler04.png" width="500"> <em>p_h = 0.4</em> <br>Here we see the final policy (how much to bet) on the y-axis and the current capital state on the x-axis. Above each policy is the value of being in that state (which is a bit hard to see). We see that this has this strange looking format with a few pyramid shapes and larger “all-in” spikes at 25, 50, and 75. Betting large when the odds are against us makes sense in order to play with maximum variance – if we instead bet small, then we would see much lower variance and therefore a lower chance of reaching 100. (Imagine we are at state 50 – if we bet all 50, we have a 0.4 chance of winning. If we bet 1, we would need to win 50 times in a row, which is 0.4^50 ~= 0.)</p>
+<p><br><img src="../assets/gambler04capital.png" width="500"> <em>p_h = 0.4</em> <br>This is a graph of the final value of being in each state</p>
+<p><img src="../assets/gambler025.png" width="500"> <em>p_h = 0.25</em> <br> Here we see the same format as when p_h = 0.4, but the value of being at each state is lower because the probability of winning the bet is lower.</p>
+<p><br><img src="../assets/gambler055.png" width="500"> <em>p_h = 0.55</em> <br>Once p_h goes above 0.5, the final policy turns into simply betting 1 at every state (we do not use discounting). This is because the odds are now actually in our favor, so we prefer to keep variance as low as possible.</p>
+</section>
+<section id="policy-iteration" class="level2">
+<h2 class="anchored" data-anchor-id="policy-iteration">Policy Iteration</h2>
+<p><img src="../assets/pol_iteration.png"> <br><em>From Reinforcement Learning by Sutton and Barton</em></p>
+<script src="https://gist.github.com/chisness/6150ecfba999c8807467d9329e2c36a4.js"></script>
+<p>We initialize a state value V(s) and policy pi(s) for each state as zeros. Policy iteration iterates over each state to compare the previous state value to an updated state value by using the Bellman equation with the updated policy for that state. At the end of each iteration, we evaluate the maximum state-value difference and call policy improvement once this difference is lower than some epsilon.</p>
+<p>After each policy evaluation iteration, policy improvement is called to iterate through every action at each state to find the best possible action and to update the policy with that action. If at least 1 change has been made to the policy, then policy evaluation is called and the cycle continues. If policy improvement iterates through all states and no change are made to the policy, then the policy is stable and the state values and policy are returned.</p>
+</section>
+<section id="value-iteration" class="level2">
+<h2 class="anchored" data-anchor-id="value-iteration">Value Iteration</h2>
+<p><img src="../assets/val_iteration.png"> <br><em>From Reinforcement Learning by Sutton and Barton</em></p>
+<script src="https://gist.github.com/chisness/9af4cbb4d193af6e98b1a0fd65cade6b.js"></script>
+<p>We initialize a state value V(s) and policy pi(s) for each state as zeros. Then we iterate through each state from 1 to 99. In each iteration, we initially set v as the current value of that state, determine the range of possible actions, and set val_action as an array of zeros for each possible action.</p>
+<p>Then we loop through each possible action and evaluate its value using the Bellman equation. The equation looks like this in the Gambler Problem (s is the state, a is the action, v is the array of state values):</p>
+<p>Value(s, a, v) = p_heads * (rewards[state + action] + GAMMA * val_state[state + action]) + (1 - p_heads) * (rewards[state - action] + GAMMA * val_state[state - action])</p>
+<p>The Bellman equation effectively calculates the value of an action at a state by computing the expected value of the immediate return from the action and (in the case of 1-step lookahead) the currently known value of the resulting state. GAMMA is the fixed discount factor.</p>
+<p>After iterating through every action, we set the value of the state as the maximum of all of the action values.</p>
+<p>This value iteration over every state keeps running until the maximum change of the state value over all states is less than a preset epsilon. To do this, we initialize a delta value as 0 and update the delta after each state iteration to be the maximum of the previous delta or the absolute value of the change in that state value.</p>
+<p>Once we finish an iteration of all state values and delta is less than the defined epsilon value, we say that the state values have converged</p>
+<p>The final step is to find the optimal policy given these state values. This is a single for-loop over every state from 1 to 99 in which we calculate the action value with the Bellman equation for each action for each state and then set the best action as the action that results in the highest value. We set this as the policy for that state.</p>
+</section>
+<section id="value-and-policy-iteration-differences" class="level2">
+<h2 class="anchored" data-anchor-id="value-and-policy-iteration-differences">Value and Policy Iteration Differences</h2>
+<p>We see that the policy improvement and value iteration functions both improve the agent policy by finding the highest value action at each state. Value iteration directly updates the value of the state, while policy improvement update the policy directly with the best action. In policy evaluation, this best action is used to get the state value update. In value iteration, the policy is not updated until the final loop through every state.</p>
+</section>
+<section id="code-for-gambler-graphs" class="level2">
+<h2 class="anchored" data-anchor-id="code-for-gambler-graphs">Code for Gambler Graphs</h2>
+<script src="https://gist.github.com/chisness/e6d3d1a89285597a413de3cfd169ca5f.js"></script>
 
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

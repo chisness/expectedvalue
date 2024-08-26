@@ -1,362 +1,89 @@
 [
   {
-    "objectID": "basketball.html#section-1",
-    "href": "basketball.html#section-1",
-    "title": "Expected Value Example: Basketball",
-    "section": "Section 1",
-    "text": "Section 1"
-  },
-  {
-    "objectID": "basketball.html#section-2",
-    "href": "basketball.html#section-2",
-    "title": "Expected Value Example: Basketball",
-    "section": "Section 2",
-    "text": "Section 2\n\nSection 2.1\n\n\nSection 2.2"
-  },
-  {
-    "objectID": "basketball.html#section-3",
-    "href": "basketball.html#section-3",
-    "title": "Expected Value Example: Basketball",
-    "section": "Section 3",
-    "text": "Section 3\n\nSection 3.1\n\n\nSection 3.2\n\n\nSection 3.3"
-  },
-  {
-    "objectID": "basketball.html#section-4",
-    "href": "basketball.html#section-4",
-    "title": "Expected Value Example: Basketball",
-    "section": "Section 4",
-    "text": "Section 4"
-  },
-  {
-    "objectID": "dice.html",
-    "href": "dice.html",
-    "title": "Expected Value Example: Dice",
+    "objectID": "gambler.html",
+    "href": "gambler.html",
+    "title": "Value Example: The Gambler’s Problem",
     "section": "",
-    "text": "A roll of the dice is the typical first EV example.\nWhat is the expected value of a single 6 sided die?\nThe probability of rolling each side is the same, \\(1/6\\).\nThe value of each side is given by its number.\nTherefore we can write an equation to calculate the expected value:\n\\[\n\\begin{equation}\n\\begin{split}\n\\mathbb{E}[\\text{Die Roll}] &= 1*\\frac{1}{6} + 2*\\frac{1}{6} + 3*\\frac{1}{6} + (4)*\\frac{1}{6} + (5)*\\frac{1}{6} + (6)*\\frac{1}{6} \\\\\n  % &= \\frac{1}{6} + \\frac{2}{6} + *\\frac{3}{6} + \\frac{4}{6} + \\frac{5}{6} + \\frac{6}{6} \\\\\n  &= \\frac{21}{6} \\\\\n  % &= \\frac{7}{2} \\\\\n  &= 3.5\n\\end{split}\n\\end{equation}\n\\]",
+    "text": "We are going to illustrate value iteration and policy iteration with the Gambler’s Problem from the Reinforcement Learning book by Sutton and Barto (Section 4.4, Example 4.2). These are dynamic programming algorithms, which are algorithms that can be used to compute optimal policies given a perfect model of the environment as a Markov decision process (MDP).\nThe gambling event is to bet an amount on coin outcomes where heads is a winning wager and tails is losing. We take the probability of heads being selected as a parameter and the gambler’s goal is to get to a score of 100. Getting to 0 is a loss. The gambler can have current states from 1, 2, …, 99 (i.e., the amount of money he has).\nBets can be made up to the amount of money that the gambler has, but not an amount that would bring the total to over 100 in the event of a winning bet.\nFor example, if the gambler has 60, the maximum bet is 40 because anything over 40 would result in a score of over 100 with a win.\nSo we have betting options of 0, 1, …, min(s, 100-s), where the state s is from 1 to 99.\nThe reward is given as +1 for reaching 100 and otherwise 0.\nWe will use value iteration and policy iteration to find the optimal policy and game value at each state. The results are shown below and the next sections explain how the algorithms work.\n p_h = 0.4 Here we see the final policy (how much to bet) on the y-axis and the current capital state on the x-axis. Above each policy is the value of being in that state (which is a bit hard to see). We see that this has this strange looking format with a few pyramid shapes and larger “all-in” spikes at 25, 50, and 75. Betting large when the odds are against us makes sense in order to play with maximum variance – if we instead bet small, then we would see much lower variance and therefore a lower chance of reaching 100. (Imagine we are at state 50 – if we bet all 50, we have a 0.4 chance of winning. If we bet 1, we would need to win 50 times in a row, which is 0.4^50 ~= 0.)\n p_h = 0.4 This is a graph of the final value of being in each state\n p_h = 0.25  Here we see the same format as when p_h = 0.4, but the value of being at each state is lower because the probability of winning the bet is lower.\n p_h = 0.55 Once p_h goes above 0.5, the final policy turns into simply betting 1 at every state (we do not use discounting). This is because the odds are now actually in our favor, so we prefer to keep variance as low as possible.",
     "crumbs": [
       "About",
       "EV EXAMPLES",
-      "Dice"
+      "Gambler Problem"
     ]
   },
   {
-    "objectID": "ev-faults.html#section-1",
-    "href": "ev-faults.html#section-1",
-    "title": "Expected Value Faults",
-    "section": "Section 1",
-    "text": "Section 1"
-  },
-  {
-    "objectID": "ev-faults.html#section-2",
-    "href": "ev-faults.html#section-2",
-    "title": "Expected Value Faults",
-    "section": "Section 2",
-    "text": "Section 2\n\nSection 2.1\n\n\nSection 2.2"
-  },
-  {
-    "objectID": "ev-faults.html#section-3",
-    "href": "ev-faults.html#section-3",
-    "title": "Expected Value Faults",
-    "section": "Section 3",
-    "text": "Section 3\n\nSection 3.1\n\n\nSection 3.2\n\n\nSection 3.3"
-  },
-  {
-    "objectID": "ev-faults.html#section-4",
-    "href": "ev-faults.html#section-4",
-    "title": "Expected Value Faults",
-    "section": "Section 4",
-    "text": "Section 4"
-  },
-  {
-    "objectID": "dreidel.html",
-    "href": "dreidel.html",
-    "title": "Expected Value Example: Dreidel",
+    "objectID": "gambler.html#the-gamblers-problem",
+    "href": "gambler.html#the-gamblers-problem",
+    "title": "Value Example: The Gambler’s Problem",
     "section": "",
-    "text": "Dreidel is a game played during Hanukkah where each player starts by putting 1 piece into the pot and then players rotate around spinning the 4-sided dreidel. If the pot goes to 0 or 1 then all players again put 1 unit into the pot.\nThe outcomes are:\n\n\n\nDreidel Spin\nProbability\nGame Outcome\n\n\n\n\nנ (nun)\n\\(\\frac{1}{4}\\)\nDo nothing\n\n\nג (gimel)\n\\(\\frac{1}{4}\\)\nTake whole pot\n\n\nש (shin)\n\\(\\frac{1}{4}\\)\nTake half pot\n\n\nה (hei)\n\\(\\frac{1}{4}\\)\nPut 1 unit into pot\n\n\n\nSuppose it’s your turn to spin and the pot has 6 pieces in it.\nThe outcomes are:\n\n\n\nDreidel Spin\nProbability\nGame Outcome\n\n\n\n\nנ (nun)\n\\(\\frac{1}{4}\\)\n0\n\n\nג (gimel)\n\\(\\frac{1}{4}\\)\n+6\n\n\nש (shin)\n\\(\\frac{1}{4}\\)\n+3\n\n\nה (hei)\n\\(\\frac{1}{4}\\)\n-1\n\n\n\nWe can now compute the expected value of the spin:\n\\[\n\\begin{equation}\n\\begin{split}\n\\mathbb{E}[\\text{Dreidel Spin}] &= 0*\\frac{1}{4} + 6*\\frac{1}{4} + 3*\\frac{1}{4} + (-1)*\\frac{1}{4} \\\\\n  &= 0 + 1.5 + 0.75 + (-0.25) \\\\\n  &= 2\n\\end{split}\n\\end{equation}\n\\]\n(It turns out that the game is “painfully slow” such that a 4 person game where each player starts with 10 units and each spin takes 10 seconds would take an average of 2 hours and 23 minutes (860 spins). Ben Blatt has suggested improvements.)",
+    "text": "We are going to illustrate value iteration and policy iteration with the Gambler’s Problem from the Reinforcement Learning book by Sutton and Barto (Section 4.4, Example 4.2). These are dynamic programming algorithms, which are algorithms that can be used to compute optimal policies given a perfect model of the environment as a Markov decision process (MDP).\nThe gambling event is to bet an amount on coin outcomes where heads is a winning wager and tails is losing. We take the probability of heads being selected as a parameter and the gambler’s goal is to get to a score of 100. Getting to 0 is a loss. The gambler can have current states from 1, 2, …, 99 (i.e., the amount of money he has).\nBets can be made up to the amount of money that the gambler has, but not an amount that would bring the total to over 100 in the event of a winning bet.\nFor example, if the gambler has 60, the maximum bet is 40 because anything over 40 would result in a score of over 100 with a win.\nSo we have betting options of 0, 1, …, min(s, 100-s), where the state s is from 1 to 99.\nThe reward is given as +1 for reaching 100 and otherwise 0.\nWe will use value iteration and policy iteration to find the optimal policy and game value at each state. The results are shown below and the next sections explain how the algorithms work.\n p_h = 0.4 Here we see the final policy (how much to bet) on the y-axis and the current capital state on the x-axis. Above each policy is the value of being in that state (which is a bit hard to see). We see that this has this strange looking format with a few pyramid shapes and larger “all-in” spikes at 25, 50, and 75. Betting large when the odds are against us makes sense in order to play with maximum variance – if we instead bet small, then we would see much lower variance and therefore a lower chance of reaching 100. (Imagine we are at state 50 – if we bet all 50, we have a 0.4 chance of winning. If we bet 1, we would need to win 50 times in a row, which is 0.4^50 ~= 0.)\n p_h = 0.4 This is a graph of the final value of being in each state\n p_h = 0.25  Here we see the same format as when p_h = 0.4, but the value of being at each state is lower because the probability of winning the bet is lower.\n p_h = 0.55 Once p_h goes above 0.5, the final policy turns into simply betting 1 at every state (we do not use discounting). This is because the odds are now actually in our favor, so we prefer to keep variance as low as possible.",
     "crumbs": [
       "About",
       "EV EXAMPLES",
-      "Dreidel"
+      "Gambler Problem"
     ]
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
+    "objectID": "gambler.html#policy-iteration",
+    "href": "gambler.html#policy-iteration",
+    "title": "Value Example: The Gambler’s Problem",
+    "section": "Policy Iteration",
+    "text": "Policy Iteration\n From Reinforcement Learning by Sutton and Barton\n\nWe initialize a state value V(s) and policy pi(s) for each state as zeros. Policy iteration iterates over each state to compare the previous state value to an updated state value by using the Bellman equation with the updated policy for that state. At the end of each iteration, we evaluate the maximum state-value difference and call policy improvement once this difference is lower than some epsilon.\nAfter each policy evaluation iteration, policy improvement is called to iterate through every action at each state to find the best possible action and to update the policy with that action. If at least 1 change has been made to the policy, then policy evaluation is called and the cycle continues. If policy improvement iterates through all states and no change are made to the policy, then the policy is stable and the state values and policy are returned.",
+    "crumbs": [
+      "About",
+      "EV EXAMPLES",
+      "Gambler Problem"
+    ]
+  },
+  {
+    "objectID": "gambler.html#value-iteration",
+    "href": "gambler.html#value-iteration",
+    "title": "Value Example: The Gambler’s Problem",
+    "section": "Value Iteration",
+    "text": "Value Iteration\n From Reinforcement Learning by Sutton and Barton\n\nWe initialize a state value V(s) and policy pi(s) for each state as zeros. Then we iterate through each state from 1 to 99. In each iteration, we initially set v as the current value of that state, determine the range of possible actions, and set val_action as an array of zeros for each possible action.\nThen we loop through each possible action and evaluate its value using the Bellman equation. The equation looks like this in the Gambler Problem (s is the state, a is the action, v is the array of state values):\nValue(s, a, v) = p_heads * (rewards[state + action] + GAMMA * val_state[state + action]) + (1 - p_heads) * (rewards[state - action] + GAMMA * val_state[state - action])\nThe Bellman equation effectively calculates the value of an action at a state by computing the expected value of the immediate return from the action and (in the case of 1-step lookahead) the currently known value of the resulting state. GAMMA is the fixed discount factor.\nAfter iterating through every action, we set the value of the state as the maximum of all of the action values.\nThis value iteration over every state keeps running until the maximum change of the state value over all states is less than a preset epsilon. To do this, we initialize a delta value as 0 and update the delta after each state iteration to be the maximum of the previous delta or the absolute value of the change in that state value.\nOnce we finish an iteration of all state values and delta is less than the defined epsilon value, we say that the state values have converged\nThe final step is to find the optimal policy given these state values. This is a single for-loop over every state from 1 to 99 in which we calculate the action value with the Bellman equation for each action for each state and then set the best action as the action that results in the highest value. We set this as the policy for that state.",
+    "crumbs": [
+      "About",
+      "EV EXAMPLES",
+      "Gambler Problem"
+    ]
+  },
+  {
+    "objectID": "gambler.html#value-and-policy-iteration-differences",
+    "href": "gambler.html#value-and-policy-iteration-differences",
+    "title": "Value Example: The Gambler’s Problem",
+    "section": "Value and Policy Iteration Differences",
+    "text": "Value and Policy Iteration Differences\nWe see that the policy improvement and value iteration functions both improve the agent policy by finding the highest value action at each state. Value iteration directly updates the value of the state, while policy improvement update the policy directly with the best action. In policy evaluation, this best action is used to get the state value update. In value iteration, the policy is not updated until the final loop through every state.",
+    "crumbs": [
+      "About",
+      "EV EXAMPLES",
+      "Gambler Problem"
+    ]
+  },
+  {
+    "objectID": "gambler.html#code-for-gambler-graphs",
+    "href": "gambler.html#code-for-gambler-graphs",
+    "title": "Value Example: The Gambler’s Problem",
+    "section": "Code for Gambler Graphs",
+    "text": "Code for Gambler Graphs",
+    "crumbs": [
+      "About",
+      "EV EXAMPLES",
+      "Gambler Problem"
+    ]
+  },
+  {
+    "objectID": "gamestop.html",
+    "href": "gamestop.html",
+    "title": "Expected Value Example: Roaring Kitty Gamestop",
     "section": "",
-    "text": "The Expected Value Foundation is run by Max Chiswick."
+    "text": "https://www.bloomberg.com/opinion/articles/2024-05-13/gamestop-is-back?srnd=undefined"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Expected Value: From Simple to Advanced",
+    "objectID": "vice-president.html",
+    "href": "vice-president.html",
+    "title": "Vice President Expected Value with Nate Silver",
     "section": "",
-    "text": "Imagine you have a big jar of different colored marbles. Some are red, some are blue, and some are green. Your friend says, “If you pick a red marble, I’ll give you a cookie. If you pick a blue one, I’ll give you two cookies. If you pick a green one, you don’t get any cookies.”\nNow, let’s say there are:\n\n5 red marbles\n3 blue marbles\n2 green marbles\n\nIf you reach into the jar without looking, what can you expect? This is what we call “expected value.” It’s like guessing how many cookies you might get on average if you played this game many, many times.\nLet’s count it out. On average if you reach into the jar 10 times:\nRed marbles give you 5 cookies (1 cookie × 5 marbles) Blue marbles give you 6 cookies (2 cookies × 3 marbles) Green marbles give you 0 cookies (0 cookies × 2 marbles)\nThat’s 11 cookies in total.\nSo, if we divide 11 cookies by 10 marbles, we get 1.1 cookies.\nThis means, on average, you can expect to get about 1 cookie (and a tiny bit more) each time you pick a marble!\n\n\n\n\n\n\nTry it yourself!\n\n\n\nImagine reaching into the jar 10 times. How many cookies do you think you’d get? Try it out and see!\n\n\n\n\n  Cookies: 0\n  Picks: 0\n  Average: 0 cookies per pick\n  Pick a Marble\n  Reset\n  Last picked: None"
-  },
-  {
-    "objectID": "index.html#explain-it-like-im-5",
-    "href": "index.html#explain-it-like-im-5",
-    "title": "Expected Value: From Simple to Advanced",
-    "section": "",
-    "text": "Imagine you have a big jar of different colored marbles. Some are red, some are blue, and some are green. Your friend says, “If you pick a red marble, I’ll give you a cookie. If you pick a blue one, I’ll give you two cookies. If you pick a green one, you don’t get any cookies.”\nNow, let’s say there are:\n\n5 red marbles\n3 blue marbles\n2 green marbles\n\nIf you reach into the jar without looking, what can you expect? This is what we call “expected value.” It’s like guessing how many cookies you might get on average if you played this game many, many times.\nLet’s count it out. On average if you reach into the jar 10 times:\nRed marbles give you 5 cookies (1 cookie × 5 marbles) Blue marbles give you 6 cookies (2 cookies × 3 marbles) Green marbles give you 0 cookies (0 cookies × 2 marbles)\nThat’s 11 cookies in total.\nSo, if we divide 11 cookies by 10 marbles, we get 1.1 cookies.\nThis means, on average, you can expect to get about 1 cookie (and a tiny bit more) each time you pick a marble!\n\n\n\n\n\n\nTry it yourself!\n\n\n\nImagine reaching into the jar 10 times. How many cookies do you think you’d get? Try it out and see!\n\n\n\n\n  Cookies: 0\n  Picks: 0\n  Average: 0 cookies per pick\n  Pick a Marble\n  Reset\n  Last picked: None"
-  },
-  {
-    "objectID": "index.html#standard-explanation",
-    "href": "index.html#standard-explanation",
-    "title": "Expected Value: From Simple to Advanced",
-    "section": "Standard Explanation",
-    "text": "Standard Explanation\nExpected value is a concept in probability theory that represents the average outcome of an experiment if it is repeated many times. It’s calculated by multiplying each possible outcome by its probability of occurrence and then summing these products.\nMathematically, for a discrete random variable \\(X\\) with possible values \\(x_1, x_2, ..., x_n\\) and corresponding probabilities \\(p_1, p_2, ..., p_n\\), the expected value \\(E(X)\\) is:\n$ E(X) = _{i=1}^n x_i p_i $\nLet’s use our marble example:\n\nRed marble (1 cookie): 5/10 probability\nBlue marble (2 cookies): 3/10 probability\nGreen marble (0 cookies): 2/10 probability\n\n$ E(X) = 1 + 2 + 0 = 0.5 + 0.6 + 0 = 1.1 $\nSo, on average, you can expect to get 1.1 cookies per draw.\n\n\n\n\n\n\nTry it yourself!\n\n\n\nYou can use this tool to calculate any expected value. Just put the probabilities in the left column and the values in the right column. It’s pre-set with the cookie marble experiment. Remember that probabilities must sum to 1.\nThinking about something else to try? How about a 6-sided die? Each probability is 1/6 and the values are the 6 different die values.\n\n\n\n\n  \n    \n      Probability\n      Value\n    \n    \n  \n  Add Row\n  Calculate\n  Expected Value: 0"
-  },
-  {
-    "objectID": "index.html#advanced-explanation",
-    "href": "index.html#advanced-explanation",
-    "title": "Expected Value: From Simple to Advanced",
-    "section": "Advanced Explanation",
-    "text": "Advanced Explanation\nIn more complex scenarios, expected value becomes a powerful tool for decision-making under uncertainty. It’s particularly useful in fields like finance, economics, and data science.\nFor continuous random variables, the expected value is defined as an integral:\n\\[ E(X) = \\int_{-\\infty}^{\\infty} x f(x) dx \\]\nwhere \\(f(x)\\) is the probability density function of \\(X\\).\nExpected value has several important properties:\n\nLinearity: \\(E(aX + bY) = aE(X) + bE(Y)\\) for constants \\(a\\) and \\(b\\)\nLaw of the unconscious statistician: \\(E[g(X)] = \\int_{-\\infty}^{\\infty} g(x) f(x) dx\\)\n\nIn decision theory, we often use expected utility instead of expected value. This takes into account the decision-maker’s risk preferences:\n\\[ EU(X) = \\sum_{i=1}^n U(x_i) p_i \\]\nwhere \\(U(x)\\) is the utility function.\n\n\n\n\n\n\nImportant Consideration\n\n\n\nWhile expected value is a useful tool, it doesn’t account for the variance or risk associated with different outcomes. In some cases, especially with non-linear utility functions or when dealing with rare, high-impact events, decisions based solely on expected value may lead to suboptimal results.\n\n\n\nApplication: Kelly Criterion\nAn advanced application of expected value is the Kelly Criterion, used in betting and investment strategies. It determines the optimal size of a series of bets to maximize the long-term growth rate of capital.\nThe formula for the Kelly Criterion is:\n\\[ f^* = \\frac{bp - q}{b} \\]\nwhere:\n\n\\(f^*\\) is the fraction of the current bankroll to bet\n\\(b\\) is the net odds received on the bet\n\\(p\\) is the probability of winning\n\\(q\\) is the probability of losing (1 - p)\n\n\n\n\n\n\n\nInteractive Element Idea\n\n\n\nCreate an interactive simulation that demonstrates the long-term effects of using the Kelly Criterion versus other betting strategies. Allow users to adjust parameters like win probability, odds, and initial bankroll to see how these factors affect long-term outcomes."
-  },
-  {
-    "objectID": "medicine.html#section-2",
-    "href": "medicine.html#section-2",
-    "title": "Expected Value Example: Medicine",
-    "section": "Section 2",
-    "text": "Section 2\n\nSection 2.1\n\n\nSection 2.2"
-  },
-  {
-    "objectID": "medicine.html#section-3",
-    "href": "medicine.html#section-3",
-    "title": "Expected Value Example: Medicine",
-    "section": "Section 3",
-    "text": "Section 3\n\nSection 3.1\n\n\nSection 3.2\n\n\nSection 3.3"
-  },
-  {
-    "objectID": "medicine.html#section-4",
-    "href": "medicine.html#section-4",
-    "title": "Expected Value Example: Medicine",
-    "section": "Section 4",
-    "text": "Section 4"
-  },
-  {
-    "objectID": "ev-benefits.html",
-    "href": "ev-benefits.html",
-    "title": "Expected Value Benefits",
-    "section": "",
-    "text": "drqwing a card from a deck variance EV of skipping train ticket Look into spoiler/hidden text thing and having multiple choice quizzes integrated Use EV page as template including problem set/exercises at end\nhttps://seeing-theory.brown.edu/ Lotto thing Slider for expected value with estimates, current events Blackjack Taylor Swift Trump Expected value of domain Highest EV time to have a kid Site just asking what is the value of the site plane ticket stuff (see ojm list)\nev only part of picture, because if bet is big part of bankroll then not good!\nIssues Risk tolerance: Expected value doesn’t account for individual risk preferences. Two options might have the same expected value, but one could be much riskier. Non-linear utility: The subjective value (utility) of money often doesn’t scale linearly. Gaining $1000 might be more than twice as valuable to someone as gaining $500. Frequency of events: For rare events or one-time decisions, the law of large numbers doesn’t apply, making expected value less reliable. Uncertainty in probabilities: Often, the probabilities used in calculations are estimates, which can lead to inaccurate results if they’re off. Neglect of qualitative factors: Expected value focuses on quantifiable outcomes, potentially overlooking important qualitative considerations. Assumption of independence: Many expected value calculations assume events are independent, which isn’t always true in real-life scenarios. Short-term vs. long-term outcomes: As you mentioned, time value of money isn’t typically factored in, nor are potential long-term consequences. Ethical considerations: Purely quantitative decision-making based on expected value might lead to ethically questionable choices in some situations. Complexity of real-world scenarios: Many situations involve multiple, interrelated variables that are difficult to capture in a simple expected value calculation. Behavioral biases: People often don’t act rationally according to expected value, due to various cognitive biases and emotional factors. Black swan events: Rare, high-impact events that are hard to predict can significantly affect outcomes but are often not accounted for in expected value calculations. Changing circumstances: Expected value calculations assume static conditions, but real-world situations can change rapidly.\nTime Value of Money:\nAs you mentioned, EV calculations typically do not account for the time value of money. Future cash flows need to be discounted to present value to make a proper comparison. Risk and Uncertainty:\nEV does not account for risk preferences or aversion. Two options with the same EV might have different levels of risk, which can significantly affect decision-making. Probability Estimation:\nAccurate probability estimation is crucial for EV calculations. Inaccurate or biased estimates can lead to misleading results. Utility:\nEV assumes linear utility of money, but in reality, the utility of money can be nonlinear. For example, losing $100 might feel worse than gaining $100 feels good. Rare Events:\nEV can be heavily influenced by rare, high-impact events. While these events may have a significant effect on the EV, their actual occurrence might be so infrequent that they should be considered differently. Decision Context:\nEV calculations do not always consider the broader context or other qualitative factors that may influence a decision. Opportunity Cost:\nEV does not inherently account for opportunity costs, which are the benefits you miss out on when choosing one alternative over another. Behavioral Factors:\nHuman behavior often deviates from rational decision-making models. Factors such as emotions, cognitive biases, and social influences can impact decisions beyond what EV can capture. Data Quality:\nThe quality and reliability of the data used to calculate probabilities and outcomes are critical. Poor data can lead to inaccurate EV calculations. Interdependencies:\nEV calculations typically assume independent outcomes, but in reality, events can be interdependent, affecting the overall decision-making process. Long-Term vs. Short-Term:\nEV may not distinguish between long-term and short-term benefits and costs, which can be important depending on the decision context. Scalability:\nEV is additive and may not scale well with large numbers of small probabilities, potentially leading to overestimation of the value of combining many low-probability events.\nPros: Expected value calculations offer several important benefits, which is why they remain a valuable tool in decision-making and analysis. Here are some key advantages:\nQuantitative framework: Provides a structured, numerical approach to comparing different options or scenarios. Objectivity: Helps reduce emotional bias in decision-making by focusing on probabilities and outcomes. Risk assessment: Allows for the incorporation of risk and uncertainty into decision-making processes. Comparative analysis: Facilitates easy comparison between multiple options, even when they have different probabilities and outcomes. Long-term perspective: Encourages thinking about the average outcome over many repetitions, which can be valuable for recurring decisions. Simplification of complex scenarios: Distills complicated situations into more manageable components (probabilities and payoffs). Identification of high-value opportunities: Helps in recognizing options that may have low probability but high potential payoff. Resource allocation: Assists in determining where to best allocate limited resources for maximum expected return. Decision consistency: Provides a consistent method for evaluating different scenarios across an organization or over time. Scenario planning: Useful in modeling various potential futures and their likelihood, aiding in strategic planning. Probabilistic thinking: Encourages consideration of multiple possible outcomes rather than just focusing on the most likely scenario. Foundation for more complex models: Serves as a basis for more sophisticated decision-making tools and risk analysis techniques. Learning tool: Helps in developing a more nuanced understanding of probability and its role in outcomes. Communication aid: Offers a clear way to explain the reasoning behind decisions to stakeholders.\nQuantitative Analysis:\nEV provides a clear, numerical method to evaluate and compare different options based on their potential outcomes and associated probabilities. Objective Decision-Making:\nBy focusing on probabilities and outcomes, EV helps reduce the influence of emotions and biases, leading to more rational and objective decisions. Informed Risk Assessment:\nEV allows decision-makers to quantify and assess the risks associated with different choices, enabling better risk management. Consistency:\nApplying EV consistently across different decisions ensures a systematic approach to evaluating options, promoting consistency in decision-making processes. Simplification:\nEV simplifies complex decisions by reducing them to a single value, making it easier to compare and contrast different scenarios. Strategic Planning:\nEV can be used in strategic planning to evaluate long-term projects and investments, helping organizations prioritize initiatives based on their expected returns. Resource Allocation:\nEV helps in optimal resource allocation by identifying the options with the highest expected returns, ensuring efficient use of resources. Identifying Best Practices:\nBy analyzing the EV of past decisions, organizations can identify best practices and improve future decision-making processes. Clarifying Trade-offs:\nEV highlights the trade-offs between different options, making it easier to understand the potential costs and benefits of each choice. Probability Sensitivity:\nEV calculations can reveal how sensitive a decision is to changes in probabilities, helping identify key factors that impact outcomes. Encourages Data-Driven Decisions:\nEV promotes the use of data and empirical evidence in decision-making, leading to more reliable and accurate evaluations. Facilitates Communication:\nEV provides a common framework for discussing and comparing different options, making it easier to communicate decisions to stakeholders. Supports Optimization:\nEV can be used in optimization problems to find the best possible decision given constraints and objectives. Cost-Benefit Analysis:\nEV is a fundamental component of cost-benefit analysis, helping to evaluate whether the benefits of a decision outweigh the costs. Decision Justification:\nEV offers a logical and transparent basis for justifying decisions, making it easier to explain and defend choices to others. Balancing Short-Term and Long-Term Goals:\nEV can help balance short-term and long-term goals by providing a framework to evaluate the expected value of immediate versus future benefits."
-  },
-  {
-    "objectID": "ev-benefits.html#section-1",
-    "href": "ev-benefits.html#section-1",
-    "title": "Expected Value Benefits",
-    "section": "Section 1",
-    "text": "Section 1\nExpected Value = (Probability of an outcome) × (Value of that outcome) Here’s a simple, real-life example: Imagine a raffle where:\nTickets cost $1 each There’s a 1 in 100 chance of winning The prize is $150\nTo calculate the expected value:\nProbability of winning: 1/100 = 0.01 Value of winning: $150 Expected Value = 0.01 × $150 = $1.50\nThis means that, on average, each ticket is “worth” $1.50. Since the ticket costs $1, and its expected value is $1.50, it’s technically a good deal in the long run. However, remember that this doesn’t guarantee you’ll win - it’s an average over many tries. This simple calculation helps you make decisions by weighing the likelihood of outcomes against their potential value. It’s a basic tool for comparing options with different risks and rewards.\nLottery tickets Roulette Blackjack Extended warranty Flight insurance Degree Solar panel Gas vs. EV car Poker Sports bet Chinese auction Food: Carrots, watermelon, XL vs. L eggs Salad bar Ebike vs. regular Dreidel\nbasic algebra, equations, variables A few easy explanations A few exercises A short video A really short video Dice EV, what if you get option for 2nd Expected Value Foundation? Expected value most upvoted answer on “what EAs should know if they know 1 concept”\nExpected value is fundamental in decision-making under uncertainty, a key area of focus for effective altruists. It allows individuals to make choices that maximize their positive impact, even when outcomes are uncertain. This principle is frequently discussed on platforms like the Effective Altruism Forum and in related literature.\nWhile I can’t pinpoint the exact source of the most upvoted answer you mentioned, it’s consistent with the general emphasis within the community on understanding and applying expected value to make better decisions.\nopportunity cost comparative advantage As its name suggests, opportunity cost refers to the cost of choosing one opportunity over others. This “cost” reflects the value you could have gained in all the options you didn’t pursue.\nAccounting for opportunity cost can help us understand the comparative value of our available options and spend our time, money, and effort more effectively. This is particularly important for avoiding spending limited resources on an option that seems attractive at first (because it has positive expected value) but will actually give you much worse value than another available option.\nhttps://www.cold-takes.com/expected-value/#fnref1\nhttps://brilliant.org/wiki/expected-value/\nhttps://80000hours.org/articles/expected-value/\nhttps://jc.gatspress.com/pdf/on_expected_utility.pdf\nhttps://80000hours.org/2023/02/how-much-do-solutions-differ-in-effectiveness/#ways-the-data-might-overstate-the-true-degree-of-spread\nhttps://80000hours.org/2023/03/moderation-in-doing-good/\nhttps://80000hours.org/articles/moral-uncertainty/"
-  },
-  {
-    "objectID": "ev-benefits.html#technical-definition",
-    "href": "ev-benefits.html#technical-definition",
-    "title": "Expected Value Benefits",
-    "section": "Technical Definition",
-    "text": "Technical Definition\nWikipedia: “The expected value of a random variable with a finite number of outcomes is a weighted average of all possible outcomes”.\nMathematically, with a random variable \\(X\\) and a list of possible outcomes \\(x_1, ..., x_k\\) each of which has probability \\(p_1, ..., p_k\\) of occurring, respectively. Then \\(\\mathbb{E}[X] = x_1 p_1 + x_2 p_2 + ... + x_k p_k\\).\nWhat is a random variable? It represents possible outcomes. A random variable is defined by its possible outcomes and the probability of each outcome.\nan agent making an optimal choice in the context of incomplete information is often assumed to maximize the expected value of their utility function.\nhttps://www.cold-takes.com/the-bayesian-mindset/#1-connecting-opinions-to-anticipated-observations\nhttps://forum.effectivealtruism.org/posts/jo7tM4s5ApPgv2DPC/expected-value-theory\nhttps://forum.effectivealtruism.org/topics/expected-value\nhttps://80000hours.org/2023/02/how-much-do-solutions-differ-in-effectiveness/#ways-the-data-might-overstate-the-true-degree-of-spread\nhttps://blog.givewell.org/2011/08/18/why-we-cant-take-expected-value-estimates-literally-even-when-theyre-unbiased/\nhttps://80000hours.org/articles/be-more-ambitious/\nhttps://forum.effectivealtruism.org/posts/FKnhB28EvG4og87JP/1-e-x-is-not-e-1-x\nhttps://blog.givewell.org/2016/07/26/deworming-might-huge-impact-might-close-zero-impact/\nev only part of picture, because if bet is big part of bankroll then not good! ## Section 2 ### Section 2.1 ### Section 2.2\ndrqwing a card from a deck variance EV of skipping train ticket Look into spoiler/hidden text thing and having multiple choice quizzes integrated Use EV page as template including problem set/exercises at end\nhttps://seeing-theory.brown.edu/ Lotto thing Slider for expected value with estimates, current events Blackjack Taylor Swift Trump Expected value of domain Highest EV time to have a kid Site just asking what is the value of the site plane ticket stuff (see ojm list)\nhttps://reducing-suffering.org/does-vegetarianism-make-a-difference/\nhttps://forum.effectivealtruism.org/posts/GjifPPAAGont94Z7F/in-cost-effectiveness-analyses-when-should-we-take-the\nhttps://80000hours.org/podcast/episodes/alan-hajek-probability-expected-value/"
-  },
-  {
-    "objectID": "ev-benefits.html#not-considered",
-    "href": "ev-benefits.html#not-considered",
-    "title": "Expected Value Benefits",
-    "section": "Not Considered",
-    "text": "Not Considered\nTime getting to airport early vs. late\nselling clothes vs. donating\nWhen we make a decision, we want the benefits to outweigh the costs. Some people will use a pro/con chart to help them make their decisions. Pros Cons Won’t lose all my money Cost a bit more in most cases\n-&gt; add values -&gt; effectively becomes similar to a mean or average\nBut what if our pros and cons don’t have the same value? We don’t want to just count the amount of pros and count the amount of cons Pros Cons Won’t lose all my money (10x) Cost a bit more in most cases (-x)\n-&gt; But the each outcome does not have the same likelihood. Add probabilities\nPros Cons Won’t lose all my money (10x) (probability of losing package is y) Cost a bit more in most cases (x) (probability of paying for insurance is 100%)\nAnd now you have expected value!\nIf 10x(y) &gt; (x) You should buy the insurance!\nGet a graduate degree vs keep working\nPros (of getting degree) Cons Higher earnings potential in the future Lose year(s) of earnings Chance at being a professor Hard work Might get more educated friends, relationships Will make you depressed Will become more educated\nCan you quantify these things on a single metric (money)? If not, why?\nPros (of getting degree) Value Cons Value Higher earnings potential in the future\nLose year(s) of earnings\nChance at being a professor\nHard work\nMight get more educated friends, relationships\nWill make you depressed\nWill become more educated\nAdd probabilities. If you can’t add probabilities, why?\nPros (of getting degree) Value probability Cons Value probability Higher earnings potential in the future\nLose year(s) of earnings\nChance at being a professor\nHard work\nMight get more educated friends, relationships\nWill make you depressed\nWill become more educated\nGo out to a restaurant vs eating in\nPros (of going to restaurant) Cons Higher earnings potential in the future Lose year(s) of earnings Chance at being a professor Hard work Might get more educated friends, relationships Will make you depressed Will become more educated\nCan you quantify these things on a single metric (money)? If not, why?\nPros (of getting degree) Value Cons Value Higher earnings potential in the future\nLose year(s) of earnings\nChance at being a professor\nHard work\nMight get more educated friends, relationships\nWill make you depressed\nWill become more educated\nAdd probabilities. If you can’t add probabilities, why?\nPros (of getting degree) Value probability Cons Value probability Higher earnings potential in the future\nLose year(s) of earnings\nChance at being a professor\nHard work\nMight get more educated friends, relationships\nWill make you depressed\nWill become more educated\nDecision pro-con example\nIn practice, it may not be clear which action will end up being the most valuable. Yet even if you’re unsure, putting some extra thought into its opportunity cost can help you gain an intuition for what actions to prioritize. To do so, figure out which options are available to you, try to determine the overall value of each option, then see how they compare."
-  },
-  {
-    "objectID": "ev-benefits.html#when-is-expected-value-useful",
-    "href": "ev-benefits.html#when-is-expected-value-useful",
-    "title": "Expected Value Benefits",
-    "section": "When is expected value useful?",
-    "text": "When is expected value useful?"
-  },
-  {
-    "objectID": "ev-benefits.html#when-is-expected-value-not-useful",
-    "href": "ev-benefits.html#when-is-expected-value-not-useful",
-    "title": "Expected Value Benefits",
-    "section": "When is expected value not useful?",
-    "text": "When is expected value not useful?\nEA: Not just charity or not, but how much it helps Poker: Not just winning or not, but EV and pot odds considerations\nEV of making rice quantity\nhttps://asteriskmag.com/issues/05/michael-lewis-s-blind-side https://bayesshammai.substack.com/p/what-to-expect-when-youre-expecting\nTrain $5.50 one way or $6 roundtrip, how to decide Basic economy vs. regular economy with probability Insurance like flights or package Chinese auctions https://auction.ytcte.org/auction/about Raffles https://www.chabaduvm.org/raffle"
-  },
-  {
-    "objectID": "ev-benefits.html#startup-vs.-normal-job",
-    "href": "ev-benefits.html#startup-vs.-normal-job",
-    "title": "Expected Value Benefits",
-    "section": "Startup vs. Normal Job",
-    "text": "Startup vs. Normal Job\nAlthough the concept of expected value is useful when thinking about decision making under uncertainty, we have to make a lot of assumptions. Suppose that you could take a normal job with a salary of $200,000 per year. Alternatively, you could build a startup that has the following outcomes:\n\n\n\nEquity Upon Sale in 5 Years\nProbability\n\n\n\n\n\\(\\$0\\)\n\\(0.70\\)\n\n\n\\(\\$1m\\)\n\\(0.20\\)\n\n\n\\(\\$10m\\)\n\\(0.08\\)\n\n\n\\(\\$100m\\)\n\\(0.02\\)\n\n\n\nBuilding the startup has the following EV in millions:\n\\[\n\\begin{equation}\n\\begin{split}\n\\mathbb{E}[\\text{Startup}] &= 0*0.70 + 1*0.20 + 10*0.08 + 100*0.02 \\\\\n  &= 0 + 0.2 + 0.8 + 2 \\\\\n  &= 3\n\\end{split}\n\\end{equation}\n\\]\nWorking the job with the salary has this EV in millions:\n\\[\n\\begin{equation}\n\\begin{split}\n\\mathbb{E}[\\text{Salary}] &= 1*0.2 + 1*0.2 + 1*0.2 + 1*0.2 + 1*0.2 \\\\\n  &= 0 + 0.2 + 0.8 + 2 \\\\\n  &= 3\n\\end{split}\n\\end{equation}\n\\]"
-  },
-  {
-    "objectID": "ev-benefits.html#section-2",
-    "href": "ev-benefits.html#section-2",
-    "title": "Expected Value Benefits",
-    "section": "Section 2",
-    "text": "Section 2\n\nSection 2.1\n\n\nSection 2.2"
-  },
-  {
-    "objectID": "ev-benefits.html#section-3",
-    "href": "ev-benefits.html#section-3",
-    "title": "Expected Value Benefits",
-    "section": "Section 3",
-    "text": "Section 3\n\nSection 3.1\n\n\nSection 3.2\n\n\nSection 3.3"
-  },
-  {
-    "objectID": "ev-benefits.html#section-4",
-    "href": "ev-benefits.html#section-4",
-    "title": "Expected Value Benefits",
-    "section": "Section 4",
-    "text": "Section 4"
-  },
-  {
-    "objectID": "huberman-pregnancy.html",
-    "href": "huberman-pregnancy.html",
-    "title": "Pregnancy Probability Starring Andrew Huberman",
-    "section": "",
-    "text": "Is there a fertility crisis? Bryan Caplan suggests to have more kids and recently posted The Fertile Formula, an idea to reduce federal taxes based on how many kids you have, getting to income tax-free for life after six kids. Great deal!",
-    "crumbs": [
-      "About",
-      "CURRENT EVENTS",
-      "Andrew Huberman Pregnancy Probability"
-    ]
-  },
-  {
-    "objectID": "huberman-pregnancy.html#huberman-calculation-issues",
-    "href": "huberman-pregnancy.html#huberman-calculation-issues",
-    "title": "Pregnancy Probability Starring Andrew Huberman",
-    "section": "Huberman Calculation Issues",
-    "text": "Huberman Calculation Issues\nThere are many issues here. To start, since probabilities are by definition between \\(0\\) and \\(1\\), he clearly made an error. \\(10\\) pregnancy attempts by his logic would make you \\(200\\%\\) likely to be pregnant, which doesn’t really make too much sense.\nHuberman was adding \\(20\\%\\) for each attempt, which is not the correct approach. In this post, we’ll explain how the actual theory works.\n\n\nI made a visualization for you all. https://t.co/LMTECq70HZ pic.twitter.com/IGIL1HyGQl\n\n— Matthew B Jané (@MatthewBJane) May 10, 2024",
-    "crumbs": [
-      "About",
-      "CURRENT EVENTS",
-      "Andrew Huberman Pregnancy Probability"
-    ]
-  },
-  {
-    "objectID": "huberman-pregnancy.html#huberman-correction",
-    "href": "huberman-pregnancy.html#huberman-correction",
-    "title": "Pregnancy Probability Starring Andrew Huberman",
-    "section": "Huberman Correction",
-    "text": "Huberman Correction\nHe since posted a Twitter correction and has updated the original videos.",
-    "crumbs": [
-      "About",
-      "CURRENT EVENTS",
-      "Andrew Huberman Pregnancy Probability"
-    ]
-  },
-  {
-    "objectID": "huberman-pregnancy.html#pregnancy-attempts",
-    "href": "huberman-pregnancy.html#pregnancy-attempts",
-    "title": "Pregnancy Probability Starring Andrew Huberman",
-    "section": "6 Pregnancy Attempts",
-    "text": "6 Pregnancy Attempts\nSo after \\(6\\) attempts, we can say that the \\(\\Pr(\\text{Preg after 6 attempts})\\) is equal to the inverse of the probability of not getting pregnant \\(6\\) times in a row. Why? The probability of an event and its complement always sum to \\(1\\). For example, if it’s \\(70\\%\\) to be sunny tomorrow, then it’s \\(30\\%\\) to be not-sunny.\nMathematically, we can write:\n\\[\n\\begin{equation}\n\\begin{split}\n\\Pr(\\text{Preg after 6 attempts}) &= 1 - \\Pr(\\text{Not Preg after 6 attempts}) \\\\\n  &= 1 - (0.8)^6 \\\\\n  &= 0.738 \\\\\n  &= 73.8\\%\n\\end{split}\n\\end{equation}\n\\]\n\nIndependent Probabilities\nWhy is it \\(1 - (0.8)^6\\)? This is because when we are calculating probabilities involving independent events, they are multiplied. Each case of not becoming pregnant has an independent probability of \\(0.8\\) (note that this is a simplification because probabilities would generally vary for each attempt). Multiplying this \\(6\\) times gets us the probability of not being pregnant after \\(6\\) attempts. So to get the probability of being pregnant after \\(6\\) attempts, we take \\(1\\) minus this, therefore getting \\(1 - (0.8)^6\\).",
-    "crumbs": [
-      "About",
-      "CURRENT EVENTS",
-      "Andrew Huberman Pregnancy Probability"
-    ]
-  },
-  {
-    "objectID": "huberman-pregnancy.html#x-pregnancy-attempts",
-    "href": "huberman-pregnancy.html#x-pregnancy-attempts",
-    "title": "Pregnancy Probability Starring Andrew Huberman",
-    "section": "x Pregnancy Attempts",
-    "text": "x Pregnancy Attempts\nMore generally, after \\(x\\) attempts, we can say:\n\\[\n\\begin{equation}\n\\begin{split}\n\\Pr(\\text{Preg after x attempts}) &= 1 - \\Pr(\\text{Not Preg after x attempts}) \\\\\n  &= 1 - (1-0.2)^x \\\\\n  &= 1 - (0.8)^x\n\\end{split}\n\\end{equation}\n\\]",
-    "crumbs": [
-      "About",
-      "CURRENT EVENTS",
-      "Andrew Huberman Pregnancy Probability"
-    ]
-  },
-  {
-    "objectID": "huberman-pregnancy.html#likelihood-of-pregnancy",
-    "href": "huberman-pregnancy.html#likelihood-of-pregnancy",
-    "title": "Pregnancy Probability Starring Andrew Huberman",
-    "section": "99% Likelihood of Pregnancy",
-    "text": "99% Likelihood of Pregnancy\nSo assuming that \\(\\Pr(\\text{Pregnancy}) = 0.2\\), when are you \\(99\\%\\) to be pregnant?\n\\[\n\\begin{equation}\n\\begin{split}\n0.99 &= 1 - \\Pr(\\text{Not Preg after x attempts}) && \\Rightarrow \\text{ Set pregnancy likelihood to } 0.99 \\\\\n      &= 1 - (0.8)^x && \\Rightarrow \\text{ Use equation from above } \\\\\n  0.99 + (0.8)^x &= 1 && \\Rightarrow \\text{ Add } 0.8^x \\text{ to both sides} \\\\\n  (0.8)^x &= 0.01 && \\Rightarrow \\text{ Subtract } 0.99 \\text{ from both sides} \\\\\n  x &= 20.64 && \\Rightarrow \\text{ Use calculator to solve}\n\\end{split}\n\\end{equation}\n\\]\nTherefore after \\(21\\) pregnancy attempts where each attempt has a \\(20\\%\\) likelihood, your cumulative likelihood of being pregant exceeds \\(99\\%\\). (We round up from \\(20.64\\) because each one is discrete and at \\(20\\) the probability would be under \\(99\\%\\), so only after \\(20.64\\) does it exceed \\(99\\%\\), which means it exceeds at attempt \\(21\\).)\nWe can see this on the graph below where \\(\\Pr(\\text{Pregnancy}) = 0.2\\). The x-axis is the number of attempts and the y-axis is the cumulative (overall) probability of pregnancy after that many attempts. Note that the graph approaches, but will never exceed the probability of \\(1\\).\n\n\n\nPregnancy graph with p = 0.2",
-    "crumbs": [
-      "About",
-      "CURRENT EVENTS",
-      "Andrew Huberman Pregnancy Probability"
-    ]
-  },
-  {
-    "objectID": "huberman-pregnancy.html#generalized-pregnancy-equation",
-    "href": "huberman-pregnancy.html#generalized-pregnancy-equation",
-    "title": "Pregnancy Probability Starring Andrew Huberman",
-    "section": "Generalized Pregnancy Equation",
-    "text": "Generalized Pregnancy Equation\nFinally, even more generally, we can say that after $ x $ attempts and the more general \\(\\Pr(\\text{Pregnancy}) = p\\) (i.e. using probability \\(p\\) instead of \\(0.2\\)):\n\\[\n\\begin{equation}\n\\begin{split}\n\\Pr(\\text{Preg after x attempts}) &= 1 - \\Pr(\\text{Not Preg after x attempts}) \\\\\n  &= 1 - (1-p)^x \\\\\n\\end{split}\n\\end{equation}\n\\]",
-    "crumbs": [
-      "About",
-      "CURRENT EVENTS",
-      "Andrew Huberman Pregnancy Probability"
-    ]
-  },
-  {
-    "objectID": "poker.html#section-2",
-    "href": "poker.html#section-2",
-    "title": "Expected Value Example: Poker",
-    "section": "Section 2",
-    "text": "Section 2\n\nSection 2.1\n\n\nSection 2.2"
-  },
-  {
-    "objectID": "poker.html#section-3",
-    "href": "poker.html#section-3",
-    "title": "Expected Value Example: Poker",
-    "section": "Section 3",
-    "text": "Section 3\n\nSection 3.1\n\n\nSection 3.2\n\n\nSection 3.3"
-  },
-  {
-    "objectID": "poker.html#section-4",
-    "href": "poker.html#section-4",
-    "title": "Expected Value Example: Poker",
-    "section": "Section 4",
-    "text": "Section 4"
-  },
-  {
-    "objectID": "salmon.html",
-    "href": "salmon.html",
-    "title": "Value Example: Salmon",
-    "section": "",
-    "text": "Salmon on a bed of pasta is my favorite meal in the world (Figure 1).\nSalmon on a bed of rice is for some reason the thing that I eat more frequently. My standard dinner is salmon with Costco stir-fry vegetables (frozen) sometimes with a cup of rice (Figure 2). (A dietician recently told me this is too much salmon/mercury.)",
-    "crumbs": [
-      "About",
-      "NON-EV EXAMPLES",
-      "Salmon"
-    ]
-  },
-  {
-    "objectID": "salmon.html#a-restaurant-incident",
-    "href": "salmon.html#a-restaurant-incident",
-    "title": "Value Example: Salmon",
-    "section": "A Restaurant Incident",
-    "text": "A Restaurant Incident\nBecause I eat salmon multiple times a week, I tend to go for other items at restaurants. Two major exceptions:\n\n\n\n\n\n\n\n\nFigure 3: Cheesecake Factory\n\n\n\n\nThe Cheesecake Factory makes an excellent salmon meal (albeit farmed, Figure 3)\nFish restaurants often have special kinds of salmon\n\nIn 2021, I went to a fish restaurant in the Chicago suburbs. I had previously eaten there pre-COVID and was excited for the large portions. Prices had gone up from the tremendous pre-COVID value, but still seemed reasonable.\nAs of August 2024, the prices are the following. All include a “14-16 oz portion, homemade roasted vegetables, and wild rice”.\n\nScottish Salmon: $32.99\nWild Alaskan Salmon: $37.99\nNew Zealand Organic Salmon: $39.99\n\nConsidering that these types of salmon would generally cost $15-30/lb in a supermarket, this still seems like a solid deal.\n\n\n\n\n\n\nWild Salmon Interlude via Claude\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSpecies\nQuality\nFarmed/Wild\nImportant Characteristics\n\n\n\n\nChinook (King)\nHigh\nMostly wild\nLargest salmon; rich, fatty flesh; high in omega-3s\n\n\nCoho (Silver)\nGood\nMostly wild\nMilder flavor; firm texture; popular for grilling\n\n\nSockeye (Red)\nHigh\nMostly wild\nDeep red color; strong flavor; high in omega-3s\n\n\nPink (Humpback)\nLower\nMostly wild\nLightest color and flavor; often canned\n\n\nChum (Dog)\nLower\nMostly wild\nPale flesh; milder flavor; often smoked or canned\n\n\nAtlantic\nGood\nMostly farmed\nMild flavor; adaptable to farming; controversial due to environmental concerns\n\n\nKokanee\nGood\nWild\nLandlocked Sockeye; smaller size; popular for fishing\n\n\n\nSome additional important points:\n\nWild salmon generally have better flavor and nutritional profiles compared to farmed salmon, but they’re often more expensive.\nFarming practices vary widely, affecting quality and environmental impact. Some farms are working on more sustainable practices.\nSalmon quality can vary based on the specific run and location, even within the same species.\nConservation status is a concern for some wild salmon populations, particularly in certain regions.\nThe taste and texture of salmon can be influenced by their diet and the waters they inhabit.\nKing salmon has limited farming, mainly in New Zealand and very small operations elsewhere.\n\n\n\n\nWhile a little odd that a fish restaurant wouldn’t be more specific about the type of its “Wild Alaskan Salmon”, I proceeded to order that dish.",
-    "crumbs": [
-      "About",
-      "NON-EV EXAMPLES",
-      "Salmon"
-    ]
-  },
-  {
-    "objectID": "salmon.html#size-problems",
-    "href": "salmon.html#size-problems",
-    "title": "Value Example: Salmon",
-    "section": "Size Problems",
-    "text": "Size Problems\nWhen it arrived, it looked way too small.\n\n\n\n\n\n\n\n\n\nSalmon portion (sides not shown)\n\n\n\n\n\n\n\nPrevious portion at same restaurant (sides shown)\n\n\n\n\n\nBy standard restaurant serving sizes, this would be perfectly acceptable, but the menu claimed 14-16 oz. As a frequent salmon consumer, I knew this was wrong.\nI mentioned the size issue to the food runner who escalated the matter to the waiter. The waiter told me that this was in fact the correct size. I said no I don’t think so and he said yes and then left without resolving the issue.\nUnsatisfied, I again brought it up and he then said that it must have shrunk a bit from the cooking.\n\n\n\n\n\n\nCooked vs. Uncooked Weight Interlude\n\n\n\n\n\nApparently the restaurant norm is to advertise the uncooked weight of food, e.g. a quarter pounder hamburger will be a quarter pound (4 oz) frozen and closer to 3 oz cooked.\n\n\n\n\nSize Specifics\nIn the case of salmon, Claude claims that we should expect a weight loss of “15-25%”. Given this, let’s look at some estimates for the size of fish that we could expect.\nLargest without shrinkage:  A 16 oz piece\nLargest with shrinkage:  Start with a 16 oz piece, with 15% shrinkage:\nResulting size \\(= 16*0.85 = 13.6\\) oz\nAverage with shrinkage:  Start with a 15 oz piece, with 20% shrinkage: \\(\\text{Resulting Size} = 15*0.8 = 12 \\text{oz}\\)\nSmallest with shrinkage:  Start with a 14 oz piece, with 25% shrinkage: \\(\\text{Resulting Size} = 14*0.75 = 10.5 \\text{oz}\\)\nHmm, so technically even a 10.5 oz piece would have been in the acceptable range. Admittedly, I think I would have complained about approximately anything &lt;12 oz, but this size seemed even smaller.\nAfter a brief and polite conversation raising my previous time at this restaurant and my deep general salmon experience, I insisted that we go to the kitchen to solve this the right way: on the scale (Figure 4).\n\n\n\n\n\n\n\n\nFigure 4: Salmon on the scale\n\n\n\nAfter weighing the plate with the salmon and a separate empty plate, we concluded that the salmon size was about 9 oz!\nRecall from above that we have 10.5 oz as the minimum size, 12 oz as the average size, and 15 oz as the average size without any shrinkage. This means this was too small by:\n9/10.5 = 1\n9/12 = 1\n9/15 = 1\n\nimagePath = FileAttachment(\"assets/salmon/plate.png\").url()\n\nviewof rawWeight = Inputs.range([14, 16], {step: 0.1, label: \"Raw Weight (oz)\", value: 15})\nviewof shrinkagePercent = Inputs.range([15, 25], {step: 0.1, label: \"Shrinkage (%)\", value: 20})\nviewof actualCookedWeight = Inputs.range([9, 16], {step: 0.1, label: \"Actual Cooked Weight (oz)\", value: 9})\ncookedWeight = rawWeight * (1 - shrinkagePercent / 100)\n\nmd`The expected cooked weight is approximately ${cookedWeight.toFixed(2)} oz.`\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nmd`The actual cooked weight is ${actualCookedWeight} oz.`\n\n\n\n\n\n\n\nfunction createChart() {\n  const minRawWeight = 9;\n  const maxRawWeight = 16;\n  const data = [];\n  for (let weight = minRawWeight; weight &lt;= maxRawWeight; weight += 0.1) {\n    data.push({\n      x: weight,\n      y: weight * (1 - shrinkagePercent / 100)\n    });\n  }\n\n  const currentPoint = {\n    x: rawWeight,\n    y: cookedWeight\n  };\n\n  const actualPoint = {\n    x: actualCookedWeight / (1 - shrinkagePercent / 100),\n    y: actualCookedWeight\n  };\n\n  const margin = {top: 20, right: 30, bottom: 30, left: 40};\n  const width = 640 - margin.left - margin.right;\n  const height = 400 - margin.top - margin.bottom;\n\n  const x = d3.scaleLinear()\n    .domain([minRawWeight, maxRawWeight])\n    .range([0, width]);\n\n  const y = d3.scaleLinear()\n    .domain([Math.min(d3.min(data, d =&gt; d.y), actualCookedWeight) * 0.9, \n             Math.max(d3.max(data, d =&gt; d.y), rawWeight) * 1.1])\n    .range([height, 0]);\n\n  const line = d3.line()\n    .x(d =&gt; x(d.x))\n    .y(d =&gt; y(d.y));\n\n  const svg = d3.create(\"svg\")\n    .attr(\"viewBox\", [0, 0, width + margin.left + margin.right, height + margin.top + margin.bottom])\n    .attr(\"width\", width + margin.left + margin.right)\n    .attr(\"height\", height + margin.top + margin.bottom);\n\n  const g = svg.append(\"g\")\n    .attr(\"transform\", `translate(${margin.left},${margin.top})`);\n\n  // Add the plate images along y = 9\n  const imgWidth = 40;  // Adjust as needed\n  const imgHeight = 30;  // Adjust as needed\n  const numPlates = Math.floor(width / (imgWidth * 1.5));  // Space plates out a bit\n  for (let i = 0; i &lt; numPlates; i++) {\n    g.append(\"image\")\n      .attr(\"xlink:href\", imagePath)\n      .attr(\"x\", i * imgWidth * 1.5)\n      .attr(\"y\", y(9) - imgHeight / 2)\n      .attr(\"width\", imgWidth)\n      .attr(\"height\", imgHeight);\n  }\n\n  // Add a dashed line at y = 9\n  g.append(\"line\")\n    .attr(\"x1\", 0)\n    .attr(\"y1\", y(9))\n    .attr(\"x2\", width)\n    .attr(\"y2\", y(9))\n    .attr(\"stroke\", \"red\")\n    .attr(\"stroke-dasharray\", \"5,5\");\n\n  g.append(\"g\")\n    .attr(\"transform\", `translate(0,${height})`)\n    .call(d3.axisBottom(x).ticks(width / 80).tickSizeOuter(0))\n    .append(\"text\")\n      .attr(\"x\", width)\n      .attr(\"y\", -6)\n      .attr(\"fill\", \"#000\")\n      .attr(\"text-anchor\", \"end\")\n      .text(\"Raw Weight (oz)\");\n\n  g.append(\"g\")\n    .call(d3.axisLeft(y))\n    .append(\"text\")\n      .attr(\"transform\", \"rotate(-90)\")\n      .attr(\"y\", 6)\n      .attr(\"dy\", \".71em\")\n      .attr(\"fill\", \"#000\")\n      .text(\"Cooked Weight (oz)\");\n\n  g.append(\"path\")\n    .datum(data)\n    .attr(\"fill\", \"none\")\n    .attr(\"stroke\", \"steelblue\")\n    .attr(\"stroke-width\", 1.5)\n    .attr(\"d\", line);\n\n  // Add expected weight point (red)\n  g.append(\"circle\")\n    .attr(\"cx\", x(currentPoint.x))\n    .attr(\"cy\", y(currentPoint.y))\n    .attr(\"r\", 4)\n    .attr(\"fill\", \"red\");\n\n  // Add actual weight point (green)\n  g.append(\"circle\")\n    .attr(\"cx\", x(actualPoint.x))\n    .attr(\"cy\", y(actualPoint.y))\n    .attr(\"r\", 6)\n    .attr(\"fill\", \"green\");\n\n  // Add legend\n  const legend = g.append(\"g\")\n    .attr(\"font-family\", \"sans-serif\")\n    .attr(\"font-size\", 10)\n    .attr(\"text-anchor\", \"end\")\n    .selectAll(\"g\")\n    .data([\"Expected Weight\", \"Actual Weight\"])\n    .enter().append(\"g\")\n    .attr(\"transform\", (d, i) =&gt; `translate(0,${i * 20})`);\n\n  legend.append(\"rect\")\n    .attr(\"x\", width - 19)\n    .attr(\"width\", 19)\n    .attr(\"height\", 19)\n    .attr(\"fill\", (d, i) =&gt; i === 0 ? \"red\" : \"green\");\n\n  legend.append(\"text\")\n    .attr(\"x\", width - 24)\n    .attr(\"y\", 9.5)\n    .attr(\"dy\", \"0.32em\")\n    .text(d =&gt; d);\n\n  return svg.node();\n}\n\nmd`### Salmon Weight Comparison`\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ncreateChart()",
-    "crumbs": [
-      "About",
-      "NON-EV EXAMPLES",
-      "Salmon"
-    ]
-  },
-  {
-    "objectID": "ev-basics.html",
-    "href": "ev-basics.html",
-    "title": "What is expected value?",
-    "section": "",
-    "text": "HELLO!",
-    "crumbs": [
-      "About",
-      "EXPECTED VALUE",
-      "What is EV?"
-    ]
+    "text": "A quote from Nate Silver’s recent post titled “Why She Should Pick Shapiro”:\n\nOne of the better arguments against Shapiro is the longstanding veepstakes principle of “do no harm” — one Trump violated with his selection of JD Vance, by the way. But it’s a mediocre heuristic. Like the precautionary principle, it’s not the most rigorous way to think about expected value. Instead, you should consider the downsides and the upsides. With Shapiro, the upsides are obvious: increase your chances of winning Pennsylvania and get someone with a proven track record of appealing to swing voters — a track record that Harris lacks — onto the ticket.\n\n\nPlus, this is not a case like Hillary Clinton in 2016 — with her “do no harm” choice of Tim Kaine — when a candidate is picking from a position of presumed advantage. (And how did that work out for Clinton anyway, not that it was Kaine’s fault?) That the race is now a toss-up must feel great for Democrats given their losing position with Biden. But it’s still just a toss-up. If Harris were a 3:1 favorite, that’s about when variance reduction might override what seems like the obvious +EV play. But instead it’s 50/50.\n\nIn other words, if you’re already in a good position, then"
   },
   {
     "objectID": "pizza.html",
@@ -455,18 +182,363 @@
     ]
   },
   {
-    "objectID": "vice-president.html",
-    "href": "vice-president.html",
-    "title": "Vice President Expected Value with Nate Silver",
+    "objectID": "ev-basics.html",
+    "href": "ev-basics.html",
+    "title": "What is expected value?",
     "section": "",
-    "text": "A quote from Nate Silver’s recent post titled “Why She Should Pick Shapiro”:\n\nOne of the better arguments against Shapiro is the longstanding veepstakes principle of “do no harm” — one Trump violated with his selection of JD Vance, by the way. But it’s a mediocre heuristic. Like the precautionary principle, it’s not the most rigorous way to think about expected value. Instead, you should consider the downsides and the upsides. With Shapiro, the upsides are obvious: increase your chances of winning Pennsylvania and get someone with a proven track record of appealing to swing voters — a track record that Harris lacks — onto the ticket.\n\n\nPlus, this is not a case like Hillary Clinton in 2016 — with her “do no harm” choice of Tim Kaine — when a candidate is picking from a position of presumed advantage. (And how did that work out for Clinton anyway, not that it was Kaine’s fault?) That the race is now a toss-up must feel great for Democrats given their losing position with Biden. But it’s still just a toss-up. If Harris were a 3:1 favorite, that’s about when variance reduction might override what seems like the obvious +EV play. But instead it’s 50/50.\n\nIn other words, if you’re already in a good position, then"
+    "text": "HELLO!",
+    "crumbs": [
+      "About",
+      "EXPECTED VALUE",
+      "What is EV?"
+    ]
   },
   {
-    "objectID": "gamestop.html",
-    "href": "gamestop.html",
-    "title": "Expected Value Example: Roaring Kitty Gamestop",
+    "objectID": "salmon.html",
+    "href": "salmon.html",
+    "title": "Value Example: Salmon",
     "section": "",
-    "text": "https://www.bloomberg.com/opinion/articles/2024-05-13/gamestop-is-back?srnd=undefined"
+    "text": "Salmon on a bed of pasta is my favorite meal in the world (Figure 1).\nSalmon on a bed of rice is for some reason the thing that I eat more frequently. My standard dinner is salmon with Costco stir-fry vegetables (frozen) sometimes with a cup of rice (Figure 2). (A dietician recently told me this is too much salmon/mercury.)",
+    "crumbs": [
+      "About",
+      "NON-EV EXAMPLES",
+      "Salmon"
+    ]
+  },
+  {
+    "objectID": "salmon.html#a-restaurant-incident",
+    "href": "salmon.html#a-restaurant-incident",
+    "title": "Value Example: Salmon",
+    "section": "A Restaurant Incident",
+    "text": "A Restaurant Incident\nBecause I eat salmon multiple times a week, I tend to go for other items at restaurants. Two major exceptions:\n\n\n\n\n\n\n\n\nFigure 3: Cheesecake Factory\n\n\n\n\nThe Cheesecake Factory makes an excellent salmon meal (albeit farmed, Figure 3)\nFish restaurants often have special kinds of salmon\n\nIn 2021, I went to a fish restaurant in the Chicago suburbs. I had eaten there pre-COVID and was excited for the large portions. Prices had gone up from the tremendous pre-COVID value, but still seemed reasonable.\nAs of August 2024, the prices are the following. All include a “14-16 oz portion, homemade roasted vegetables, and wild rice”.\n\nScottish Salmon: $32.99\nWild Alaskan Salmon: $37.99\nNew Zealand Organic Salmon: $39.99\n\nConsidering that these types of salmon would generally cost $15-30/lb in a supermarket, this still seems like a solid deal.\n\n\n\n\n\n\nWild Salmon Interlude via Claude\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSpecies\nQuality\nFarmed/Wild\nImportant Characteristics\n\n\n\n\nChinook (King)\nHigh\nMostly wild\nLargest salmon; rich, fatty flesh; high in omega-3s\n\n\nCoho (Silver)\nGood\nMostly wild\nMilder flavor; firm texture; popular for grilling\n\n\nSockeye (Red)\nHigh\nMostly wild\nDeep red color; strong flavor; high in omega-3s\n\n\nPink (Humpback)\nLower\nMostly wild\nLightest color and flavor; often canned\n\n\nChum (Dog)\nLower\nMostly wild\nPale flesh; milder flavor; often smoked or canned\n\n\nAtlantic\nGood\nMostly farmed\nMild flavor; adaptable to farming; controversial due to environmental concerns\n\n\nKokanee\nGood\nWild\nLandlocked Sockeye; smaller size; popular for fishing\n\n\n\nSome additional important points:\n\nWild salmon generally have better flavor and nutritional profiles compared to farmed salmon, but they’re often more expensive.\nFarming practices vary widely, affecting quality and environmental impact. Some farms are working on more sustainable practices.\nSalmon quality can vary based on the specific run and location, even within the same species.\nConservation status is a concern for some wild salmon populations, particularly in certain regions.\nThe taste and texture of salmon can be influenced by their diet and the waters they inhabit.\nKing salmon has limited farming, mainly in New Zealand and very small operations elsewhere.\n\n\n\n\nWhile a little odd that a fish restaurant wouldn’t be more specific about the type of its “Wild Alaskan Salmon”, I proceeded to order that dish.",
+    "crumbs": [
+      "About",
+      "NON-EV EXAMPLES",
+      "Salmon"
+    ]
+  },
+  {
+    "objectID": "salmon.html#size-problems",
+    "href": "salmon.html#size-problems",
+    "title": "Value Example: Salmon",
+    "section": "Size Problems",
+    "text": "Size Problems\nWhen it arrived, it looked way too small.\n\n\n\n\n\n\n\n\n\nSalmon portion (sides not shown)\n\n\n\n\n\n\n\nPrevious portion at same restaurant (sides shown)\n\n\n\n\n\nBy standard restaurant serving sizes, this would be perfectly acceptable, but the menu claimed 14-16 oz. As a frequent salmon consumer, I knew this was wrong.\nI mentioned the size issue to the food runner who escalated the matter to the waiter. The waiter told me that this was in fact the correct size. I said no I don’t think so and he said yes and then left without resolving the issue.\nUnsatisfied, I again brought it up and he then said that it must have shrunk a bit from the cooking.\n\n\n\n\n\n\nCooked vs. Uncooked Weight Interlude\n\n\n\n\n\nApparently the restaurant norm is to advertise the uncooked weight of food, e.g. a quarter pounder hamburger will be a quarter pound (4 oz) frozen and closer to 3 oz cooked.\n\n\n\n\nSize Specifics\nIn the case of salmon, Claude claims that we should expect a weight loss of “15-25%”. Given this, let’s look at some estimates for the size of fish that we could expect.\nLargest without shrinkage:  A 16 oz piece\nLargest with shrinkage:  Start with a 16 oz piece, with 15% shrinkage:\nResulting size \\(= 16*0.85 = 13.6\\) oz\nAverage with shrinkage:  Start with a 15 oz piece, with 20% shrinkage: \\(\\text{Resulting Size} = 15*0.8 = 12 \\text{oz}\\)\nSmallest with shrinkage:  Start with a 14 oz piece, with 25% shrinkage: \\(\\text{Resulting Size} = 14*0.75 = 10.5 \\text{oz}\\)\nHmm, so technically even a 10.5 oz piece would have been in the acceptable range. Admittedly, I think I would have (lightly) complained about approximately anything &lt;12 oz, but this size seemed even smaller.\nAfter a brief and polite conversation raising my previous time at this restaurant and my deep general salmon experience, I insisted that we go to the kitchen to solve this the right way: on the scale (Figure 4).\n\n\n\n\n\n\n\n\nFigure 4: Salmon on the scale\n\n\n\nAfter weighing the plate with the salmon and a separate empty plate, we concluded that the salmon size was about 9 oz!\nRecall from above that we have 10.5 oz as the minimum size, 12 oz as the average size, and 15 oz as the average size without any shrinkage. This means this was too small by:\n9/10.5 = 1\n9/12 = 1\n9/15 = 1\n\nimagePath = FileAttachment(\"assets/salmon/plate.png\").url()\n\nviewof rawWeight = Inputs.range([14, 16], {step: 0.1, label: \"Raw Weight (oz)\", value: 15})\nviewof shrinkagePercent = Inputs.range([15, 25], {step: 0.1, label: \"Shrinkage (%)\", value: 20})\nviewof actualCookedWeight = Inputs.range([9, 16], {step: 0.1, label: \"Actual Cooked Weight (oz)\", value: 9})\ncookedWeight = rawWeight * (1 - shrinkagePercent / 100)\n\nmd`The expected cooked weight is approximately ${cookedWeight.toFixed(2)} oz.`\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nmd`The actual cooked weight is ${actualCookedWeight} oz.`\n\n\n\n\n\n\n\nfunction createChart() {\n  const minRawWeight = 9;\n  const maxRawWeight = 16;\n  const data = [];\n  for (let weight = minRawWeight; weight &lt;= maxRawWeight; weight += 0.1) {\n    data.push({\n      x: weight,\n      y: weight * (1 - shrinkagePercent / 100)\n    });\n  }\n\n  const currentPoint = {\n    x: rawWeight,\n    y: cookedWeight\n  };\n\n  const actualPoint = {\n    x: actualCookedWeight / (1 - shrinkagePercent / 100),\n    y: actualCookedWeight\n  };\n\n  const margin = {top: 20, right: 30, bottom: 30, left: 40};\n  const width = 640 - margin.left - margin.right;\n  const height = 400 - margin.top - margin.bottom;\n\n  const x = d3.scaleLinear()\n    .domain([minRawWeight, maxRawWeight])\n    .range([0, width]);\n\n  const y = d3.scaleLinear()\n    .domain([Math.min(d3.min(data, d =&gt; d.y), actualCookedWeight) * 0.9, \n             Math.max(d3.max(data, d =&gt; d.y), rawWeight) * 1.1])\n    .range([height, 0]);\n\n  const line = d3.line()\n    .x(d =&gt; x(d.x))\n    .y(d =&gt; y(d.y));\n\n  const svg = d3.create(\"svg\")\n    .attr(\"viewBox\", [0, 0, width + margin.left + margin.right, height + margin.top + margin.bottom])\n    .attr(\"width\", width + margin.left + margin.right)\n    .attr(\"height\", height + margin.top + margin.bottom);\n\n  const g = svg.append(\"g\")\n    .attr(\"transform\", `translate(${margin.left},${margin.top})`);\n\n  // Add the plate images along y = 9\n  const imgWidth = 40;  // Adjust as needed\n  const imgHeight = 30;  // Adjust as needed\n  const numPlates = Math.floor(width / (imgWidth * 1.5));  // Space plates out a bit\n  for (let i = 0; i &lt; numPlates; i++) {\n    g.append(\"image\")\n      .attr(\"xlink:href\", imagePath)\n      .attr(\"x\", i * imgWidth * 1.5)\n      .attr(\"y\", y(9) - imgHeight / 2)\n      .attr(\"width\", imgWidth)\n      .attr(\"height\", imgHeight);\n  }\n\n  // Add a dashed line at y = 9\n  g.append(\"line\")\n    .attr(\"x1\", 0)\n    .attr(\"y1\", y(9))\n    .attr(\"x2\", width)\n    .attr(\"y2\", y(9))\n    .attr(\"stroke\", \"red\")\n    .attr(\"stroke-dasharray\", \"5,5\");\n\n  g.append(\"g\")\n    .attr(\"transform\", `translate(0,${height})`)\n    .call(d3.axisBottom(x).ticks(width / 80).tickSizeOuter(0))\n    .append(\"text\")\n      .attr(\"x\", width)\n      .attr(\"y\", -6)\n      .attr(\"fill\", \"#000\")\n      .attr(\"text-anchor\", \"end\")\n      .text(\"Raw Weight (oz)\");\n\n  g.append(\"g\")\n    .call(d3.axisLeft(y))\n    .append(\"text\")\n      .attr(\"transform\", \"rotate(-90)\")\n      .attr(\"y\", 6)\n      .attr(\"dy\", \".71em\")\n      .attr(\"fill\", \"#000\")\n      .text(\"Cooked Weight (oz)\");\n\n  g.append(\"path\")\n    .datum(data)\n    .attr(\"fill\", \"none\")\n    .attr(\"stroke\", \"steelblue\")\n    .attr(\"stroke-width\", 1.5)\n    .attr(\"d\", line);\n\n  // Add expected weight point (red)\n  g.append(\"circle\")\n    .attr(\"cx\", x(currentPoint.x))\n    .attr(\"cy\", y(currentPoint.y))\n    .attr(\"r\", 4)\n    .attr(\"fill\", \"red\");\n\n  // Add actual weight point (green)\n  g.append(\"circle\")\n    .attr(\"cx\", x(actualPoint.x))\n    .attr(\"cy\", y(actualPoint.y))\n    .attr(\"r\", 6)\n    .attr(\"fill\", \"green\");\n\n  // Add legend\n  const legend = g.append(\"g\")\n    .attr(\"font-family\", \"sans-serif\")\n    .attr(\"font-size\", 10)\n    .attr(\"text-anchor\", \"end\")\n    .selectAll(\"g\")\n    .data([\"Expected Weight\", \"Actual Weight\"])\n    .enter().append(\"g\")\n    .attr(\"transform\", (d, i) =&gt; `translate(0,${i * 20})`);\n\n  legend.append(\"rect\")\n    .attr(\"x\", width - 19)\n    .attr(\"width\", 19)\n    .attr(\"height\", 19)\n    .attr(\"fill\", (d, i) =&gt; i === 0 ? \"red\" : \"green\");\n\n  legend.append(\"text\")\n    .attr(\"x\", width - 24)\n    .attr(\"y\", 9.5)\n    .attr(\"dy\", \"0.32em\")\n    .text(d =&gt; d);\n\n  return svg.node();\n}\n\nmd`### Salmon Weight Comparison`\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ncreateChart()",
+    "crumbs": [
+      "About",
+      "NON-EV EXAMPLES",
+      "Salmon"
+    ]
+  },
+  {
+    "objectID": "poker.html#section-2",
+    "href": "poker.html#section-2",
+    "title": "Expected Value Example: Poker",
+    "section": "Section 2",
+    "text": "Section 2\n\nSection 2.1\n\n\nSection 2.2"
+  },
+  {
+    "objectID": "poker.html#section-3",
+    "href": "poker.html#section-3",
+    "title": "Expected Value Example: Poker",
+    "section": "Section 3",
+    "text": "Section 3\n\nSection 3.1\n\n\nSection 3.2\n\n\nSection 3.3"
+  },
+  {
+    "objectID": "poker.html#section-4",
+    "href": "poker.html#section-4",
+    "title": "Expected Value Example: Poker",
+    "section": "Section 4",
+    "text": "Section 4"
+  },
+  {
+    "objectID": "huberman-pregnancy.html",
+    "href": "huberman-pregnancy.html",
+    "title": "Pregnancy Probability Starring Andrew Huberman",
+    "section": "",
+    "text": "Is there a fertility crisis? Bryan Caplan suggests to have more kids and recently posted The Fertile Formula, an idea to reduce federal taxes based on how many kids you have, getting to income tax-free for life after six kids. Great deal!",
+    "crumbs": [
+      "About",
+      "CURRENT EVENTS",
+      "Andrew Huberman Pregnancy Probability"
+    ]
+  },
+  {
+    "objectID": "huberman-pregnancy.html#huberman-calculation-issues",
+    "href": "huberman-pregnancy.html#huberman-calculation-issues",
+    "title": "Pregnancy Probability Starring Andrew Huberman",
+    "section": "Huberman Calculation Issues",
+    "text": "Huberman Calculation Issues\nThere are many issues here. To start, since probabilities are by definition between \\(0\\) and \\(1\\), he clearly made an error. \\(10\\) pregnancy attempts by his logic would make you \\(200\\%\\) likely to be pregnant, which doesn’t really make too much sense.\nHuberman was adding \\(20\\%\\) for each attempt, which is not the correct approach. In this post, we’ll explain how the actual theory works.\n\n\nI made a visualization for you all. https://t.co/LMTECq70HZ pic.twitter.com/IGIL1HyGQl\n\n— Matthew B Jané (@MatthewBJane) May 10, 2024",
+    "crumbs": [
+      "About",
+      "CURRENT EVENTS",
+      "Andrew Huberman Pregnancy Probability"
+    ]
+  },
+  {
+    "objectID": "huberman-pregnancy.html#huberman-correction",
+    "href": "huberman-pregnancy.html#huberman-correction",
+    "title": "Pregnancy Probability Starring Andrew Huberman",
+    "section": "Huberman Correction",
+    "text": "Huberman Correction\nHe since posted a Twitter correction and has updated the original videos.",
+    "crumbs": [
+      "About",
+      "CURRENT EVENTS",
+      "Andrew Huberman Pregnancy Probability"
+    ]
+  },
+  {
+    "objectID": "huberman-pregnancy.html#pregnancy-attempts",
+    "href": "huberman-pregnancy.html#pregnancy-attempts",
+    "title": "Pregnancy Probability Starring Andrew Huberman",
+    "section": "6 Pregnancy Attempts",
+    "text": "6 Pregnancy Attempts\nSo after \\(6\\) attempts, we can say that the \\(\\Pr(\\text{Preg after 6 attempts})\\) is equal to the inverse of the probability of not getting pregnant \\(6\\) times in a row. Why? The probability of an event and its complement always sum to \\(1\\). For example, if it’s \\(70\\%\\) to be sunny tomorrow, then it’s \\(30\\%\\) to be not-sunny.\nMathematically, we can write:\n\\[\n\\begin{equation}\n\\begin{split}\n\\Pr(\\text{Preg after 6 attempts}) &= 1 - \\Pr(\\text{Not Preg after 6 attempts}) \\\\\n  &= 1 - (0.8)^6 \\\\\n  &= 0.738 \\\\\n  &= 73.8\\%\n\\end{split}\n\\end{equation}\n\\]\n\nIndependent Probabilities\nWhy is it \\(1 - (0.8)^6\\)? This is because when we are calculating probabilities involving independent events, they are multiplied. Each case of not becoming pregnant has an independent probability of \\(0.8\\) (note that this is a simplification because probabilities would generally vary for each attempt). Multiplying this \\(6\\) times gets us the probability of not being pregnant after \\(6\\) attempts. So to get the probability of being pregnant after \\(6\\) attempts, we take \\(1\\) minus this, therefore getting \\(1 - (0.8)^6\\).",
+    "crumbs": [
+      "About",
+      "CURRENT EVENTS",
+      "Andrew Huberman Pregnancy Probability"
+    ]
+  },
+  {
+    "objectID": "huberman-pregnancy.html#x-pregnancy-attempts",
+    "href": "huberman-pregnancy.html#x-pregnancy-attempts",
+    "title": "Pregnancy Probability Starring Andrew Huberman",
+    "section": "x Pregnancy Attempts",
+    "text": "x Pregnancy Attempts\nMore generally, after \\(x\\) attempts, we can say:\n\\[\n\\begin{equation}\n\\begin{split}\n\\Pr(\\text{Preg after x attempts}) &= 1 - \\Pr(\\text{Not Preg after x attempts}) \\\\\n  &= 1 - (1-0.2)^x \\\\\n  &= 1 - (0.8)^x\n\\end{split}\n\\end{equation}\n\\]",
+    "crumbs": [
+      "About",
+      "CURRENT EVENTS",
+      "Andrew Huberman Pregnancy Probability"
+    ]
+  },
+  {
+    "objectID": "huberman-pregnancy.html#likelihood-of-pregnancy",
+    "href": "huberman-pregnancy.html#likelihood-of-pregnancy",
+    "title": "Pregnancy Probability Starring Andrew Huberman",
+    "section": "99% Likelihood of Pregnancy",
+    "text": "99% Likelihood of Pregnancy\nSo assuming that \\(\\Pr(\\text{Pregnancy}) = 0.2\\), when are you \\(99\\%\\) to be pregnant?\n\\[\n\\begin{equation}\n\\begin{split}\n0.99 &= 1 - \\Pr(\\text{Not Preg after x attempts}) && \\Rightarrow \\text{ Set pregnancy likelihood to } 0.99 \\\\\n      &= 1 - (0.8)^x && \\Rightarrow \\text{ Use equation from above } \\\\\n  0.99 + (0.8)^x &= 1 && \\Rightarrow \\text{ Add } 0.8^x \\text{ to both sides} \\\\\n  (0.8)^x &= 0.01 && \\Rightarrow \\text{ Subtract } 0.99 \\text{ from both sides} \\\\\n  x &= 20.64 && \\Rightarrow \\text{ Use calculator to solve}\n\\end{split}\n\\end{equation}\n\\]\nTherefore after \\(21\\) pregnancy attempts where each attempt has a \\(20\\%\\) likelihood, your cumulative likelihood of being pregant exceeds \\(99\\%\\). (We round up from \\(20.64\\) because each one is discrete and at \\(20\\) the probability would be under \\(99\\%\\), so only after \\(20.64\\) does it exceed \\(99\\%\\), which means it exceeds at attempt \\(21\\).)\nWe can see this on the graph below where \\(\\Pr(\\text{Pregnancy}) = 0.2\\). The x-axis is the number of attempts and the y-axis is the cumulative (overall) probability of pregnancy after that many attempts. Note that the graph approaches, but will never exceed the probability of \\(1\\).\n\n\n\nPregnancy graph with p = 0.2",
+    "crumbs": [
+      "About",
+      "CURRENT EVENTS",
+      "Andrew Huberman Pregnancy Probability"
+    ]
+  },
+  {
+    "objectID": "huberman-pregnancy.html#generalized-pregnancy-equation",
+    "href": "huberman-pregnancy.html#generalized-pregnancy-equation",
+    "title": "Pregnancy Probability Starring Andrew Huberman",
+    "section": "Generalized Pregnancy Equation",
+    "text": "Generalized Pregnancy Equation\nFinally, even more generally, we can say that after $ x $ attempts and the more general \\(\\Pr(\\text{Pregnancy}) = p\\) (i.e. using probability \\(p\\) instead of \\(0.2\\)):\n\\[\n\\begin{equation}\n\\begin{split}\n\\Pr(\\text{Preg after x attempts}) &= 1 - \\Pr(\\text{Not Preg after x attempts}) \\\\\n  &= 1 - (1-p)^x \\\\\n\\end{split}\n\\end{equation}\n\\]",
+    "crumbs": [
+      "About",
+      "CURRENT EVENTS",
+      "Andrew Huberman Pregnancy Probability"
+    ]
+  },
+  {
+    "objectID": "ev-benefits.html",
+    "href": "ev-benefits.html",
+    "title": "Expected Value Benefits",
+    "section": "",
+    "text": "https://forum.effectivealtruism.org/topics/expected-value https://probablygood.org/core-concepts/expected-value/\ndrqwing a card from a deck variance EV of skipping train ticket Look into spoiler/hidden text thing and having multiple choice quizzes integrated Use EV page as template including problem set/exercises at end\nhttps://seeing-theory.brown.edu/ Lotto thing Slider for expected value with estimates, current events Blackjack Taylor Swift Trump Expected value of domain Highest EV time to have a kid Site just asking what is the value of the site plane ticket stuff (see ojm list)\nev only part of picture, because if bet is big part of bankroll then not good!\nIssues Risk tolerance: Expected value doesn’t account for individual risk preferences. Two options might have the same expected value, but one could be much riskier. Non-linear utility: The subjective value (utility) of money often doesn’t scale linearly. Gaining $1000 might be more than twice as valuable to someone as gaining $500. Frequency of events: For rare events or one-time decisions, the law of large numbers doesn’t apply, making expected value less reliable. Uncertainty in probabilities: Often, the probabilities used in calculations are estimates, which can lead to inaccurate results if they’re off. Neglect of qualitative factors: Expected value focuses on quantifiable outcomes, potentially overlooking important qualitative considerations. Assumption of independence: Many expected value calculations assume events are independent, which isn’t always true in real-life scenarios. Short-term vs. long-term outcomes: As you mentioned, time value of money isn’t typically factored in, nor are potential long-term consequences. Ethical considerations: Purely quantitative decision-making based on expected value might lead to ethically questionable choices in some situations. Complexity of real-world scenarios: Many situations involve multiple, interrelated variables that are difficult to capture in a simple expected value calculation. Behavioral biases: People often don’t act rationally according to expected value, due to various cognitive biases and emotional factors. Black swan events: Rare, high-impact events that are hard to predict can significantly affect outcomes but are often not accounted for in expected value calculations. Changing circumstances: Expected value calculations assume static conditions, but real-world situations can change rapidly.\nTime Value of Money:\nAs you mentioned, EV calculations typically do not account for the time value of money. Future cash flows need to be discounted to present value to make a proper comparison. Risk and Uncertainty:\nEV does not account for risk preferences or aversion. Two options with the same EV might have different levels of risk, which can significantly affect decision-making. Probability Estimation:\nAccurate probability estimation is crucial for EV calculations. Inaccurate or biased estimates can lead to misleading results. Utility:\nEV assumes linear utility of money, but in reality, the utility of money can be nonlinear. For example, losing $100 might feel worse than gaining $100 feels good. Rare Events:\nEV can be heavily influenced by rare, high-impact events. While these events may have a significant effect on the EV, their actual occurrence might be so infrequent that they should be considered differently. Decision Context:\nEV calculations do not always consider the broader context or other qualitative factors that may influence a decision. Opportunity Cost:\nEV does not inherently account for opportunity costs, which are the benefits you miss out on when choosing one alternative over another. Behavioral Factors:\nHuman behavior often deviates from rational decision-making models. Factors such as emotions, cognitive biases, and social influences can impact decisions beyond what EV can capture. Data Quality:\nThe quality and reliability of the data used to calculate probabilities and outcomes are critical. Poor data can lead to inaccurate EV calculations. Interdependencies:\nEV calculations typically assume independent outcomes, but in reality, events can be interdependent, affecting the overall decision-making process. Long-Term vs. Short-Term:\nEV may not distinguish between long-term and short-term benefits and costs, which can be important depending on the decision context. Scalability:\nEV is additive and may not scale well with large numbers of small probabilities, potentially leading to overestimation of the value of combining many low-probability events.\nPros: Expected value calculations offer several important benefits, which is why they remain a valuable tool in decision-making and analysis. Here are some key advantages:\nQuantitative framework: Provides a structured, numerical approach to comparing different options or scenarios. Objectivity: Helps reduce emotional bias in decision-making by focusing on probabilities and outcomes. Risk assessment: Allows for the incorporation of risk and uncertainty into decision-making processes. Comparative analysis: Facilitates easy comparison between multiple options, even when they have different probabilities and outcomes. Long-term perspective: Encourages thinking about the average outcome over many repetitions, which can be valuable for recurring decisions. Simplification of complex scenarios: Distills complicated situations into more manageable components (probabilities and payoffs). Identification of high-value opportunities: Helps in recognizing options that may have low probability but high potential payoff. Resource allocation: Assists in determining where to best allocate limited resources for maximum expected return. Decision consistency: Provides a consistent method for evaluating different scenarios across an organization or over time. Scenario planning: Useful in modeling various potential futures and their likelihood, aiding in strategic planning. Probabilistic thinking: Encourages consideration of multiple possible outcomes rather than just focusing on the most likely scenario. Foundation for more complex models: Serves as a basis for more sophisticated decision-making tools and risk analysis techniques. Learning tool: Helps in developing a more nuanced understanding of probability and its role in outcomes. Communication aid: Offers a clear way to explain the reasoning behind decisions to stakeholders.\nQuantitative Analysis:\nEV provides a clear, numerical method to evaluate and compare different options based on their potential outcomes and associated probabilities. Objective Decision-Making:\nBy focusing on probabilities and outcomes, EV helps reduce the influence of emotions and biases, leading to more rational and objective decisions. Informed Risk Assessment:\nEV allows decision-makers to quantify and assess the risks associated with different choices, enabling better risk management. Consistency:\nApplying EV consistently across different decisions ensures a systematic approach to evaluating options, promoting consistency in decision-making processes. Simplification:\nEV simplifies complex decisions by reducing them to a single value, making it easier to compare and contrast different scenarios. Strategic Planning:\nEV can be used in strategic planning to evaluate long-term projects and investments, helping organizations prioritize initiatives based on their expected returns. Resource Allocation:\nEV helps in optimal resource allocation by identifying the options with the highest expected returns, ensuring efficient use of resources. Identifying Best Practices:\nBy analyzing the EV of past decisions, organizations can identify best practices and improve future decision-making processes. Clarifying Trade-offs:\nEV highlights the trade-offs between different options, making it easier to understand the potential costs and benefits of each choice. Probability Sensitivity:\nEV calculations can reveal how sensitive a decision is to changes in probabilities, helping identify key factors that impact outcomes. Encourages Data-Driven Decisions:\nEV promotes the use of data and empirical evidence in decision-making, leading to more reliable and accurate evaluations. Facilitates Communication:\nEV provides a common framework for discussing and comparing different options, making it easier to communicate decisions to stakeholders. Supports Optimization:\nEV can be used in optimization problems to find the best possible decision given constraints and objectives. Cost-Benefit Analysis:\nEV is a fundamental component of cost-benefit analysis, helping to evaluate whether the benefits of a decision outweigh the costs. Decision Justification:\nEV offers a logical and transparent basis for justifying decisions, making it easier to explain and defend choices to others. Balancing Short-Term and Long-Term Goals:\nEV can help balance short-term and long-term goals by providing a framework to evaluate the expected value of immediate versus future benefits."
+  },
+  {
+    "objectID": "ev-benefits.html#section-1",
+    "href": "ev-benefits.html#section-1",
+    "title": "Expected Value Benefits",
+    "section": "Section 1",
+    "text": "Section 1\nExpected Value = (Probability of an outcome) × (Value of that outcome) Here’s a simple, real-life example: Imagine a raffle where:\nTickets cost $1 each There’s a 1 in 100 chance of winning The prize is $150\nTo calculate the expected value:\nProbability of winning: 1/100 = 0.01 Value of winning: $150 Expected Value = 0.01 × $150 = $1.50\nThis means that, on average, each ticket is “worth” $1.50. Since the ticket costs $1, and its expected value is $1.50, it’s technically a good deal in the long run. However, remember that this doesn’t guarantee you’ll win - it’s an average over many tries. This simple calculation helps you make decisions by weighing the likelihood of outcomes against their potential value. It’s a basic tool for comparing options with different risks and rewards.\nLottery tickets Roulette Blackjack Extended warranty Flight insurance Degree Solar panel Gas vs. EV car Poker Sports bet Chinese auction Food: Carrots, watermelon, XL vs. L eggs Salad bar Ebike vs. regular Dreidel\nhttps://www.probabilitycourse.com/chapter1/1_4_3_bayes_rule.php https://en.wikipedia.org/wiki/Expected_value https://www.khanacademy.org/math/statistics-probability/random-variables-stats-library/random-variables-discrete/e/expected_value\nbasic algebra, equations, variables A few easy explanations A few exercises A short video A really short video Dice EV, what if you get option for 2nd Expected Value Foundation? Expected value most upvoted answer on “what EAs should know if they know 1 concept”\nExpected value is fundamental in decision-making under uncertainty, a key area of focus for effective altruists. It allows individuals to make choices that maximize their positive impact, even when outcomes are uncertain. This principle is frequently discussed on platforms like the Effective Altruism Forum and in related literature.\nWhile I can’t pinpoint the exact source of the most upvoted answer you mentioned, it’s consistent with the general emphasis within the community on understanding and applying expected value to make better decisions.\nopportunity cost comparative advantage As its name suggests, opportunity cost refers to the cost of choosing one opportunity over others. This “cost” reflects the value you could have gained in all the options you didn’t pursue.\nAccounting for opportunity cost can help us understand the comparative value of our available options and spend our time, money, and effort more effectively. This is particularly important for avoiding spending limited resources on an option that seems attractive at first (because it has positive expected value) but will actually give you much worse value than another available option.\nhttps://www.cold-takes.com/expected-value/#fnref1\nhttps://brilliant.org/wiki/expected-value/\nhttps://80000hours.org/articles/expected-value/\nhttps://jc.gatspress.com/pdf/on_expected_utility.pdf\nhttps://80000hours.org/2023/02/how-much-do-solutions-differ-in-effectiveness/#ways-the-data-might-overstate-the-true-degree-of-spread\nhttps://80000hours.org/2023/03/moderation-in-doing-good/\nhttps://80000hours.org/articles/moral-uncertainty/"
+  },
+  {
+    "objectID": "ev-benefits.html#technical-definition",
+    "href": "ev-benefits.html#technical-definition",
+    "title": "Expected Value Benefits",
+    "section": "Technical Definition",
+    "text": "Technical Definition\nWikipedia: “The expected value of a random variable with a finite number of outcomes is a weighted average of all possible outcomes”.\nMathematically, with a random variable \\(X\\) and a list of possible outcomes \\(x_1, ..., x_k\\) each of which has probability \\(p_1, ..., p_k\\) of occurring, respectively. Then \\(\\mathbb{E}[X] = x_1 p_1 + x_2 p_2 + ... + x_k p_k\\).\nWhat is a random variable? It represents possible outcomes. A random variable is defined by its possible outcomes and the probability of each outcome.\nan agent making an optimal choice in the context of incomplete information is often assumed to maximize the expected value of their utility function.\nhttps://www.cold-takes.com/the-bayesian-mindset/#1-connecting-opinions-to-anticipated-observations\nhttps://forum.effectivealtruism.org/posts/jo7tM4s5ApPgv2DPC/expected-value-theory\nhttps://forum.effectivealtruism.org/topics/expected-value\nhttps://80000hours.org/2023/02/how-much-do-solutions-differ-in-effectiveness/#ways-the-data-might-overstate-the-true-degree-of-spread\nhttps://blog.givewell.org/2011/08/18/why-we-cant-take-expected-value-estimates-literally-even-when-theyre-unbiased/\nhttps://80000hours.org/articles/be-more-ambitious/\nhttps://forum.effectivealtruism.org/posts/FKnhB28EvG4og87JP/1-e-x-is-not-e-1-x\nhttps://blog.givewell.org/2016/07/26/deworming-might-huge-impact-might-close-zero-impact/\nev only part of picture, because if bet is big part of bankroll then not good! ## Section 2 ### Section 2.1 ### Section 2.2\ndrqwing a card from a deck variance EV of skipping train ticket Look into spoiler/hidden text thing and having multiple choice quizzes integrated Use EV page as template including problem set/exercises at end\nhttps://seeing-theory.brown.edu/ Lotto thing Slider for expected value with estimates, current events Blackjack Taylor Swift Trump Expected value of domain Highest EV time to have a kid Site just asking what is the value of the site plane ticket stuff (see ojm list)\nhttps://reducing-suffering.org/does-vegetarianism-make-a-difference/\nhttps://forum.effectivealtruism.org/posts/GjifPPAAGont94Z7F/in-cost-effectiveness-analyses-when-should-we-take-the\nhttps://80000hours.org/podcast/episodes/alan-hajek-probability-expected-value/"
+  },
+  {
+    "objectID": "ev-benefits.html#not-considered",
+    "href": "ev-benefits.html#not-considered",
+    "title": "Expected Value Benefits",
+    "section": "Not Considered",
+    "text": "Not Considered\nTime getting to airport early vs. late\nselling clothes vs. donating\nWhen we make a decision, we want the benefits to outweigh the costs. Some people will use a pro/con chart to help them make their decisions. Pros Cons Won’t lose all my money Cost a bit more in most cases\n-&gt; add values -&gt; effectively becomes similar to a mean or average\nBut what if our pros and cons don’t have the same value? We don’t want to just count the amount of pros and count the amount of cons Pros Cons Won’t lose all my money (10x) Cost a bit more in most cases (-x)\n-&gt; But the each outcome does not have the same likelihood. Add probabilities\nPros Cons Won’t lose all my money (10x) (probability of losing package is y) Cost a bit more in most cases (x) (probability of paying for insurance is 100%)\nAnd now you have expected value!\nIf 10x(y) &gt; (x) You should buy the insurance!\nGet a graduate degree vs keep working\nPros (of getting degree) Cons Higher earnings potential in the future Lose year(s) of earnings Chance at being a professor Hard work Might get more educated friends, relationships Will make you depressed Will become more educated\nCan you quantify these things on a single metric (money)? If not, why?\nPros (of getting degree) Value Cons Value Higher earnings potential in the future\nLose year(s) of earnings\nChance at being a professor\nHard work\nMight get more educated friends, relationships\nWill make you depressed\nWill become more educated\nAdd probabilities. If you can’t add probabilities, why?\nPros (of getting degree) Value probability Cons Value probability Higher earnings potential in the future\nLose year(s) of earnings\nChance at being a professor\nHard work\nMight get more educated friends, relationships\nWill make you depressed\nWill become more educated\nGo out to a restaurant vs eating in\nPros (of going to restaurant) Cons Higher earnings potential in the future Lose year(s) of earnings Chance at being a professor Hard work Might get more educated friends, relationships Will make you depressed Will become more educated\nCan you quantify these things on a single metric (money)? If not, why?\nPros (of getting degree) Value Cons Value Higher earnings potential in the future\nLose year(s) of earnings\nChance at being a professor\nHard work\nMight get more educated friends, relationships\nWill make you depressed\nWill become more educated\nAdd probabilities. If you can’t add probabilities, why?\nPros (of getting degree) Value probability Cons Value probability Higher earnings potential in the future\nLose year(s) of earnings\nChance at being a professor\nHard work\nMight get more educated friends, relationships\nWill make you depressed\nWill become more educated\nDecision pro-con example\nIn practice, it may not be clear which action will end up being the most valuable. Yet even if you’re unsure, putting some extra thought into its opportunity cost can help you gain an intuition for what actions to prioritize. To do so, figure out which options are available to you, try to determine the overall value of each option, then see how they compare."
+  },
+  {
+    "objectID": "ev-benefits.html#when-is-expected-value-useful",
+    "href": "ev-benefits.html#when-is-expected-value-useful",
+    "title": "Expected Value Benefits",
+    "section": "When is expected value useful?",
+    "text": "When is expected value useful?"
+  },
+  {
+    "objectID": "ev-benefits.html#when-is-expected-value-not-useful",
+    "href": "ev-benefits.html#when-is-expected-value-not-useful",
+    "title": "Expected Value Benefits",
+    "section": "When is expected value not useful?",
+    "text": "When is expected value not useful?\nEA: Not just charity or not, but how much it helps Poker: Not just winning or not, but EV and pot odds considerations\nEV of making rice quantity\nhttps://asteriskmag.com/issues/05/michael-lewis-s-blind-side https://bayesshammai.substack.com/p/what-to-expect-when-youre-expecting\nTrain $5.50 one way or $6 roundtrip, how to decide Basic economy vs. regular economy with probability Insurance like flights or package Chinese auctions https://auction.ytcte.org/auction/about Raffles https://www.chabaduvm.org/raffle"
+  },
+  {
+    "objectID": "ev-benefits.html#startup-vs.-normal-job",
+    "href": "ev-benefits.html#startup-vs.-normal-job",
+    "title": "Expected Value Benefits",
+    "section": "Startup vs. Normal Job",
+    "text": "Startup vs. Normal Job\nAlthough the concept of expected value is useful when thinking about decision making under uncertainty, we have to make a lot of assumptions. Suppose that you could take a normal job with a salary of $200,000 per year. Alternatively, you could build a startup that has the following outcomes:\n\n\n\nEquity Upon Sale in 5 Years\nProbability\n\n\n\n\n\\(\\$0\\)\n\\(0.70\\)\n\n\n\\(\\$1m\\)\n\\(0.20\\)\n\n\n\\(\\$10m\\)\n\\(0.08\\)\n\n\n\\(\\$100m\\)\n\\(0.02\\)\n\n\n\nBuilding the startup has the following EV in millions:\n\\[\n\\begin{equation}\n\\begin{split}\n\\mathbb{E}[\\text{Startup}] &= 0*0.70 + 1*0.20 + 10*0.08 + 100*0.02 \\\\\n  &= 0 + 0.2 + 0.8 + 2 \\\\\n  &= 3\n\\end{split}\n\\end{equation}\n\\]\nWorking the job with the salary has this EV in millions:\n\\[\n\\begin{equation}\n\\begin{split}\n\\mathbb{E}[\\text{Salary}] &= 1*0.2 + 1*0.2 + 1*0.2 + 1*0.2 + 1*0.2 \\\\\n  &= 0 + 0.2 + 0.8 + 2 \\\\\n  &= 3\n\\end{split}\n\\end{equation}\n\\]"
+  },
+  {
+    "objectID": "ev-benefits.html#section-2",
+    "href": "ev-benefits.html#section-2",
+    "title": "Expected Value Benefits",
+    "section": "Section 2",
+    "text": "Section 2\n\nSection 2.1\n\n\nSection 2.2"
+  },
+  {
+    "objectID": "ev-benefits.html#section-3",
+    "href": "ev-benefits.html#section-3",
+    "title": "Expected Value Benefits",
+    "section": "Section 3",
+    "text": "Section 3\n\nSection 3.1\n\n\nSection 3.2\n\n\nSection 3.3"
+  },
+  {
+    "objectID": "ev-benefits.html#section-4",
+    "href": "ev-benefits.html#section-4",
+    "title": "Expected Value Benefits",
+    "section": "Section 4",
+    "text": "Section 4"
+  },
+  {
+    "objectID": "medicine.html#section-2",
+    "href": "medicine.html#section-2",
+    "title": "Expected Value Example: Medicine",
+    "section": "Section 2",
+    "text": "Section 2\n\nSection 2.1\n\n\nSection 2.2"
+  },
+  {
+    "objectID": "medicine.html#section-3",
+    "href": "medicine.html#section-3",
+    "title": "Expected Value Example: Medicine",
+    "section": "Section 3",
+    "text": "Section 3\n\nSection 3.1\n\n\nSection 3.2\n\n\nSection 3.3"
+  },
+  {
+    "objectID": "medicine.html#section-4",
+    "href": "medicine.html#section-4",
+    "title": "Expected Value Example: Medicine",
+    "section": "Section 4",
+    "text": "Section 4"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Expected Value: From Simple to Advanced",
+    "section": "",
+    "text": "Imagine you have a big jar of different colored marbles. Some are red, some are blue, and some are green. Your friend says, “If you pick a red marble, I’ll give you a cookie. If you pick a blue one, I’ll give you two cookies. If you pick a green one, you don’t get any cookies.”\nNow, let’s say there are:\n\n5 red marbles\n3 blue marbles\n2 green marbles\n\nIf you reach into the jar without looking, what can you expect? This is what we call “expected value.” It’s like guessing how many cookies you might get on average if you played this game many, many times.\nLet’s count it out. On average if you reach into the jar 10 times:\nRed marbles give you 5 cookies (1 cookie × 5 marbles) Blue marbles give you 6 cookies (2 cookies × 3 marbles) Green marbles give you 0 cookies (0 cookies × 2 marbles)\nThat’s 11 cookies in total.\nSo, if we divide 11 cookies by 10 marbles, we get 1.1 cookies.\nThis means, on average, you can expect to get about 1 cookie (and a tiny bit more) each time you pick a marble!\n\n\n\n\n\n\nTry it yourself!\n\n\n\nImagine reaching into the jar 10 times. How many cookies do you think you’d get? Try it out and see!\n\n\n\n\n  Cookies: 0\n  Picks: 0\n  Average: 0 cookies per pick\n  Pick a Marble\n  Reset\n  Last picked: None"
+  },
+  {
+    "objectID": "index.html#explain-it-like-im-5",
+    "href": "index.html#explain-it-like-im-5",
+    "title": "Expected Value: From Simple to Advanced",
+    "section": "",
+    "text": "Imagine you have a big jar of different colored marbles. Some are red, some are blue, and some are green. Your friend says, “If you pick a red marble, I’ll give you a cookie. If you pick a blue one, I’ll give you two cookies. If you pick a green one, you don’t get any cookies.”\nNow, let’s say there are:\n\n5 red marbles\n3 blue marbles\n2 green marbles\n\nIf you reach into the jar without looking, what can you expect? This is what we call “expected value.” It’s like guessing how many cookies you might get on average if you played this game many, many times.\nLet’s count it out. On average if you reach into the jar 10 times:\nRed marbles give you 5 cookies (1 cookie × 5 marbles) Blue marbles give you 6 cookies (2 cookies × 3 marbles) Green marbles give you 0 cookies (0 cookies × 2 marbles)\nThat’s 11 cookies in total.\nSo, if we divide 11 cookies by 10 marbles, we get 1.1 cookies.\nThis means, on average, you can expect to get about 1 cookie (and a tiny bit more) each time you pick a marble!\n\n\n\n\n\n\nTry it yourself!\n\n\n\nImagine reaching into the jar 10 times. How many cookies do you think you’d get? Try it out and see!\n\n\n\n\n  Cookies: 0\n  Picks: 0\n  Average: 0 cookies per pick\n  Pick a Marble\n  Reset\n  Last picked: None"
+  },
+  {
+    "objectID": "index.html#standard-explanation",
+    "href": "index.html#standard-explanation",
+    "title": "Expected Value: From Simple to Advanced",
+    "section": "Standard Explanation",
+    "text": "Standard Explanation\nExpected value is a concept in probability theory that represents the average outcome of an experiment if it is repeated many times. It’s calculated by multiplying each possible outcome by its probability of occurrence and then summing these products.\nMathematically, for a discrete random variable \\(X\\) with possible values \\(x_1, x_2, ..., x_n\\) and corresponding probabilities \\(p_1, p_2, ..., p_n\\), the expected value \\(E(X)\\) is:\n$ E(X) = _{i=1}^n x_i p_i $\nLet’s use our marble example:\n\nRed marble (1 cookie): 5/10 probability\nBlue marble (2 cookies): 3/10 probability\nGreen marble (0 cookies): 2/10 probability\n\n$ E(X) = 1 + 2 + 0 = 0.5 + 0.6 + 0 = 1.1 $\nSo, on average, you can expect to get 1.1 cookies per draw.\n\n\n\n\n\n\nTry it yourself!\n\n\n\nYou can use this tool to calculate any expected value. Just put the probabilities in the left column and the values in the right column. It’s pre-set with the cookie marble experiment. Remember that probabilities must sum to 1.\nThinking about something else to try? How about a 6-sided die? Each probability is 1/6 and the values are the 6 different die values.\n\n\n\n\n  \n    \n      Probability\n      Value\n    \n    \n  \n  Add Row\n  Calculate\n  Expected Value: 0"
+  },
+  {
+    "objectID": "index.html#advanced-explanation",
+    "href": "index.html#advanced-explanation",
+    "title": "Expected Value: From Simple to Advanced",
+    "section": "Advanced Explanation",
+    "text": "Advanced Explanation\nIn more complex scenarios, expected value becomes a powerful tool for decision-making under uncertainty. It’s particularly useful in fields like finance, economics, and data science.\nFor continuous random variables, the expected value is defined as an integral:\n\\[ E(X) = \\int_{-\\infty}^{\\infty} x f(x) dx \\]\nwhere \\(f(x)\\) is the probability density function of \\(X\\).\nExpected value has several important properties:\n\nLinearity: \\(E(aX + bY) = aE(X) + bE(Y)\\) for constants \\(a\\) and \\(b\\)\nLaw of the unconscious statistician: \\(E[g(X)] = \\int_{-\\infty}^{\\infty} g(x) f(x) dx\\)\n\nIn decision theory, we often use expected utility instead of expected value. This takes into account the decision-maker’s risk preferences:\n\\[ EU(X) = \\sum_{i=1}^n U(x_i) p_i \\]\nwhere \\(U(x)\\) is the utility function.\n\n\n\n\n\n\nImportant Consideration\n\n\n\nWhile expected value is a useful tool, it doesn’t account for the variance or risk associated with different outcomes. In some cases, especially with non-linear utility functions or when dealing with rare, high-impact events, decisions based solely on expected value may lead to suboptimal results.\n\n\n\nApplication: Kelly Criterion\nAn advanced application of expected value is the Kelly Criterion, used in betting and investment strategies. It determines the optimal size of a series of bets to maximize the long-term growth rate of capital.\nThe formula for the Kelly Criterion is:\n\\[ f^* = \\frac{bp - q}{b} \\]\nwhere:\n\n\\(f^*\\) is the fraction of the current bankroll to bet\n\\(b\\) is the net odds received on the bet\n\\(p\\) is the probability of winning\n\\(q\\) is the probability of losing (1 - p)\n\n\n\n\n\n\n\nInteractive Element Idea\n\n\n\nCreate an interactive simulation that demonstrates the long-term effects of using the Kelly Criterion versus other betting strategies. Allow users to adjust parameters like win probability, odds, and initial bankroll to see how these factors affect long-term outcomes."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "The Expected Value Foundation is run by Max Chiswick."
+  },
+  {
+    "objectID": "dreidel.html",
+    "href": "dreidel.html",
+    "title": "Expected Value Example: Dreidel",
+    "section": "",
+    "text": "Dreidel is a game played during Hanukkah where each player starts by putting 1 piece into the pot and then players rotate around spinning the 4-sided dreidel. If the pot goes to 0 or 1 then all players again put 1 unit into the pot.\nThe outcomes are:\n\n\n\nDreidel Spin\nProbability\nGame Outcome\n\n\n\n\nנ (nun)\n\\(\\frac{1}{4}\\)\nDo nothing\n\n\nג (gimel)\n\\(\\frac{1}{4}\\)\nTake whole pot\n\n\nש (shin)\n\\(\\frac{1}{4}\\)\nTake half pot\n\n\nה (hei)\n\\(\\frac{1}{4}\\)\nPut 1 unit into pot\n\n\n\nSuppose it’s your turn to spin and the pot has 6 pieces in it.\nThe outcomes are:\n\n\n\nDreidel Spin\nProbability\nGame Outcome\n\n\n\n\nנ (nun)\n\\(\\frac{1}{4}\\)\n0\n\n\nג (gimel)\n\\(\\frac{1}{4}\\)\n+6\n\n\nש (shin)\n\\(\\frac{1}{4}\\)\n+3\n\n\nה (hei)\n\\(\\frac{1}{4}\\)\n-1\n\n\n\nWe can now compute the expected value of the spin:\n\\[\n\\begin{equation}\n\\begin{split}\n\\mathbb{E}[\\text{Dreidel Spin}] &= 0*\\frac{1}{4} + 6*\\frac{1}{4} + 3*\\frac{1}{4} + (-1)*\\frac{1}{4} \\\\\n  &= 0 + 1.5 + 0.75 + (-0.25) \\\\\n  &= 2\n\\end{split}\n\\end{equation}\n\\]\n(It turns out that the game is “painfully slow” such that a 4 person game where each player starts with 10 units and each spin takes 10 seconds would take an average of 2 hours and 23 minutes (860 spins). Ben Blatt has suggested improvements.)",
+    "crumbs": [
+      "About",
+      "EV EXAMPLES",
+      "Dreidel"
+    ]
+  },
+  {
+    "objectID": "ev-faults.html#section-1",
+    "href": "ev-faults.html#section-1",
+    "title": "Expected Value Faults",
+    "section": "Section 1",
+    "text": "Section 1"
+  },
+  {
+    "objectID": "ev-faults.html#section-2",
+    "href": "ev-faults.html#section-2",
+    "title": "Expected Value Faults",
+    "section": "Section 2",
+    "text": "Section 2\n\nSection 2.1\n\n\nSection 2.2"
+  },
+  {
+    "objectID": "ev-faults.html#section-3",
+    "href": "ev-faults.html#section-3",
+    "title": "Expected Value Faults",
+    "section": "Section 3",
+    "text": "Section 3\n\nSection 3.1\n\n\nSection 3.2\n\n\nSection 3.3"
+  },
+  {
+    "objectID": "ev-faults.html#section-4",
+    "href": "ev-faults.html#section-4",
+    "title": "Expected Value Faults",
+    "section": "Section 4",
+    "text": "Section 4"
+  },
+  {
+    "objectID": "dice.html",
+    "href": "dice.html",
+    "title": "Expected Value Example: Dice",
+    "section": "",
+    "text": "A roll of the dice is the typical first EV example.\nWhat is the expected value of a single 6 sided die?\nThe probability of rolling each side is the same, \\(1/6\\).\nThe value of each side is given by its number.\nTherefore we can write an equation to calculate the expected value:\n\\[\n\\begin{equation}\n\\begin{split}\n\\mathbb{E}[\\text{Die Roll}] &= 1*\\frac{1}{6} + 2*\\frac{1}{6} + 3*\\frac{1}{6} + (4)*\\frac{1}{6} + (5)*\\frac{1}{6} + (6)*\\frac{1}{6} \\\\\n  % &= \\frac{1}{6} + \\frac{2}{6} + *\\frac{3}{6} + \\frac{4}{6} + \\frac{5}{6} + \\frac{6}{6} \\\\\n  &= \\frac{21}{6} \\\\\n  % &= \\frac{7}{2} \\\\\n  &= 3.5\n\\end{split}\n\\end{equation}\n\\]",
+    "crumbs": [
+      "About",
+      "EV EXAMPLES",
+      "Dice"
+    ]
+  },
+  {
+    "objectID": "basketball.html#section-1",
+    "href": "basketball.html#section-1",
+    "title": "Expected Value Example: Basketball",
+    "section": "Section 1",
+    "text": "Section 1"
+  },
+  {
+    "objectID": "basketball.html#section-2",
+    "href": "basketball.html#section-2",
+    "title": "Expected Value Example: Basketball",
+    "section": "Section 2",
+    "text": "Section 2\n\nSection 2.1\n\n\nSection 2.2"
+  },
+  {
+    "objectID": "basketball.html#section-3",
+    "href": "basketball.html#section-3",
+    "title": "Expected Value Example: Basketball",
+    "section": "Section 3",
+    "text": "Section 3\n\nSection 3.1\n\n\nSection 3.2\n\n\nSection 3.3"
+  },
+  {
+    "objectID": "basketball.html#section-4",
+    "href": "basketball.html#section-4",
+    "title": "Expected Value Example: Basketball",
+    "section": "Section 4",
+    "text": "Section 4"
   },
   {
     "objectID": "blackjack.html",
