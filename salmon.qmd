@@ -26,7 +26,7 @@ Because I eat salmon multiple times a week, I tend to go for other items at rest
 1. The Cheesecake Factory makes an excellent salmon meal (albeit farmed, @fig-cheesecake)
 2. Fish restaurants often have special kinds of salmon
 
-In 2021, I went to a fish restaurant in the Chicago suburbs. I had previously eaten there pre-COVID and was excited for the large portions. Prices had gone up from the tremendous pre-COVID value, but still seemed reasonable. 
+In 2021, I went to a fish restaurant in the Chicago suburbs. I had eaten there pre-COVID and was excited for the large portions. Prices had gone up from the tremendous pre-COVID value, but still seemed reasonable. 
 
 As of August 2024, the prices are the following. All include a "14-16 oz portion, homemade roasted vegetables, and wild rice". 
 
@@ -108,7 +108,7 @@ $\text{Resulting Size} = 15*0.8 = 12 \text{oz}$
 Start with a 14 oz piece, with 25% shrinkage: 
 $\text{Resulting Size} = 14*0.75 = 10.5 \text{oz}$
 
-Hmm, so technically even a 10.5 oz piece would have been in the acceptable range. Admittedly, I think I would have complained about approximately anything <12 oz, but this size seemed even smaller. 
+Hmm, so technically even a 10.5 oz piece would have been in the acceptable range. Admittedly, I think I would have (lightly) complained about approximately anything <12 oz, but this size seemed even smaller. 
 
 After a brief and polite conversation raising my previous time at this restaurant and my deep general salmon experience, I insisted that we go to the kitchen to solve this the right way: on the scale (@fig-scale). 
 

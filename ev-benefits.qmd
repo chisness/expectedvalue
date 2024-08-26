@@ -5,6 +5,9 @@ format:
     math: true
 ---
 
+https://forum.effectivealtruism.org/topics/expected-value
+https://probablygood.org/core-concepts/expected-value/
+
 drqwing a card from a deck
 variance 
 EV of skipping train ticket
@@ -178,6 +181,10 @@ Food: Carrots, watermelon, XL vs. L eggs
 Salad bar
 Ebike vs. regular
 Dreidel
+
+https://www.probabilitycourse.com/chapter1/1_4_3_bayes_rule.php
+https://en.wikipedia.org/wiki/Expected_value
+https://www.khanacademy.org/math/statistics-probability/random-variables-stats-library/random-variables-discrete/e/expected_value
 
 
 basic algebra, equations, variables
