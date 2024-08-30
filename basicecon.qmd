@@ -108,6 +108,7 @@ Regular Economy will just cost the $\$300$ price.
 Let's analyze this case a bit more. If at the original purchase time we estimate a $25\%$ chance of needing to switch, what would be our EV? 
 
 Basic Economy EV: 
+
 $$
 \begin{equation}
 \begin{split}
@@ -119,6 +120,7 @@ $$
 $$
 
 Regular Economy EV: 
+
 $$
 \begin{equation}
 \begin{split}
