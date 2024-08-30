@@ -33,18 +33,32 @@ website:
           #   text: EV Benefits
           # - href: ev-faults.qmd
           #   text: EV Faults
-      - section: "EV EXAMPLES"
+      - section: "EV: SPORTS"
+        contents: 
+          - href: ev-basics.qmd
+            text: What is EV?
+      - section: "EV: GAMBLING"
         contents: 
           - href: dice.qmd
             text: Dice
           - href: dreidel.qmd
             text: Dreidel
-          - href: basicecon.qmd
-            text: Basic Economy
           - href: blackjack.qmd
             text: Blackjack
           - href: gambler.qmd
             text: Gambler Problem
+      - section: "EV: TRAVEL"
+        contents: 
+          - href: basicecon.qmd
+            text: Basic Economy
+      - section: "EV: FOOD"
+        contents: 
+          - href: ev-basics.qmd
+            text: What is EV?
+      - section: "EV: OTHER"
+        contents: 
+          - href: ev-basics.qmd
+            text: What is EV?
       - section: "NON-EV EXAMPLES"
         contents: 
           - href: pizza.qmd
