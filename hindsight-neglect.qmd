@@ -19,7 +19,7 @@ For example, folks from the esteemed [Cavendish Labs](https://cavendishlabs.org/
 They showed that larger LLMs are more likely to fail at the task because they tend to have stronger priors about likely sequences and sometimes can't override them even when instructed to do so. 
 
 ## Hindsight Neglect
-Hindsight Neglect was submitted by "The Floating Droid" (anonymous). 
+**Hindsight Neglect** was submitted by "The Floating Droid" (anonymous). 
 
 ![](assets/hindsight/hindsight.png)
 
@@ -36,8 +36,8 @@ $\mathbb{E} = -50*0.94 + 5*0.06 = -\$46.70$
 
 The results before the final example always show the more likely case happening. That is, if the bet is +EV, then it's shown as winning. If the bet is -EV, then it's shown as losing. 
 
-Then in the final example, a very -EV bet turns out positive. 
+Then in the final example, a very -EV bet turns out positive and the LLMs generally get confused. 
+
+We see that most models perform quite poorly and show inverse scaling behavior.
 
 ![](assets/hindsight/hindsight_chart.jpg)
-
-We see that most models perform quite poorly and show inverse scaling behavior. 
