@@ -29,6 +29,8 @@ website:
         contents: 
           - href: ev-basics.qmd
             text: What is EV?
+          - href: hindsight-neglect.qmd
+            text: LLM Hindsight Neglect
           # - href: ev-benefits.qmd
           #   text: EV Benefits
           # - href: ev-faults.qmd

@@ -230,129 +230,59 @@
     ]
   },
   {
-    "objectID": "poker.html#section-2",
-    "href": "poker.html#section-2",
-    "title": "Expected Value Example: Poker",
+    "objectID": "hindsight-neglect.html",
+    "href": "hindsight-neglect.html",
+    "title": "Expected Value Example: Hindsight Neglect",
+    "section": "",
+    "text": "Inverse Scaling: When Bigger Isn’t Better was published in May 2024 by a variety of authors, mostly from NYU. Here is an abbreviated abstract:",
+    "crumbs": [
+      "About",
+      "EXPECTED VALUE",
+      "LLM Hindsight Neglect"
+    ]
+  },
+  {
+    "objectID": "hindsight-neglect.html#the-inverse-scaling-prize",
+    "href": "hindsight-neglect.html#the-inverse-scaling-prize",
+    "title": "Expected Value Example: Hindsight Neglect",
+    "section": "The Inverse Scaling Prize",
+    "text": "The Inverse Scaling Prize\nThe Inverse Scaling Prize was a contest to “investigate the extent of inverse scaling in LMs and to find robust inverse scaling examples”.\nFor example, folks from the esteemed Cavendish Labs submitted Resisting Correction.\n\nThey showed that larger LLMs are more likely to fail at the task because they tend to have stronger priors about likely sequences and sometimes can’t override them even when instructed to do so.",
+    "crumbs": [
+      "About",
+      "EXPECTED VALUE",
+      "LLM Hindsight Neglect"
+    ]
+  },
+  {
+    "objectID": "hindsight-neglect.html#hindsight-neglect",
+    "href": "hindsight-neglect.html#hindsight-neglect",
+    "title": "Expected Value Example: Hindsight Neglect",
+    "section": "Hindsight Neglect",
+    "text": "Hindsight Neglect\nHindsight Neglect was submitted by “The Floating Droid” (anonymous).\n\nThe idea is that the LLM should respond with “yes” or “no”, depending on if the original bet was +EV, regardless of the actual outcome.\n\nEV Example 1\n\\(\\mathbb{E} = -900*0.91 + 5*0.09 = -\\$818.55\\)\n\n\nEV Example 2\n\\(\\mathbb{E} = -5*0.30 + 250*0.70 = \\$173.50\\)\n\n\nEV Example 3\n\\(\\mathbb{E} = -50*0.94 + 5*0.06 = -\\$46.70\\)\nThe results before the final example always show the more likely case happening. That is, if the bet is +EV, then it’s shown as winning. If the bet is -EV, then it’s shown as losing.\nThen in the final example, a very -EV bet turns out positive.\n\nWe see that most models perform quite poorly and show inverse scaling behavior.",
+    "crumbs": [
+      "About",
+      "EXPECTED VALUE",
+      "LLM Hindsight Neglect"
+    ]
+  },
+  {
+    "objectID": "medicine.html#section-2",
+    "href": "medicine.html#section-2",
+    "title": "Expected Value Example: Medicine",
     "section": "Section 2",
     "text": "Section 2\n\nSection 2.1\n\n\nSection 2.2"
   },
   {
-    "objectID": "poker.html#section-3",
-    "href": "poker.html#section-3",
-    "title": "Expected Value Example: Poker",
+    "objectID": "medicine.html#section-3",
+    "href": "medicine.html#section-3",
+    "title": "Expected Value Example: Medicine",
     "section": "Section 3",
     "text": "Section 3\n\nSection 3.1\n\n\nSection 3.2\n\n\nSection 3.3"
   },
   {
-    "objectID": "poker.html#section-4",
-    "href": "poker.html#section-4",
-    "title": "Expected Value Example: Poker",
-    "section": "Section 4",
-    "text": "Section 4"
-  },
-  {
-    "objectID": "basicecon.html",
-    "href": "basicecon.html",
-    "title": "EV Example: Basic Economy",
-    "section": "",
-    "text": "Suppose that you are considering booking a flight and as a value-conscious consumer are considering Basic Economy vs. Regular Economy.\nThere are quite a few restrictions with a basic economy ticket as shown in the image below:\nThe tickets generally cost $50 less than a regular economy ticket on the same flight:\nIf you needed a full-sized carry-on (which actually is included if you have certain statuses or a United credit card) or to sit with your family, then there isn’t much to even evaluate, and the regular economy option will be best.\nLet’s look at this specific scenario:\nSo the main consideration is the flight change. A basic economy ticket cannot be changed. It can only be canceled for a $49.50 cancellation fee. The rest of the refund will come back as a United flight credit. (Even with a regular economy ticket, a cancellation will be refunded as flight credit.)",
-    "crumbs": [
-      "About",
-      "EV: TRAVEL",
-      "Basic Economy"
-    ]
-  },
-  {
-    "objectID": "basicecon.html#ev-basic-vs.-regular-on-united",
-    "href": "basicecon.html#ev-basic-vs.-regular-on-united",
-    "title": "EV Example: Basic Economy",
-    "section": "EV Basic vs. Regular on United",
-    "text": "EV Basic vs. Regular on United\nSuppose that a basic economy ticket is available for \\(\\$x\\) and a regular economy ticket is available for \\(\\$x+50\\).\nSuppose that before the flight, we either decide to change to another flight that costs \\(\\$n\\) or stick with the original flight.\n\nCase 1: Stick with Original Flight\nTotal costs if just getting original flight\n\\(\\mathbb{E}[\\text{Basic Economy}] = \\$x\\)\n\\(\\mathbb{E}[\\text{Regular Economy}] = \\$x + 50\\)\n\n\nCase 2: Change Flight\nTotal costs in the case of changing the flight where the probability of changing the flight is \\(c\\).\n\\(\\mathbb{E}[\\text{Basic Economy}] = \\$n + 49.50\\)\n\\(\\mathbb{E}[\\text{Regular Economy}] = \\$n\\)\n\n\nEVs\n\\(\\mathbb{E}[\\text{Basic Economy}] = (1-c)(x) + c(n+49.50)\\)\n\\(\\mathbb{E}[\\text{Regular Economy}] = (1-c)(x+50) + c(n)\\)\nWhat \\(c\\) makes these equal?\n\\[\n\\begin{equation}\n\\begin{split}\n(1-c)(x) + c(n+49.50) &= (1-c)(x+50) + c(n) \\\\\nx - x*c + c*n + 49.50*c &= x + 50 - c*x -50*c + c*n \\\\\n49.50*c  &= 50 - 50*c \\\\\n99.50*c &= 50 \\\\\nc &= 0.503\n\\end{split}\n\\end{equation}\n\\]\nTherefore when \\(c\\) is lower than \\(0.503\\), you are better off taking Basic Economy, and otherwise better off taking Regular Economy. In other words, if your chance of needing to switch is less than \\(1/2\\), then you are better off in Basic.\n\n\nAmerican Airlines\nAmerican Airlines has a \\(\\$99\\) fee instead of the \\(\\$49.50\\) fee from United!\nLet’s see how this changes things.\n\\[\n\\begin{equation}\n\\begin{split}\n(1-c)(x) + c(n+99) &= (1-c)(x+50) + c(n) \\\\\nx - x*c + c*n + 99*c &= x + 50 - c*x -50*c + c*n \\\\\n99*c  &= 50 - 50*c \\\\\n149*c &= 50 \\\\\nc &= 0.336\n\\end{split}\n\\end{equation}\n\\]\nNow you only get better value with the Basic Economy ticket when you switch less than \\(0.336\\), or about 1/3 of the time.",
-    "crumbs": [
-      "About",
-      "EV: TRAVEL",
-      "Basic Economy"
-    ]
-  },
-  {
-    "objectID": "basicecon.html#numerical-example",
-    "href": "basicecon.html#numerical-example",
-    "title": "EV Example: Basic Economy",
-    "section": "Numerical Example",
-    "text": "Numerical Example\nSuppose that you the original price of the flight was \\(\\$200\\) in Basic Economy and \\(\\$250\\) in Regular Economy.\nIf you want to change your flight, what happens in each of these scenarios? We’ll see that Basic Economy always ends up costing the Regular Economy price plus an additional \\(\\$49.50\\) for the cancellation fee.\n\nChanged Flight Price Down\nIf the price goes down to \\(\\$100\\), Basic Economy will cost \\(\\$100 + 49.50\\) for the flight change, for a total of \\(\\$149.50\\).\nRegular Economy will just cost the \\(\\$100\\) new price.\n\n\nChanged Flight Same Price\nIf the price stays at \\(\\$150\\), Basic Economy will cost \\(\\$150 + 49.50\\) for the flight change, for a total of \\(\\$199.50\\).\nRegular Economy will just cost the \\(\\$150\\) price.\n\n\nChanged Flight Price Up\nIf the price goes up to \\(\\$300\\), Basic Economy will cost \\(\\$300 + 49.50\\) for the flight change, for a total of \\(\\$349.50\\).\nRegular Economy will just cost the \\(\\$300\\) price.\nLet’s analyze this case a bit more. If at the original purchase time we estimate a \\(25\\%\\) chance of needing to switch, what would be our EV?\nBasic Economy EV:\n\\[\n\\begin{equation}\n\\begin{split}\n\\mathbb{E}(\\text{Basic Economy}) &= \\text{Price}_{(\\text{Basic})}*P(\\text{Stay}) + \\text{Price}_{(\\text{After\\_Switch})}*P(\\text{Switch}) \\\\\n&= 200*0.75 + 349.50*0.25 \\\\\n&= \\$237.38\n\\end{split}\n\\end{equation}\n\\]\nRegular Economy EV:\n\\[\n\\begin{equation}\n\\begin{split}\n\\mathbb{E}(\\text{Regular Economy}) &= \\text{Price}_{(\\text{Regular})}*P(\\text{Stay}) + \\text{Price}_{(\\text{After\\_Switch})}*P(\\text{Switch}) \\\\\n&= 250*0.75 + 300*0.25 \\\\\n&= \\$262.50\n\\end{split}\n\\end{equation}\n\\]\nAs we expected, with the probability of switching less than the \\(0.503\\) value that we derived earlier, we expect the Basic Economy option to be better value and indeed it would have saved \\(262.50 - 237.38 = \\$25.12\\) in this case!",
-    "crumbs": [
-      "About",
-      "EV: TRAVEL",
-      "Basic Economy"
-    ]
-  },
-  {
-    "objectID": "ev-benefits.html",
-    "href": "ev-benefits.html",
-    "title": "Expected Value Benefits",
-    "section": "",
-    "text": "https://forum.effectivealtruism.org/topics/expected-value https://probablygood.org/core-concepts/expected-value/\ndrqwing a card from a deck variance EV of skipping train ticket Look into spoiler/hidden text thing and having multiple choice quizzes integrated Use EV page as template including problem set/exercises at end\nhttps://seeing-theory.brown.edu/ Lotto thing Slider for expected value with estimates, current events Blackjack Taylor Swift Trump Expected value of domain Highest EV time to have a kid Site just asking what is the value of the site plane ticket stuff (see ojm list)\nev only part of picture, because if bet is big part of bankroll then not good!\nIssues Risk tolerance: Expected value doesn’t account for individual risk preferences. Two options might have the same expected value, but one could be much riskier. Non-linear utility: The subjective value (utility) of money often doesn’t scale linearly. Gaining $1000 might be more than twice as valuable to someone as gaining $500. Frequency of events: For rare events or one-time decisions, the law of large numbers doesn’t apply, making expected value less reliable. Uncertainty in probabilities: Often, the probabilities used in calculations are estimates, which can lead to inaccurate results if they’re off. Neglect of qualitative factors: Expected value focuses on quantifiable outcomes, potentially overlooking important qualitative considerations. Assumption of independence: Many expected value calculations assume events are independent, which isn’t always true in real-life scenarios. Short-term vs. long-term outcomes: As you mentioned, time value of money isn’t typically factored in, nor are potential long-term consequences. Ethical considerations: Purely quantitative decision-making based on expected value might lead to ethically questionable choices in some situations. Complexity of real-world scenarios: Many situations involve multiple, interrelated variables that are difficult to capture in a simple expected value calculation. Behavioral biases: People often don’t act rationally according to expected value, due to various cognitive biases and emotional factors. Black swan events: Rare, high-impact events that are hard to predict can significantly affect outcomes but are often not accounted for in expected value calculations. Changing circumstances: Expected value calculations assume static conditions, but real-world situations can change rapidly.\nTime Value of Money:\nAs you mentioned, EV calculations typically do not account for the time value of money. Future cash flows need to be discounted to present value to make a proper comparison. Risk and Uncertainty:\nEV does not account for risk preferences or aversion. Two options with the same EV might have different levels of risk, which can significantly affect decision-making. Probability Estimation:\nAccurate probability estimation is crucial for EV calculations. Inaccurate or biased estimates can lead to misleading results. Utility:\nEV assumes linear utility of money, but in reality, the utility of money can be nonlinear. For example, losing $100 might feel worse than gaining $100 feels good. Rare Events:\nEV can be heavily influenced by rare, high-impact events. While these events may have a significant effect on the EV, their actual occurrence might be so infrequent that they should be considered differently. Decision Context:\nEV calculations do not always consider the broader context or other qualitative factors that may influence a decision. Opportunity Cost:\nEV does not inherently account for opportunity costs, which are the benefits you miss out on when choosing one alternative over another. Behavioral Factors:\nHuman behavior often deviates from rational decision-making models. Factors such as emotions, cognitive biases, and social influences can impact decisions beyond what EV can capture. Data Quality:\nThe quality and reliability of the data used to calculate probabilities and outcomes are critical. Poor data can lead to inaccurate EV calculations. Interdependencies:\nEV calculations typically assume independent outcomes, but in reality, events can be interdependent, affecting the overall decision-making process. Long-Term vs. Short-Term:\nEV may not distinguish between long-term and short-term benefits and costs, which can be important depending on the decision context. Scalability:\nEV is additive and may not scale well with large numbers of small probabilities, potentially leading to overestimation of the value of combining many low-probability events.\nPros: Expected value calculations offer several important benefits, which is why they remain a valuable tool in decision-making and analysis. Here are some key advantages:\nQuantitative framework: Provides a structured, numerical approach to comparing different options or scenarios. Objectivity: Helps reduce emotional bias in decision-making by focusing on probabilities and outcomes. Risk assessment: Allows for the incorporation of risk and uncertainty into decision-making processes. Comparative analysis: Facilitates easy comparison between multiple options, even when they have different probabilities and outcomes. Long-term perspective: Encourages thinking about the average outcome over many repetitions, which can be valuable for recurring decisions. Simplification of complex scenarios: Distills complicated situations into more manageable components (probabilities and payoffs). Identification of high-value opportunities: Helps in recognizing options that may have low probability but high potential payoff. Resource allocation: Assists in determining where to best allocate limited resources for maximum expected return. Decision consistency: Provides a consistent method for evaluating different scenarios across an organization or over time. Scenario planning: Useful in modeling various potential futures and their likelihood, aiding in strategic planning. Probabilistic thinking: Encourages consideration of multiple possible outcomes rather than just focusing on the most likely scenario. Foundation for more complex models: Serves as a basis for more sophisticated decision-making tools and risk analysis techniques. Learning tool: Helps in developing a more nuanced understanding of probability and its role in outcomes. Communication aid: Offers a clear way to explain the reasoning behind decisions to stakeholders.\nQuantitative Analysis:\nEV provides a clear, numerical method to evaluate and compare different options based on their potential outcomes and associated probabilities. Objective Decision-Making:\nBy focusing on probabilities and outcomes, EV helps reduce the influence of emotions and biases, leading to more rational and objective decisions. Informed Risk Assessment:\nEV allows decision-makers to quantify and assess the risks associated with different choices, enabling better risk management. Consistency:\nApplying EV consistently across different decisions ensures a systematic approach to evaluating options, promoting consistency in decision-making processes. Simplification:\nEV simplifies complex decisions by reducing them to a single value, making it easier to compare and contrast different scenarios. Strategic Planning:\nEV can be used in strategic planning to evaluate long-term projects and investments, helping organizations prioritize initiatives based on their expected returns. Resource Allocation:\nEV helps in optimal resource allocation by identifying the options with the highest expected returns, ensuring efficient use of resources. Identifying Best Practices:\nBy analyzing the EV of past decisions, organizations can identify best practices and improve future decision-making processes. Clarifying Trade-offs:\nEV highlights the trade-offs between different options, making it easier to understand the potential costs and benefits of each choice. Probability Sensitivity:\nEV calculations can reveal how sensitive a decision is to changes in probabilities, helping identify key factors that impact outcomes. Encourages Data-Driven Decisions:\nEV promotes the use of data and empirical evidence in decision-making, leading to more reliable and accurate evaluations. Facilitates Communication:\nEV provides a common framework for discussing and comparing different options, making it easier to communicate decisions to stakeholders. Supports Optimization:\nEV can be used in optimization problems to find the best possible decision given constraints and objectives. Cost-Benefit Analysis:\nEV is a fundamental component of cost-benefit analysis, helping to evaluate whether the benefits of a decision outweigh the costs. Decision Justification:\nEV offers a logical and transparent basis for justifying decisions, making it easier to explain and defend choices to others. Balancing Short-Term and Long-Term Goals:\nEV can help balance short-term and long-term goals by providing a framework to evaluate the expected value of immediate versus future benefits."
-  },
-  {
-    "objectID": "ev-benefits.html#section-1",
-    "href": "ev-benefits.html#section-1",
-    "title": "Expected Value Benefits",
-    "section": "Section 1",
-    "text": "Section 1\nExpected Value = (Probability of an outcome) × (Value of that outcome) Here’s a simple, real-life example: Imagine a raffle where:\nTickets cost $1 each There’s a 1 in 100 chance of winning The prize is $150\nTo calculate the expected value:\nProbability of winning: 1/100 = 0.01 Value of winning: $150 Expected Value = 0.01 × $150 = $1.50\nThis means that, on average, each ticket is “worth” $1.50. Since the ticket costs $1, and its expected value is $1.50, it’s technically a good deal in the long run. However, remember that this doesn’t guarantee you’ll win - it’s an average over many tries. This simple calculation helps you make decisions by weighing the likelihood of outcomes against their potential value. It’s a basic tool for comparing options with different risks and rewards.\nLottery tickets Roulette Blackjack Extended warranty Flight insurance Degree Solar panel Gas vs. EV car Poker Sports bet Chinese auction Food: Carrots, watermelon, XL vs. L eggs Salad bar Ebike vs. regular Dreidel\nhttps://www.probabilitycourse.com/chapter1/1_4_3_bayes_rule.php https://en.wikipedia.org/wiki/Expected_value https://www.khanacademy.org/math/statistics-probability/random-variables-stats-library/random-variables-discrete/e/expected_value\nbasic algebra, equations, variables A few easy explanations A few exercises A short video A really short video Dice EV, what if you get option for 2nd Expected Value Foundation? Expected value most upvoted answer on “what EAs should know if they know 1 concept”\nExpected value is fundamental in decision-making under uncertainty, a key area of focus for effective altruists. It allows individuals to make choices that maximize their positive impact, even when outcomes are uncertain. This principle is frequently discussed on platforms like the Effective Altruism Forum and in related literature.\nWhile I can’t pinpoint the exact source of the most upvoted answer you mentioned, it’s consistent with the general emphasis within the community on understanding and applying expected value to make better decisions.\nopportunity cost comparative advantage As its name suggests, opportunity cost refers to the cost of choosing one opportunity over others. This “cost” reflects the value you could have gained in all the options you didn’t pursue.\nAccounting for opportunity cost can help us understand the comparative value of our available options and spend our time, money, and effort more effectively. This is particularly important for avoiding spending limited resources on an option that seems attractive at first (because it has positive expected value) but will actually give you much worse value than another available option.\nhttps://www.cold-takes.com/expected-value/#fnref1\nhttps://brilliant.org/wiki/expected-value/\nhttps://80000hours.org/articles/expected-value/\nhttps://jc.gatspress.com/pdf/on_expected_utility.pdf\nhttps://80000hours.org/2023/02/how-much-do-solutions-differ-in-effectiveness/#ways-the-data-might-overstate-the-true-degree-of-spread\nhttps://80000hours.org/2023/03/moderation-in-doing-good/\nhttps://80000hours.org/articles/moral-uncertainty/"
-  },
-  {
-    "objectID": "ev-benefits.html#technical-definition",
-    "href": "ev-benefits.html#technical-definition",
-    "title": "Expected Value Benefits",
-    "section": "Technical Definition",
-    "text": "Technical Definition\nWikipedia: “The expected value of a random variable with a finite number of outcomes is a weighted average of all possible outcomes”.\nMathematically, with a random variable \\(X\\) and a list of possible outcomes \\(x_1, ..., x_k\\) each of which has probability \\(p_1, ..., p_k\\) of occurring, respectively. Then \\(\\mathbb{E}[X] = x_1 p_1 + x_2 p_2 + ... + x_k p_k\\).\nWhat is a random variable? It represents possible outcomes. A random variable is defined by its possible outcomes and the probability of each outcome.\nan agent making an optimal choice in the context of incomplete information is often assumed to maximize the expected value of their utility function.\nhttps://www.cold-takes.com/the-bayesian-mindset/#1-connecting-opinions-to-anticipated-observations\nhttps://forum.effectivealtruism.org/posts/jo7tM4s5ApPgv2DPC/expected-value-theory\nhttps://forum.effectivealtruism.org/topics/expected-value\nhttps://80000hours.org/2023/02/how-much-do-solutions-differ-in-effectiveness/#ways-the-data-might-overstate-the-true-degree-of-spread\nhttps://blog.givewell.org/2011/08/18/why-we-cant-take-expected-value-estimates-literally-even-when-theyre-unbiased/\nhttps://80000hours.org/articles/be-more-ambitious/\nhttps://forum.effectivealtruism.org/posts/FKnhB28EvG4og87JP/1-e-x-is-not-e-1-x\nhttps://blog.givewell.org/2016/07/26/deworming-might-huge-impact-might-close-zero-impact/\nev only part of picture, because if bet is big part of bankroll then not good! ## Section 2 ### Section 2.1 ### Section 2.2\ndrqwing a card from a deck variance EV of skipping train ticket Look into spoiler/hidden text thing and having multiple choice quizzes integrated Use EV page as template including problem set/exercises at end\nhttps://seeing-theory.brown.edu/ Lotto thing Slider for expected value with estimates, current events Blackjack Taylor Swift Trump Expected value of domain Highest EV time to have a kid Site just asking what is the value of the site plane ticket stuff (see ojm list)\nhttps://reducing-suffering.org/does-vegetarianism-make-a-difference/\nhttps://forum.effectivealtruism.org/posts/GjifPPAAGont94Z7F/in-cost-effectiveness-analyses-when-should-we-take-the\nhttps://80000hours.org/podcast/episodes/alan-hajek-probability-expected-value/"
-  },
-  {
-    "objectID": "ev-benefits.html#not-considered",
-    "href": "ev-benefits.html#not-considered",
-    "title": "Expected Value Benefits",
-    "section": "Not Considered",
-    "text": "Not Considered\nTime getting to airport early vs. late\nselling clothes vs. donating\nWhen we make a decision, we want the benefits to outweigh the costs. Some people will use a pro/con chart to help them make their decisions. Pros Cons Won’t lose all my money Cost a bit more in most cases\n-&gt; add values -&gt; effectively becomes similar to a mean or average\nBut what if our pros and cons don’t have the same value? We don’t want to just count the amount of pros and count the amount of cons Pros Cons Won’t lose all my money (10x) Cost a bit more in most cases (-x)\n-&gt; But the each outcome does not have the same likelihood. Add probabilities\nPros Cons Won’t lose all my money (10x) (probability of losing package is y) Cost a bit more in most cases (x) (probability of paying for insurance is 100%)\nAnd now you have expected value!\nIf 10x(y) &gt; (x) You should buy the insurance!\nGet a graduate degree vs keep working\nPros (of getting degree) Cons Higher earnings potential in the future Lose year(s) of earnings Chance at being a professor Hard work Might get more educated friends, relationships Will make you depressed Will become more educated\nCan you quantify these things on a single metric (money)? If not, why?\nPros (of getting degree) Value Cons Value Higher earnings potential in the future\nLose year(s) of earnings\nChance at being a professor\nHard work\nMight get more educated friends, relationships\nWill make you depressed\nWill become more educated\nAdd probabilities. If you can’t add probabilities, why?\nPros (of getting degree) Value probability Cons Value probability Higher earnings potential in the future\nLose year(s) of earnings\nChance at being a professor\nHard work\nMight get more educated friends, relationships\nWill make you depressed\nWill become more educated\nGo out to a restaurant vs eating in\nPros (of going to restaurant) Cons Higher earnings potential in the future Lose year(s) of earnings Chance at being a professor Hard work Might get more educated friends, relationships Will make you depressed Will become more educated\nCan you quantify these things on a single metric (money)? If not, why?\nPros (of getting degree) Value Cons Value Higher earnings potential in the future\nLose year(s) of earnings\nChance at being a professor\nHard work\nMight get more educated friends, relationships\nWill make you depressed\nWill become more educated\nAdd probabilities. If you can’t add probabilities, why?\nPros (of getting degree) Value probability Cons Value probability Higher earnings potential in the future\nLose year(s) of earnings\nChance at being a professor\nHard work\nMight get more educated friends, relationships\nWill make you depressed\nWill become more educated\nDecision pro-con example\nIn practice, it may not be clear which action will end up being the most valuable. Yet even if you’re unsure, putting some extra thought into its opportunity cost can help you gain an intuition for what actions to prioritize. To do so, figure out which options are available to you, try to determine the overall value of each option, then see how they compare."
-  },
-  {
-    "objectID": "ev-benefits.html#when-is-expected-value-useful",
-    "href": "ev-benefits.html#when-is-expected-value-useful",
-    "title": "Expected Value Benefits",
-    "section": "When is expected value useful?",
-    "text": "When is expected value useful?"
-  },
-  {
-    "objectID": "ev-benefits.html#when-is-expected-value-not-useful",
-    "href": "ev-benefits.html#when-is-expected-value-not-useful",
-    "title": "Expected Value Benefits",
-    "section": "When is expected value not useful?",
-    "text": "When is expected value not useful?\nEA: Not just charity or not, but how much it helps Poker: Not just winning or not, but EV and pot odds considerations\nEV of making rice quantity\nhttps://asteriskmag.com/issues/05/michael-lewis-s-blind-side https://bayesshammai.substack.com/p/what-to-expect-when-youre-expecting\nTrain $5.50 one way or $6 roundtrip, how to decide Basic economy vs. regular economy with probability Insurance like flights or package Chinese auctions https://auction.ytcte.org/auction/about Raffles https://www.chabaduvm.org/raffle"
-  },
-  {
-    "objectID": "ev-benefits.html#startup-vs.-normal-job",
-    "href": "ev-benefits.html#startup-vs.-normal-job",
-    "title": "Expected Value Benefits",
-    "section": "Startup vs. Normal Job",
-    "text": "Startup vs. Normal Job\nAlthough the concept of expected value is useful when thinking about decision making under uncertainty, we have to make a lot of assumptions. Suppose that you could take a normal job with a salary of $200,000 per year. Alternatively, you could build a startup that has the following outcomes:\n\n\n\nEquity Upon Sale in 5 Years\nProbability\n\n\n\n\n\\(\\$0\\)\n\\(0.70\\)\n\n\n\\(\\$1m\\)\n\\(0.20\\)\n\n\n\\(\\$10m\\)\n\\(0.08\\)\n\n\n\\(\\$100m\\)\n\\(0.02\\)\n\n\n\nBuilding the startup has the following EV in millions:\n\\[\n\\begin{equation}\n\\begin{split}\n\\mathbb{E}[\\text{Startup}] &= 0*0.70 + 1*0.20 + 10*0.08 + 100*0.02 \\\\\n  &= 0 + 0.2 + 0.8 + 2 \\\\\n  &= 3\n\\end{split}\n\\end{equation}\n\\]\nWorking the job with the salary has this EV in millions:\n\\[\n\\begin{equation}\n\\begin{split}\n\\mathbb{E}[\\text{Salary}] &= 1*0.2 + 1*0.2 + 1*0.2 + 1*0.2 + 1*0.2 \\\\\n  &= 0 + 0.2 + 0.8 + 2 \\\\\n  &= 3\n\\end{split}\n\\end{equation}\n\\]"
-  },
-  {
-    "objectID": "ev-benefits.html#section-2",
-    "href": "ev-benefits.html#section-2",
-    "title": "Expected Value Benefits",
-    "section": "Section 2",
-    "text": "Section 2\n\nSection 2.1\n\n\nSection 2.2"
-  },
-  {
-    "objectID": "ev-benefits.html#section-3",
-    "href": "ev-benefits.html#section-3",
-    "title": "Expected Value Benefits",
-    "section": "Section 3",
-    "text": "Section 3\n\nSection 3.1\n\n\nSection 3.2\n\n\nSection 3.3"
-  },
-  {
-    "objectID": "ev-benefits.html#section-4",
-    "href": "ev-benefits.html#section-4",
-    "title": "Expected Value Benefits",
+    "objectID": "medicine.html#section-4",
+    "href": "medicine.html#section-4",
+    "title": "Expected Value Example: Medicine",
     "section": "Section 4",
     "text": "Section 4"
   },
@@ -441,23 +371,141 @@
     ]
   },
   {
-    "objectID": "medicine.html#section-2",
-    "href": "medicine.html#section-2",
-    "title": "Expected Value Example: Medicine",
+    "objectID": "ev-benefits.html",
+    "href": "ev-benefits.html",
+    "title": "Expected Value Benefits",
+    "section": "",
+    "text": "https://forum.effectivealtruism.org/topics/expected-value https://probablygood.org/core-concepts/expected-value/\ndrqwing a card from a deck variance EV of skipping train ticket Look into spoiler/hidden text thing and having multiple choice quizzes integrated Use EV page as template including problem set/exercises at end\nhttps://seeing-theory.brown.edu/ Lotto thing Slider for expected value with estimates, current events Blackjack Taylor Swift Trump Expected value of domain Highest EV time to have a kid Site just asking what is the value of the site plane ticket stuff (see ojm list)\nev only part of picture, because if bet is big part of bankroll then not good!\nIssues Risk tolerance: Expected value doesn’t account for individual risk preferences. Two options might have the same expected value, but one could be much riskier. Non-linear utility: The subjective value (utility) of money often doesn’t scale linearly. Gaining $1000 might be more than twice as valuable to someone as gaining $500. Frequency of events: For rare events or one-time decisions, the law of large numbers doesn’t apply, making expected value less reliable. Uncertainty in probabilities: Often, the probabilities used in calculations are estimates, which can lead to inaccurate results if they’re off. Neglect of qualitative factors: Expected value focuses on quantifiable outcomes, potentially overlooking important qualitative considerations. Assumption of independence: Many expected value calculations assume events are independent, which isn’t always true in real-life scenarios. Short-term vs. long-term outcomes: As you mentioned, time value of money isn’t typically factored in, nor are potential long-term consequences. Ethical considerations: Purely quantitative decision-making based on expected value might lead to ethically questionable choices in some situations. Complexity of real-world scenarios: Many situations involve multiple, interrelated variables that are difficult to capture in a simple expected value calculation. Behavioral biases: People often don’t act rationally according to expected value, due to various cognitive biases and emotional factors. Black swan events: Rare, high-impact events that are hard to predict can significantly affect outcomes but are often not accounted for in expected value calculations. Changing circumstances: Expected value calculations assume static conditions, but real-world situations can change rapidly.\nTime Value of Money:\nAs you mentioned, EV calculations typically do not account for the time value of money. Future cash flows need to be discounted to present value to make a proper comparison. Risk and Uncertainty:\nEV does not account for risk preferences or aversion. Two options with the same EV might have different levels of risk, which can significantly affect decision-making. Probability Estimation:\nAccurate probability estimation is crucial for EV calculations. Inaccurate or biased estimates can lead to misleading results. Utility:\nEV assumes linear utility of money, but in reality, the utility of money can be nonlinear. For example, losing $100 might feel worse than gaining $100 feels good. Rare Events:\nEV can be heavily influenced by rare, high-impact events. While these events may have a significant effect on the EV, their actual occurrence might be so infrequent that they should be considered differently. Decision Context:\nEV calculations do not always consider the broader context or other qualitative factors that may influence a decision. Opportunity Cost:\nEV does not inherently account for opportunity costs, which are the benefits you miss out on when choosing one alternative over another. Behavioral Factors:\nHuman behavior often deviates from rational decision-making models. Factors such as emotions, cognitive biases, and social influences can impact decisions beyond what EV can capture. Data Quality:\nThe quality and reliability of the data used to calculate probabilities and outcomes are critical. Poor data can lead to inaccurate EV calculations. Interdependencies:\nEV calculations typically assume independent outcomes, but in reality, events can be interdependent, affecting the overall decision-making process. Long-Term vs. Short-Term:\nEV may not distinguish between long-term and short-term benefits and costs, which can be important depending on the decision context. Scalability:\nEV is additive and may not scale well with large numbers of small probabilities, potentially leading to overestimation of the value of combining many low-probability events.\nPros: Expected value calculations offer several important benefits, which is why they remain a valuable tool in decision-making and analysis. Here are some key advantages:\nQuantitative framework: Provides a structured, numerical approach to comparing different options or scenarios. Objectivity: Helps reduce emotional bias in decision-making by focusing on probabilities and outcomes. Risk assessment: Allows for the incorporation of risk and uncertainty into decision-making processes. Comparative analysis: Facilitates easy comparison between multiple options, even when they have different probabilities and outcomes. Long-term perspective: Encourages thinking about the average outcome over many repetitions, which can be valuable for recurring decisions. Simplification of complex scenarios: Distills complicated situations into more manageable components (probabilities and payoffs). Identification of high-value opportunities: Helps in recognizing options that may have low probability but high potential payoff. Resource allocation: Assists in determining where to best allocate limited resources for maximum expected return. Decision consistency: Provides a consistent method for evaluating different scenarios across an organization or over time. Scenario planning: Useful in modeling various potential futures and their likelihood, aiding in strategic planning. Probabilistic thinking: Encourages consideration of multiple possible outcomes rather than just focusing on the most likely scenario. Foundation for more complex models: Serves as a basis for more sophisticated decision-making tools and risk analysis techniques. Learning tool: Helps in developing a more nuanced understanding of probability and its role in outcomes. Communication aid: Offers a clear way to explain the reasoning behind decisions to stakeholders.\nQuantitative Analysis:\nEV provides a clear, numerical method to evaluate and compare different options based on their potential outcomes and associated probabilities. Objective Decision-Making:\nBy focusing on probabilities and outcomes, EV helps reduce the influence of emotions and biases, leading to more rational and objective decisions. Informed Risk Assessment:\nEV allows decision-makers to quantify and assess the risks associated with different choices, enabling better risk management. Consistency:\nApplying EV consistently across different decisions ensures a systematic approach to evaluating options, promoting consistency in decision-making processes. Simplification:\nEV simplifies complex decisions by reducing them to a single value, making it easier to compare and contrast different scenarios. Strategic Planning:\nEV can be used in strategic planning to evaluate long-term projects and investments, helping organizations prioritize initiatives based on their expected returns. Resource Allocation:\nEV helps in optimal resource allocation by identifying the options with the highest expected returns, ensuring efficient use of resources. Identifying Best Practices:\nBy analyzing the EV of past decisions, organizations can identify best practices and improve future decision-making processes. Clarifying Trade-offs:\nEV highlights the trade-offs between different options, making it easier to understand the potential costs and benefits of each choice. Probability Sensitivity:\nEV calculations can reveal how sensitive a decision is to changes in probabilities, helping identify key factors that impact outcomes. Encourages Data-Driven Decisions:\nEV promotes the use of data and empirical evidence in decision-making, leading to more reliable and accurate evaluations. Facilitates Communication:\nEV provides a common framework for discussing and comparing different options, making it easier to communicate decisions to stakeholders. Supports Optimization:\nEV can be used in optimization problems to find the best possible decision given constraints and objectives. Cost-Benefit Analysis:\nEV is a fundamental component of cost-benefit analysis, helping to evaluate whether the benefits of a decision outweigh the costs. Decision Justification:\nEV offers a logical and transparent basis for justifying decisions, making it easier to explain and defend choices to others. Balancing Short-Term and Long-Term Goals:\nEV can help balance short-term and long-term goals by providing a framework to evaluate the expected value of immediate versus future benefits."
+  },
+  {
+    "objectID": "ev-benefits.html#section-1",
+    "href": "ev-benefits.html#section-1",
+    "title": "Expected Value Benefits",
+    "section": "Section 1",
+    "text": "Section 1\nExpected Value = (Probability of an outcome) × (Value of that outcome) Here’s a simple, real-life example: Imagine a raffle where:\nTickets cost $1 each There’s a 1 in 100 chance of winning The prize is $150\nTo calculate the expected value:\nProbability of winning: 1/100 = 0.01 Value of winning: $150 Expected Value = 0.01 × $150 = $1.50\nThis means that, on average, each ticket is “worth” $1.50. Since the ticket costs $1, and its expected value is $1.50, it’s technically a good deal in the long run. However, remember that this doesn’t guarantee you’ll win - it’s an average over many tries. This simple calculation helps you make decisions by weighing the likelihood of outcomes against their potential value. It’s a basic tool for comparing options with different risks and rewards.\nLottery tickets Roulette Blackjack Extended warranty Flight insurance Degree Solar panel Gas vs. EV car Poker Sports bet Chinese auction Food: Carrots, watermelon, XL vs. L eggs Salad bar Ebike vs. regular Dreidel\nhttps://www.probabilitycourse.com/chapter1/1_4_3_bayes_rule.php https://en.wikipedia.org/wiki/Expected_value https://www.khanacademy.org/math/statistics-probability/random-variables-stats-library/random-variables-discrete/e/expected_value\nbasic algebra, equations, variables A few easy explanations A few exercises A short video A really short video Dice EV, what if you get option for 2nd Expected Value Foundation? Expected value most upvoted answer on “what EAs should know if they know 1 concept”\nExpected value is fundamental in decision-making under uncertainty, a key area of focus for effective altruists. It allows individuals to make choices that maximize their positive impact, even when outcomes are uncertain. This principle is frequently discussed on platforms like the Effective Altruism Forum and in related literature.\nWhile I can’t pinpoint the exact source of the most upvoted answer you mentioned, it’s consistent with the general emphasis within the community on understanding and applying expected value to make better decisions.\nopportunity cost comparative advantage As its name suggests, opportunity cost refers to the cost of choosing one opportunity over others. This “cost” reflects the value you could have gained in all the options you didn’t pursue.\nAccounting for opportunity cost can help us understand the comparative value of our available options and spend our time, money, and effort more effectively. This is particularly important for avoiding spending limited resources on an option that seems attractive at first (because it has positive expected value) but will actually give you much worse value than another available option.\nhttps://www.cold-takes.com/expected-value/#fnref1\nhttps://brilliant.org/wiki/expected-value/\nhttps://80000hours.org/articles/expected-value/\nhttps://jc.gatspress.com/pdf/on_expected_utility.pdf\nhttps://80000hours.org/2023/02/how-much-do-solutions-differ-in-effectiveness/#ways-the-data-might-overstate-the-true-degree-of-spread\nhttps://80000hours.org/2023/03/moderation-in-doing-good/\nhttps://80000hours.org/articles/moral-uncertainty/"
+  },
+  {
+    "objectID": "ev-benefits.html#technical-definition",
+    "href": "ev-benefits.html#technical-definition",
+    "title": "Expected Value Benefits",
+    "section": "Technical Definition",
+    "text": "Technical Definition\nWikipedia: “The expected value of a random variable with a finite number of outcomes is a weighted average of all possible outcomes”.\nMathematically, with a random variable \\(X\\) and a list of possible outcomes \\(x_1, ..., x_k\\) each of which has probability \\(p_1, ..., p_k\\) of occurring, respectively. Then \\(\\mathbb{E}[X] = x_1 p_1 + x_2 p_2 + ... + x_k p_k\\).\nWhat is a random variable? It represents possible outcomes. A random variable is defined by its possible outcomes and the probability of each outcome.\nan agent making an optimal choice in the context of incomplete information is often assumed to maximize the expected value of their utility function.\nhttps://www.cold-takes.com/the-bayesian-mindset/#1-connecting-opinions-to-anticipated-observations\nhttps://forum.effectivealtruism.org/posts/jo7tM4s5ApPgv2DPC/expected-value-theory\nhttps://forum.effectivealtruism.org/topics/expected-value\nhttps://80000hours.org/2023/02/how-much-do-solutions-differ-in-effectiveness/#ways-the-data-might-overstate-the-true-degree-of-spread\nhttps://blog.givewell.org/2011/08/18/why-we-cant-take-expected-value-estimates-literally-even-when-theyre-unbiased/\nhttps://80000hours.org/articles/be-more-ambitious/\nhttps://forum.effectivealtruism.org/posts/FKnhB28EvG4og87JP/1-e-x-is-not-e-1-x\nhttps://blog.givewell.org/2016/07/26/deworming-might-huge-impact-might-close-zero-impact/\nev only part of picture, because if bet is big part of bankroll then not good! ## Section 2 ### Section 2.1 ### Section 2.2\ndrqwing a card from a deck variance EV of skipping train ticket Look into spoiler/hidden text thing and having multiple choice quizzes integrated Use EV page as template including problem set/exercises at end\nhttps://seeing-theory.brown.edu/ Lotto thing Slider for expected value with estimates, current events Blackjack Taylor Swift Trump Expected value of domain Highest EV time to have a kid Site just asking what is the value of the site plane ticket stuff (see ojm list)\nhttps://reducing-suffering.org/does-vegetarianism-make-a-difference/\nhttps://forum.effectivealtruism.org/posts/GjifPPAAGont94Z7F/in-cost-effectiveness-analyses-when-should-we-take-the\nhttps://80000hours.org/podcast/episodes/alan-hajek-probability-expected-value/"
+  },
+  {
+    "objectID": "ev-benefits.html#not-considered",
+    "href": "ev-benefits.html#not-considered",
+    "title": "Expected Value Benefits",
+    "section": "Not Considered",
+    "text": "Not Considered\nTime getting to airport early vs. late\nselling clothes vs. donating\nWhen we make a decision, we want the benefits to outweigh the costs. Some people will use a pro/con chart to help them make their decisions. Pros Cons Won’t lose all my money Cost a bit more in most cases\n-&gt; add values -&gt; effectively becomes similar to a mean or average\nBut what if our pros and cons don’t have the same value? We don’t want to just count the amount of pros and count the amount of cons Pros Cons Won’t lose all my money (10x) Cost a bit more in most cases (-x)\n-&gt; But the each outcome does not have the same likelihood. Add probabilities\nPros Cons Won’t lose all my money (10x) (probability of losing package is y) Cost a bit more in most cases (x) (probability of paying for insurance is 100%)\nAnd now you have expected value!\nIf 10x(y) &gt; (x) You should buy the insurance!\nGet a graduate degree vs keep working\nPros (of getting degree) Cons Higher earnings potential in the future Lose year(s) of earnings Chance at being a professor Hard work Might get more educated friends, relationships Will make you depressed Will become more educated\nCan you quantify these things on a single metric (money)? If not, why?\nPros (of getting degree) Value Cons Value Higher earnings potential in the future\nLose year(s) of earnings\nChance at being a professor\nHard work\nMight get more educated friends, relationships\nWill make you depressed\nWill become more educated\nAdd probabilities. If you can’t add probabilities, why?\nPros (of getting degree) Value probability Cons Value probability Higher earnings potential in the future\nLose year(s) of earnings\nChance at being a professor\nHard work\nMight get more educated friends, relationships\nWill make you depressed\nWill become more educated\nGo out to a restaurant vs eating in\nPros (of going to restaurant) Cons Higher earnings potential in the future Lose year(s) of earnings Chance at being a professor Hard work Might get more educated friends, relationships Will make you depressed Will become more educated\nCan you quantify these things on a single metric (money)? If not, why?\nPros (of getting degree) Value Cons Value Higher earnings potential in the future\nLose year(s) of earnings\nChance at being a professor\nHard work\nMight get more educated friends, relationships\nWill make you depressed\nWill become more educated\nAdd probabilities. If you can’t add probabilities, why?\nPros (of getting degree) Value probability Cons Value probability Higher earnings potential in the future\nLose year(s) of earnings\nChance at being a professor\nHard work\nMight get more educated friends, relationships\nWill make you depressed\nWill become more educated\nDecision pro-con example\nIn practice, it may not be clear which action will end up being the most valuable. Yet even if you’re unsure, putting some extra thought into its opportunity cost can help you gain an intuition for what actions to prioritize. To do so, figure out which options are available to you, try to determine the overall value of each option, then see how they compare."
+  },
+  {
+    "objectID": "ev-benefits.html#when-is-expected-value-useful",
+    "href": "ev-benefits.html#when-is-expected-value-useful",
+    "title": "Expected Value Benefits",
+    "section": "When is expected value useful?",
+    "text": "When is expected value useful?"
+  },
+  {
+    "objectID": "ev-benefits.html#when-is-expected-value-not-useful",
+    "href": "ev-benefits.html#when-is-expected-value-not-useful",
+    "title": "Expected Value Benefits",
+    "section": "When is expected value not useful?",
+    "text": "When is expected value not useful?\nEA: Not just charity or not, but how much it helps Poker: Not just winning or not, but EV and pot odds considerations\nEV of making rice quantity\nhttps://asteriskmag.com/issues/05/michael-lewis-s-blind-side https://bayesshammai.substack.com/p/what-to-expect-when-youre-expecting\nTrain $5.50 one way or $6 roundtrip, how to decide Basic economy vs. regular economy with probability Insurance like flights or package Chinese auctions https://auction.ytcte.org/auction/about Raffles https://www.chabaduvm.org/raffle"
+  },
+  {
+    "objectID": "ev-benefits.html#startup-vs.-normal-job",
+    "href": "ev-benefits.html#startup-vs.-normal-job",
+    "title": "Expected Value Benefits",
+    "section": "Startup vs. Normal Job",
+    "text": "Startup vs. Normal Job\nAlthough the concept of expected value is useful when thinking about decision making under uncertainty, we have to make a lot of assumptions. Suppose that you could take a normal job with a salary of $200,000 per year. Alternatively, you could build a startup that has the following outcomes:\n\n\n\nEquity Upon Sale in 5 Years\nProbability\n\n\n\n\n\\(\\$0\\)\n\\(0.70\\)\n\n\n\\(\\$1m\\)\n\\(0.20\\)\n\n\n\\(\\$10m\\)\n\\(0.08\\)\n\n\n\\(\\$100m\\)\n\\(0.02\\)\n\n\n\nBuilding the startup has the following EV in millions:\n\\[\n\\begin{equation}\n\\begin{split}\n\\mathbb{E}[\\text{Startup}] &= 0*0.70 + 1*0.20 + 10*0.08 + 100*0.02 \\\\\n  &= 0 + 0.2 + 0.8 + 2 \\\\\n  &= 3\n\\end{split}\n\\end{equation}\n\\]\nWorking the job with the salary has this EV in millions:\n\\[\n\\begin{equation}\n\\begin{split}\n\\mathbb{E}[\\text{Salary}] &= 1*0.2 + 1*0.2 + 1*0.2 + 1*0.2 + 1*0.2 \\\\\n  &= 0 + 0.2 + 0.8 + 2 \\\\\n  &= 3\n\\end{split}\n\\end{equation}\n\\]"
+  },
+  {
+    "objectID": "ev-benefits.html#section-2",
+    "href": "ev-benefits.html#section-2",
+    "title": "Expected Value Benefits",
     "section": "Section 2",
     "text": "Section 2\n\nSection 2.1\n\n\nSection 2.2"
   },
   {
-    "objectID": "medicine.html#section-3",
-    "href": "medicine.html#section-3",
-    "title": "Expected Value Example: Medicine",
+    "objectID": "ev-benefits.html#section-3",
+    "href": "ev-benefits.html#section-3",
+    "title": "Expected Value Benefits",
     "section": "Section 3",
     "text": "Section 3\n\nSection 3.1\n\n\nSection 3.2\n\n\nSection 3.3"
   },
   {
-    "objectID": "medicine.html#section-4",
-    "href": "medicine.html#section-4",
-    "title": "Expected Value Example: Medicine",
+    "objectID": "ev-benefits.html#section-4",
+    "href": "ev-benefits.html#section-4",
+    "title": "Expected Value Benefits",
+    "section": "Section 4",
+    "text": "Section 4"
+  },
+  {
+    "objectID": "basicecon.html",
+    "href": "basicecon.html",
+    "title": "EV Example: Basic Economy",
+    "section": "",
+    "text": "Suppose that you are considering booking a flight and as a value-conscious consumer are considering Basic Economy vs. Regular Economy.\nThere are quite a few restrictions with a basic economy ticket as shown in the image below:\nThe tickets generally cost $50 less than a regular economy ticket on the same flight:\nIf you needed a full-sized carry-on (which actually is included if you have certain statuses or a United credit card) or to sit with your family, then there isn’t much to even evaluate, and the regular economy option will be best.\nLet’s look at this specific scenario:\nSo the main consideration is the flight change. A basic economy ticket cannot be changed. It can only be canceled for a $49.50 cancellation fee. The rest of the refund will come back as a United flight credit. (Even with a regular economy ticket, a cancellation will be refunded as flight credit, and we assume that this is as good as a cash refund going forward.)",
+    "crumbs": [
+      "About",
+      "EV: TRAVEL",
+      "Basic Economy"
+    ]
+  },
+  {
+    "objectID": "basicecon.html#ev-basic-vs.-regular-on-united",
+    "href": "basicecon.html#ev-basic-vs.-regular-on-united",
+    "title": "EV Example: Basic Economy",
+    "section": "EV Basic vs. Regular on United",
+    "text": "EV Basic vs. Regular on United\nSuppose that a basic economy ticket is available for \\(\\$x\\) and a regular economy ticket is available for \\(\\$x+50\\).\nSuppose that before the flight, we either decide to change to another flight that costs \\(\\$n\\) or stick with the original flight.\n\nCase 1: Stick with Original Flight\nTotal costs if just getting original flight\n\\(\\mathbb{E}[\\text{Basic Economy}] = \\$x\\)\n\\(\\mathbb{E}[\\text{Regular Economy}] = \\$x + 50\\)\n\n\nCase 2: Change Flight\nTotal costs in the case of changing the flight. Assume the probability of changing the flight is \\(c\\).\n\\(\\mathbb{E}[\\text{Basic Economy}] = \\$n + 49.50\\)\n\\(\\mathbb{E}[\\text{Regular Economy}] = \\$n\\)\n\n\nEVs\n\\(\\mathbb{E}[\\text{Basic Economy}] = (x)(1-c) + (n+49.50)c\\)\n\\(\\mathbb{E}[\\text{Regular Economy}] = (x+50)(1-c) + (n)c\\)\nWhat \\(c\\) makes these equal?\n\\[\n\\begin{equation}\n\\begin{split}\n(1-c)(x) + c(n+49.50) &= (1-c)(x+50) + c(n) \\\\\nx - x*c + c*n + 49.50*c &= x + 50 - c*x -50*c + c*n \\\\\n49.50*c  &= 50 - 50*c \\\\\n99.50*c &= 50 \\\\\nc &= 0.503\n\\end{split}\n\\end{equation}\n\\]\nTherefore when \\(c\\) is lower than \\(0.503\\), you are better off taking Basic Economy, and otherwise better off taking Regular Economy. In other words, if your chance of needing to switch is less than \\(1/2\\), then you are better off in Basic.",
+    "crumbs": [
+      "About",
+      "EV: TRAVEL",
+      "Basic Economy"
+    ]
+  },
+  {
+    "objectID": "basicecon.html#american-airlines",
+    "href": "basicecon.html#american-airlines",
+    "title": "EV Example: Basic Economy",
+    "section": "American Airlines",
+    "text": "American Airlines\nAmerican Airlines has a \\(\\$99\\) fee instead of the \\(\\$49.50\\) fee from United!\nLet’s see how this changes things.\n\\[\n\\begin{equation}\n\\begin{split}\n(1-c)(x) + c(n+99) &= (1-c)(x+50) + c(n) \\\\\nx - x*c + c*n + 99*c &= x + 50 - c*x -50*c + c*n \\\\\n99*c  &= 50 - 50*c \\\\\n149*c &= 50 \\\\\nc &= 0.336\n\\end{split}\n\\end{equation}\n\\]\nNow you only get better value with the Basic Economy ticket when you switch less than \\(0.336\\), or about 1/3 of the time.",
+    "crumbs": [
+      "About",
+      "EV: TRAVEL",
+      "Basic Economy"
+    ]
+  },
+  {
+    "objectID": "basicecon.html#numerical-example",
+    "href": "basicecon.html#numerical-example",
+    "title": "EV Example: Basic Economy",
+    "section": "Numerical Example",
+    "text": "Numerical Example\nSuppose that you the original price of the flight was \\(\\$200\\) in Basic Economy and \\(\\$250\\) in Regular Economy.\nIf you want to change your flight, what happens in each of these scenarios? We’ll see that Basic Economy always ends up costing the Regular Economy price plus an additional \\(\\$49.50\\) for the cancellation fee.\n\nChanged Flight Price Down\nIf the price goes down to \\(\\$100\\), Basic Economy will cost \\(\\$100 + 49.50\\) for the flight change, for a total of \\(\\$149.50\\).\nRegular Economy will just cost the \\(\\$100\\) new price.\n\n\nChanged Flight Same Price\nIf the price stays at \\(\\$150\\), Basic Economy will cost \\(\\$150 + 49.50\\) for the flight change, for a total of \\(\\$199.50\\).\nRegular Economy will just cost the \\(\\$150\\) price.\n\n\nChanged Flight Price Up\nIf the price goes up to \\(\\$300\\), Basic Economy will cost \\(\\$300 + 49.50\\) for the flight change, for a total of \\(\\$349.50\\).\nRegular Economy will just cost the \\(\\$300\\) price.\nLet’s analyze this case a bit more. If at the original purchase time we estimate a \\(25\\%\\) chance of needing to switch, what would be our EV?\n\\[\n\\begin{equation}\n\\begin{split}\n\\mathbb{E}(\\text{Basic Economy}) &= \\text{Price}_{(\\text{Basic})}*P(\\text{Stay}) + \\text{Price}_{(\\text{After\\_Switch})}*P(\\text{Switch}) \\\\\n&= 200*0.75 + 349.50*0.25 \\\\\n&= \\$237.38\n\\end{split}\n\\end{equation}\n\\]\n\\[\n\\begin{equation}\n\\begin{split}\n\\mathbb{E}(\\text{Regular Economy}) &= \\text{Price}_{(\\text{Regular})}*P(\\text{Stay}) + \\text{Price}_{(\\text{After\\_Switch})}*P(\\text{Switch}) \\\\\n&= 250*0.75 + 300*0.25 \\\\\n&= \\$262.50\n\\end{split}\n\\end{equation}\n\\]\nAs we expected, with the probability of switching less than the \\(0.503\\) value that we derived earlier, we expect the Basic Economy option to be better value and indeed it would have saved \\(262.50 - 237.38 = \\$25.12\\) in this case!",
+    "crumbs": [
+      "About",
+      "EV: TRAVEL",
+      "Basic Economy"
+    ]
+  },
+  {
+    "objectID": "poker.html#section-2",
+    "href": "poker.html#section-2",
+    "title": "Expected Value Example: Poker",
+    "section": "Section 2",
+    "text": "Section 2\n\nSection 2.1\n\n\nSection 2.2"
+  },
+  {
+    "objectID": "poker.html#section-3",
+    "href": "poker.html#section-3",
+    "title": "Expected Value Example: Poker",
+    "section": "Section 3",
+    "text": "Section 3\n\nSection 3.1\n\n\nSection 3.2\n\n\nSection 3.3"
+  },
+  {
+    "objectID": "poker.html#section-4",
+    "href": "poker.html#section-4",
+    "title": "Expected Value Example: Poker",
     "section": "Section 4",
     "text": "Section 4"
   },

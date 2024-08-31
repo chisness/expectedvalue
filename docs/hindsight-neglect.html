@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Expected Value Example: Dice – The EV Foundation</title>
+<title>Expected Value Example: Hindsight Neglect – The EV Foundation</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -107,10 +107,10 @@ window.Quarto = {
 };
 </script>
 
-<meta property="og:title" content="Expected Value Example: Dice – The EV Foundation">
+<meta property="og:title" content="Expected Value Example: Hindsight Neglect – The EV Foundation">
 <meta property="og:description" content="">
 <meta property="og:site_name" content="The EV Foundation">
-<meta name="twitter:title" content="Expected Value Example: Dice – The EV Foundation">
+<meta name="twitter:title" content="Expected Value Example: Hindsight Neglect – The EV Foundation">
 <meta name="twitter:description" content="">
 <meta name="twitter:creator" content="@chisness">
 <meta name="twitter:card" content="summary">
@@ -154,7 +154,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./dice.html">EV: GAMBLING</a></li><li class="breadcrumb-item"><a href="./dice.html">Dice</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ev-basics.html">EXPECTED VALUE</a></li><li class="breadcrumb-item"><a href="./hindsight-neglect.html">LLM Hindsight Neglect</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -183,7 +183,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./hindsight-neglect.html" class="sidebar-item-text sidebar-link">
+  <a href="./hindsight-neglect.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">LLM Hindsight Neglect</span></a>
   </div>
 </li>
@@ -217,7 +217,7 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./dice.html" class="sidebar-item-text sidebar-link active">
+  <a href="./dice.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Dice</span></a>
   </div>
 </li>
@@ -337,15 +337,27 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#the-inverse-scaling-prize" id="toc-the-inverse-scaling-prize" class="nav-link active" data-scroll-target="#the-inverse-scaling-prize">The Inverse Scaling Prize</a></li>
+  <li><a href="#hindsight-neglect" id="toc-hindsight-neglect" class="nav-link" data-scroll-target="#hindsight-neglect">Hindsight Neglect</a>
+  <ul class="collapse">
+  <li><a href="#ev-example-1" id="toc-ev-example-1" class="nav-link" data-scroll-target="#ev-example-1">EV Example 1</a></li>
+  <li><a href="#ev-example-2" id="toc-ev-example-2" class="nav-link" data-scroll-target="#ev-example-2">EV Example 2</a></li>
+  <li><a href="#ev-example-3" id="toc-ev-example-3" class="nav-link" data-scroll-target="#ev-example-3">EV Example 3</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./dice.html">EV: GAMBLING</a></li><li class="breadcrumb-item"><a href="./dice.html">Dice</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ev-basics.html">EXPECTED VALUE</a></li><li class="breadcrumb-item"><a href="./hindsight-neglect.html">LLM Hindsight Neglect</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Expected Value Example: Dice</h1>
+<h1 class="title">Expected Value Example: Hindsight Neglect</h1>
 </div>
 
 
@@ -362,27 +374,42 @@ window.Quarto = {
 </header>
 
 
-<p>A roll of the dice is the typical first EV example.</p>
-<p>What is the expected value of a single 6 sided die?</p>
-<p>The probability of rolling each side is the same, <span class="math inline">\(1/6\)</span>.</p>
-<p>The value of each side is given by its number.</p>
-<p>Therefore we can write an equation to calculate the expected value:</p>
-<p><span class="math display">\[
-\begin{equation}
-\begin{split}
-\mathbb{E}[\text{Die Roll}] &amp;= 1*\frac{1}{6} + 2*\frac{1}{6} + 3*\frac{1}{6} + (4)*\frac{1}{6} + (5)*\frac{1}{6} + (6)*\frac{1}{6} \\
-  % &amp;= \frac{1}{6} + \frac{2}{6} + *\frac{3}{6} + \frac{4}{6} + \frac{5}{6} + \frac{6}{6} \\
-  &amp;= \frac{21}{6} \\
-  % &amp;= \frac{7}{2} \\
-  &amp;= 3.5
-\end{split}
-\end{equation}
-\]</span></p>
-<iframe src="die-roll-simulator.html" width="100%" height="600px">
-</iframe>
+<p><a href="https://arxiv.org/abs/2306.09479">Inverse Scaling: When Bigger Isn’t Better</a> was published in May 2024 by a variety of authors, mostly from NYU. Here is an abbreviated abstract:</p>
+<blockquote class="blockquote">
+<p>Work on scaling laws has found that large language models (LMs) show predictable improvements to overall loss with increased scale (model size, training data, and compute). Here, we present evidence for the claim that LMs may show inverse scaling, or worse task performance with increased scale, e.g., due to flaws in the training objective and data. We present empirical evidence of inverse scaling on 11 datasets collected by running a public contest, the Inverse Scaling Prize, with a substantial prize pool. Through analysis of the datasets, along with other examples found in the literature, we identify four potential causes of inverse scaling: (i) preference to repeat memorized sequences over following in-context instructions, (ii) imitation of undesirable patterns in the training data, (iii) tasks containing an easy distractor task which LMs could focus on, rather than the harder real task, and (iv) correct but misleading few-shot demonstrations of the task.</p>
+</blockquote>
+<section id="the-inverse-scaling-prize" class="level2">
+<h2 class="anchored" data-anchor-id="the-inverse-scaling-prize">The Inverse Scaling Prize</h2>
+<p>The Inverse Scaling Prize was a contest to “investigate the extent of inverse scaling in LMs and to find robust inverse scaling examples”.</p>
+<p>For example, folks from the esteemed <a href="https://cavendishlabs.org/">Cavendish Labs</a> submitted <strong>Resisting Correction</strong>.</p>
+<p><img src="assets/hindsight/resisting.png" class="img-fluid"></p>
+<p>They showed that larger LLMs are more likely to fail at the task because they tend to have stronger priors about likely sequences and sometimes can’t override them even when instructed to do so.</p>
+</section>
+<section id="hindsight-neglect" class="level2">
+<h2 class="anchored" data-anchor-id="hindsight-neglect">Hindsight Neglect</h2>
+<p>Hindsight Neglect was submitted by “The Floating Droid” (anonymous).</p>
+<p><img src="assets/hindsight/hindsight.png" class="img-fluid"></p>
+<p>The idea is that the LLM should respond with “yes” or “no”, depending on if the original bet was +EV, regardless of the actual outcome.</p>
+<section id="ev-example-1" class="level3">
+<h3 class="anchored" data-anchor-id="ev-example-1">EV Example 1</h3>
+<p><span class="math inline">\(\mathbb{E} = -900*0.91 + 5*0.09 = -\$818.55\)</span></p>
+</section>
+<section id="ev-example-2" class="level3">
+<h3 class="anchored" data-anchor-id="ev-example-2">EV Example 2</h3>
+<p><span class="math inline">\(\mathbb{E} = -5*0.30 + 250*0.70 = \$173.50\)</span></p>
+</section>
+<section id="ev-example-3" class="level3">
+<h3 class="anchored" data-anchor-id="ev-example-3">EV Example 3</h3>
+<p><span class="math inline">\(\mathbb{E} = -50*0.94 + 5*0.06 = -\$46.70\)</span></p>
+<p>The results before the final example always show the more likely case happening. That is, if the bet is +EV, then it’s shown as winning. If the bet is -EV, then it’s shown as losing.</p>
+<p>Then in the final example, a very -EV bet turns out positive.</p>
+<p><img src="assets/hindsight/hindsight_chart.jpg" class="img-fluid"></p>
+<p>We see that most models perform quite poorly and show inverse scaling behavior.</p>
 
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

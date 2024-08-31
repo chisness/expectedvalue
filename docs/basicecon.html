@@ -181,6 +181,12 @@ window.Quarto = {
  <span class="menu-text">What is EV?</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./hindsight-neglect.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">LLM Hindsight Neglect</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -341,8 +347,8 @@ window.Quarto = {
   <li><a href="#case-1-stick-with-original-flight" id="toc-case-1-stick-with-original-flight" class="nav-link" data-scroll-target="#case-1-stick-with-original-flight">Case 1: Stick with Original Flight</a></li>
   <li><a href="#case-2-change-flight" id="toc-case-2-change-flight" class="nav-link" data-scroll-target="#case-2-change-flight">Case 2: Change Flight</a></li>
   <li><a href="#evs" id="toc-evs" class="nav-link" data-scroll-target="#evs">EVs</a></li>
-  <li><a href="#american-airlines" id="toc-american-airlines" class="nav-link" data-scroll-target="#american-airlines">American Airlines</a></li>
   </ul></li>
+  <li><a href="#american-airlines" id="toc-american-airlines" class="nav-link" data-scroll-target="#american-airlines">American Airlines</a></li>
   <li><a href="#numerical-example" id="toc-numerical-example" class="nav-link" data-scroll-target="#numerical-example">Numerical Example</a>
   <ul class="collapse">
   <li><a href="#changed-flight-price-down" id="toc-changed-flight-price-down" class="nav-link" data-scroll-target="#changed-flight-price-down">Changed Flight Price Down</a></li>
@@ -376,9 +382,9 @@ window.Quarto = {
 
 <p>Suppose that you are considering booking a flight and as a value-conscious consumer are considering <strong>Basic Economy</strong> vs.&nbsp;<strong>Regular Economy</strong>.</p>
 <p>There are quite a few restrictions with a basic economy ticket as shown in the image below:</p>
-<p><img src="assets/basicecon/united_restrictions.png" class="img-fluid"></p>
+<p><img src="assets/basicecon/united_restrictions.png" class="img-fluid" style="width:50.0%"></p>
 <p>The tickets generally cost $50 less than a regular economy ticket on the same flight:</p>
-<p><img src="assets/basicecon/united_prices.png" class="img-fluid"></p>
+<p><img src="assets/basicecon/united_prices.png" class="img-fluid" style="width:50.0%"></p>
 <p>If you needed a full-sized carry-on (which actually is included if you have certain statuses or a United credit card) or to sit with your family, then there isn’t much to even evaluate, and the regular economy option will be best.</p>
 <p>Let’s look at this specific scenario:</p>
 <ul>
@@ -386,7 +392,7 @@ window.Quarto = {
 <li>Indifferent to seat (you can still pay for a seat or hope to get lucky)</li>
 <li>Has status to bring full-sized carry-on</li>
 </ul>
-<p>So the main consideration is the <strong>flight change</strong>. A basic economy ticket cannot be changed. It can only be canceled for a $49.50 cancellation fee. The rest of the refund will come back as a United flight credit. (Even with a regular economy ticket, a cancellation will be refunded as flight credit.)</p>
+<p>So the main consideration is the <strong>flight change</strong>. A basic economy ticket cannot be changed. It can only be canceled for a $49.50 cancellation fee. The rest of the refund will come back as a United flight credit. (Even with a regular economy ticket, a cancellation will be refunded as flight credit, and we assume that this is as good as a cash refund going forward.)</p>
 <section id="ev-basic-vs.-regular-on-united" class="level2">
 <h2 class="anchored" data-anchor-id="ev-basic-vs.-regular-on-united">EV Basic vs.&nbsp;Regular on United</h2>
 <p>Suppose that a basic economy ticket is available for <span class="math inline">\(\$x\)</span> and a regular economy ticket is available for <span class="math inline">\(\$x+50\)</span>.</p>
@@ -399,14 +405,14 @@ window.Quarto = {
 </section>
 <section id="case-2-change-flight" class="level3">
 <h3 class="anchored" data-anchor-id="case-2-change-flight">Case 2: Change Flight</h3>
-<p>Total costs in the case of changing the flight where the probability of changing the flight is <span class="math inline">\(c\)</span>.</p>
+<p>Total costs in the case of changing the flight. Assume the probability of changing the flight is <span class="math inline">\(c\)</span>.</p>
 <p><span class="math inline">\(\mathbb{E}[\text{Basic Economy}] = \$n + 49.50\)</span></p>
 <p><span class="math inline">\(\mathbb{E}[\text{Regular Economy}] = \$n\)</span></p>
 </section>
 <section id="evs" class="level3">
 <h3 class="anchored" data-anchor-id="evs">EVs</h3>
-<p><span class="math inline">\(\mathbb{E}[\text{Basic Economy}] = (1-c)(x) + c(n+49.50)\)</span></p>
-<p><span class="math inline">\(\mathbb{E}[\text{Regular Economy}] = (1-c)(x+50) + c(n)\)</span></p>
+<p><span class="math inline">\(\mathbb{E}[\text{Basic Economy}] = (x)(1-c) + (n+49.50)c\)</span></p>
+<p><span class="math inline">\(\mathbb{E}[\text{Regular Economy}] = (x+50)(1-c) + (n)c\)</span></p>
 <p>What <span class="math inline">\(c\)</span> makes these equal?</p>
 <p><span class="math display">\[
 \begin{equation}
@@ -421,8 +427,9 @@ c &amp;= 0.503
 \]</span></p>
 <p>Therefore when <span class="math inline">\(c\)</span> is lower than <span class="math inline">\(0.503\)</span>, you are better off taking Basic Economy, and otherwise better off taking Regular Economy. In other words, if your chance of needing to switch is less than <span class="math inline">\(1/2\)</span>, then you are better off in Basic.</p>
 </section>
-<section id="american-airlines" class="level3">
-<h3 class="anchored" data-anchor-id="american-airlines">American Airlines</h3>
+</section>
+<section id="american-airlines" class="level2">
+<h2 class="anchored" data-anchor-id="american-airlines">American Airlines</h2>
 <p>American Airlines has a <span class="math inline">\(\$99\)</span> fee instead of the <span class="math inline">\(\$49.50\)</span> fee from United!</p>
 <p>Let’s see how this changes things.</p>
 <p><span class="math display">\[
@@ -437,7 +444,6 @@ c &amp;= 0.336
 \end{equation}
 \]</span></p>
 <p>Now you only get better value with the Basic Economy ticket when you switch less than <span class="math inline">\(0.336\)</span>, or about 1/3 of the time.</p>
-</section>
 </section>
 <section id="numerical-example" class="level2">
 <h2 class="anchored" data-anchor-id="numerical-example">Numerical Example</h2>
@@ -458,7 +464,6 @@ c &amp;= 0.336
 <p>If the price goes up to <span class="math inline">\(\$300\)</span>, Basic Economy will cost <span class="math inline">\(\$300 + 49.50\)</span> for the flight change, for a total of <span class="math inline">\(\$349.50\)</span>.</p>
 <p>Regular Economy will just cost the <span class="math inline">\(\$300\)</span> price.</p>
 <p>Let’s analyze this case a bit more. If at the original purchase time we estimate a <span class="math inline">\(25\%\)</span> chance of needing to switch, what would be our EV?</p>
-<p>Basic Economy EV:</p>
 <p><span class="math display">\[
 \begin{equation}
 \begin{split}
@@ -468,7 +473,6 @@ c &amp;= 0.336
 \end{split}
 \end{equation}
 \]</span></p>
-<p>Regular Economy EV:</p>
 <p><span class="math display">\[
 \begin{equation}
 \begin{split}
