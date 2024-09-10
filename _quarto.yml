@@ -6,7 +6,7 @@ website:
   title: "The EV Foundation"
   open-graph: true
   google-analytics: G-P015KRTLYQ
-  favicon: assets/favicon.png
+  favicon: assets/favicon.svg
   twitter-card:
     creator: "@chisness"
   navbar: 

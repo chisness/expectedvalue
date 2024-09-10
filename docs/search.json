@@ -232,7 +232,7 @@
   {
     "objectID": "hindsight-neglect.html",
     "href": "hindsight-neglect.html",
-    "title": "Expected Value Example: Hindsight Neglect",
+    "title": "Expected Value Example: LLM Hindsight Neglect",
     "section": "",
     "text": "Inverse Scaling: When Bigger Isn’t Better was published in May 2024 by a variety of authors, mostly from NYU. Here is an abbreviated abstract:",
     "crumbs": [
@@ -244,7 +244,7 @@
   {
     "objectID": "hindsight-neglect.html#the-inverse-scaling-prize",
     "href": "hindsight-neglect.html#the-inverse-scaling-prize",
-    "title": "Expected Value Example: Hindsight Neglect",
+    "title": "Expected Value Example: LLM Hindsight Neglect",
     "section": "The Inverse Scaling Prize",
     "text": "The Inverse Scaling Prize\nThe Inverse Scaling Prize was a contest to “investigate the extent of inverse scaling in LMs and to find robust inverse scaling examples”.\nFor example, folks from the esteemed Cavendish Labs submitted Resisting Correction.\n\nThey showed that larger LLMs are more likely to fail at the task because they tend to have stronger priors about likely sequences and sometimes can’t override them even when instructed to do so.",
     "crumbs": [
@@ -256,9 +256,9 @@
   {
     "objectID": "hindsight-neglect.html#hindsight-neglect",
     "href": "hindsight-neglect.html#hindsight-neglect",
-    "title": "Expected Value Example: Hindsight Neglect",
+    "title": "Expected Value Example: LLM Hindsight Neglect",
     "section": "Hindsight Neglect",
-    "text": "Hindsight Neglect\nHindsight Neglect was submitted by “The Floating Droid” (anonymous).\n\nThe idea is that the LLM should respond with “yes” or “no”, depending on if the original bet was +EV, regardless of the actual outcome.\n\nEV Example 1\n\\(\\mathbb{E} = -900*0.91 + 5*0.09 = -\\$818.55\\)\n\n\nEV Example 2\n\\(\\mathbb{E} = -5*0.30 + 250*0.70 = \\$173.50\\)\n\n\nEV Example 3\n\\(\\mathbb{E} = -50*0.94 + 5*0.06 = -\\$46.70\\)\nThe results before the final example always show the more likely case happening. That is, if the bet is +EV, then it’s shown as winning. If the bet is -EV, then it’s shown as losing.\nThen in the final example, a very -EV bet turns out positive and the LLMs generally get confused.\nWe see that most models perform quite poorly and show inverse scaling behavior.",
+    "text": "Hindsight Neglect\nHindsight Neglect was submitted by “The Floating Droid” (anonymous).\n\nThe idea is that the LLM should respond with “yes” or “no”, depending on if the original bet was +EV, regardless of the actual outcome.\n\nEV Example 1\n\\(\\mathbb{E} = -900*0.91 + 5*0.09 = -\\$818.55\\)\nExpectation negative, negative result shown\n\n\nEV Example 2\n\\(\\mathbb{E} = -5*0.30 + 250*0.70 = \\$173.50\\)\nExpectation positive, positive result shown\n\n\nEV Example 3\n\\(\\mathbb{E} = -50*0.94 + 5*0.06 = -\\$46.70\\)\nExpectation negative, positive result shown\nThe results before the final example always show the more likely case happening. That is, if the bet is +EV, then it’s shown as winning. If the bet is -EV, then it’s shown as losing.\nThen in the final example, a very -EV bet turns out positive and the LLMs generally get confused.\nWe see that most models perform quite poorly and show inverse scaling behavior.",
     "crumbs": [
       "About",
       "EXPECTED VALUE",

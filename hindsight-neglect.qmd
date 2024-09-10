@@ -1,5 +1,5 @@
 ---
-title: "Expected Value Example: Hindsight Neglect"
+title: "Expected Value Example: LLM Hindsight Neglect"
 format:
   html:
     math: true
@@ -28,11 +28,17 @@ The idea is that the LLM should respond with "yes" or "no", depending on if the 
 ### EV Example 1
 $\mathbb{E} = -900*0.91 + 5*0.09 = -\$818.55$ 
 
+*Expectation negative, negative result shown*
+
 ### EV Example 2
 $\mathbb{E} = -5*0.30 + 250*0.70 = \$173.50$
 
+*Expectation positive, positive result shown*
+
 ### EV Example 3
 $\mathbb{E} = -50*0.94 + 5*0.06 = -\$46.70$
+
+*Expectation negative, positive result shown*
 
 The results before the final example always show the more likely case happening. That is, if the bet is +EV, then it's shown as winning. If the bet is -EV, then it's shown as losing. 
 

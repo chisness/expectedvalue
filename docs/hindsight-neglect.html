@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Expected Value Example: Hindsight Neglect – The EV Foundation</title>
+<title>Expected Value Example: LLM Hindsight Neglect – The EV Foundation</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,7 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./assets/favicon.png" rel="icon" type="image/png">
+<link href="./assets/favicon.svg" rel="icon" type="image/svg+xml">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -107,10 +107,10 @@ window.Quarto = {
 };
 </script>
 
-<meta property="og:title" content="Expected Value Example: Hindsight Neglect – The EV Foundation">
+<meta property="og:title" content="Expected Value Example: LLM Hindsight Neglect – The EV Foundation">
 <meta property="og:description" content="">
 <meta property="og:site_name" content="The EV Foundation">
-<meta name="twitter:title" content="Expected Value Example: Hindsight Neglect – The EV Foundation">
+<meta name="twitter:title" content="Expected Value Example: LLM Hindsight Neglect – The EV Foundation">
 <meta name="twitter:description" content="">
 <meta name="twitter:creator" content="@chisness">
 <meta name="twitter:card" content="summary">
@@ -357,7 +357,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ev-basics.html">EXPECTED VALUE</a></li><li class="breadcrumb-item"><a href="./hindsight-neglect.html">LLM Hindsight Neglect</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Expected Value Example: Hindsight Neglect</h1>
+<h1 class="title">Expected Value Example: LLM Hindsight Neglect</h1>
 </div>
 
 
@@ -393,14 +393,17 @@ window.Quarto = {
 <section id="ev-example-1" class="level3">
 <h3 class="anchored" data-anchor-id="ev-example-1">EV Example 1</h3>
 <p><span class="math inline">\(\mathbb{E} = -900*0.91 + 5*0.09 = -\$818.55\)</span></p>
+<p><em>Expectation negative, negative result shown</em></p>
 </section>
 <section id="ev-example-2" class="level3">
 <h3 class="anchored" data-anchor-id="ev-example-2">EV Example 2</h3>
 <p><span class="math inline">\(\mathbb{E} = -5*0.30 + 250*0.70 = \$173.50\)</span></p>
+<p><em>Expectation positive, positive result shown</em></p>
 </section>
 <section id="ev-example-3" class="level3">
 <h3 class="anchored" data-anchor-id="ev-example-3">EV Example 3</h3>
 <p><span class="math inline">\(\mathbb{E} = -50*0.94 + 5*0.06 = -\$46.70\)</span></p>
+<p><em>Expectation negative, positive result shown</em></p>
 <p>The results before the final example always show the more likely case happening. That is, if the bet is +EV, then it’s shown as winning. If the bet is -EV, then it’s shown as losing.</p>
 <p>Then in the final example, a very -EV bet turns out positive and the LLMs generally get confused.</p>
 <p>We see that most models perform quite poorly and show inverse scaling behavior.</p>
