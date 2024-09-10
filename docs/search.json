@@ -7,7 +7,7 @@
     "text": "We are going to illustrate value iteration and policy iteration with the Gambler’s Problem from the Reinforcement Learning book by Sutton and Barto (Section 4.4, Example 4.2). These are dynamic programming algorithms, which are algorithms that can be used to compute optimal policies given a perfect model of the environment as a Markov decision process (MDP).\nThe gambling event is to bet an amount on coin outcomes where heads is a winning wager and tails is losing. We take the probability of heads being selected as a parameter and the gambler’s goal is to get to a score of 100. Getting to 0 is a loss. The gambler can have current states from 1, 2, …, 99 (i.e., the amount of money he has).\nBets can be made up to the amount of money that the gambler has, but not an amount that would bring the total to over 100 in the event of a winning bet.\nFor example, if the gambler has 60, the maximum bet is 40 because anything over 40 would result in a score of over 100 with a win.\nSo we have betting options of 0, 1, …, min(s, 100-s), where the state s is from 1 to 99.\nThe reward is given as +1 for reaching 100 and otherwise 0.\nWe will use value iteration and policy iteration to find the optimal policy and game value at each state. The results are shown below and the next sections explain how the algorithms work.\n p_h = 0.4 Here we see the final policy (how much to bet) on the y-axis and the current capital state on the x-axis. Above each policy is the value of being in that state (which is a bit hard to see). We see that this has this strange looking format with a few pyramid shapes and larger “all-in” spikes at 25, 50, and 75. Betting large when the odds are against us makes sense in order to play with maximum variance – if we instead bet small, then we would see much lower variance and therefore a lower chance of reaching 100. (Imagine we are at state 50 – if we bet all 50, we have a 0.4 chance of winning. If we bet 1, we would need to win 50 times in a row, which is 0.4^50 ~= 0.)\n p_h = 0.4 This is a graph of the final value of being in each state\n p_h = 0.25  Here we see the same format as when p_h = 0.4, but the value of being at each state is lower because the probability of winning the bet is lower.\n p_h = 0.55 Once p_h goes above 0.5, the final policy turns into simply betting 1 at every state (we do not use discounting). This is because the odds are now actually in our favor, so we prefer to keep variance as low as possible.",
     "crumbs": [
       "About",
-      "EV: GAMBLING",
+      "GAMBLING",
       "Gambler Problem"
     ]
   },
@@ -19,7 +19,7 @@
     "text": "We are going to illustrate value iteration and policy iteration with the Gambler’s Problem from the Reinforcement Learning book by Sutton and Barto (Section 4.4, Example 4.2). These are dynamic programming algorithms, which are algorithms that can be used to compute optimal policies given a perfect model of the environment as a Markov decision process (MDP).\nThe gambling event is to bet an amount on coin outcomes where heads is a winning wager and tails is losing. We take the probability of heads being selected as a parameter and the gambler’s goal is to get to a score of 100. Getting to 0 is a loss. The gambler can have current states from 1, 2, …, 99 (i.e., the amount of money he has).\nBets can be made up to the amount of money that the gambler has, but not an amount that would bring the total to over 100 in the event of a winning bet.\nFor example, if the gambler has 60, the maximum bet is 40 because anything over 40 would result in a score of over 100 with a win.\nSo we have betting options of 0, 1, …, min(s, 100-s), where the state s is from 1 to 99.\nThe reward is given as +1 for reaching 100 and otherwise 0.\nWe will use value iteration and policy iteration to find the optimal policy and game value at each state. The results are shown below and the next sections explain how the algorithms work.\n p_h = 0.4 Here we see the final policy (how much to bet) on the y-axis and the current capital state on the x-axis. Above each policy is the value of being in that state (which is a bit hard to see). We see that this has this strange looking format with a few pyramid shapes and larger “all-in” spikes at 25, 50, and 75. Betting large when the odds are against us makes sense in order to play with maximum variance – if we instead bet small, then we would see much lower variance and therefore a lower chance of reaching 100. (Imagine we are at state 50 – if we bet all 50, we have a 0.4 chance of winning. If we bet 1, we would need to win 50 times in a row, which is 0.4^50 ~= 0.)\n p_h = 0.4 This is a graph of the final value of being in each state\n p_h = 0.25  Here we see the same format as when p_h = 0.4, but the value of being at each state is lower because the probability of winning the bet is lower.\n p_h = 0.55 Once p_h goes above 0.5, the final policy turns into simply betting 1 at every state (we do not use discounting). This is because the odds are now actually in our favor, so we prefer to keep variance as low as possible.",
     "crumbs": [
       "About",
-      "EV: GAMBLING",
+      "GAMBLING",
       "Gambler Problem"
     ]
   },
@@ -31,7 +31,7 @@
     "text": "Policy Iteration\n From Reinforcement Learning by Sutton and Barton\n\nWe initialize a state value V(s) and policy pi(s) for each state as zeros. Policy iteration iterates over each state to compare the previous state value to an updated state value by using the Bellman equation with the updated policy for that state. At the end of each iteration, we evaluate the maximum state-value difference and call policy improvement once this difference is lower than some epsilon.\nAfter each policy evaluation iteration, policy improvement is called to iterate through every action at each state to find the best possible action and to update the policy with that action. If at least 1 change has been made to the policy, then policy evaluation is called and the cycle continues. If policy improvement iterates through all states and no change are made to the policy, then the policy is stable and the state values and policy are returned.",
     "crumbs": [
       "About",
-      "EV: GAMBLING",
+      "GAMBLING",
       "Gambler Problem"
     ]
   },
@@ -43,7 +43,7 @@
     "text": "Value Iteration\n From Reinforcement Learning by Sutton and Barton\n\nWe initialize a state value V(s) and policy pi(s) for each state as zeros. Then we iterate through each state from 1 to 99. In each iteration, we initially set v as the current value of that state, determine the range of possible actions, and set val_action as an array of zeros for each possible action.\nThen we loop through each possible action and evaluate its value using the Bellman equation. The equation looks like this in the Gambler Problem (s is the state, a is the action, v is the array of state values):\nValue(s, a, v) = p_heads * (rewards[state + action] + GAMMA * val_state[state + action]) + (1 - p_heads) * (rewards[state - action] + GAMMA * val_state[state - action])\nThe Bellman equation effectively calculates the value of an action at a state by computing the expected value of the immediate return from the action and (in the case of 1-step lookahead) the currently known value of the resulting state. GAMMA is the fixed discount factor.\nAfter iterating through every action, we set the value of the state as the maximum of all of the action values.\nThis value iteration over every state keeps running until the maximum change of the state value over all states is less than a preset epsilon. To do this, we initialize a delta value as 0 and update the delta after each state iteration to be the maximum of the previous delta or the absolute value of the change in that state value.\nOnce we finish an iteration of all state values and delta is less than the defined epsilon value, we say that the state values have converged\nThe final step is to find the optimal policy given these state values. This is a single for-loop over every state from 1 to 99 in which we calculate the action value with the Bellman equation for each action for each state and then set the best action as the action that results in the highest value. We set this as the policy for that state.",
     "crumbs": [
       "About",
-      "EV: GAMBLING",
+      "GAMBLING",
       "Gambler Problem"
     ]
   },
@@ -55,7 +55,7 @@
     "text": "Value and Policy Iteration Differences\nWe see that the policy improvement and value iteration functions both improve the agent policy by finding the highest value action at each state. Value iteration directly updates the value of the state, while policy improvement update the policy directly with the best action. In policy evaluation, this best action is used to get the state value update. In value iteration, the policy is not updated until the final loop through every state.",
     "crumbs": [
       "About",
-      "EV: GAMBLING",
+      "GAMBLING",
       "Gambler Problem"
     ]
   },
@@ -67,7 +67,7 @@
     "text": "Code for Gambler Graphs",
     "crumbs": [
       "About",
-      "EV: GAMBLING",
+      "GAMBLING",
       "Gambler Problem"
     ]
   },
@@ -93,7 +93,7 @@
     "text": "Sorry, this is about value and not expected value. There’s an assumption that at a pizza restaurant ordering by the full pizza is a better deal than ordering by the slice and also that ordering larger pizzas is a better deal than ordering smaller ones.\nLast week I ate my first San Francisco pizza at Gioia’s. I of course got a margherita pizza (I don’t eat meat on pizza and don’t like vegetables on pizza cause then they remind me of omelettes (I also don’t like vegetables in omelettes)).\nThe menu was like this:\n\n\n\nPizza Type\nPrice\nNotes\n\n\n\n\n14” Pizza\n$24\n6 slices per pizza\n\n\n18” Pizza\n$34\n8 slices per pizza\n\n\n18” Pizza Slice\n$4.50\nSlice from 18”",
     "crumbs": [
       "About",
-      "NON-EV EXAMPLES",
+      "FOOD",
       "Pizza"
     ]
   },
@@ -105,7 +105,7 @@
     "text": "Sorry, this is about value and not expected value. There’s an assumption that at a pizza restaurant ordering by the full pizza is a better deal than ordering by the slice and also that ordering larger pizzas is a better deal than ordering smaller ones.\nLast week I ate my first San Francisco pizza at Gioia’s. I of course got a margherita pizza (I don’t eat meat on pizza and don’t like vegetables on pizza cause then they remind me of omelettes (I also don’t like vegetables in omelettes)).\nThe menu was like this:\n\n\n\nPizza Type\nPrice\nNotes\n\n\n\n\n14” Pizza\n$24\n6 slices per pizza\n\n\n18” Pizza\n$34\n8 slices per pizza\n\n\n18” Pizza Slice\n$4.50\nSlice from 18”",
     "crumbs": [
       "About",
-      "NON-EV EXAMPLES",
+      "FOOD",
       "Pizza"
     ]
   },
@@ -117,7 +117,7 @@
     "text": "General Pizza and Circle Computatations\nPizzas are approximately circular. The equation to calculate the area of a circle is below. Note that pizzas are shown with their diameter, but the equation uses radius, so we have to divide the diameters in 2 before using them.\n\\[\n\\text{Area} = \\pi * r^2\n\\]",
     "crumbs": [
       "About",
-      "NON-EV EXAMPLES",
+      "FOOD",
       "Pizza"
     ]
   },
@@ -129,7 +129,7 @@
     "text": "Area of Pizzas\nLet’s get the area of each pizza so they are directly comparable.\n\\[\n\\text{14\" Pizza Area} = \\pi * 7^2 = 153.94 \\text{ in.}^2\n\\]\n\\[\n\\text{18\" Pizza Area} = \\pi * 9^2 = 254.47 \\text{ in.}^2\n\\]\nThere are 8 slices in the 18” pizza, so we can compute the area per slice: \\[\n\\text{18\" Pizza Slice Area} = 254.47/8 = 31.81 \\text{ in.}^2\n\\]\nLet’s review:\n\n\n\nPizza Type\nPrice\nSquare Inches\nNotes\n\n\n\n\n14” Pizza\n$24\n153.94\n6 slices per pizza\n\n\n18” Pizza\n$34\n254.47\n8 slices per pizza\n\n\n18” Slice\n$4.50\n31.81\nSlice from 18”",
     "crumbs": [
       "About",
-      "NON-EV EXAMPLES",
+      "FOOD",
       "Pizza"
     ]
   },
@@ -141,7 +141,7 @@
     "text": "Price per Area of Pizzas\nNow let’s run the numbers on the square inches per dollar.\n\\[\n\\text{14\" Pizza Sq In. per Dollar} = 153.94/\\$24 = 6.41\n\\]\n\\[\n\\text{18\" Pizza Sq In. per Dollar} = 254.47/\\$34 = 7.48\n\\]\n\\[\n\\text{18\" Slice Sq In. per Dollar} = 31.81/\\$4.50 = 7.07\n\\]\n\n\n\n\n\n\n\n\n\n\nPizza Type\nPrice\nSquare Inches\nSquare Inch per Dollar\nNotes\n\n\n\n\n14” Pizza\n$24\n153.94\n6.41\n6 slices per pizza\n\n\n18” Pizza\n$34\n254.47\n7.48\n8 slices per pizza\n\n\n18” Slice\n$4.50\n31.81\n7.07\nSlice from 18”",
     "crumbs": [
       "About",
-      "NON-EV EXAMPLES",
+      "FOOD",
       "Pizza"
     ]
   },
@@ -153,7 +153,7 @@
     "text": "Direct Comparisons\nFrom the above chart we see that the 18” pizza for $34 is the best deal because it has a value of 7.48 sq in. per dollar.\nSo if you want 8 large slices, that’s the way to go.\nThe 14” pizza is the most expensive option at $24 for the pizza, getting only 6.41 sq in. per dollar.\nTherefore if you want less than 8 large slices, it’s probably best to just order by the slice at 7.07 sq in. per dollar.\nHow many slices from the 18” pizza would it take to match the size of the 14”? The 14” is 153.94 sq in. and the 18” slices are 31.81 sq in.\n\\[\n\\text{How many slices?} = 153.94/31.81 = 4.84 \\text{ in.}^2\n\\]\nHow much would it cost for 4.84 slices?\n\\[\n\\text{Cost of 4.84 slices} = \\$4.50*4.84 = \\$21.78\n\\]\nThis means we can get the same amount of pizza for $21.78, except we can’t actually order 4.84 slices. So how about 5?\n\\[\n\\text{Cost of 5 slices} = \\$4.50*5 = \\$22.00\n\\]\nThe small pizza is a terrible deal! You can get 5 slices from the 18” pizza, which is slightly more pizza area (\\(31.81*5-153.94 = 5.11\\) bonus sq in.) and is $2 cheaper!\nAnd finally, if you spent the $24 you would have on the small pizza on slices, how many could you get?\n\\[\n\\text{Slices for \\$24?} = \\$24/\\$4.5 = 5.33\n\\]\nTherefore you would have \\(5.33*31.81 - 153.94 = 15.61\\) bonus sq in., or about half a slice bonus for the same price.",
     "crumbs": [
       "About",
-      "NON-EV EXAMPLES",
+      "FOOD",
       "Pizza"
     ]
   },
@@ -165,7 +165,7 @@
     "text": "Other Restaurants\nHow to not make this mistake yourself? The above situation seems fairly rare.\nThe more common scenario is that larger pizzas are actually way cheaper than smaller ones per sq in.\nHere are some prices for Domino’s (most well known) and Lou Malnati’s (finest pizza around).\n\n\n\nPizza Type\nPrice\nSquare Inches\nSquare Inch per Dollar\n\n\n\n\nDomino’s 10”\n$12.99\n78.54\n6.05\n\n\nDomino’s 12”\n$15.99\n113.10\n7.07\n\n\nDomino’s 14”\n$18.99\n153.94\n8.11\n\n\n\n\n\n\nPizza Type\nPrice\nSquare Inches\nSquare Inch per Dollar\n\n\n\n\nLou Malnati’s 6”\n$10.59\n28.27\n2.67\n\n\nLou Malnati’s 9”\n$15.99\n63.62\n3.98\n\n\nLou Malnati’s 12”\n$21.49\n113.10\n5.26\n\n\nLou Malnati’s 14”\n$26.79\n153.94\n5.75\n\n\n\nAs you can see, the square inch per dollar values tend to go up significantly as pizzas get larger. You might think that getting two 6” pizzas instead of 12” makes sense, but the area equation is based on the square of the radius, and \\(3^2\\) is much smaller than \\(6^2\\) (it’s \\(1/4\\)!).\nAt Lou Malnati’s if you got two 6” pizzas, you’d be paying $21.18 for 56.54 sq in. of pizza, compared to a 12” for $21.49 that gives you 113.10 sq in. of pizza. The bigger one is exactly double the size for just about the same price!\n\nWhole Foods\nAt Whole Foods, a whole 18” cheese pizza is $12, which is 6 slices. By the slice it’s $8 for 2 or $4.29 each. In this case it’s quite clear that the full pizza is a better deal. It would cost $24 to buy 6 slices if buying in pairs compared to $12 for the same amount if buying a full pizza!",
     "crumbs": [
       "About",
-      "NON-EV EXAMPLES",
+      "FOOD",
       "Pizza"
     ]
   },
@@ -177,7 +177,7 @@
     "text": "General Equations\nThe general equation for sq in. per dollar is:\n\\[\n\\begin{equation}\n\\begin{split}\n\\text{Sq In. per Dollar} &= \\frac{\\text{Area}}{{\\text{Price}}} \\\\ \\\\\n&= \\frac{\\pi*r^2}{\\text{Price}}\n\\end{split}\n\\end{equation}\n\\]\nIf you want to compare two pizzas and you know the sizes and prices, you can use a shortcut and take the ratios.\nLet’s formalize and clarify this:\nGeneral Pizza \\(i\\) with diameter \\(d\\), radius \\(d/2 = r\\), price \\(p\\)\n\\[\n\\text{Sq In. per Dollar} = \\frac{\\pi*(\\frac{d_i}{2})^2}{p_i}\n\\]\nTo compare two, we can take the ratios:\n\\[\n\\begin{equation}\n\\begin{split}\n\\text{Sq In. per Dollar} &= \\frac{\\frac{\\pi*(\\frac{d_1}{2})^2}{p_1}}{\\frac{\\pi*(\\frac{d_2}{2})^2}{p_2}} \\\\\n&= \\frac{\\pi*p_2*(\\frac{d_1}{2})^2}{\\pi*p_1*(\\frac{d_2}{2})^2} \\\\\n&= \\frac{p_2*d_1^2}{p_1*d_2^2}\n\\end{split}\n\\end{equation}\n\\]\nNote that \\(\\pi\\) and the denominator of \\(d/2 = r\\) drop out, so we only need to use \\(p_1\\), \\(p_2\\), \\(d_1\\), and \\(d_2\\).\n\nThe Comparison Equation\nThis is the important equation that you should use in real life pizza value scenarios!\nLet Pizza 1 be the larger one for consistency.\n\\[\n\\text{Value of Pizza 1 Compared to Pizza 2} = \\frac{p_2*d_1^2}{p_1*d_2^2}\n\\]\nHere’s an example using Lou Malnati’s 12” and 6” pizzas from above:\n\n\n\nPizza\nDiameter\nPrice\n\n\n\n\nPizza 1\n12”\n$21.49\n\n\nPizza 2\n6”\n$10.59\n\n\n\nNow we can use our equation:\n\\[\n\\begin{equation}\n\\begin{split}\n\\text{Value of Pizza 1 Compared to Pizza 2} &= \\frac{p_2*d_1^2}{p_1*d_2^2} \\\\\n&= \\frac{\\$10.59*12^2}{\\$21.49*6^2} \\\\\n&= 1.97\n\\end{split}\n\\end{equation}\n\\]\nThis shows us that Pizza 1 is about 1.97x better value than Pizza 2 (in terms of square inches per dollar)!",
     "crumbs": [
       "About",
-      "NON-EV EXAMPLES",
+      "FOOD",
       "Pizza"
     ]
   },
@@ -186,12 +186,7 @@
     "href": "ev-basics.html",
     "title": "What is expected value?",
     "section": "",
-    "text": "HELLO!",
-    "crumbs": [
-      "About",
-      "EXPECTED VALUE",
-      "What is EV?"
-    ]
+    "text": "HELLO!"
   },
   {
     "objectID": "salmon.html",
@@ -201,7 +196,7 @@
     "text": "Salmon on a bed of pasta is my favorite meal in the world (Figure 1).\nSalmon on a bed of rice is for some reason the thing that I eat more frequently. My standard dinner is salmon with Costco stir-fry vegetables (frozen) sometimes with a cup of rice (Figure 2). (A dietician recently told me this is too much salmon/mercury.)",
     "crumbs": [
       "About",
-      "NON-EV EXAMPLES",
+      "FOOD",
       "Salmon"
     ]
   },
@@ -213,7 +208,7 @@
     "text": "A Restaurant Incident\nBecause I eat salmon multiple times a week, I tend to go for other items at restaurants. Two major exceptions:\n\n\n\n\n\n\n\n\nFigure 3: Cheesecake Factory\n\n\n\n\nThe Cheesecake Factory makes an excellent salmon meal (albeit farmed, Figure 3)\nFish restaurants often have special kinds of salmon\n\nIn 2021, I went to a fish restaurant in the Chicago suburbs. I had eaten there pre-COVID and was excited for the large portions. Prices had gone up from the tremendous pre-COVID value, but still seemed reasonable.\nAs of August 2024, the prices are the following. All include a “14-16 oz portion, homemade roasted vegetables, and wild rice”.\n\nScottish Salmon: $32.99\nWild Alaskan Salmon: $37.99\nNew Zealand Organic Salmon: $39.99\n\nConsidering that these types of salmon would generally cost $15-30/lb in a supermarket, this still seems like a solid deal.\n\n\n\n\n\n\nWild Salmon Interlude via Claude\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSpecies\nQuality\nFarmed/Wild\nImportant Characteristics\n\n\n\n\nChinook (King)\nHigh\nMostly wild\nLargest salmon; rich, fatty flesh; high in omega-3s\n\n\nCoho (Silver)\nGood\nMostly wild\nMilder flavor; firm texture; popular for grilling\n\n\nSockeye (Red)\nHigh\nMostly wild\nDeep red color; strong flavor; high in omega-3s\n\n\nPink (Humpback)\nLower\nMostly wild\nLightest color and flavor; often canned\n\n\nChum (Dog)\nLower\nMostly wild\nPale flesh; milder flavor; often smoked or canned\n\n\nAtlantic\nGood\nMostly farmed\nMild flavor; adaptable to farming; controversial due to environmental concerns\n\n\nKokanee\nGood\nWild\nLandlocked Sockeye; smaller size; popular for fishing\n\n\n\nSome additional important points:\n\nWild salmon generally have better flavor and nutritional profiles compared to farmed salmon, but they’re often more expensive.\nFarming practices vary widely, affecting quality and environmental impact. Some farms are working on more sustainable practices.\nSalmon quality can vary based on the specific run and location, even within the same species.\nConservation status is a concern for some wild salmon populations, particularly in certain regions.\nThe taste and texture of salmon can be influenced by their diet and the waters they inhabit.\nKing salmon has limited farming, mainly in New Zealand and very small operations elsewhere.\n\n\n\n\nWhile a little odd that a fish restaurant wouldn’t be more specific about the type of its “Wild Alaskan Salmon”, I proceeded to order that dish.",
     "crumbs": [
       "About",
-      "NON-EV EXAMPLES",
+      "FOOD",
       "Salmon"
     ]
   },
@@ -225,7 +220,7 @@
     "text": "Size Problems\nWhen it arrived, it looked way too small.\n\n\n\n\n\n\n\n\n\nSalmon portion (sides not shown)\n\n\n\n\n\n\n\nPrevious portion at same restaurant (sides shown)\n\n\n\n\n\nBy standard restaurant serving sizes, this would be perfectly acceptable, but the menu claimed 14-16 oz. As a frequent salmon consumer, I knew this was wrong.\nI mentioned the size issue to the food runner who escalated the matter to the waiter. The waiter told me that this was in fact the correct size. I said no I don’t think so and he said yes and then left without resolving the issue.\nUnsatisfied, I again brought it up and he then said that it must have shrunk a bit from the cooking.\n\n\n\n\n\n\nCooked vs. Uncooked Weight Interlude\n\n\n\n\n\nApparently the restaurant norm is to advertise the uncooked weight of food, e.g. a quarter pounder hamburger will be a quarter pound (4 oz) frozen and closer to 3 oz cooked.\n\n\n\n\nSize Specifics\nIn the case of salmon, Claude claims that we should expect a weight loss of “15-25%”. Given this, let’s look at some estimates for the size of fish that we could expect.\nLargest without shrinkage:  A 16 oz piece\nLargest with shrinkage:  Start with a 16 oz piece, with 15% shrinkage:\nResulting size \\(= 16*0.85 = 13.6\\) oz\nAverage with shrinkage:  Start with a 15 oz piece, with 20% shrinkage: \\(\\text{Resulting Size} = 15*0.8 = 12 \\text{oz}\\)\nSmallest with shrinkage:  Start with a 14 oz piece, with 25% shrinkage: \\(\\text{Resulting Size} = 14*0.75 = 10.5 \\text{oz}\\)\nHmm, so technically even a 10.5 oz piece would have been in the acceptable range. Admittedly, I think I would have (lightly) complained about approximately anything &lt;12 oz, but this size seemed even smaller.\nAfter a brief and polite conversation raising my previous time at this restaurant and my deep general salmon experience, I insisted that we go to the kitchen to solve this the right way: on the scale (Figure 4).\n\n\n\n\n\n\n\n\nFigure 4: Salmon on the scale\n\n\n\nAfter weighing the plate with the salmon and a separate empty plate, we concluded that the salmon size was about 9 oz!\nRecall from above that we have 10.5 oz as the minimum size, 12 oz as the average size, and 15 oz as the average size without any shrinkage. This means this was too small by:\n9/10.5 = 1\n9/12 = 1\n9/15 = 1\n\nimagePath = FileAttachment(\"assets/salmon/plate.png\").url()\n\nviewof rawWeight = Inputs.range([14, 16], {step: 0.1, label: \"Raw Weight (oz)\", value: 15})\nviewof shrinkagePercent = Inputs.range([15, 25], {step: 0.1, label: \"Shrinkage (%)\", value: 20})\nviewof actualCookedWeight = Inputs.range([9, 16], {step: 0.1, label: \"Actual Cooked Weight (oz)\", value: 9})\ncookedWeight = rawWeight * (1 - shrinkagePercent / 100)\n\nmd`The expected cooked weight is approximately ${cookedWeight.toFixed(2)} oz.`\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nmd`The actual cooked weight is ${actualCookedWeight} oz.`\n\n\n\n\n\n\n\nfunction createChart() {\n  const minRawWeight = 9;\n  const maxRawWeight = 16;\n  const data = [];\n  for (let weight = minRawWeight; weight &lt;= maxRawWeight; weight += 0.1) {\n    data.push({\n      x: weight,\n      y: weight * (1 - shrinkagePercent / 100)\n    });\n  }\n\n  const currentPoint = {\n    x: rawWeight,\n    y: cookedWeight\n  };\n\n  const actualPoint = {\n    x: actualCookedWeight / (1 - shrinkagePercent / 100),\n    y: actualCookedWeight\n  };\n\n  const margin = {top: 20, right: 30, bottom: 30, left: 40};\n  const width = 640 - margin.left - margin.right;\n  const height = 400 - margin.top - margin.bottom;\n\n  const x = d3.scaleLinear()\n    .domain([minRawWeight, maxRawWeight])\n    .range([0, width]);\n\n  const y = d3.scaleLinear()\n    .domain([Math.min(d3.min(data, d =&gt; d.y), actualCookedWeight) * 0.9, \n             Math.max(d3.max(data, d =&gt; d.y), rawWeight) * 1.1])\n    .range([height, 0]);\n\n  const line = d3.line()\n    .x(d =&gt; x(d.x))\n    .y(d =&gt; y(d.y));\n\n  const svg = d3.create(\"svg\")\n    .attr(\"viewBox\", [0, 0, width + margin.left + margin.right, height + margin.top + margin.bottom])\n    .attr(\"width\", width + margin.left + margin.right)\n    .attr(\"height\", height + margin.top + margin.bottom);\n\n  const g = svg.append(\"g\")\n    .attr(\"transform\", `translate(${margin.left},${margin.top})`);\n\n  // Add the plate images along y = 9\n  const imgWidth = 40;  // Adjust as needed\n  const imgHeight = 30;  // Adjust as needed\n  const numPlates = Math.floor(width / (imgWidth * 1.5));  // Space plates out a bit\n  for (let i = 0; i &lt; numPlates; i++) {\n    g.append(\"image\")\n      .attr(\"xlink:href\", imagePath)\n      .attr(\"x\", i * imgWidth * 1.5)\n      .attr(\"y\", y(9) - imgHeight / 2)\n      .attr(\"width\", imgWidth)\n      .attr(\"height\", imgHeight);\n  }\n\n  // Add a dashed line at y = 9\n  g.append(\"line\")\n    .attr(\"x1\", 0)\n    .attr(\"y1\", y(9))\n    .attr(\"x2\", width)\n    .attr(\"y2\", y(9))\n    .attr(\"stroke\", \"red\")\n    .attr(\"stroke-dasharray\", \"5,5\");\n\n  g.append(\"g\")\n    .attr(\"transform\", `translate(0,${height})`)\n    .call(d3.axisBottom(x).ticks(width / 80).tickSizeOuter(0))\n    .append(\"text\")\n      .attr(\"x\", width)\n      .attr(\"y\", -6)\n      .attr(\"fill\", \"#000\")\n      .attr(\"text-anchor\", \"end\")\n      .text(\"Raw Weight (oz)\");\n\n  g.append(\"g\")\n    .call(d3.axisLeft(y))\n    .append(\"text\")\n      .attr(\"transform\", \"rotate(-90)\")\n      .attr(\"y\", 6)\n      .attr(\"dy\", \".71em\")\n      .attr(\"fill\", \"#000\")\n      .text(\"Cooked Weight (oz)\");\n\n  g.append(\"path\")\n    .datum(data)\n    .attr(\"fill\", \"none\")\n    .attr(\"stroke\", \"steelblue\")\n    .attr(\"stroke-width\", 1.5)\n    .attr(\"d\", line);\n\n  // Add expected weight point (red)\n  g.append(\"circle\")\n    .attr(\"cx\", x(currentPoint.x))\n    .attr(\"cy\", y(currentPoint.y))\n    .attr(\"r\", 4)\n    .attr(\"fill\", \"red\");\n\n  // Add actual weight point (green)\n  g.append(\"circle\")\n    .attr(\"cx\", x(actualPoint.x))\n    .attr(\"cy\", y(actualPoint.y))\n    .attr(\"r\", 6)\n    .attr(\"fill\", \"green\");\n\n  // Add legend\n  const legend = g.append(\"g\")\n    .attr(\"font-family\", \"sans-serif\")\n    .attr(\"font-size\", 10)\n    .attr(\"text-anchor\", \"end\")\n    .selectAll(\"g\")\n    .data([\"Expected Weight\", \"Actual Weight\"])\n    .enter().append(\"g\")\n    .attr(\"transform\", (d, i) =&gt; `translate(0,${i * 20})`);\n\n  legend.append(\"rect\")\n    .attr(\"x\", width - 19)\n    .attr(\"width\", 19)\n    .attr(\"height\", 19)\n    .attr(\"fill\", (d, i) =&gt; i === 0 ? \"red\" : \"green\");\n\n  legend.append(\"text\")\n    .attr(\"x\", width - 24)\n    .attr(\"y\", 9.5)\n    .attr(\"dy\", \"0.32em\")\n    .text(d =&gt; d);\n\n  return svg.node();\n}\n\nmd`### Salmon Weight Comparison`\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ncreateChart()",
     "crumbs": [
       "About",
-      "NON-EV EXAMPLES",
+      "FOOD",
       "Salmon"
     ]
   },
@@ -237,7 +232,7 @@
     "text": "Inverse Scaling: When Bigger Isn’t Better was published in May 2024 by a variety of authors, mostly from NYU. Here is an abbreviated abstract:",
     "crumbs": [
       "About",
-      "EXPECTED VALUE",
+      "OTHER",
       "LLM Hindsight Neglect"
     ]
   },
@@ -249,7 +244,7 @@
     "text": "The Inverse Scaling Prize\nThe Inverse Scaling Prize was a contest to “investigate the extent of inverse scaling in LMs and to find robust inverse scaling examples”.\nFor example, folks from the esteemed Cavendish Labs submitted Resisting Correction.\n\nThey showed that larger LLMs are more likely to fail at the task because they tend to have stronger priors about likely sequences and sometimes can’t override them even when instructed to do so.",
     "crumbs": [
       "About",
-      "EXPECTED VALUE",
+      "OTHER",
       "LLM Hindsight Neglect"
     ]
   },
@@ -261,7 +256,7 @@
     "text": "Hindsight Neglect\nHindsight Neglect was submitted by “The Floating Droid” (anonymous).\n\nThe idea is that the LLM should respond with “yes” or “no”, depending on if the original bet was +EV, regardless of the actual outcome.\n\nEV Example 1\n\\(\\mathbb{E} = -900*0.91 + 5*0.09 = -\\$818.55\\)\nExpectation negative, negative result shown\n\n\nEV Example 2\n\\(\\mathbb{E} = -5*0.30 + 250*0.70 = \\$173.50\\)\nExpectation positive, positive result shown\n\n\nEV Example 3\n\\(\\mathbb{E} = -50*0.94 + 5*0.06 = -\\$46.70\\)\nExpectation negative, positive result shown\nThe results before the final example always show the more likely case happening. That is, if the bet is +EV, then it’s shown as winning. If the bet is -EV, then it’s shown as losing.\nThen in the final example, a very -EV bet turns out positive and the LLMs generally get confused.\nWe see that most models perform quite poorly and show inverse scaling behavior.",
     "crumbs": [
       "About",
-      "EXPECTED VALUE",
+      "OTHER",
       "LLM Hindsight Neglect"
     ]
   },
@@ -448,7 +443,7 @@
     "text": "Suppose that you are considering booking a flight and as a value-conscious consumer are considering Basic Economy vs. Regular Economy.\nThere are quite a few restrictions with a basic economy ticket as shown in the image below:\nThe tickets generally cost $50 less than a regular economy ticket on the same flight:\nIf you needed a full-sized carry-on (which actually is included if you have certain statuses or a United credit card) or to sit with your family, then there isn’t much to even evaluate, and the regular economy option will be best.\nLet’s look at this specific scenario:\nSo the main consideration is the flight change. A basic economy ticket cannot be changed. It can only be canceled for a $49.50 cancellation fee. The rest of the refund will come back as a United flight credit. (Even with a regular economy ticket, a cancellation will be refunded as flight credit, and we assume that this is as good as a cash refund going forward.)",
     "crumbs": [
       "About",
-      "EV: TRAVEL",
+      "TRAVEL",
       "Basic Economy"
     ]
   },
@@ -460,7 +455,7 @@
     "text": "EV Basic vs. Regular on United\nSuppose that a basic economy ticket is available for \\(\\$x\\) and a regular economy ticket is available for \\(\\$x+50\\).\nSuppose that before the flight, we either decide to change to another flight that costs \\(\\$n\\) or stick with the original flight.\n\nCase 1: Stick with Original Flight\nTotal costs if just getting original flight\n\\(\\mathbb{E}[\\text{Basic Economy}] = \\$x\\)\n\\(\\mathbb{E}[\\text{Regular Economy}] = \\$x + 50\\)\n\n\nCase 2: Change Flight\nTotal costs in the case of changing the flight. Assume the probability of changing the flight is \\(c\\).\n\\(\\mathbb{E}[\\text{Basic Economy}] = \\$n + 49.50\\)\n\\(\\mathbb{E}[\\text{Regular Economy}] = \\$n\\)\n\n\nEVs\n\\(\\mathbb{E}[\\text{Basic Economy}] = (x)(1-c) + (n+49.50)c\\)\n\\(\\mathbb{E}[\\text{Regular Economy}] = (x+50)(1-c) + (n)c\\)\nWhat \\(c\\) makes these equal?\n\\[\n\\begin{equation}\n\\begin{split}\n(1-c)(x) + c(n+49.50) &= (1-c)(x+50) + c(n) \\\\\nx - x*c + c*n + 49.50*c &= x + 50 - c*x -50*c + c*n \\\\\n49.50*c  &= 50 - 50*c \\\\\n99.50*c &= 50 \\\\\nc &= 0.503\n\\end{split}\n\\end{equation}\n\\]\nTherefore when \\(c\\) is lower than \\(0.503\\), you are better off taking Basic Economy, and otherwise better off taking Regular Economy. In other words, if your chance of needing to switch is less than \\(1/2\\), then you are better off in Basic.",
     "crumbs": [
       "About",
-      "EV: TRAVEL",
+      "TRAVEL",
       "Basic Economy"
     ]
   },
@@ -472,7 +467,7 @@
     "text": "American Airlines\nAmerican Airlines has a \\(\\$99\\) fee instead of the \\(\\$49.50\\) fee from United!\nLet’s see how this changes things.\n\\[\n\\begin{equation}\n\\begin{split}\n(1-c)(x) + c(n+99) &= (1-c)(x+50) + c(n) \\\\\nx - x*c + c*n + 99*c &= x + 50 - c*x -50*c + c*n \\\\\n99*c  &= 50 - 50*c \\\\\n149*c &= 50 \\\\\nc &= 0.336\n\\end{split}\n\\end{equation}\n\\]\nNow you only get better value with the Basic Economy ticket when you switch less than \\(0.336\\), or about 1/3 of the time.",
     "crumbs": [
       "About",
-      "EV: TRAVEL",
+      "TRAVEL",
       "Basic Economy"
     ]
   },
@@ -484,7 +479,7 @@
     "text": "Numerical Example\nSuppose that you the original price of the flight was \\(\\$200\\) in Basic Economy and \\(\\$250\\) in Regular Economy.\nIf you want to change your flight, what happens in each of these scenarios? We’ll see that Basic Economy always ends up costing the Regular Economy price plus an additional \\(\\$49.50\\) for the cancellation fee.\n\nChanged Flight Price Down\nIf the price goes down to \\(\\$100\\), Basic Economy will cost \\(\\$100 + 49.50\\) for the flight change, for a total of \\(\\$149.50\\).\nRegular Economy will just cost the \\(\\$100\\) new price.\n\n\nChanged Flight Same Price\nIf the price stays at \\(\\$150\\), Basic Economy will cost \\(\\$150 + 49.50\\) for the flight change, for a total of \\(\\$199.50\\).\nRegular Economy will just cost the \\(\\$150\\) price.\n\n\nChanged Flight Price Up\nIf the price goes up to \\(\\$300\\), Basic Economy will cost \\(\\$300 + 49.50\\) for the flight change, for a total of \\(\\$349.50\\).\nRegular Economy will just cost the \\(\\$300\\) price.\nLet’s analyze this case a bit more. If at the original purchase time we estimate a \\(25\\%\\) chance of needing to switch, what would be our EV?\n\\[\n\\begin{equation}\n\\begin{split}\n\\mathbb{E}(\\text{Basic Economy}) &= \\text{Price}_{(\\text{Basic})}*P(\\text{Stay}) + \\text{Price}_{(\\text{After\\_Switch})}*P(\\text{Switch}) \\\\\n&= 200*0.75 + 349.50*0.25 \\\\\n&= \\$237.38\n\\end{split}\n\\end{equation}\n\\]\n\\[\n\\begin{equation}\n\\begin{split}\n\\mathbb{E}(\\text{Regular Economy}) &= \\text{Price}_{(\\text{Regular})}*P(\\text{Stay}) + \\text{Price}_{(\\text{After\\_Switch})}*P(\\text{Switch}) \\\\\n&= 250*0.75 + 300*0.25 \\\\\n&= \\$262.50\n\\end{split}\n\\end{equation}\n\\]\nAs we expected, with the probability of switching less than the \\(0.503\\) value that we derived earlier, we expect the Basic Economy option to be better value and indeed it would have saved \\(262.50 - 237.38 = \\$25.12\\) in this case!",
     "crumbs": [
       "About",
-      "EV: TRAVEL",
+      "TRAVEL",
       "Basic Economy"
     ]
   },
@@ -552,7 +547,7 @@
     "text": "Dreidel is a game played during Hanukkah where each player starts by putting 1 piece into the pot and then players rotate around spinning the 4-sided dreidel. If the pot goes to 0 or 1 then all players again put 1 unit into the pot.\nThe outcomes are:\n\n\n\nDreidel Spin\nProbability\nGame Outcome\n\n\n\n\nנ (nun)\n\\(\\frac{1}{4}\\)\nDo nothing\n\n\nג (gimel)\n\\(\\frac{1}{4}\\)\nTake whole pot\n\n\nש (shin)\n\\(\\frac{1}{4}\\)\nTake half pot\n\n\nה (hei)\n\\(\\frac{1}{4}\\)\nPut 1 unit into pot\n\n\n\nSuppose it’s your turn to spin and the pot has 6 pieces in it.\nThe outcomes are:\n\n\n\nDreidel Spin\nProbability\nGame Outcome\n\n\n\n\nנ (nun)\n\\(\\frac{1}{4}\\)\n0\n\n\nג (gimel)\n\\(\\frac{1}{4}\\)\n+6\n\n\nש (shin)\n\\(\\frac{1}{4}\\)\n+3\n\n\nה (hei)\n\\(\\frac{1}{4}\\)\n-1\n\n\n\nWe can now compute the expected value of the spin:\n\\[\n\\begin{equation}\n\\begin{split}\n\\mathbb{E}[\\text{Dreidel Spin}] &= 0*\\frac{1}{4} + 6*\\frac{1}{4} + 3*\\frac{1}{4} + (-1)*\\frac{1}{4} \\\\\n  &= 0 + 1.5 + 0.75 + (-0.25) \\\\\n  &= 2\n\\end{split}\n\\end{equation}\n\\]\n(It turns out that the game is “painfully slow” such that a 4 person game where each player starts with 10 units and each spin takes 10 seconds would take an average of 2 hours and 23 minutes (860 spins). Ben Blatt has suggested improvements.)",
     "crumbs": [
       "About",
-      "EV: GAMBLING",
+      "GAMBLING",
       "Dreidel"
     ]
   },
@@ -592,7 +587,7 @@
     "text": "A roll of the dice is the typical first EV example.\nWhat is the expected value of a single 6 sided die?\nThe probability of rolling each side is the same, \\(1/6\\).\nThe value of each side is given by its number.\nTherefore we can write an equation to calculate the expected value:\n\\[\n\\begin{equation}\n\\begin{split}\n\\mathbb{E}[\\text{Die Roll}] &= 1*\\frac{1}{6} + 2*\\frac{1}{6} + 3*\\frac{1}{6} + (4)*\\frac{1}{6} + (5)*\\frac{1}{6} + (6)*\\frac{1}{6} \\\\\n  % &= \\frac{1}{6} + \\frac{2}{6} + *\\frac{3}{6} + \\frac{4}{6} + \\frac{5}{6} + \\frac{6}{6} \\\\\n  &= \\frac{21}{6} \\\\\n  % &= \\frac{7}{2} \\\\\n  &= 3.5\n\\end{split}\n\\end{equation}\n\\]",
     "crumbs": [
       "About",
-      "EV: GAMBLING",
+      "GAMBLING",
       "Dice"
     ]
   },
@@ -632,7 +627,7 @@
     "text": "The Reinforcement Learning book by Sutton and Barto has a blackjack example in chapter 5 that led to many of the ideas in this post.\n\nThe rules of the game directly from the book are below: “The object of the popular casino card game of blackjack is to obtain cards the sum of whose numerical values is as great as possible without exceeding 21. All face cards count as 10, and an ace can count either as 1 or as 11. We consider the version in which each player competes independently against the dealer. The game begins with two cards dealt to both dealer and player. One of the dealer’s cards is face up and the other is face down. If the player has 21 immediately (an ace and a 10-card), it is called a natural. He then wins unless the dealer also has a natural, in which case the game is a draw. If the player does not have a natural, then he can request additional cards, one by one (hits), until he either stops (sticks) or exceeds 21 (goes bust). If he goes bust, he loses; if he sticks, then it becomes the dealer’s turn. The dealer hits or sticks according to a fixed strategy without choice: he sticks on any sum of 17 or greater, and hits otherwise. If the dealer goes bust, then the player wins; otherwise, the outcome—win, lose, or draw—is determined by whose final sum is closer to 21.”",
     "crumbs": [
       "About",
-      "EV: GAMBLING",
+      "GAMBLING",
       "Blackjack"
     ]
   },
@@ -644,7 +639,7 @@
     "text": "The Reinforcement Learning book by Sutton and Barto has a blackjack example in chapter 5 that led to many of the ideas in this post.\n\nThe rules of the game directly from the book are below: “The object of the popular casino card game of blackjack is to obtain cards the sum of whose numerical values is as great as possible without exceeding 21. All face cards count as 10, and an ace can count either as 1 or as 11. We consider the version in which each player competes independently against the dealer. The game begins with two cards dealt to both dealer and player. One of the dealer’s cards is face up and the other is face down. If the player has 21 immediately (an ace and a 10-card), it is called a natural. He then wins unless the dealer also has a natural, in which case the game is a draw. If the player does not have a natural, then he can request additional cards, one by one (hits), until he either stops (sticks) or exceeds 21 (goes bust). If he goes bust, he loses; if he sticks, then it becomes the dealer’s turn. The dealer hits or sticks according to a fixed strategy without choice: he sticks on any sum of 17 or greater, and hits otherwise. If the dealer goes bust, then the player wins; otherwise, the outcome—win, lose, or draw—is determined by whose final sum is closer to 21.”",
     "crumbs": [
       "About",
-      "EV: GAMBLING",
+      "GAMBLING",
       "Blackjack"
     ]
   },
@@ -656,7 +651,7 @@
     "text": "Monte Carlo Basics\nMonte Carlo methods use actual or simulated experience to sample returns from an environment. If we had five slot machines, we could pull the lever on each one a million times, average the results, and have a predicted return for each. We don’t need to know anything about the internal workings of the machines – we can learn from the experience. As we take more and more samples, the average should converge to the expected value.\nBlackjack is a good domain for using Monte Carlo reinforcement learning because we can easily generate sample hands while not needing to compute any probabilities. Sutton and Barto give an example of a player having a total of 14 and choosing to stick. Instead of needing to perform various calculations like the chance of winning that hand given the dealer’s particular upcard, we can just simulate a single result and know that after enough simulations, we will approximate the true values.",
     "crumbs": [
       "About",
-      "EV: GAMBLING",
+      "GAMBLING",
       "Blackjack"
     ]
   },
@@ -668,7 +663,7 @@
     "text": "Monte Carlo Blackjack\nEach hand in blackjack is considered an episode with rewards of +1 for winning, -1 for losing, and 0 for drawing.\nThe player’s actions are to hit or stick.\nA state in the game is defined as: [player card sum, dealer card showing, whether there is a usable Ace in the player’s hand]\nA usable Ace means that the player has an Ace that can be used as 11 without going bust. These are called “soft” hands. For example, a hand of Ace-6 means that the Ace can be used as 11 for a total of 17 (it can also always be used as 1 for a total of 6). This is called soft 17. If you hit and the next card was a 4, you would use the Ace as 11 and have the 6 and 4 for 21. If you got an 8, you’d use the Ace as 1 and have the 6 and 8 for a hard 15, and then would have the option to hit or stick.\nThere are a total of 200 possible states: (12-21) for the player card sum, (Ace-10) for the dealer card showing, and (0 or 1) for holding a usable Ace (10 * 10 * 2 = 200).\nAn example state is: [15, 7, 0], meaning that we have a total of 15, the dealer is showing a 7, and we don’t have a playable Ace.\nNote that any player card sum under 12 cannot bust, so will always hit and therefore no decision is needed, so we don’t include those other ones as a state. Also note that all face cards count as 10 for the dealer, so there are only 10 possibilities even though the deck has 13 types of cards in it.\nMonte Carlo RL in blackjack works by running out single hand samples repeatedly and deriving state-action values from the averages of the returns of each of these runouts. We simulate a large number of blackjack hands and attribute the results of each hand to the states and actions that were taken during the hand.\nFor example, if you were dealt 8-2 and the dealer was showing a 7 and you hit and got a Jack, then your total would be 20. If the dealer turned over a Queen, then you would have 20 to the dealer’s 17 and win 1 unit on the hand. We would attribute this return of +1 to (a) hitting with a 10 total against the dealer’s 7 and (b) sticking with a 20 total against the dealer’s 7.\nState 1: [10, 7, 0] Action 1: Hit\nState 2: [20, 7, 0] Action 2: Stick\nFor each state-action, we maintain a counter for how many times we’ve seen that state and a reward sum to count the total rewards earned after passing through this state. Note that all rewards come at the end of the hand so we can simply increment each state that we pass through in a sample with the final hand return for that sample and a counter increment of 1.\nIf we won the above hand example, the counters would increment like this:\nState-Action 1 counter: +1 State-Action 1 return: +1\nState-Action 2 counter: +1 State-Action 2 return: +1\nAfter many thousands or millions of simulations, we can take the means of each of these state-action returns (i.e. the return divided by the counter) and get an approximate value for taking that action in that state.\nThere is a first-visit and every-visit version of Monte Carlo, with the former averaging returns after the first visit to a state and the latter average returns after every visit to a state. In blackjack it’s not possible to visit the same state twice in one hand, so we focus only on the simpler first-visit version.",
     "crumbs": [
       "About",
-      "EV: GAMBLING",
+      "GAMBLING",
       "Blackjack"
     ]
   },
@@ -680,7 +675,7 @@
     "text": "Monte Carlo Prediction (Evaluating a fixed policy)\nWe can use Monte Carlo Prediction to evaluate a fixed blackjack strategy. Let’s consider a strategy (as given as an example in the Sutton Barto RL book) that sticks on 20 and 21 and hits on everything else. Note that this strategy is actually quite bad because it (a) doesn’t incorporate knowledge of the dealer’s hand and (b) hitting on 17/18/19 is not really a good idea!\nIn this case, we would maintain counters for only the states, since the actions are pre-defined by the fixed policy.\ndef play_action(self, blackjack_state):\n    #we don't actually need the state here for this policy! \n    return STICK if player_sum &gt;= 20 else HIT\nWe run this for 10,000 episodes and produce the following state-value functions:\n \nThe usable Ace figure after only 10,000 episodes is noticeably unstable because the states with usable Aces are relatively less common, so they haven’t been able to stabilize after so few simulations.\nWe do a longer run for 500,000 episodes and produce the following state-value functions:\n \nWe see that the values are quite low until the player sum reaches 20 and 21, which is when the strategy is to always stick. Sticking with 20 or 21 is a very good situation so results in high expected value. The entire left side of the figure has a tilt downwards because that is when the dealer is showing an Ace, which is the strongest card since it’s least likely to go bust with an Ace. It also means that if the dealer’s other card is a 10-value card, the dealer would have 21.\nFinally, we notice that the entire value function tilts downwards as the player sum increases, until 20 and 21 when it goes way up. This is because it’s actually generally a good strategy to hit on hands like 12 or 13 where the risk of busting is low, but hitting on hands like 18 or 19 is awful! 19 is a very strong hand and hitting has a small chance of making it slightly better with a 2 or Ace and a large chance of busting with any other cards.\nWe look at the value of the particular state of having 17 against various dealer upcards with a strategy of always hitting as above until getting to 20 vs. a new strategy of always sticking in this state.\n\nWe see that the results of hitting are quite similar regardless of the dealer upcard because the chance of busting is so high. The results for sticking are relatively poor when the dealer has a good upcard (8, 9, Ten, or Ace) and approaching 0 for other upcards. 17 isn’t a great hand because neither option produces great results, but the always stick strategy tends to be much better, which is true for all hand totals 17 and higher.",
     "crumbs": [
       "About",
-      "EV: GAMBLING",
+      "GAMBLING",
       "Blackjack"
     ]
   },
@@ -692,7 +687,7 @@
     "text": "Monte Carlo Control (Solving for an optimal policy)\nNow instead of setting a fixed strategy, we use Monte Carlo methods to learn the optimal strategy (aka policy). We can use “exploring starts”, which in blackjack means simply dealing a random hand to the player and dealer and starting in this random state. If we always started with the dealer being dealt a 5 and the player being dealt 7-2, then we’d quickly learn the optimal strategy for that situation, but that’s all we’d know. By simply randomizing the player and dealer cards, we achieve exploring starts.\nWe begin with a default strategy of playing randomly, which means that when the only actions are hit and stick, each starts with a probability of 0.5. (We could start with any policy, including the previous one of sticking on 20 and 21 and hitting on everything else.)\nHow can we use Monte Carlo methods to learn the optimal strategy from here? We run simulations of hands as we did before, but now instead of just incrementing the returns and counters on the states that were passed through, we take an additional step. For each state that we saw in the simulated hand, we look at the estimated value for each action and set the best_action variable to be the action that results in the highest estimated value (we default everything to have a value of 0). Then we modify our policy so that we play that action almost always and play other actions (in this case just one other action) the rest of the time.\nSpecifically, we set the strategy for the best action \\[P(a_{b}) = 1 - \\epsilon + \\frac{\\epsilon}{\\text{num_actions}}\\]. All other actions are \\[P(a_{o})= \\frac{\\epsilon}{\\text{num_actions}}\\]. Where \\[\\epsilon\\] is a small value. If \\[\\epsilon = 0.1\\] and we had 2 actions, we would play the best action 95% of the time and the other action 5% of the time. This is called soft greedy; greedy would be playing the best estimated action 100% of the time.\nThe exploration vs. exploitation concept arises here. We want to mostly play what we currently believe to be the best action, but we don’t want to always play it. For example, if we sampled hitting on 19 on the first hand and got a 2 and won, we wouldn’t want to conclude that it’s always best to hit on 19. It’s important to keep exploring alternative actions. This can be refined to decrease \\[\\epsilon\\] over time when we become more certain of the values, but we keep things simple and used a fixed \\[\\epsilon\\] here.\nFor the simulations, we sample “on-policy”, which means we sample hands using the current strategy that keeps improving. After 10 million iterations, we can produce a strategy chart that shows every possible scenario and the optimal strategy, which is simply the estimated best action at each state after running all of the simulations. (The strategy is reasonable after 1 million iterations, but we had some extra free time.)\n \nWe can also show the value plots as we did before:\n \nWe can compare these figures to those from the Sutton Barton Reinforcement Learning book from chapter 5.\n\nOur result on the strategy charts is exactly the same except for the case of the player having 16 and the dealer showing a Ten. The book is correct. This is a very marginal spot, which is why the Monte Carlo method was more likely to be wrong about it. The computation shown on the Wizard of Odds site shows a difference between hitting and sticking of 0.000604 in favor of hitting! In practice with a real 8-card deck, there is discussion that the most optimal strategy is to stick on multiple-card 16 against a dealer 10 card when the 16 includes a 4 or 5.\nWe start our strategy charts at 12 because given these rules, hitting is mandatory on 11 and under since it’s not possible to bust. Also it isn’t actually possible to have 11 if you have a usable Ace – the minimum by definition is 12 (Ace-Ace).\nWe can then evaluate this by taking the final policy using the best action at each state (since exploration is no longer needed) and running simulations, then computing the total reward over all of the simulations divided by the number of simulations to find the average winnings per hand.\nOver 5 million evaluation hands, we find an estimated win per hand of -0.0474336, or losing about 4.7 cents per $1 bet.",
     "crumbs": [
       "About",
-      "EV: GAMBLING",
+      "GAMBLING",
       "Blackjack"
     ]
   },
@@ -704,7 +699,7 @@
     "text": "The OpenAI Gym Environment and Modifications\nThere is a built-in OpenAI Gym blackjack environment available to use in the gym’s toy_text directory. This environment is quite basic and handles the most standard rules as described above, including the dealer hitting until their hand is &gt;= 17. The environment draws cards from an “infinite” deck to simplify the probabilities. (Most casinos use 6-8 decks to reduce shuffling and make it more difficult for players to count cards.)\nThe environment has the option to get paid 1.5x your bet if you get a natural blackjack (when the dealer doesn’t also get a natural). In the above calculations, we did not use this.\nIn addition to hitting and sticking, most blackjack games allow for doubling down and splitting. Doubling down means that you can double your bet after seeing your 2 initial cards, but only get 1 total extra card. Splitting means that you can split a pair (e.g. 5-5) and turn it into two hands, each with the same bet as the original (so the overall bet is doubled).\nI implemented doubling down into the environment to make it a little more like the game found in casinos. For fun, I also added an option to show the dealer sum instead of only a single dealer card. These will be explored below.\nI copied the original blackjack.py gym file, made the updates to add in the double down state, and then saved as blackjack1.py. I put this file into the same directory as the code file and added the following lines of code:\nregister(id='BlackjackMax-v0', entry_point='blackjack1:BlackjackEnv1')\nENV_NAME = \"BlackjackMax-v0\"\nblackjack1.py is available here: blackjack1.py\nLink to full code: blackjacksolvedouble.py",
     "crumbs": [
       "About",
-      "EV: GAMBLING",
+      "GAMBLING",
       "Blackjack"
     ]
   },
@@ -716,7 +711,7 @@
     "text": "Monte Carlo Implementation\nWe simulate hands and append each state and action from the hand to an “episode” list, which is a single Monte Carlo sample. Episode is the generic term for a sequence of states and actions.\nWhen the hand finishes, each state and action pair that was seen has a “total return” sum that is incremented by the final reward (i.e. winnings/losings from the result of the hand) and a “number of times seen” counter for that pair is incremented. These track the total rewards earned from each state and\nfor i in range(episodes):\n    while True:\n        action_probs = agent.play_action(new_state)\n        action = np.random.choice(BETS, p=action_probs)\n        episode.append((new_state, action))\n        new_state, reward, done, _ = agent.env.step(action)\n        if done:\n            for (state, action) in episode:\n                returns_sum[(state,action)] += reward\n                returns_count[(state,action)] += 1\n                agent.values[(state, action)] = returns_sum[(state,action)] / returns_count[(state,action)]\nAfter updating the values, we also need to update the policy. We first determine the best action given our value table for each state. Then we use the soft greedy policy rule from above.\nfor (state, _) in episode:\n    vals = [agent.values[(state, a)] for a in BETS]\n    best_action = np.argmax(vals)\n    for a in BETS:\n        if a == best_action:\n            agent.policy[state][a] = 1 - EPSILON + EPSILON/len(BETS)\n        else:\n            agent.policy[state][a] = EPSILON/len(BETS)\nThis repeats for some number of iterations, at which point we can use the final policy to show the optimal strategy and use the final value function to show the value plot.",
     "crumbs": [
       "About",
-      "EV: GAMBLING",
+      "GAMBLING",
       "Blackjack"
     ]
   },
@@ -728,7 +723,7 @@
     "text": "Monte Carlo Control with “Blackjack” and Doubling Down\nNow we run the same simulations as before, but allow the option of doubling down, meaning there are now 3 total actions at each state. We also now use the payout of 1.5 for a natural blackjack, which means having 21 on your first two cards, i.e. an Ace and a 10-value card (unless the dealer also has a natural 21, then it’s a tie).\nBoth of these are significant advantages for the player, so we expect to see a better expected value from playing this game.\nWe ran 10 million simulated hands. Here are plots for the optimal strategy:\n \nWe can compare these to optimal strategy charts from The Wizard of Odds. On these figures, S is for stick and H is for hit. Dh and Ds mean double if allowed, otherwise hit or stand, respectively. Rh is for surrender, which means folding the hand and losing only half of the bet, and when surrender isn’t allowed, then hit. To simplify, we don’t allow surrender or split (Wizard of Odds has a separate chart for the splits that we omit here). The upper part is for “hard” hands, which means no usable Ace and the lower part is for “soft” hands, which have a usable Ace.\n\nThere are a few discrepencies between our result and these charts (which are correct) like standing with 16 when the dealer has an 8/9/Ten in the Monte Carlo no usable Ace charts and standing on 18 vs. a dealer 8 and Ten in the usable Ace charts. These are likely very slightly in favor of the strategy shown on the Wizard of Odds chart and with more Monte Carlo simulations would come to the same result.\nAnd for the value functions, we have:\n \nOver 5 million evaluation hands, we find an estimated win per hand of -0.008034, or losing about 0.80 cents per $1 bet. Indeed, this is much better than the previous result of -0.0474336 per hand.\nIn a casino, we might expect to do even better because most casinos use 4-8 52-card decks rather than a simulated “infinite” deck as we have used here. This allows for a built-in advantage for getting a natural 21. Consider a 4-card deck. There are 208 cards of which 64 are valued as 10. This means a 30.77% chance of getting a 10-valued card on the first card (this is true regardless of deck size, including infinite decks). However, now what are the chances of getting an Ace? In an infinite deck, this probability is 7.69% (4/52 = 16/208). In a 4-card deck, this is 7.73% (16/207 since a single 10-valued card has already been dealt). The non-infinite decks also allow for the ability to “count” cards, a technique that involves counting to know when the deck is more or less favorable, and modifying bets based on that.",
     "crumbs": [
       "About",
-      "EV: GAMBLING",
+      "GAMBLING",
       "Blackjack"
     ]
   },
@@ -740,7 +735,7 @@
     "text": "Monte Carlo Control with Seeing Both Dealer cards\nYou’re only supposed to see 1 dealer card. What if somehow the other flipped over and you saw both? Or maybe you somehow had access to the hidden hole card? How big of an advantage would this be? Normal strategy is to never hit on 19 because the risk of busting is so high. But if you saw that the dealer had 20, it would be mandatory to hit! We keep things simple and don’t differentiate between whether the dealer has a usable Ace or not.\nHere are the value charts and strategy charts for seeing both dealer cards and also using the same Blackjack and doubling down rules from the prior section with 10 million simulated hands:\n \nAs expected, the player sum of 19 hits when the dealer is showing 20 and in general the player strategy makes good use of knowing both dealer cards.\nWe do see some inconsistencies in these charts, especially the one with the usable Ace. In part this is because there are many more states now that we are looking at the entire dealer sum, so more Monte Carlo simulations are needed. Also some of these states are very rare in the usable Ace chart like player sum of 12 vs. dealer sum of 5 will only occur when the player has Ace-Ace and the dealer has a relatively rare sum of 5. However, most inconsistencies after this many iterations are likely to be for situations that are quite borderline.\n \nWe again simulated 5 million hands after finding the optimal strategy. Now we find an estimated win per hand of 0.0856133. Not surprisingly, when you can see both of the dealer’s cards, the game becomes profitable. The increase in profitability is about 9.36 cents per hand from the prior scenario (from losing 0.80 cents per hand to winning 8.56 cents per hand).",
     "crumbs": [
       "About",
-      "EV: GAMBLING",
+      "GAMBLING",
       "Blackjack"
     ]
   },
@@ -752,7 +747,7 @@
     "text": "Importance Sampling Prediction\nPreviously we showed that we could learn the optimal strategy by using a near-optimal policy that allowed for some exploring. That is, we played the predicted optimal strategy 95% of the time and other strategies 5% of the time and accumulated sample hand episodes.\nThere is another approach that uses two policies, one that is learned about and becomes the optimal policy (target policy) and one that is exploratory and is used to generate behavior (behavior policy). This is called off-policy learning.\nThe main idea is that we get returns from the behavior policy and take the ratio of the target policy divided by the behavior policy to represent the frequency of obtaining those returns under the target policy. The result is an estimate of the value of the state.\nThe Sutton Barto book looks at a particular state in which the sum of the player cards is 13 and there is a usable Ace (i.e. Ace-2 or Ace-Ace-Ace). We take the target policy as sticking on 20 and 21 and hitting on everything else and the behavior policy of hitting or sticking 50% each. They determined that the value of this state under the target policy is -0.27726 (we are now again using the original rules with no natural blackjack and no doubling down).\nWe perform 100 runs of 10,000 episodes (hands) all starting with the aforementioned starting state.\nAfter each episode, we compute the importance sampling ratio \\[\\rho\\], which is the target policy divided by the behavior policy. The behavior policy is always 0.5 by definition because regardless of the state, it is hitting 0.5 and sticking 0.5. The target policy is to always hit on 20 and 21 and to always stick otherwise. There are two cases:\n\\[\\rho = \\frac{1}{0.5} = 2\\]\n\\[\\rho = \\frac{0}{0.5} = 0\\]\nThe numerator is how frequent the action chosen by the behavioral policy is also chosen by the target policy. Since the target policy is fixed it is either always choosing that action or never choosing it, resulting in the above cases, respectively.\nOver a single hand episode, we multiply the \\[\\rho\\] values together for each state and append the result of this multiplication to a list of rhos. We also append the return for this hand episode to a list of returns.\nWe accumulate the \\[\\rho\\] importance sampling ratio and \\[G\\] return for each of the 10,000 episodes and multiply them together to result in the weighted return. These are then accumulated over all episodes, i.e. the final episode weighted return is the sum of all previous returns and the final return.\nFinally, to estimate the value of the state, we divide the weighted returns by the number of episodes for the ordinary case and divide by the \\[\\rho\\] values for the weighted case. The estimated value over time is shown here:\n\nThe mean squared error of both are plotted below:",
     "crumbs": [
       "About",
-      "EV: GAMBLING",
+      "GAMBLING",
       "Blackjack"
     ]
   }

@@ -27,19 +27,22 @@ website:
     contents: 
       - section: "EXPECTED VALUE"
         contents: 
-          - href: ev-basics.qmd
-            text: What is EV?
-          - href: hindsight-neglect.qmd
-            text: LLM Hindsight Neglect
-          # - href: ev-benefits.qmd
-          #   text: EV Benefits
-          # - href: ev-faults.qmd
-          #   text: EV Faults
-      - section: "EV: SPORTS"
+          - text: EV Benefits
+          - text: EV Flaws
+      - section: "SPORTS"
         contents: 
-          - href: ev-basics.qmd
-            text: What is EV?
-      - section: "EV: GAMBLING"
+          - text: Soon!
+      - section: "TRAVEL"
+        contents: 
+          - href: basicecon.qmd
+            text: Basic Economy
+      - section: "FOOD"
+        contents: 
+          - href: pizza.qmd
+            text: Pizza
+          - href: salmon.qmd
+            text: Salmon
+      - section: "GAMBLING"
         contents: 
           - href: dice.qmd
             text: Dice
@@ -49,30 +52,16 @@ website:
             text: Blackjack
           - href: gambler.qmd
             text: Gambler Problem
-      - section: "EV: TRAVEL"
-        contents: 
-          - href: basicecon.qmd
-            text: Basic Economy
-      - section: "EV: FOOD"
-        contents: 
-          - href: ev-basics.qmd
-            text: What is EV?
-      - section: "EV: OTHER"
-        contents: 
-          - href: ev-basics.qmd
-            text: What is EV?
-      - section: "NON-EV EXAMPLES"
-        contents: 
-          - href: pizza.qmd
-            text: Pizza
-          - href: salmon.qmd
-            text: Salmon
       - section: "CURRENT EVENTS"
         contents: 
           - href: huberman-pregnancy.qmd 
             text: Andrew Huberman Pregnancy Probability
           # - href: vice-president.qmd
           #   text: Vice President Selection
+      - section: "OTHER"
+        contents: 
+          - href: hindsight-neglect.qmd
+            text: LLM Hindsight Neglect
 
 format:
   html:
