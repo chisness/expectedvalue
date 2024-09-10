@@ -66,6 +66,7 @@ website:
 format:
   html:
     theme: flatly
+    page-navigation: false
     math: true 
     toc: true
     toc-expand: true
