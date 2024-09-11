@@ -105,15 +105,17 @@ $\text{Resulting size} = 16*0.9 = 14.4 \text{oz}$
 
 **Average with shrinkage:**
 Start with a 15 oz piece, with 17.5% shrinkage: 
+
 $\text{Resulting Size} = 15*0.825 = 12.38 \text{oz}$
 
 **Smallest with shrinkage:**
 Start with a 14 oz piece, with 25% shrinkage: 
+
 $\text{Resulting Size} = 14*0.75 = 10.5 \text{oz}$
 
 Hmm, so technically even a 10.5 oz piece would have been in the acceptable range. Admittedly, I think I would have (lightly) complained about approximately anything <12 oz, but this size seemed even smaller. 
 
-After a brief and polite conversation raising my previous time at this restaurant and my deep general salmon experience, I insisted that we go to the kitchen to solve this the right way: on the scale. Unfortunately not the best photo: 
+After a brief and polite conversation raising my previous time at this restaurant and my deep general salmon experience, I insisted that we go to the kitchen to solve this the right way: on the scale.
 
 ![Salmon on the scale](assets/salmon/scale.jpg)
 
