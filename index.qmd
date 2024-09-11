@@ -143,7 +143,7 @@ Expected value is a concept in probability theory that represents the average ou
 
 According to [Wikipedia](https://en.wikipedia.org/wiki/Expected_value): "The expected value of a random variable with a finite number of outcomes is a weighted average of all possible outcomes". 
 
-Mathematically, for a discrete random variable $X$ with possible values $x_1, x_2, ..., x_n$ and corresponding probabilities $p_1, p_2, ..., p_n$, the expected value $E(X)$ is:
+Mathematically, for a discrete random variable $X$ with possible values $x_1, x_2, ..., x_n$ and corresponding probabilities $p_1, p_2, ..., p_n$, the expected value $\mathbb{E}(X)$ is:
 
 $\mathbb{E}[X] = \sum_{i=1}^n x_i p_i = x_1 p_1 + x_2 p_2 + ... + x_k p_k$
 
@@ -291,12 +291,12 @@ Expected value has several important properties:
 
 In decision theory, we often use expected utility instead of expected value. This takes into account the decision-maker's risk preferences:
 
-$\mathbb{E}U(X) = \sum_{i=1}^n U(x_i) p_i$
+$\mathbb{E}[U(X)] = \sum_{i=1}^n U(x_i) p_i$
 
 where $U(x)$ is the utility function.
 
 ::: {.callout-warning}
-## Important Consideration
+## Considerations
 
 While expected value is a useful tool, it doesn't account for the variance or risk associated with different outcomes. In some cases, especially with non-linear utility functions or when dealing with rare, high-impact events, decisions based solely on expected value may lead to suboptimal results.
 :::

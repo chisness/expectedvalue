@@ -465,7 +465,7 @@ Try it yourself!
 <h2 class="anchored" data-anchor-id="mathematical-explanation">Mathematical Explanation</h2>
 <p>Expected value is a concept in probability theory that represents the average outcome of an experiment if it is repeated many times. It’s calculated by multiplying each possible outcome by its probability of occurrence and then summing these products.</p>
 <p>According to <a href="https://en.wikipedia.org/wiki/Expected_value">Wikipedia</a>: “The expected value of a random variable with a finite number of outcomes is a weighted average of all possible outcomes”.</p>
-<p>Mathematically, for a discrete random variable <span class="math inline">\(X\)</span> with possible values <span class="math inline">\(x_1, x_2, ..., x_n\)</span> and corresponding probabilities <span class="math inline">\(p_1, p_2, ..., p_n\)</span>, the expected value <span class="math inline">\(E(X)\)</span> is:</p>
+<p>Mathematically, for a discrete random variable <span class="math inline">\(X\)</span> with possible values <span class="math inline">\(x_1, x_2, ..., x_n\)</span> and corresponding probabilities <span class="math inline">\(p_1, p_2, ..., p_n\)</span>, the expected value <span class="math inline">\(\mathbb{E}(X)\)</span> is:</p>
 <p><span class="math inline">\(\mathbb{E}[X] = \sum_{i=1}^n x_i p_i = x_1 p_1 + x_2 p_2 + ... + x_k p_k\)</span></p>
 <p>What is a random variable? It represents possible outcomes. A random variable is defined by its possible outcomes and the probability of each outcome.</p>
 <p>Let’s go back to the marble example:</p>
@@ -608,7 +608,7 @@ Try it yourself!
 <li>Law of the unconscious statistician: <span class="math inline">\(\mathbb{E}[g(X)] = \int_{-\infty}^{\infty} g(x) f(x) dx\)</span></li>
 </ol>
 <p>In decision theory, we often use expected utility instead of expected value. This takes into account the decision-maker’s risk preferences:</p>
-<p><span class="math inline">\(\mathbb{E}U(X) = \sum_{i=1}^n U(x_i) p_i\)</span></p>
+<p><span class="math inline">\(\mathbb{E}[U(X)] = \sum_{i=1}^n U(x_i) p_i\)</span></p>
 <p>where <span class="math inline">\(U(x)\)</span> is the utility function.</p>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -616,7 +616,7 @@ Try it yourself!
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Important Consideration
+Considerations
 </div>
 </div>
 <div class="callout-body-container callout-body">
