@@ -280,18 +280,18 @@ In more complex scenarios, expected value becomes a powerful tool for decision-m
 
 For continuous random variables, the expected value is defined as an integral:
 
-$$ E(X) = \int_{-\infty}^{\infty} x f(x) dx $$
+$\mathbb{E}(X) = \int_{-\infty}^{\infty} x f(x) dx$
 
 where $f(x)$ is the probability density function of $X$.
 
 Expected value has several important properties:
 
-1. Linearity: $E(aX + bY) = aE(X) + bE(Y)$ for constants $a$ and $b$
-2. Law of the unconscious statistician: $E[g(X)] = \int_{-\infty}^{\infty} g(x) f(x) dx$
+1. Linearity: $\mathbb{E}(aX + bY) = a\mathbb{E}(X) + b\mathbb{E}(Y)$ for constants $a$ and $b$
+2. Law of the unconscious statistician: $\mathbb{E}[g(X)] = \int_{-\infty}^{\infty} g(x) f(x) dx$
 
 In decision theory, we often use expected utility instead of expected value. This takes into account the decision-maker's risk preferences:
 
-$$ EU(X) = \sum_{i=1}^n U(x_i) p_i $$
+$\mathbb{E}U(X) = \sum_{i=1}^n U(x_i) p_i$
 
 where $U(x)$ is the utility function.
 

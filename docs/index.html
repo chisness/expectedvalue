@@ -600,15 +600,15 @@ Try it yourself!
 <h2 class="anchored" data-anchor-id="advanced-math">Advanced Math</h2>
 <p>In more complex scenarios, expected value becomes a powerful tool for decision-making under uncertainty. It’s particularly useful in fields like finance, economics, and data science. We give a bunch of examples on this site on the left nav menu.</p>
 <p>For continuous random variables, the expected value is defined as an integral:</p>
-<p><span class="math display">\[ E(X) = \int_{-\infty}^{\infty} x f(x) dx \]</span></p>
+<p><span class="math inline">\(\mathbb{E}(X) = \int_{-\infty}^{\infty} x f(x) dx\)</span></p>
 <p>where <span class="math inline">\(f(x)\)</span> is the probability density function of <span class="math inline">\(X\)</span>.</p>
 <p>Expected value has several important properties:</p>
 <ol type="1">
-<li>Linearity: <span class="math inline">\(E(aX + bY) = aE(X) + bE(Y)\)</span> for constants <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span></li>
-<li>Law of the unconscious statistician: <span class="math inline">\(E[g(X)] = \int_{-\infty}^{\infty} g(x) f(x) dx\)</span></li>
+<li>Linearity: <span class="math inline">\(\mathbb{E}(aX + bY) = a\mathbb{E}(X) + b\mathbb{E}(Y)\)</span> for constants <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span></li>
+<li>Law of the unconscious statistician: <span class="math inline">\(\mathbb{E}[g(X)] = \int_{-\infty}^{\infty} g(x) f(x) dx\)</span></li>
 </ol>
 <p>In decision theory, we often use expected utility instead of expected value. This takes into account the decision-maker’s risk preferences:</p>
-<p><span class="math display">\[ EU(X) = \sum_{i=1}^n U(x_i) p_i \]</span></p>
+<p><span class="math inline">\(\mathbb{E}U(X) = \sum_{i=1}^n U(x_i) p_i\)</span></p>
 <p>where <span class="math inline">\(U(x)\)</span> is the utility function.</p>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
