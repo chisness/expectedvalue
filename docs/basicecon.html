@@ -181,12 +181,6 @@ window.Quarto = {
  <span class="menu-text">EV Importance</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
- <span class="menu-text">EV Benefits</span>
-  </li>
-          <li class="sidebar-item">
- <span class="menu-text">EV Flaws</span>
-  </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -262,18 +256,6 @@ window.Quarto = {
   <div class="sidebar-item-container"> 
   <a href="./dreidel.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Dreidel</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./blackjack.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Blackjack</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./gambler.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Gambler Problem</span></a>
   </div>
 </li>
       </ul>
@@ -365,14 +347,14 @@ window.Quarto = {
 <p><img src="assets/basicecon/united_restrictions.png" class="img-fluid" style="width:50.0%"></p>
 <p>The tickets generally cost $50 less than a regular economy ticket on the same flight:</p>
 <p><img src="assets/basicecon/united_prices.png" class="img-fluid" style="width:50.0%"></p>
-<p>If you needed a full-sized carry-on (which actually is included if you have certain statuses or a United credit card) or to sit with your family, then there isn’t much to even evaluate, and the regular economy option will be best.</p>
-<p>Let’s look at this specific scenario:</p>
+<p>If you needed a full-sized carry-on (which actually is included if you have certain statuses or a United credit card) or to sit with your family, then there isn’t much to even evaluate, and the regular economy option will usually be best.</p>
+<p>But let’s look at this specific scenario:</p>
 <ul>
 <li>Solo traveler</li>
 <li>Indifferent to seat (you can still pay for a seat or hope to get lucky)</li>
 <li>Has status to bring full-sized carry-on</li>
 </ul>
-<p>So the main consideration is the <strong>flight change</strong>. A basic economy ticket cannot be changed. It can only be canceled for a $49.50 cancellation fee. The rest of the refund will come back as a United flight credit. (Even with a regular economy ticket, a cancellation will be refunded as flight credit, and we assume that this is as good as a cash refund going forward.)</p>
+<p>So the main consideration is the <strong>flight change</strong>. A basic economy ticket cannot be changed. It can only be canceled for a $49.50 cancellation fee. The rest of the refund will come back as a United flight credit. (Even with a regular economy ticket, a cancellation will be refunded as flight credit, and we assume going forward that this is as good as a cash refund.)</p>
 <section id="ev-basic-vs.-regular-on-united" class="level2">
 <h2 class="anchored" data-anchor-id="ev-basic-vs.-regular-on-united">EV Basic vs.&nbsp;Regular on United</h2>
 <p>Suppose that a basic economy ticket is available for <span class="math inline">\(\$x\)</span> and a regular economy ticket is available for <span class="math inline">\(\$x+50\)</span>.</p>
@@ -385,12 +367,13 @@ window.Quarto = {
 </section>
 <section id="case-2-change-flight" class="level3">
 <h3 class="anchored" data-anchor-id="case-2-change-flight">Case 2: Change Flight</h3>
-<p>Total costs in the case of changing the flight. Assume the probability of changing the flight is <span class="math inline">\(c\)</span>.</p>
+<p>Total costs in the case of changing the flight</p>
 <p><span class="math inline">\(\mathbb{E}[\text{Basic Economy}] = \$n + 49.50\)</span></p>
 <p><span class="math inline">\(\mathbb{E}[\text{Regular Economy}] = \$n\)</span></p>
 </section>
 <section id="evs" class="level3">
 <h3 class="anchored" data-anchor-id="evs">EVs</h3>
+<p>Assume the probability of changing the flight is <span class="math inline">\(c\)</span></p>
 <p><span class="math inline">\(\mathbb{E}[\text{Basic Economy}] = (x)(1-c) + (n+49.50)c\)</span></p>
 <p><span class="math inline">\(\mathbb{E}[\text{Regular Economy}] = (x+50)(1-c) + (n)c\)</span></p>
 <p>What <span class="math inline">\(c\)</span> makes these equal?</p>

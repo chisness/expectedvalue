@@ -4,13 +4,18 @@ format:
   html:
     math: true
 ---
+Expected value is fundamental in decision-making under uncertainty.
 
-Expected value is fundamental in decision-making under uncertainty, a key area of focus for effective altruists. It allows individuals to make choices that maximize their positive impact, even when outcomes are uncertain. This principle is frequently discussed on platforms like the Effective Altruism Forum and in related literature.
+It allows us to make choices that maximize positive impact, even when outcomes are uncertain. Effective Altruism (EA) is a movement that aims to find the best ways to help others using evidence and reason. 
 
-While I can't pinpoint the exact source of the most upvoted answer you mentioned, it's consistent with the general emphasis within the community on understanding and applying expected value to make better decisions.
-
-https://forum.effectivealtruism.org/posts/xw7TpRLu5cCEDrkPA/what-is-the-top-concept-that-all-eas-should-understand
+This post in the [Effective Altruism (EA) forum](https://forum.effectivealtruism.org/posts/xw7TpRLu5cCEDrkPA/what-is-the-top-concept-that-all-eas-should-understand) asks what the top concept is that all EAs should understand: 
 
 ![](assets/eaforum1.png)
+
+The most highly upvoted answer was expected value! 
+
 ![](assets/eaforum2.png)
-![](assets/evtweet.png.png)
+
+This tweet emphasizes the reliance on EV for using evidence and reason: 
+
+![](assets/evtweet.png)

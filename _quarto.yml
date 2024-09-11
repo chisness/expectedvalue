@@ -29,8 +29,8 @@ website:
         contents: 
           - href: evimp.qmd 
             text: EV Importance
-          - text: EV Benefits
-          - text: EV Flaws
+          # - text: EV Benefits
+          # - text: EV Flaws
       - section: "SPORTS"
         contents: 
           - text: Soon!
@@ -50,10 +50,10 @@ website:
             text: Dice
           - href: dreidel.qmd
             text: Dreidel
-          - href: blackjack.qmd
-            text: Blackjack
-          - href: gambler.qmd
-            text: Gambler Problem
+          # - href: blackjack.qmd
+          #   text: Blackjack
+          # - href: gambler.qmd
+          #   text: Gambler Problem
       - section: "CURRENT EVENTS"
         contents: 
           - href: huberman-pregnancy.qmd 
