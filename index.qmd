@@ -7,6 +7,32 @@ resources:
 <!-- ```{=html}
 <iframe src="expected-value-widget.html" width="100%" height="500px" frameborder="0"></iframe> -->
 
+## EV Basics
+Expected Value = (Probability of an outcome) × (Value of that outcome)
+Here's a simple, real-life example:
+Imagine a raffle where:
+
+Tickets cost $1 each
+There's a 1 in 100 chance of winning
+The prize is $150
+
+To calculate the expected value:
+
+Probability of winning: 1/100 = 0.01
+Value of winning: $150
+Expected Value = 0.01 × $150 = $1.50
+
+This means that, on average, each ticket is "worth" $1.50.
+Since the ticket costs $1, and its expected value is $1.50, it's technically a good deal in the long run. However, remember that this doesn't guarantee you'll win - it's an average over many tries.
+This simple calculation helps you make decisions by weighing the likelihood of outcomes against their potential value. It's a basic tool for comparing options with different risks and rewards.
+
+[Wikipedia](https://en.wikipedia.org/wiki/Expected_value): "The expected value of a random variable with a finite number of outcomes is a weighted average of all possible outcomes". 
+
+Mathematically, with a random variable $X$ and a list of possible outcomes $x_1, ..., x_k$ each of which has probability $p_1, ..., p_k$ of occurring, respectively. Then $\mathbb{E}[X] = x_1 p_1 + x_2 p_2 + ... + x_k p_k$. 
+
+What is a random variable? It represents possible outcomes. A random variable is defined by its possible outcomes and the probability of each outcome. 
+
+
 ## Explain It Like I'm 5
 
 Imagine you have a big jar of different colored marbles. Some are red, some are blue, and some are green. Your friend says, "If you pick a red marble, I'll give you a cookie. If you pick a blue one, I'll give you two cookies. If you pick a green one, you don't get any cookies."

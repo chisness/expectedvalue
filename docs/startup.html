@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>What is expected value? – The EV Foundation</title>
+<title>Startup – The EV Foundation</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -107,10 +107,10 @@ window.Quarto = {
 };
 </script>
 
-<meta property="og:title" content="What is expected value? – The EV Foundation">
+<meta property="og:title" content="Startup – The EV Foundation">
 <meta property="og:description" content="">
 <meta property="og:site_name" content="The EV Foundation">
-<meta name="twitter:title" content="What is expected value? – The EV Foundation">
+<meta name="twitter:title" content="Startup – The EV Foundation">
 <meta name="twitter:description" content="">
 <meta name="twitter:creator" content="@chisness">
 <meta name="twitter:card" content="summary">
@@ -154,7 +154,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">What is expected value?</li></ol></nav>
+        <h1 class="quarto-secondary-nav-title no-breadcrumbs">Startup</h1>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -175,6 +175,12 @@ window.Quarto = {
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./evimp.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">EV Importance</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
  <span class="menu-text">EV Benefits</span>
   </li>
@@ -311,15 +317,21 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#startup-vs.-normal-job" id="toc-startup-vs.-normal-job" class="nav-link active" data-scroll-target="#startup-vs.-normal-job">Startup vs.&nbsp;Normal Job</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">What is expected value?</h1>
+<h1 class="title d-none d-lg-block">Startup</h1>
 </div>
 
 
@@ -336,10 +348,59 @@ window.Quarto = {
 </header>
 
 
-<p>HELLO!</p>
+<section id="startup-vs.-normal-job" class="level2">
+<h2 class="anchored" data-anchor-id="startup-vs.-normal-job">Startup vs.&nbsp;Normal Job</h2>
+<p>Although the concept of expected value is useful when thinking about decision making under uncertainty, we have to make a lot of assumptions. Suppose that you could take a normal job with a salary of $200,000 per year. Alternatively, you could build a startup that has the following outcomes:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Equity Upon Sale in 5 Years</th>
+<th>Probability</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\$0\)</span></td>
+<td><span class="math inline">\(0.70\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\$1m\)</span></td>
+<td><span class="math inline">\(0.20\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\$10m\)</span></td>
+<td><span class="math inline">\(0.08\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\$100m\)</span></td>
+<td><span class="math inline">\(0.02\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Building the startup has the following EV in millions:</p>
+<p><span class="math display">\[
+\begin{equation}
+\begin{split}
+\mathbb{E}[\text{Startup}] &amp;= 0*0.70 + 1*0.20 + 10*0.08 + 100*0.02 \\
+  &amp;= 0 + 0.2 + 0.8 + 2 \\
+  &amp;= 3
+\end{split}
+\end{equation}
+\]</span></p>
+<p>Working the job with the salary has this EV in millions:</p>
+<p><span class="math display">\[
+\begin{equation}
+\begin{split}
+\mathbb{E}[\text{Salary}] &amp;= 1*0.2 + 1*0.2 + 1*0.2 + 1*0.2 + 1*0.2 \\
+  &amp;= 0 + 0.2 + 0.8 + 2 \\
+  &amp;= 3
+\end{split}
+\end{equation}
+\]</span></p>
 
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

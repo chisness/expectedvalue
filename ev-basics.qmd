@@ -1,7 +1,0 @@
----
-title: "What is expected value?"
-format:
-  html:
-    math: true
----
-HELLO! 

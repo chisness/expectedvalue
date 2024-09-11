@@ -27,6 +27,8 @@ website:
     contents: 
       - section: "EXPECTED VALUE"
         contents: 
+          - href: evimp.qmd 
+            text: EV Importance
           - text: EV Benefits
           - text: EV Flaws
       - section: "SPORTS"
@@ -67,6 +69,7 @@ format:
   html:
     theme: flatly
     page-navigation: false
+    bread-crumbs: false
     math: true 
     toc: true
     toc-expand: true

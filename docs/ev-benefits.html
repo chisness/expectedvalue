@@ -154,7 +154,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Expected Value Benefits</li></ol></nav>
+        <h1 class="quarto-secondary-nav-title no-breadcrumbs">Expected Value Benefits</h1>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -175,6 +175,12 @@ window.Quarto = {
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./evimp.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">EV Importance</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
  <span class="menu-text">EV Benefits</span>
   </li>
@@ -311,38 +317,15 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#section-1" id="toc-section-1" class="nav-link active" data-scroll-target="#section-1">Section 1</a></li>
-  <li><a href="#technical-definition" id="toc-technical-definition" class="nav-link" data-scroll-target="#technical-definition">Technical Definition</a></li>
-  <li><a href="#not-considered" id="toc-not-considered" class="nav-link" data-scroll-target="#not-considered">Not Considered</a></li>
-  <li><a href="#when-is-expected-value-useful" id="toc-when-is-expected-value-useful" class="nav-link" data-scroll-target="#when-is-expected-value-useful">When is expected value useful?</a></li>
-  <li><a href="#when-is-expected-value-not-useful" id="toc-when-is-expected-value-not-useful" class="nav-link" data-scroll-target="#when-is-expected-value-not-useful">When is expected value not useful?</a></li>
-  <li><a href="#startup-vs.-normal-job" id="toc-startup-vs.-normal-job" class="nav-link" data-scroll-target="#startup-vs.-normal-job">Startup vs.&nbsp;Normal Job</a></li>
-  <li><a href="#section-2" id="toc-section-2" class="nav-link" data-scroll-target="#section-2">Section 2</a>
-  <ul class="collapse">
-  <li><a href="#section-2.1" id="toc-section-2.1" class="nav-link" data-scroll-target="#section-2.1">Section 2.1</a></li>
-  <li><a href="#section-2.2" id="toc-section-2.2" class="nav-link" data-scroll-target="#section-2.2">Section 2.2</a></li>
-  </ul></li>
-  <li><a href="#section-3" id="toc-section-3" class="nav-link" data-scroll-target="#section-3">Section 3</a>
-  <ul class="collapse">
-  <li><a href="#section-3.1" id="toc-section-3.1" class="nav-link" data-scroll-target="#section-3.1">Section 3.1</a></li>
-  <li><a href="#section-3.2" id="toc-section-3.2" class="nav-link" data-scroll-target="#section-3.2">Section 3.2</a></li>
-  <li><a href="#section-3.3" id="toc-section-3.3" class="nav-link" data-scroll-target="#section-3.3">Section 3.3</a></li>
-  </ul></li>
-  <li><a href="#section-4" id="toc-section-4" class="nav-link" data-scroll-target="#section-4">Section 4</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Expected Value Benefits</h1>
+<h1 class="title d-none d-lg-block">Expected Value Benefits</h1>
 </div>
 
 
@@ -359,24 +342,6 @@ window.Quarto = {
 </header>
 
 
-<p>https://forum.effectivealtruism.org/topics/expected-value https://probablygood.org/core-concepts/expected-value/</p>
-<p>drqwing a card from a deck variance EV of skipping train ticket Look into spoiler/hidden text thing and having multiple choice quizzes integrated Use EV page as template including problem set/exercises at end</p>
-<p>https://seeing-theory.brown.edu/ Lotto thing Slider for expected value with estimates, current events Blackjack Taylor Swift Trump Expected value of domain Highest EV time to have a kid Site just asking what is the value of the site plane ticket stuff (see ojm list)</p>
-<p>ev only part of picture, because if bet is big part of bankroll then not good!</p>
-<p>Issues Risk tolerance: Expected value doesn’t account for individual risk preferences. Two options might have the same expected value, but one could be much riskier. Non-linear utility: The subjective value (utility) of money often doesn’t scale linearly. Gaining $1000 might be more than twice as valuable to someone as gaining $500. Frequency of events: For rare events or one-time decisions, the law of large numbers doesn’t apply, making expected value less reliable. Uncertainty in probabilities: Often, the probabilities used in calculations are estimates, which can lead to inaccurate results if they’re off. Neglect of qualitative factors: Expected value focuses on quantifiable outcomes, potentially overlooking important qualitative considerations. Assumption of independence: Many expected value calculations assume events are independent, which isn’t always true in real-life scenarios. Short-term vs.&nbsp;long-term outcomes: As you mentioned, time value of money isn’t typically factored in, nor are potential long-term consequences. Ethical considerations: Purely quantitative decision-making based on expected value might lead to ethically questionable choices in some situations. Complexity of real-world scenarios: Many situations involve multiple, interrelated variables that are difficult to capture in a simple expected value calculation. Behavioral biases: People often don’t act rationally according to expected value, due to various cognitive biases and emotional factors. Black swan events: Rare, high-impact events that are hard to predict can significantly affect outcomes but are often not accounted for in expected value calculations. Changing circumstances: Expected value calculations assume static conditions, but real-world situations can change rapidly.</p>
-<p>Time Value of Money:</p>
-<p>As you mentioned, EV calculations typically do not account for the time value of money. Future cash flows need to be discounted to present value to make a proper comparison. Risk and Uncertainty:</p>
-<p>EV does not account for risk preferences or aversion. Two options with the same EV might have different levels of risk, which can significantly affect decision-making. Probability Estimation:</p>
-<p>Accurate probability estimation is crucial for EV calculations. Inaccurate or biased estimates can lead to misleading results. Utility:</p>
-<p>EV assumes linear utility of money, but in reality, the utility of money can be nonlinear. For example, losing $100 might feel worse than gaining $100 feels good. Rare Events:</p>
-<p>EV can be heavily influenced by rare, high-impact events. While these events may have a significant effect on the EV, their actual occurrence might be so infrequent that they should be considered differently. Decision Context:</p>
-<p>EV calculations do not always consider the broader context or other qualitative factors that may influence a decision. Opportunity Cost:</p>
-<p>EV does not inherently account for opportunity costs, which are the benefits you miss out on when choosing one alternative over another. Behavioral Factors:</p>
-<p>Human behavior often deviates from rational decision-making models. Factors such as emotions, cognitive biases, and social influences can impact decisions beyond what EV can capture. Data Quality:</p>
-<p>The quality and reliability of the data used to calculate probabilities and outcomes are critical. Poor data can lead to inaccurate EV calculations. Interdependencies:</p>
-<p>EV calculations typically assume independent outcomes, but in reality, events can be interdependent, affecting the overall decision-making process. Long-Term vs.&nbsp;Short-Term:</p>
-<p>EV may not distinguish between long-term and short-term benefits and costs, which can be important depending on the decision context. Scalability:</p>
-<p>EV is additive and may not scale well with large numbers of small probabilities, potentially leading to overestimation of the value of combining many low-probability events.</p>
 <p>Pros: Expected value calculations offer several important benefits, which is why they remain a valuable tool in decision-making and analysis. Here are some key advantages:</p>
 <p>Quantitative framework: Provides a structured, numerical approach to comparing different options or scenarios. Objectivity: Helps reduce emotional bias in decision-making by focusing on probabilities and outcomes. Risk assessment: Allows for the incorporation of risk and uncertainty into decision-making processes. Comparative analysis: Facilitates easy comparison between multiple options, even when they have different probabilities and outcomes. Long-term perspective: Encourages thinking about the average outcome over many repetitions, which can be valuable for recurring decisions. Simplification of complex scenarios: Distills complicated situations into more manageable components (probabilities and payoffs). Identification of high-value opportunities: Helps in recognizing options that may have low probability but high potential payoff. Resource allocation: Assists in determining where to best allocate limited resources for maximum expected return. Decision consistency: Provides a consistent method for evaluating different scenarios across an organization or over time. Scenario planning: Useful in modeling various potential futures and their likelihood, aiding in strategic planning. Probabilistic thinking: Encourages consideration of multiple possible outcomes rather than just focusing on the most likely scenario. Foundation for more complex models: Serves as a basis for more sophisticated decision-making tools and risk analysis techniques. Learning tool: Helps in developing a more nuanced understanding of probability and its role in outcomes. Communication aid: Offers a clear way to explain the reasoning behind decisions to stakeholders.</p>
 <p>Quantitative Analysis:</p>
@@ -396,186 +361,9 @@ window.Quarto = {
 <p>EV is a fundamental component of cost-benefit analysis, helping to evaluate whether the benefits of a decision outweigh the costs. Decision Justification:</p>
 <p>EV offers a logical and transparent basis for justifying decisions, making it easier to explain and defend choices to others. Balancing Short-Term and Long-Term Goals:</p>
 <p>EV can help balance short-term and long-term goals by providing a framework to evaluate the expected value of immediate versus future benefits.</p>
-<section id="section-1" class="level2">
-<h2 class="anchored" data-anchor-id="section-1">Section 1</h2>
-<p>Expected Value = (Probability of an outcome) × (Value of that outcome) Here’s a simple, real-life example: Imagine a raffle where:</p>
-<p>Tickets cost $1 each There’s a 1 in 100 chance of winning The prize is $150</p>
-<p>To calculate the expected value:</p>
-<p>Probability of winning: 1/100 = 0.01 Value of winning: $150 Expected Value = 0.01 × $150 = $1.50</p>
-<p>This means that, on average, each ticket is “worth” $1.50. Since the ticket costs $1, and its expected value is $1.50, it’s technically a good deal in the long run. However, remember that this doesn’t guarantee you’ll win - it’s an average over many tries. This simple calculation helps you make decisions by weighing the likelihood of outcomes against their potential value. It’s a basic tool for comparing options with different risks and rewards.</p>
-<p>Lottery tickets Roulette Blackjack Extended warranty Flight insurance Degree Solar panel Gas vs.&nbsp;EV car Poker Sports bet Chinese auction Food: Carrots, watermelon, XL vs.&nbsp;L eggs Salad bar Ebike vs.&nbsp;regular Dreidel</p>
-<p>https://www.probabilitycourse.com/chapter1/1_4_3_bayes_rule.php https://en.wikipedia.org/wiki/Expected_value https://www.khanacademy.org/math/statistics-probability/random-variables-stats-library/random-variables-discrete/e/expected_value</p>
-<p>basic algebra, equations, variables A few easy explanations A few exercises A short video A really short video Dice EV, what if you get option for 2nd Expected Value Foundation? Expected value most upvoted answer on “what EAs should know if they know 1 concept”</p>
-<p>Expected value is fundamental in decision-making under uncertainty, a key area of focus for effective altruists. It allows individuals to make choices that maximize their positive impact, even when outcomes are uncertain. This principle is frequently discussed on platforms like the Effective Altruism Forum and in related literature.</p>
-<p>While I can’t pinpoint the exact source of the most upvoted answer you mentioned, it’s consistent with the general emphasis within the community on understanding and applying expected value to make better decisions.</p>
-<p>opportunity cost comparative advantage As its name suggests, opportunity cost refers to the cost of choosing one opportunity over others. This “cost” reflects the value you could have gained in all the options you didn’t pursue.</p>
-<p>Accounting for opportunity cost can help us understand the comparative value of our available options and spend our time, money, and effort more effectively. This is particularly important for avoiding spending limited resources on an option that seems attractive at first (because it has positive expected value) but will actually give you much worse value than another available option.</p>
-<p>https://www.cold-takes.com/expected-value/#fnref1</p>
-<p>https://brilliant.org/wiki/expected-value/</p>
-<p>https://80000hours.org/articles/expected-value/</p>
-<p>https://jc.gatspress.com/pdf/on_expected_utility.pdf</p>
-<p>https://80000hours.org/2023/02/how-much-do-solutions-differ-in-effectiveness/#ways-the-data-might-overstate-the-true-degree-of-spread</p>
-<p>https://80000hours.org/2023/03/moderation-in-doing-good/</p>
-<p>https://80000hours.org/articles/moral-uncertainty/</p>
-</section>
-<section id="technical-definition" class="level2">
-<h2 class="anchored" data-anchor-id="technical-definition">Technical Definition</h2>
-<p><a href="https://en.wikipedia.org/wiki/Expected_value">Wikipedia</a>: “The expected value of a random variable with a finite number of outcomes is a weighted average of all possible outcomes”.</p>
-<p>Mathematically, with a random variable <span class="math inline">\(X\)</span> and a list of possible outcomes <span class="math inline">\(x_1, ..., x_k\)</span> each of which has probability <span class="math inline">\(p_1, ..., p_k\)</span> of occurring, respectively. Then <span class="math inline">\(\mathbb{E}[X] = x_1 p_1 + x_2 p_2 + ... + x_k p_k\)</span>.</p>
-<p>What is a random variable? It represents possible outcomes. A random variable is defined by its possible outcomes and the probability of each outcome.</p>
-<p>an agent making an optimal choice in the context of incomplete information is often assumed to maximize the expected value of their utility function.</p>
-<p>https://www.cold-takes.com/the-bayesian-mindset/#1-connecting-opinions-to-anticipated-observations</p>
-<p>https://forum.effectivealtruism.org/posts/jo7tM4s5ApPgv2DPC/expected-value-theory</p>
-<p>https://forum.effectivealtruism.org/topics/expected-value</p>
-<p>https://80000hours.org/2023/02/how-much-do-solutions-differ-in-effectiveness/#ways-the-data-might-overstate-the-true-degree-of-spread</p>
-<p>https://blog.givewell.org/2011/08/18/why-we-cant-take-expected-value-estimates-literally-even-when-theyre-unbiased/</p>
-<p>https://80000hours.org/articles/be-more-ambitious/</p>
-<p>https://forum.effectivealtruism.org/posts/FKnhB28EvG4og87JP/1-e-x-is-not-e-1-x</p>
-<p>https://blog.givewell.org/2016/07/26/deworming-might-huge-impact-might-close-zero-impact/</p>
-<p>ev only part of picture, because if bet is big part of bankroll then not good! ## Section 2 ### Section 2.1 ### Section 2.2</p>
-<p>drqwing a card from a deck variance EV of skipping train ticket Look into spoiler/hidden text thing and having multiple choice quizzes integrated Use EV page as template including problem set/exercises at end</p>
-<p>https://seeing-theory.brown.edu/ Lotto thing Slider for expected value with estimates, current events Blackjack Taylor Swift Trump Expected value of domain Highest EV time to have a kid Site just asking what is the value of the site plane ticket stuff (see ojm list)</p>
-<p>https://reducing-suffering.org/does-vegetarianism-make-a-difference/</p>
-<p>https://forum.effectivealtruism.org/posts/GjifPPAAGont94Z7F/in-cost-effectiveness-analyses-when-should-we-take-the</p>
-<p>https://80000hours.org/podcast/episodes/alan-hajek-probability-expected-value/</p>
-</section>
-<section id="not-considered" class="level2">
-<h2 class="anchored" data-anchor-id="not-considered">Not Considered</h2>
-<p>Time getting to airport early vs.&nbsp;late</p>
-<p>selling clothes vs.&nbsp;donating</p>
-<p>When we make a decision, we want the benefits to outweigh the costs. Some people will use a pro/con chart to help them make their decisions. Pros Cons Won’t lose all my money Cost a bit more in most cases</p>
-<p>-&gt; add values -&gt; effectively becomes similar to a mean or average</p>
-<p>But what if our pros and cons don’t have the same value? We don’t want to just count the amount of pros and count the amount of cons Pros Cons Won’t lose all my money (10x) Cost a bit more in most cases (-x)</p>
-<p>-&gt; But the each outcome does not have the same likelihood. Add probabilities</p>
-<p>Pros Cons Won’t lose all my money (10x) (probability of losing package is y) Cost a bit more in most cases (x) (probability of paying for insurance is 100%)</p>
-<p>And now you have expected value!</p>
-<p>If 10x(y) &gt; (x) You should buy the insurance!</p>
-<p>Get a graduate degree vs keep working</p>
-<p>Pros (of getting degree) Cons Higher earnings potential in the future Lose year(s) of earnings Chance at being a professor Hard work Might get more educated friends, relationships Will make you depressed Will become more educated</p>
-<p>Can you quantify these things on a single metric (money)? If not, why?</p>
-<p>Pros (of getting degree) Value Cons Value Higher earnings potential in the future</p>
-<p>Lose year(s) of earnings</p>
-<p>Chance at being a professor</p>
-<p>Hard work</p>
-<p>Might get more educated friends, relationships</p>
-<p>Will make you depressed</p>
-<p>Will become more educated</p>
-<p>Add probabilities. If you can’t add probabilities, why?</p>
-<p>Pros (of getting degree) Value probability Cons Value probability Higher earnings potential in the future</p>
-<p>Lose year(s) of earnings</p>
-<p>Chance at being a professor</p>
-<p>Hard work</p>
-<p>Might get more educated friends, relationships</p>
-<p>Will make you depressed</p>
-<p>Will become more educated</p>
-<p>Go out to a restaurant vs eating in</p>
-<p>Pros (of going to restaurant) Cons Higher earnings potential in the future Lose year(s) of earnings Chance at being a professor Hard work Might get more educated friends, relationships Will make you depressed Will become more educated</p>
-<p>Can you quantify these things on a single metric (money)? If not, why?</p>
-<p>Pros (of getting degree) Value Cons Value Higher earnings potential in the future</p>
-<p>Lose year(s) of earnings</p>
-<p>Chance at being a professor</p>
-<p>Hard work</p>
-<p>Might get more educated friends, relationships</p>
-<p>Will make you depressed</p>
-<p>Will become more educated</p>
-<p>Add probabilities. If you can’t add probabilities, why?</p>
-<p>Pros (of getting degree) Value probability Cons Value probability Higher earnings potential in the future</p>
-<p>Lose year(s) of earnings</p>
-<p>Chance at being a professor</p>
-<p>Hard work</p>
-<p>Might get more educated friends, relationships</p>
-<p>Will make you depressed</p>
-<p>Will become more educated</p>
-<p>Decision pro-con example</p>
-<p>In practice, it may not be clear which action will end up being the most valuable. Yet even if you’re unsure, putting some extra thought into its opportunity cost can help you gain an intuition for what actions to prioritize. To do so, figure out which options are available to you, try to determine the overall value of each option, then see how they compare.</p>
-</section>
-<section id="when-is-expected-value-useful" class="level2">
-<h2 class="anchored" data-anchor-id="when-is-expected-value-useful">When is expected value useful?</h2>
-</section>
-<section id="when-is-expected-value-not-useful" class="level2">
-<h2 class="anchored" data-anchor-id="when-is-expected-value-not-useful">When is expected value not useful?</h2>
-<p>EA: Not just charity or not, but how much it helps Poker: Not just winning or not, but EV and pot odds considerations</p>
-<p>EV of making rice quantity</p>
-<p>https://asteriskmag.com/issues/05/michael-lewis-s-blind-side https://bayesshammai.substack.com/p/what-to-expect-when-youre-expecting</p>
-<p>Train $5.50 one way or $6 roundtrip, how to decide Basic economy vs.&nbsp;regular economy with probability Insurance like flights or package Chinese auctions https://auction.ytcte.org/auction/about Raffles https://www.chabaduvm.org/raffle</p>
-</section>
-<section id="startup-vs.-normal-job" class="level2">
-<h2 class="anchored" data-anchor-id="startup-vs.-normal-job">Startup vs.&nbsp;Normal Job</h2>
-<p>Although the concept of expected value is useful when thinking about decision making under uncertainty, we have to make a lot of assumptions. Suppose that you could take a normal job with a salary of $200,000 per year. Alternatively, you could build a startup that has the following outcomes:</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Equity Upon Sale in 5 Years</th>
-<th>Probability</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span class="math inline">\(\$0\)</span></td>
-<td><span class="math inline">\(0.70\)</span></td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(\$1m\)</span></td>
-<td><span class="math inline">\(0.20\)</span></td>
-</tr>
-<tr class="odd">
-<td><span class="math inline">\(\$10m\)</span></td>
-<td><span class="math inline">\(0.08\)</span></td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(\$100m\)</span></td>
-<td><span class="math inline">\(0.02\)</span></td>
-</tr>
-</tbody>
-</table>
-<p>Building the startup has the following EV in millions:</p>
-<p><span class="math display">\[
-\begin{equation}
-\begin{split}
-\mathbb{E}[\text{Startup}] &amp;= 0*0.70 + 1*0.20 + 10*0.08 + 100*0.02 \\
-  &amp;= 0 + 0.2 + 0.8 + 2 \\
-  &amp;= 3
-\end{split}
-\end{equation}
-\]</span></p>
-<p>Working the job with the salary has this EV in millions:</p>
-<p><span class="math display">\[
-\begin{equation}
-\begin{split}
-\mathbb{E}[\text{Salary}] &amp;= 1*0.2 + 1*0.2 + 1*0.2 + 1*0.2 + 1*0.2 \\
-  &amp;= 0 + 0.2 + 0.8 + 2 \\
-  &amp;= 3
-\end{split}
-\end{equation}
-\]</span></p>
-</section>
-<section id="section-2" class="level2">
-<h2 class="anchored" data-anchor-id="section-2">Section 2</h2>
-<section id="section-2.1" class="level3">
-<h3 class="anchored" data-anchor-id="section-2.1">Section 2.1</h3>
-</section>
-<section id="section-2.2" class="level3">
-<h3 class="anchored" data-anchor-id="section-2.2">Section 2.2</h3>
-</section>
-</section>
-<section id="section-3" class="level2">
-<h2 class="anchored" data-anchor-id="section-3">Section 3</h2>
-<section id="section-3.1" class="level3">
-<h3 class="anchored" data-anchor-id="section-3.1">Section 3.1</h3>
-</section>
-<section id="section-3.2" class="level3">
-<h3 class="anchored" data-anchor-id="section-3.2">Section 3.2</h3>
-</section>
-<section id="section-3.3" class="level3">
-<h3 class="anchored" data-anchor-id="section-3.3">Section 3.3</h3>
-</section>
-</section>
-<section id="section-4" class="level2">
-<h2 class="anchored" data-anchor-id="section-4">Section 4</h2>
 
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

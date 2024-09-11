@@ -1,0 +1,40 @@
+---
+title: "Startup"
+format:
+  html:
+    math: true
+---
+
+## Startup vs. Normal Job
+Although the concept of expected value is useful when thinking about decision making under uncertainty, we have to make a lot of assumptions. Suppose that you could take a normal job with a salary of $200,000 per year. Alternatively, you could build a startup that has the following outcomes: 
+
+| Equity Upon Sale in 5 Years    | Probability |
+| -------- | ------- |
+| $\$0$  | $0.70$    | 
+| $\$1m$ | $0.20$    | 
+| $\$10m$   | $0.08$   |  
+| $\$100m$  | $0.02$    | 
+
+Building the startup has the following EV in millions: 
+
+$$
+\begin{equation}
+\begin{split}
+\mathbb{E}[\text{Startup}] &= 0*0.70 + 1*0.20 + 10*0.08 + 100*0.02 \\
+  &= 0 + 0.2 + 0.8 + 2 \\
+  &= 3
+\end{split}
+\end{equation}
+$$
+
+Working the job with the salary has this EV in millions: 
+
+$$
+\begin{equation}
+\begin{split}
+\mathbb{E}[\text{Salary}] &= 1*0.2 + 1*0.2 + 1*0.2 + 1*0.2 + 1*0.2 \\
+  &= 0 + 0.2 + 0.8 + 2 \\
+  &= 3
+\end{split}
+\end{equation}
+$$

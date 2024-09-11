@@ -154,7 +154,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Expected Value: From Simple to Advanced</li></ol></nav>
+        <h1 class="quarto-secondary-nav-title no-breadcrumbs">Expected Value: From Simple to Advanced</h1>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -175,6 +175,12 @@ window.Quarto = {
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./evimp.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">EV Importance</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
  <span class="menu-text">EV Benefits</span>
   </li>
@@ -316,7 +322,8 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#explain-it-like-im-5" id="toc-explain-it-like-im-5" class="nav-link active" data-scroll-target="#explain-it-like-im-5">Explain It Like I’m 5</a></li>
+  <li><a href="#ev-basics" id="toc-ev-basics" class="nav-link active" data-scroll-target="#ev-basics">EV Basics</a></li>
+  <li><a href="#explain-it-like-im-5" id="toc-explain-it-like-im-5" class="nav-link" data-scroll-target="#explain-it-like-im-5">Explain It Like I’m 5</a></li>
   <li><a href="#standard-explanation" id="toc-standard-explanation" class="nav-link" data-scroll-target="#standard-explanation">Standard Explanation</a></li>
   <li><a href="#advanced-explanation" id="toc-advanced-explanation" class="nav-link" data-scroll-target="#advanced-explanation">Advanced Explanation</a>
   <ul class="collapse">
@@ -330,7 +337,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Expected Value: From Simple to Advanced</h1>
+<h1 class="title d-none d-lg-block">Expected Value: From Simple to Advanced</h1>
 </div>
 
 
@@ -349,6 +356,17 @@ window.Quarto = {
 
 <!-- ```{=html}
 <iframe src="expected-value-widget.html" width="100%" height="500px" frameborder="0"></iframe> -->
+<section id="ev-basics" class="level2">
+<h2 class="anchored" data-anchor-id="ev-basics">EV Basics</h2>
+<p>Expected Value = (Probability of an outcome) × (Value of that outcome) Here’s a simple, real-life example: Imagine a raffle where:</p>
+<p>Tickets cost $1 each There’s a 1 in 100 chance of winning The prize is $150</p>
+<p>To calculate the expected value:</p>
+<p>Probability of winning: 1/100 = 0.01 Value of winning: $150 Expected Value = 0.01 × $150 = $1.50</p>
+<p>This means that, on average, each ticket is “worth” $1.50. Since the ticket costs $1, and its expected value is $1.50, it’s technically a good deal in the long run. However, remember that this doesn’t guarantee you’ll win - it’s an average over many tries. This simple calculation helps you make decisions by weighing the likelihood of outcomes against their potential value. It’s a basic tool for comparing options with different risks and rewards.</p>
+<p><a href="https://en.wikipedia.org/wiki/Expected_value">Wikipedia</a>: “The expected value of a random variable with a finite number of outcomes is a weighted average of all possible outcomes”.</p>
+<p>Mathematically, with a random variable <span class="math inline">\(X\)</span> and a list of possible outcomes <span class="math inline">\(x_1, ..., x_k\)</span> each of which has probability <span class="math inline">\(p_1, ..., p_k\)</span> of occurring, respectively. Then <span class="math inline">\(\mathbb{E}[X] = x_1 p_1 + x_2 p_2 + ... + x_k p_k\)</span>.</p>
+<p>What is a random variable? It represents possible outcomes. A random variable is defined by its possible outcomes and the probability of each outcome.</p>
+</section>
 <section id="explain-it-like-im-5" class="level2">
 <h2 class="anchored" data-anchor-id="explain-it-like-im-5">Explain It Like I’m 5</h2>
 <p>Imagine you have a big jar of different colored marbles. Some are red, some are blue, and some are green. Your friend says, “If you pick a red marble, I’ll give you a cookie. If you pick a blue one, I’ll give you two cookies. If you pick a green one, you don’t get any cookies.”</p>

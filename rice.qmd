@@ -4,3 +4,4 @@ format:
   html:
     math: true
 ---
+EV of making rice quantity
