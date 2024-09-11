@@ -88,7 +88,7 @@
     "href": "dreidel.html",
     "title": "EV Example: Dreidel",
     "section": "",
-    "text": "Dreidel is a game played during Hanukkah where each player starts by putting 1 piece into the pot and then players rotate around spinning the 4-sided dreidel. If the pot goes to 0 or 1 then all players again put 1 unit into the pot.\nThe outcomes are:\nThe general expected value of a spin with pot size \\(p\\) is:\n\\[\n\\begin{equation}\n\\begin{split}\n\\mathbb{E}[\\text{Dreidel Spin}] &= 0*\\frac{1}{4} + p*\\frac{1}{4} + \\frac{p}{2}*\\frac{1}{4} + (-1)*\\frac{1}{4} \\\\\n  &= 0 + \\frac{p}{4} + \\frac{p}{8} + (-0.25) \\\\\n  &= \\frac{3p}{8} - 0.25\n\\end{split}\n\\end{equation}\n\\]",
+    "text": "Dreidel is a game played during Hanukkah where each player starts by putting 1 piece into the pot and then players rotate around spinning the 4-sided dreidel. If the pot goes to 0 or 1 then all players again put 1 unit into the pot.",
     "crumbs": [
       "About",
       "GAMBLING",
@@ -96,11 +96,23 @@
     ]
   },
   {
-    "objectID": "dreidel.html#example",
-    "href": "dreidel.html#example",
+    "objectID": "dreidel.html#dreidel-spins-and-ev",
+    "href": "dreidel.html#dreidel-spins-and-ev",
     "title": "EV Example: Dreidel",
-    "section": "Example",
-    "text": "Example\nSuppose it’s your turn to spin and the pot has 6 pieces in it.\nThe possible outcomes are:\n\n\n\nDreidel Spin\nProbability\nGame Outcome\n\n\n\n\nנ (nun)\n\\(\\frac{1}{4}\\)\n0\n\n\nג (gimel)\n\\(\\frac{1}{4}\\)\n+6\n\n\nש (shin)\n\\(\\frac{1}{4}\\)\n+3\n\n\nה (hei)\n\\(\\frac{1}{4}\\)\n-1\n\n\n\nWe can now compute the expected value of the spin:\n\\[\n\\begin{equation}\n\\begin{split}\n\\mathbb{E}[\\text{Dreidel Spin}] &= 0*\\frac{1}{4} + 6*\\frac{1}{4} + 3*\\frac{1}{4} + (-1)*\\frac{1}{4} \\\\\n  &= 0 + 1.5 + 0.75 + (-0.25) \\\\\n  &= 2\n\\end{split}\n\\end{equation}\n\\]\n(It turns out that the game is “painfully slow” such that a 4 person game where each player starts with 10 units and each spin takes 10 seconds would take an average of 2 hours and 23 minutes (860 spins). Ben Blatt has suggested improvements.)",
+    "section": "Dreidel Spins and EV",
+    "text": "Dreidel Spins and EV\nThe outcomes are:\n\n\n\nDreidel Spin\nProbability\nGame Outcome\n\n\n\n\nנ (nun)\n\\(\\frac{1}{4}\\)\nDo nothing\n\n\nג (gimel)\n\\(\\frac{1}{4}\\)\nTake whole pot\n\n\nש (shin)\n\\(\\frac{1}{4}\\)\nTake half pot\n\n\nה (hei)\n\\(\\frac{1}{4}\\)\nPut 1 unit into pot\n\n\n\nThe general expected value of a spin with pot size \\(p\\) is:\n\\[\n\\begin{equation}\n\\begin{split}\n\\mathbb{E}[\\text{Dreidel Spin}] &= 0*\\frac{1}{4} + p*\\frac{1}{4} + \\frac{p}{2}*\\frac{1}{4} + (-1)*\\frac{1}{4} \\\\\n  &= 0 + \\frac{p}{4} + \\frac{p}{8} + (-0.25) \\\\\n  &= \\frac{3p}{8} - 0.25\n\\end{split}\n\\end{equation}\n\\]",
+    "crumbs": [
+      "About",
+      "GAMBLING",
+      "Dreidel"
+    ]
+  },
+  {
+    "objectID": "dreidel.html#example-scenario",
+    "href": "dreidel.html#example-scenario",
+    "title": "EV Example: Dreidel",
+    "section": "Example Scenario",
+    "text": "Example Scenario\nSuppose it’s your turn to spin and the pot has 6 pieces in it.\nThe possible outcomes are:\n\n\n\nDreidel Spin\nProbability\nGame Outcome\n\n\n\n\nנ (nun)\n\\(\\frac{1}{4}\\)\n0\n\n\nג (gimel)\n\\(\\frac{1}{4}\\)\n+6\n\n\nש (shin)\n\\(\\frac{1}{4}\\)\n+3\n\n\nה (hei)\n\\(\\frac{1}{4}\\)\n-1\n\n\n\nWe can now compute the expected value of the spin:\n\\[\n\\begin{equation}\n\\begin{split}\n\\mathbb{E}[\\text{Dreidel Spin}] &= 0*\\frac{1}{4} + 6*\\frac{1}{4} + 3*\\frac{1}{4} + (-1)*\\frac{1}{4} \\\\\n  &= 0 + 1.5 + 0.75 + (-0.25) \\\\\n  &= 2\n\\end{split}\n\\end{equation}\n\\]\n(It turns out that the game is “painfully slow” such that a 4 person game where each player starts with 10 units and each spin takes 10 seconds would take an average of 2 hours and 23 minutes (860 spins). Ben Blatt has suggested improvements.)",
     "crumbs": [
       "About",
       "GAMBLING",
@@ -255,7 +267,19 @@
     "href": "basicecon.html",
     "title": "EV Example: Basic Economy",
     "section": "",
-    "text": "Suppose that you are considering booking a flight and as a value-conscious consumer are considering Basic Economy vs. Regular Economy.\nThere are quite a few restrictions with a basic economy ticket as shown in the image below:\nThe tickets generally cost $50 less than a regular economy ticket on the same flight:\nIf you needed a full-sized carry-on (which actually is included if you have certain statuses or a United credit card) or to sit with your family, then there isn’t much to even evaluate, and the regular economy option will usually be best.\nBut let’s look at this specific scenario:\nSo the main consideration is the flight change. A basic economy ticket cannot be changed. It can only be canceled for a $49.50 cancellation fee. The rest of the refund will come back as a United flight credit. (Even with a regular economy ticket, a cancellation will be refunded as flight credit, and we assume going forward that this is as good as a cash refund.)",
+    "text": "Suppose that you are considering booking a flight and as a value-conscious consumer are considering Basic Economy vs. Regular Economy.\nThere are quite a few restrictions with a basic economy ticket as shown in the image below:\n\nThe tickets generally cost $50 less than a regular economy ticket on the same flight:\n\nIf you needed a full-sized carry-on (which actually is included if you have certain statuses or a United credit card) or to sit with your family, then there isn’t much to even evaluate, and the regular economy option will usually be best.\nBut let’s look at this specific scenario:\n\nSolo traveler\nIndifferent to seat (you can still pay for a seat or hope to get lucky)\nHas status to bring full-sized carry-on\n\nSo the main consideration is the flight change. A basic economy ticket cannot be changed. It can only be canceled for a $49.50 cancellation fee. The rest of the refund will come back as a United flight credit. (Even with a regular economy ticket, a cancellation will be refunded as flight credit, and we assume going forward that this is as good as a cash refund.)",
+    "crumbs": [
+      "About",
+      "TRAVEL",
+      "Basic Economy"
+    ]
+  },
+  {
+    "objectID": "basicecon.html#basic-econ-vs.-regular-econ",
+    "href": "basicecon.html#basic-econ-vs.-regular-econ",
+    "title": "EV Example: Basic Economy",
+    "section": "",
+    "text": "Suppose that you are considering booking a flight and as a value-conscious consumer are considering Basic Economy vs. Regular Economy.\nThere are quite a few restrictions with a basic economy ticket as shown in the image below:\n\nThe tickets generally cost $50 less than a regular economy ticket on the same flight:\n\nIf you needed a full-sized carry-on (which actually is included if you have certain statuses or a United credit card) or to sit with your family, then there isn’t much to even evaluate, and the regular economy option will usually be best.\nBut let’s look at this specific scenario:\n\nSolo traveler\nIndifferent to seat (you can still pay for a seat or hope to get lucky)\nHas status to bring full-sized carry-on\n\nSo the main consideration is the flight change. A basic economy ticket cannot be changed. It can only be canceled for a $49.50 cancellation fee. The rest of the refund will come back as a United flight credit. (Even with a regular economy ticket, a cancellation will be refunded as flight credit, and we assume going forward that this is as good as a cash refund.)",
     "crumbs": [
       "About",
       "TRAVEL",
@@ -422,7 +446,19 @@
     "href": "evimp.html",
     "title": "Why is EV important?",
     "section": "",
-    "text": "Expected value is fundamental in decision-making under uncertainty.\nIt allows us to make choices that maximize positive impact, even when outcomes are uncertain. Effective Altruism (EA) is a movement that aims to find the best ways to help others using evidence and reason.\nThis post in the Effective Altruism (EA) forum asks what the top concept is that all EAs should understand:\n\nThe most highly upvoted answer was expected value!\n\nThis tweet emphasizes the reliance on EV for using evidence and reason:",
+    "text": "Expected value is fundamental in decision-making under uncertainty. It allows us to make choices that maximize positive impact, even when outcomes are uncertain.",
+    "crumbs": [
+      "About",
+      "EXPECTED VALUE",
+      "EV Importance"
+    ]
+  },
+  {
+    "objectID": "evimp.html#endorsements",
+    "href": "evimp.html#endorsements",
+    "title": "Why is EV important?",
+    "section": "Endorsements",
+    "text": "Endorsements\nEffective Altruism (EA) is a movement that aims to find the best ways to help others using evidence and reason. This post in the Effective Altruism (EA) forum asks what the top concept is that all EAs should understand:\n\nThe most highly upvoted answer was expected value!\n\nThis tweet emphasizes the reliance on EV for using evidence and reason:",
     "crumbs": [
       "About",
       "EXPECTED VALUE",

@@ -4,6 +4,7 @@ format:
   html:
     math: true
 ---
+## Basic Econ vs. Regular Econ
 Suppose that you are considering booking a flight and as a value-conscious consumer are considering **Basic Economy** vs. **Regular Economy**. 
 
 There are quite a few restrictions with a basic economy ticket as shown in the image below: 

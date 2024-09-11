@@ -6,6 +6,7 @@ format:
 ---
 Dreidel is a game played during Hanukkah where each player starts by putting 1 piece into the pot and then players rotate around spinning the 4-sided dreidel. If the pot goes to 0 or 1 then all players again put 1 unit into the pot. 
 
+## Dreidel Spins and EV
 The outcomes are: 
 
 | Dreidel Spin    | Probability | Game Outcome | 
@@ -27,7 +28,7 @@ $$
 \end{equation}
 $$
 
-## Example
+## Example Scenario
 Suppose it's your turn to spin and the pot has 6 pieces in it. 
 
 The possible outcomes are: 
