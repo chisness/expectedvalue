@@ -7,25 +7,23 @@ resources:
 ## What is expected value?
 Expected Value = (Probability of an outcome) × (Value of that outcome)
 
-Imagine a raffle where:
+**Imagine a raffle where:**
 
 - You buy 1 ticket for $1
 - There is a 1 in 100 chance of winning
 - The prize is $150
 
-To calculate the expected value:
+**To calculate the expected value:**
 
 - Probability of winning: 1/100 = 0.01
 - Value of winning: $150
-- Expected Value = 0.01 × $150 = $1.50
+- **Expected Value =** 0.01 × $150 = $1.50
 
-This means that, on average, each ticket is "worth" $1.50.
+This means that, on average, **each ticket is "worth" $1.50**.
 
-Since the ticket costs $1, and its expected value is $1.50, it's a good deal in the long run. However, remember that this doesn't guarantee you'll win - it's an average over many tries.
+Since the ticket costs $1, and its expected value is $1.50, it's a good deal in the long run. However, remember that this doesn't guarantee you'll win -- it's an average over many tries.
 
 This simple calculation helps you make decisions by weighing the likelihood of outcomes against their potential value. It's a basic tool for comparing options with different risks and rewards.
-
-According to [Wikipedia](https://en.wikipedia.org/wiki/Expected_value): "The expected value of a random variable with a finite number of outcomes is a weighted average of all possible outcomes". 
 
 ## Explain It Like I'm 5
 Imagine you have a big jar of different colored marbles. Some are red, some are blue, and some are green. Your friend says, "If you pick a red marble, I'll give you a cookie. If you pick a blue one, I'll give you two cookies. If you pick a green one, you don't get any cookies."
@@ -142,6 +140,8 @@ Imagine reaching into the jar 10 times. How many cookies do you think you'd get?
 ## Mathematical Explanation
 
 Expected value is a concept in probability theory that represents the average outcome of an experiment if it is repeated many times. It's calculated by multiplying each possible outcome by its probability of occurrence and then summing these products.
+
+According to [Wikipedia](https://en.wikipedia.org/wiki/Expected_value): "The expected value of a random variable with a finite number of outcomes is a weighted average of all possible outcomes". 
 
 Mathematically, for a discrete random variable $X$ with possible values $x_1, x_2, ..., x_n$ and corresponding probabilities $p_1, p_2, ..., p_n$, the expected value $E(X)$ is:
 
@@ -275,8 +275,7 @@ Thinking about something else to try? How about a 6-sided die? Each probability 
 </div>
 ```
 
-## Advanced Explanation
-
+## Advanced Math
 In more complex scenarios, expected value becomes a powerful tool for decision-making under uncertainty. It's particularly useful in fields like finance, economics, and data science. We give a bunch of examples on this site on the left nav menu. 
 
 For continuous random variables, the expected value is defined as an integral:

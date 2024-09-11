@@ -307,7 +307,7 @@ window.Quarto = {
   <li><a href="#what-is-expected-value" id="toc-what-is-expected-value" class="nav-link active" data-scroll-target="#what-is-expected-value">What is expected value?</a></li>
   <li><a href="#explain-it-like-im-5" id="toc-explain-it-like-im-5" class="nav-link" data-scroll-target="#explain-it-like-im-5">Explain It Like I’m 5</a></li>
   <li><a href="#mathematical-explanation" id="toc-mathematical-explanation" class="nav-link" data-scroll-target="#mathematical-explanation">Mathematical Explanation</a></li>
-  <li><a href="#advanced-explanation" id="toc-advanced-explanation" class="nav-link" data-scroll-target="#advanced-explanation">Advanced Explanation</a></li>
+  <li><a href="#advanced-math" id="toc-advanced-math" class="nav-link" data-scroll-target="#advanced-math">Advanced Math</a></li>
   </ul>
 </nav>
     </div>
@@ -336,22 +336,21 @@ window.Quarto = {
 <section id="what-is-expected-value" class="level2">
 <h2 class="anchored" data-anchor-id="what-is-expected-value">What is expected value?</h2>
 <p>Expected Value = (Probability of an outcome) × (Value of that outcome)</p>
-<p>Imagine a raffle where:</p>
+<p><strong>Imagine a raffle where:</strong></p>
 <ul>
 <li>You buy 1 ticket for $1</li>
 <li>There is a 1 in 100 chance of winning</li>
 <li>The prize is $150</li>
 </ul>
-<p>To calculate the expected value:</p>
+<p><strong>To calculate the expected value:</strong></p>
 <ul>
 <li>Probability of winning: 1/100 = 0.01</li>
 <li>Value of winning: $150</li>
-<li>Expected Value = 0.01 × $150 = $1.50</li>
+<li><strong>Expected Value =</strong> 0.01 × $150 = $1.50</li>
 </ul>
-<p>This means that, on average, each ticket is “worth” $1.50.</p>
-<p>Since the ticket costs $1, and its expected value is $1.50, it’s a good deal in the long run. However, remember that this doesn’t guarantee you’ll win - it’s an average over many tries.</p>
+<p>This means that, on average, <strong>each ticket is “worth” $1.50</strong>.</p>
+<p>Since the ticket costs $1, and its expected value is $1.50, it’s a good deal in the long run. However, remember that this doesn’t guarantee you’ll win – it’s an average over many tries.</p>
 <p>This simple calculation helps you make decisions by weighing the likelihood of outcomes against their potential value. It’s a basic tool for comparing options with different risks and rewards.</p>
-<p>According to <a href="https://en.wikipedia.org/wiki/Expected_value">Wikipedia</a>: “The expected value of a random variable with a finite number of outcomes is a weighted average of all possible outcomes”.</p>
 </section>
 <section id="explain-it-like-im-5" class="level2">
 <h2 class="anchored" data-anchor-id="explain-it-like-im-5">Explain It Like I’m 5</h2>
@@ -465,6 +464,7 @@ Try it yourself!
 <section id="mathematical-explanation" class="level2">
 <h2 class="anchored" data-anchor-id="mathematical-explanation">Mathematical Explanation</h2>
 <p>Expected value is a concept in probability theory that represents the average outcome of an experiment if it is repeated many times. It’s calculated by multiplying each possible outcome by its probability of occurrence and then summing these products.</p>
+<p>According to <a href="https://en.wikipedia.org/wiki/Expected_value">Wikipedia</a>: “The expected value of a random variable with a finite number of outcomes is a weighted average of all possible outcomes”.</p>
 <p>Mathematically, for a discrete random variable <span class="math inline">\(X\)</span> with possible values <span class="math inline">\(x_1, x_2, ..., x_n\)</span> and corresponding probabilities <span class="math inline">\(p_1, p_2, ..., p_n\)</span>, the expected value <span class="math inline">\(E(X)\)</span> is:</p>
 <p><span class="math inline">\(\mathbb{E}[X] = \sum_{i=1}^n x_i p_i = x_1 p_1 + x_2 p_2 + ... + x_k p_k\)</span></p>
 <p>What is a random variable? It represents possible outcomes. A random variable is defined by its possible outcomes and the probability of each outcome.</p>
@@ -596,8 +596,8 @@ Try it yourself!
 </script>
 </div>
 </section>
-<section id="advanced-explanation" class="level2">
-<h2 class="anchored" data-anchor-id="advanced-explanation">Advanced Explanation</h2>
+<section id="advanced-math" class="level2">
+<h2 class="anchored" data-anchor-id="advanced-math">Advanced Math</h2>
 <p>In more complex scenarios, expected value becomes a powerful tool for decision-making under uncertainty. It’s particularly useful in fields like finance, economics, and data science. We give a bunch of examples on this site on the left nav menu.</p>
 <p>For continuous random variables, the expected value is defined as an integral:</p>
 <p><span class="math display">\[ E(X) = \int_{-\infty}^{\infty} x f(x) dx \]</span></p>
