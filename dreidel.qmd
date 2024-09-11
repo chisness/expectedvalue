@@ -21,6 +21,8 @@ The general expected value of a spin with pot size $p$ is:
 $$
 \begin{equation}
 \begin{split}
+\mathbb{E}[\text{Dreidel Spin}] &= [\text{nun result}]*Pr(\text{nun}) + [\text{gimel result}]*Pr(\text{gimel}) \\
+&\quad + [\text{shin result}]*Pr(\text{shin}) + [\text{hei result}]*Pr(\text{hei}) \\
 \mathbb{E}[\text{Dreidel Spin}] &= 0*\frac{1}{4} + p*\frac{1}{4} + \frac{p}{2}*\frac{1}{4} + (-1)*\frac{1}{4} \\
   &= 0 + \frac{p}{4} + \frac{p}{8} + (-0.25) \\
   &= \frac{3p}{8} - 0.25
@@ -45,6 +47,8 @@ We can now compute the expected value of the spin:
 $$
 \begin{equation}
 \begin{split}
+\mathbb{E}[\text{Dreidel Spin}] &= [\text{nun result}]*Pr(\text{nun}) + [\text{gimel result}]*Pr(\text{gimel}) \\
+&\quad + [\text{shin result}]*Pr(\text{shin}) + [\text{hei result}]*Pr(\text{hei}) \\
 \mathbb{E}[\text{Dreidel Spin}] &= 0*\frac{1}{4} + 6*\frac{1}{4} + 3*\frac{1}{4} + (-1)*\frac{1}{4} \\
   &= 0 + 1.5 + 0.75 + (-0.25) \\
   &= 2

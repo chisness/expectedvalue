@@ -4,37 +4,30 @@ format: html
 resources: 
     - CNAME
 ---
-<!-- ```{=html}
-<iframe src="expected-value-widget.html" width="100%" height="500px" frameborder="0"></iframe> -->
+## What is expected value?
+\text{Expected Value} = \text{(Probability of an outcome)} × (Value of that outcome)
 
-## EV Basics
-Expected Value = (Probability of an outcome) × (Value of that outcome)
-Here's a simple, real-life example:
 Imagine a raffle where:
 
-Tickets cost $1 each
-There's a 1 in 100 chance of winning
-The prize is $150
+- You buy 1 ticket for $1
+- There is a 1 in 100 chance of winning
+- The prize is $150
 
 To calculate the expected value:
 
-Probability of winning: 1/100 = 0.01
-Value of winning: $150
-Expected Value = 0.01 × $150 = $1.50
+- Probability of winning: 1/100 = 0.01
+- Value of winning: $150
+- Expected Value = 0.01 × $150 = $1.50
 
 This means that, on average, each ticket is "worth" $1.50.
-Since the ticket costs $1, and its expected value is $1.50, it's technically a good deal in the long run. However, remember that this doesn't guarantee you'll win - it's an average over many tries.
+
+Since the ticket costs $1, and its expected value is $1.50, it's a good deal in the long run. However, remember that this doesn't guarantee you'll win - it's an average over many tries.
+
 This simple calculation helps you make decisions by weighing the likelihood of outcomes against their potential value. It's a basic tool for comparing options with different risks and rewards.
 
-[Wikipedia](https://en.wikipedia.org/wiki/Expected_value): "The expected value of a random variable with a finite number of outcomes is a weighted average of all possible outcomes". 
-
-Mathematically, with a random variable $X$ and a list of possible outcomes $x_1, ..., x_k$ each of which has probability $p_1, ..., p_k$ of occurring, respectively. Then $\mathbb{E}[X] = x_1 p_1 + x_2 p_2 + ... + x_k p_k$. 
-
-What is a random variable? It represents possible outcomes. A random variable is defined by its possible outcomes and the probability of each outcome. 
-
+According to [Wikipedia](https://en.wikipedia.org/wiki/Expected_value): "The expected value of a random variable with a finite number of outcomes is a weighted average of all possible outcomes". 
 
 ## Explain It Like I'm 5
-
 Imagine you have a big jar of different colored marbles. Some are red, some are blue, and some are green. Your friend says, "If you pick a red marble, I'll give you a cookie. If you pick a blue one, I'll give you two cookies. If you pick a green one, you don't get any cookies."
 
 Now, let's say there are:
@@ -45,7 +38,7 @@ Now, let's say there are:
 
 If you reach into the jar without looking, what can you expect? This is what we call "expected value." It's like guessing how many cookies you might get on average if you played this game many, many times.
 
-Let's count it out. On average if you reach into the jar 10 times:
+Let's count it out. On average if you reach into the jar 10 times (assume that each time the jar resets to the original marble quantities):
 
 Red marbles give you 5 cookies (1 cookie × 5 marbles)
 Blue marbles give you 6 cookies (2 cookies × 3 marbles)
@@ -60,7 +53,7 @@ This means, on average, you can expect to get about 1 cookie (and a tiny bit mor
 ::: {.callout-tip}
 ## Try it yourself!
 
-Imagine reaching into the jar 10 times. How many cookies do you think you'd get? Try it out and see!
+Imagine reaching into the jar 10 times. How many cookies do you think you'd get? Try it out and see. 
 :::
 
 ```{=html}
@@ -146,15 +139,17 @@ Imagine reaching into the jar 10 times. How many cookies do you think you'd get?
 </div>
 ```
 
-## Standard Explanation
+## Mathematical Explanation
 
 Expected value is a concept in probability theory that represents the average outcome of an experiment if it is repeated many times. It's calculated by multiplying each possible outcome by its probability of occurrence and then summing these products.
 
 Mathematically, for a discrete random variable $X$ with possible values $x_1, x_2, ..., x_n$ and corresponding probabilities $p_1, p_2, ..., p_n$, the expected value $E(X)$ is:
 
-$ E(X) = \sum_{i=1}^n x_i p_i $
+$\mathbb{E}[X] = \sum_{i=1}^n x_i p_i = x_1 p_1 + x_2 p_2 + ... + x_k p_k$
 
-Let's use our marble example:
+What is a random variable? It represents possible outcomes. A random variable is defined by its possible outcomes and the probability of each outcome. 
+
+Let's go back to the marble example:
 
 - Red marble (1 cookie): 5/10 probability
 - Blue marble (2 cookies): 3/10 probability
@@ -282,7 +277,7 @@ Thinking about something else to try? How about a 6-sided die? Each probability 
 
 ## Advanced Explanation
 
-In more complex scenarios, expected value becomes a powerful tool for decision-making under uncertainty. It's particularly useful in fields like finance, economics, and data science.
+In more complex scenarios, expected value becomes a powerful tool for decision-making under uncertainty. It's particularly useful in fields like finance, economics, and data science. We give a bunch of examples on this site on the left nav menu. 
 
 For continuous random variables, the expected value is defined as an integral:
 
@@ -305,25 +300,4 @@ where $U(x)$ is the utility function.
 ## Important Consideration
 
 While expected value is a useful tool, it doesn't account for the variance or risk associated with different outcomes. In some cases, especially with non-linear utility functions or when dealing with rare, high-impact events, decisions based solely on expected value may lead to suboptimal results.
-:::
-
-### Application: Kelly Criterion
-
-An advanced application of expected value is the Kelly Criterion, used in betting and investment strategies. It determines the optimal size of a series of bets to maximize the long-term growth rate of capital.
-
-The formula for the Kelly Criterion is:
-
-$$ f^* = \frac{bp - q}{b} $$
-
-where:
-
-- $f^*$ is the fraction of the current bankroll to bet
-- $b$ is the net odds received on the bet
-- $p$ is the probability of winning
-- $q$ is the probability of losing (1 - p)
-
-::: {.callout-tip}
-## Interactive Element Idea
-
-Create an interactive simulation that demonstrates the long-term effects of using the Kelly Criterion versus other betting strategies. Allow users to adjust parameters like win probability, odds, and initial bankroll to see how these factors affect long-term outcomes.
 :::

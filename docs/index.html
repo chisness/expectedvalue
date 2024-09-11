@@ -304,13 +304,10 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#ev-basics" id="toc-ev-basics" class="nav-link active" data-scroll-target="#ev-basics">EV Basics</a></li>
+  <li><a href="#what-is-expected-value" id="toc-what-is-expected-value" class="nav-link active" data-scroll-target="#what-is-expected-value">What is expected value?</a></li>
   <li><a href="#explain-it-like-im-5" id="toc-explain-it-like-im-5" class="nav-link" data-scroll-target="#explain-it-like-im-5">Explain It Like I’m 5</a></li>
-  <li><a href="#standard-explanation" id="toc-standard-explanation" class="nav-link" data-scroll-target="#standard-explanation">Standard Explanation</a></li>
-  <li><a href="#advanced-explanation" id="toc-advanced-explanation" class="nav-link" data-scroll-target="#advanced-explanation">Advanced Explanation</a>
-  <ul class="collapse">
-  <li><a href="#application-kelly-criterion" id="toc-application-kelly-criterion" class="nav-link" data-scroll-target="#application-kelly-criterion">Application: Kelly Criterion</a></li>
-  </ul></li>
+  <li><a href="#mathematical-explanation" id="toc-mathematical-explanation" class="nav-link" data-scroll-target="#mathematical-explanation">Mathematical Explanation</a></li>
+  <li><a href="#advanced-explanation" id="toc-advanced-explanation" class="nav-link" data-scroll-target="#advanced-explanation">Advanced Explanation</a></li>
   </ul>
 </nav>
     </div>
@@ -336,18 +333,25 @@ window.Quarto = {
 </header>
 
 
-<!-- ```{=html}
-<iframe src="expected-value-widget.html" width="100%" height="500px" frameborder="0"></iframe> -->
-<section id="ev-basics" class="level2">
-<h2 class="anchored" data-anchor-id="ev-basics">EV Basics</h2>
-<p>Expected Value = (Probability of an outcome) × (Value of that outcome) Here’s a simple, real-life example: Imagine a raffle where:</p>
-<p>Tickets cost $1 each There’s a 1 in 100 chance of winning The prize is $150</p>
+<section id="what-is-expected-value" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-expected-value">What is expected value?</h2>
+<p> = × (Value of that outcome)</p>
+<p>Imagine a raffle where:</p>
+<ul>
+<li>You buy 1 ticket for $1</li>
+<li>There is a 1 in 100 chance of winning</li>
+<li>The prize is $150</li>
+</ul>
 <p>To calculate the expected value:</p>
-<p>Probability of winning: 1/100 = 0.01 Value of winning: $150 Expected Value = 0.01 × $150 = $1.50</p>
-<p>This means that, on average, each ticket is “worth” $1.50. Since the ticket costs $1, and its expected value is $1.50, it’s technically a good deal in the long run. However, remember that this doesn’t guarantee you’ll win - it’s an average over many tries. This simple calculation helps you make decisions by weighing the likelihood of outcomes against their potential value. It’s a basic tool for comparing options with different risks and rewards.</p>
-<p><a href="https://en.wikipedia.org/wiki/Expected_value">Wikipedia</a>: “The expected value of a random variable with a finite number of outcomes is a weighted average of all possible outcomes”.</p>
-<p>Mathematically, with a random variable <span class="math inline">\(X\)</span> and a list of possible outcomes <span class="math inline">\(x_1, ..., x_k\)</span> each of which has probability <span class="math inline">\(p_1, ..., p_k\)</span> of occurring, respectively. Then <span class="math inline">\(\mathbb{E}[X] = x_1 p_1 + x_2 p_2 + ... + x_k p_k\)</span>.</p>
-<p>What is a random variable? It represents possible outcomes. A random variable is defined by its possible outcomes and the probability of each outcome.</p>
+<ul>
+<li>Probability of winning: 1/100 = 0.01</li>
+<li>Value of winning: $150</li>
+<li>Expected Value = 0.01 × $150 = $1.50</li>
+</ul>
+<p>This means that, on average, each ticket is “worth” $1.50.</p>
+<p>Since the ticket costs $1, and its expected value is $1.50, it’s a good deal in the long run. However, remember that this doesn’t guarantee you’ll win - it’s an average over many tries.</p>
+<p>This simple calculation helps you make decisions by weighing the likelihood of outcomes against their potential value. It’s a basic tool for comparing options with different risks and rewards.</p>
+<p>According to <a href="https://en.wikipedia.org/wiki/Expected_value">Wikipedia</a>: “The expected value of a random variable with a finite number of outcomes is a weighted average of all possible outcomes”.</p>
 </section>
 <section id="explain-it-like-im-5" class="level2">
 <h2 class="anchored" data-anchor-id="explain-it-like-im-5">Explain It Like I’m 5</h2>
@@ -359,7 +363,7 @@ window.Quarto = {
 <li>2 green marbles</li>
 </ul>
 <p>If you reach into the jar without looking, what can you expect? This is what we call “expected value.” It’s like guessing how many cookies you might get on average if you played this game many, many times.</p>
-<p>Let’s count it out. On average if you reach into the jar 10 times:</p>
+<p>Let’s count it out. On average if you reach into the jar 10 times (assume that each time the jar resets to the original marble quantities):</p>
 <p>Red marbles give you 5 cookies (1 cookie × 5 marbles) Blue marbles give you 6 cookies (2 cookies × 3 marbles) Green marbles give you 0 cookies (0 cookies × 2 marbles)</p>
 <p>That’s 11 cookies in total.</p>
 <p>So, if we divide 11 cookies by 10 marbles, we get 1.1 cookies.</p>
@@ -374,7 +378,7 @@ Try it yourself!
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Imagine reaching into the jar 10 times. How many cookies do you think you’d get? Try it out and see!</p>
+<p>Imagine reaching into the jar 10 times. How many cookies do you think you’d get? Try it out and see.</p>
 </div>
 </div>
 <div id="marble-picker">
@@ -458,12 +462,13 @@ Try it yourself!
 </script>
 </div>
 </section>
-<section id="standard-explanation" class="level2">
-<h2 class="anchored" data-anchor-id="standard-explanation">Standard Explanation</h2>
+<section id="mathematical-explanation" class="level2">
+<h2 class="anchored" data-anchor-id="mathematical-explanation">Mathematical Explanation</h2>
 <p>Expected value is a concept in probability theory that represents the average outcome of an experiment if it is repeated many times. It’s calculated by multiplying each possible outcome by its probability of occurrence and then summing these products.</p>
 <p>Mathematically, for a discrete random variable <span class="math inline">\(X\)</span> with possible values <span class="math inline">\(x_1, x_2, ..., x_n\)</span> and corresponding probabilities <span class="math inline">\(p_1, p_2, ..., p_n\)</span>, the expected value <span class="math inline">\(E(X)\)</span> is:</p>
-<p>$ E(X) = _{i=1}^n x_i p_i $</p>
-<p>Let’s use our marble example:</p>
+<p><span class="math inline">\(\mathbb{E}[X] = \sum_{i=1}^n x_i p_i = x_1 p_1 + x_2 p_2 + ... + x_k p_k\)</span></p>
+<p>What is a random variable? It represents possible outcomes. A random variable is defined by its possible outcomes and the probability of each outcome.</p>
+<p>Let’s go back to the marble example:</p>
 <ul>
 <li>Red marble (1 cookie): 5/10 probability</li>
 <li>Blue marble (2 cookies): 3/10 probability</li>
@@ -593,7 +598,7 @@ Try it yourself!
 </section>
 <section id="advanced-explanation" class="level2">
 <h2 class="anchored" data-anchor-id="advanced-explanation">Advanced Explanation</h2>
-<p>In more complex scenarios, expected value becomes a powerful tool for decision-making under uncertainty. It’s particularly useful in fields like finance, economics, and data science.</p>
+<p>In more complex scenarios, expected value becomes a powerful tool for decision-making under uncertainty. It’s particularly useful in fields like finance, economics, and data science. We give a bunch of examples on this site on the left nav menu.</p>
 <p>For continuous random variables, the expected value is defined as an integral:</p>
 <p><span class="math display">\[ E(X) = \int_{-\infty}^{\infty} x f(x) dx \]</span></p>
 <p>where <span class="math inline">\(f(x)\)</span> is the probability density function of <span class="math inline">\(X\)</span>.</p>
@@ -618,35 +623,9 @@ Important Consideration
 <p>While expected value is a useful tool, it doesn’t account for the variance or risk associated with different outcomes. In some cases, especially with non-linear utility functions or when dealing with rare, high-impact events, decisions based solely on expected value may lead to suboptimal results.</p>
 </div>
 </div>
-<section id="application-kelly-criterion" class="level3">
-<h3 class="anchored" data-anchor-id="application-kelly-criterion">Application: Kelly Criterion</h3>
-<p>An advanced application of expected value is the Kelly Criterion, used in betting and investment strategies. It determines the optimal size of a series of bets to maximize the long-term growth rate of capital.</p>
-<p>The formula for the Kelly Criterion is:</p>
-<p><span class="math display">\[ f^* = \frac{bp - q}{b} \]</span></p>
-<p>where:</p>
-<ul>
-<li><span class="math inline">\(f^*\)</span> is the fraction of the current bankroll to bet</li>
-<li><span class="math inline">\(b\)</span> is the net odds received on the bet</li>
-<li><span class="math inline">\(p\)</span> is the probability of winning</li>
-<li><span class="math inline">\(q\)</span> is the probability of losing (1 - p)</li>
-</ul>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Interactive Element Idea
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Create an interactive simulation that demonstrates the long-term effects of using the Kelly Criterion versus other betting strategies. Allow users to adjust parameters like win probability, odds, and initial bankroll to see how these factors affect long-term outcomes.</p>
-</div>
-</div>
 
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

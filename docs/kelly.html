@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>EV Example: Dreidel – The EV Foundation</title>
+<title>kelly – The EV Foundation</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -107,10 +107,10 @@ window.Quarto = {
 };
 </script>
 
-<meta property="og:title" content="EV Example: Dreidel – The EV Foundation">
+<meta property="og:title" content="The EV Foundation">
 <meta property="og:description" content="">
 <meta property="og:site_name" content="The EV Foundation">
-<meta name="twitter:title" content="EV Example: Dreidel – The EV Foundation">
+<meta name="twitter:title" content="The EV Foundation">
 <meta name="twitter:description" content="">
 <meta name="twitter:creator" content="@chisness">
 <meta name="twitter:card" content="summary">
@@ -154,7 +154,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <h1 class="quarto-secondary-nav-title no-breadcrumbs">EV Example: Dreidel</h1>
+        <h1 class="quarto-secondary-nav-title no-breadcrumbs"></h1>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -254,7 +254,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./dreidel.html" class="sidebar-item-text sidebar-link active">
+  <a href="./dreidel.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Dreidel</span></a>
   </div>
 </li>
@@ -304,129 +304,41 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#dreidel-spins-and-ev" id="toc-dreidel-spins-and-ev" class="nav-link active" data-scroll-target="#dreidel-spins-and-ev">Dreidel Spins and EV</a></li>
-  <li><a href="#example-scenario" id="toc-example-scenario" class="nav-link" data-scroll-target="#example-scenario">Example Scenario</a></li>
+  <li><a href="#application-kelly-criterion" id="toc-application-kelly-criterion" class="nav-link active" data-scroll-target="#application-kelly-criterion">Application: Kelly Criterion</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title d-none d-lg-block">EV Example: Dreidel</h1>
+
+
+
+<section id="application-kelly-criterion" class="level3">
+<h3 class="anchored" data-anchor-id="application-kelly-criterion">Application: Kelly Criterion</h3>
+<p>An advanced application of expected value is the Kelly Criterion, used in betting and investment strategies. It determines the optimal size of a series of bets to maximize the long-term growth rate of capital.</p>
+<p>The formula for the Kelly Criterion is:</p>
+<p><span class="math display">\[ f^* = \frac{bp - q}{b} \]</span></p>
+<p>where:</p>
+<ul>
+<li><span class="math inline">\(f^*\)</span> is the fraction of the current bankroll to bet</li>
+<li><span class="math inline">\(b\)</span> is the net odds received on the bet</li>
+<li><span class="math inline">\(p\)</span> is the probability of winning</li>
+<li><span class="math inline">\(q\)</span> is the probability of losing (1 - p)</li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-
-
-
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-<p>Dreidel is a game played during Hanukkah where each player starts by putting 1 piece into the pot and then players rotate around spinning the 4-sided dreidel. If the pot goes to 0 or 1 then all players again put 1 unit into the pot.</p>
-<section id="dreidel-spins-and-ev" class="level2">
-<h2 class="anchored" data-anchor-id="dreidel-spins-and-ev">Dreidel Spins and EV</h2>
-<p>The outcomes are:</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Dreidel Spin</th>
-<th>Probability</th>
-<th>Game Outcome</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>נ (nun)</td>
-<td><span class="math inline">\(\frac{1}{4}\)</span></td>
-<td>Do nothing</td>
-</tr>
-<tr class="even">
-<td>ג (gimel)</td>
-<td><span class="math inline">\(\frac{1}{4}\)</span></td>
-<td>Take whole pot</td>
-</tr>
-<tr class="odd">
-<td>ש (shin)</td>
-<td><span class="math inline">\(\frac{1}{4}\)</span></td>
-<td>Take half pot</td>
-</tr>
-<tr class="even">
-<td>ה (hei)</td>
-<td><span class="math inline">\(\frac{1}{4}\)</span></td>
-<td>Put 1 unit into pot</td>
-</tr>
-</tbody>
-</table>
-<p>The general expected value of a spin with pot size <span class="math inline">\(p\)</span> is:</p>
-<p><span class="math display">\[
-\begin{equation}
-\begin{split}
-\mathbb{E}[\text{Dreidel Spin}] &amp;= [\text{nun result}]*Pr(\text{nun}) + [\text{gimel result}]*Pr(\text{gimel}) \\
-&amp;\quad + [\text{shin result}]*Pr(\text{shin}) + [\text{hei result}]*Pr(\text{hei}) \\
-\mathbb{E}[\text{Dreidel Spin}] &amp;= 0*\frac{1}{4} + p*\frac{1}{4} + \frac{p}{2}*\frac{1}{4} + (-1)*\frac{1}{4} \\
-  &amp;= 0 + \frac{p}{4} + \frac{p}{8} + (-0.25) \\
-  &amp;= \frac{3p}{8} - 0.25
-\end{split}
-\end{equation}
-\]</span></p>
-</section>
-<section id="example-scenario" class="level2">
-<h2 class="anchored" data-anchor-id="example-scenario">Example Scenario</h2>
-<p>Suppose it’s your turn to spin and the pot has 6 pieces in it.</p>
-<p>The possible outcomes are:</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Dreidel Spin</th>
-<th>Probability</th>
-<th>Game Outcome</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>נ (nun)</td>
-<td><span class="math inline">\(\frac{1}{4}\)</span></td>
-<td>0</td>
-</tr>
-<tr class="even">
-<td>ג (gimel)</td>
-<td><span class="math inline">\(\frac{1}{4}\)</span></td>
-<td>+6</td>
-</tr>
-<tr class="odd">
-<td>ש (shin)</td>
-<td><span class="math inline">\(\frac{1}{4}\)</span></td>
-<td>+3</td>
-</tr>
-<tr class="even">
-<td>ה (hei)</td>
-<td><span class="math inline">\(\frac{1}{4}\)</span></td>
-<td>-1</td>
-</tr>
-</tbody>
-</table>
-<p>We can now compute the expected value of the spin:</p>
-<p><span class="math display">\[
-\begin{equation}
-\begin{split}
-\mathbb{E}[\text{Dreidel Spin}] &amp;= [\text{nun result}]*Pr(\text{nun}) + [\text{gimel result}]*Pr(\text{gimel}) \\
-&amp;\quad + [\text{shin result}]*Pr(\text{shin}) + [\text{hei result}]*Pr(\text{hei}) \\
-\mathbb{E}[\text{Dreidel Spin}] &amp;= 0*\frac{1}{4} + 6*\frac{1}{4} + 3*\frac{1}{4} + (-1)*\frac{1}{4} \\
-  &amp;= 0 + 1.5 + 0.75 + (-0.25) \\
-  &amp;= 2
-\end{split}
-\end{equation}
-\]</span></p>
-<p>(It turns out that the game is “painfully slow” such that a 4 person game where each player starts with 10 units and each spin takes 10 seconds would take an average of 2 hours and 23 minutes (860 spins). <a href="https://www.slate.com/articles/life/holidays/2014/12/rules_of_dreidel_the_hannukah_game_is_way_too_slow_let_s_speed_it_up.html">Ben Blatt has suggested improvements</a>.)</p>
+<div class="callout-title-container flex-fill">
+Interactive Element Idea
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Create an interactive simulation that demonstrates the long-term effects of using the Kelly Criterion versus other betting strategies. Allow users to adjust parameters like win probability, odds, and initial bankroll to see how these factors affect long-term outcomes.</p>
+</div>
+</div>
 
 
 

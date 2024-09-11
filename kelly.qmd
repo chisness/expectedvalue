@@ -1,0 +1,21 @@
+
+### Application: Kelly Criterion
+
+An advanced application of expected value is the Kelly Criterion, used in betting and investment strategies. It determines the optimal size of a series of bets to maximize the long-term growth rate of capital.
+
+The formula for the Kelly Criterion is:
+
+$$ f^* = \frac{bp - q}{b} $$
+
+where:
+
+- $f^*$ is the fraction of the current bankroll to bet
+- $b$ is the net odds received on the bet
+- $p$ is the probability of winning
+- $q$ is the probability of losing (1 - p)
+
+::: {.callout-tip}
+## Interactive Element Idea
+
+Create an interactive simulation that demonstrates the long-term effects of using the Kelly Criterion versus other betting strategies. Allow users to adjust parameters like win probability, odds, and initial bankroll to see how these factors affect long-term outcomes.
+:::
