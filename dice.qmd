@@ -1,10 +1,11 @@
 ---
-title: "Expected Value Example: Dice"
+title: "EV Example: Dice"
 format:
   html:
     math: true
 ---
-A roll of the dice is the typical first EV example. 
+## Single Die Roll EV
+A roll of the dice is the traditional first EV example. 
 
 What is the expected value of a single 6 sided die?
 
@@ -26,4 +27,40 @@ $$
 \end{equation}
 $$
 
+## Die Roll Simulator
 <iframe src="die-roll-simulator.html" width="100%" height="600px"></iframe>
+
+## Multiple Roll EV
+> You have the option to throw a die up to three times. You will earn the face value of the die. You have the option to stop after each throw and walk away with the money earned. The earnings are not additive. What is the expected payoff of this game?
+
+### 1 Roll Game
+We showed above that the expectation of a single roll is: 
+
+$\mathbb{E}[\text{1 Roll Game}] = 3.5$
+
+### 2 Roll Game
+In a 2 roll game, if the first roll is ${1, 2, 3}$ then we would choose to roll again since $3.5$ is higher. If it's ${4, 5, 6}$ then we would keep it. 
+
+Since ${4, 5, 6}$ are all equally likely, the expectation when keeping is $5$. When re-rolling it's $3.5$ from above. Each is equally likely. 
+
+$\mathbb{E}[\text{2 Roll Game}] = 0.5*5 + 0.5*3.5 = 4.25$
+
+### 3 Roll Game
+Finally with 3 rolls, in the first roll we should only keep a ${5, 6}$ since we showed that the subsequent 2 roll game is worth $4.25$. Therefore our strategy is: 
+
+Roll 1: Keep ${5, 6}$ otherwise roll again. This happens $\frac{1}{3}$ of the time and the expectation when keeping is $5.5$. 
+
+Roll 2: Keep ${4, 5, 6}$ otherwise roll again. If we get here to Roll 2 then we're playing the [2 Roll Game](#roll-game-2) and know the EV from [above](#roll-game-2). 
+
+Roll 3: Roll with expectation of $3.5$. 
+
+$$
+\begin{equation}
+\begin{split}
+\mathbb{E}[\text{3 Roll Game}] &= [\text{Val if Keep Roll 1}]*Pr(\text{Roll 1 is 5 or 6}) \\
+  &\quad + [\text{Val 2 Roll Game}]*Pr(\text{Roll 1 is not 5 or 6})\\
+  &= 5.5\frac{1}{3} + 4.25\frac{2}{3} \\
+  &= 4.67
+\end{split}
+\end{equation}
+$$

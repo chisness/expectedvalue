@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Expected Value Example: Dice – The EV Foundation</title>
+<title>EV Example: Dice – The EV Foundation</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -107,10 +107,10 @@ window.Quarto = {
 };
 </script>
 
-<meta property="og:title" content="Expected Value Example: Dice – The EV Foundation">
+<meta property="og:title" content="EV Example: Dice – The EV Foundation">
 <meta property="og:description" content="">
 <meta property="og:site_name" content="The EV Foundation">
-<meta name="twitter:title" content="Expected Value Example: Dice – The EV Foundation">
+<meta name="twitter:title" content="EV Example: Dice – The EV Foundation">
 <meta name="twitter:description" content="">
 <meta name="twitter:creator" content="@chisness">
 <meta name="twitter:card" content="summary">
@@ -154,7 +154,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <h1 class="quarto-secondary-nav-title no-breadcrumbs">Expected Value Example: Dice</h1>
+        <h1 class="quarto-secondary-nav-title no-breadcrumbs">EV Example: Dice</h1>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -299,15 +299,28 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#single-die-roll-ev" id="toc-single-die-roll-ev" class="nav-link active" data-scroll-target="#single-die-roll-ev">Single Die Roll EV</a></li>
+  <li><a href="#die-roll-simulator" id="toc-die-roll-simulator" class="nav-link" data-scroll-target="#die-roll-simulator">Die Roll Simulator</a></li>
+  <li><a href="#multiple-roll-ev" id="toc-multiple-roll-ev" class="nav-link" data-scroll-target="#multiple-roll-ev">Multiple Roll EV</a>
+  <ul class="collapse">
+  <li><a href="#roll-game" id="toc-roll-game" class="nav-link" data-scroll-target="#roll-game">1 Roll Game</a></li>
+  <li><a href="#roll-game-1" id="toc-roll-game-1" class="nav-link" data-scroll-target="#roll-game-1">2 Roll Game</a></li>
+  <li><a href="#roll-game-2" id="toc-roll-game-2" class="nav-link" data-scroll-target="#roll-game-2">3 Roll Game</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Expected Value Example: Dice</h1>
+<h1 class="title d-none d-lg-block">EV Example: Dice</h1>
 </div>
 
 
@@ -324,7 +337,9 @@ window.Quarto = {
 </header>
 
 
-<p>A roll of the dice is the typical first EV example.</p>
+<section id="single-die-roll-ev" class="level2">
+<h2 class="anchored" data-anchor-id="single-die-roll-ev">Single Die Roll EV</h2>
+<p>A roll of the dice is the traditional first EV example.</p>
 <p>What is the expected value of a single 6 sided die?</p>
 <p>The probability of rolling each side is the same, <span class="math inline">\(1/6\)</span>.</p>
 <p>The value of each side is given by its number.</p>
@@ -340,11 +355,49 @@ window.Quarto = {
 \end{split}
 \end{equation}
 \]</span></p>
+</section>
+<section id="die-roll-simulator" class="level2">
+<h2 class="anchored" data-anchor-id="die-roll-simulator">Die Roll Simulator</h2>
 <iframe src="die-roll-simulator.html" width="100%" height="600px">
 </iframe>
+</section>
+<section id="multiple-roll-ev" class="level2">
+<h2 class="anchored" data-anchor-id="multiple-roll-ev">Multiple Roll EV</h2>
+<blockquote class="blockquote">
+<p>You have the option to throw a die up to three times. You will earn the face value of the die. You have the option to stop after each throw and walk away with the money earned. The earnings are not additive. What is the expected payoff of this game?</p>
+</blockquote>
+<section id="roll-game" class="level3">
+<h3 class="anchored" data-anchor-id="roll-game">1 Roll Game</h3>
+<p>We showed above that the expectation of a single roll is:</p>
+<p><span class="math inline">\(\mathbb{E}[\text{1 Roll Game}] = 3.5\)</span></p>
+</section>
+<section id="roll-game-1" class="level3">
+<h3 class="anchored" data-anchor-id="roll-game-1">2 Roll Game</h3>
+<p>In a 2 roll game, if the first roll is <span class="math inline">\({1, 2, 3}\)</span> then we would choose to roll again since <span class="math inline">\(3.5\)</span> is higher. If it’s <span class="math inline">\({4, 5, 6}\)</span> then we would keep it.</p>
+<p>Since <span class="math inline">\({4, 5, 6}\)</span> are all equally likely, the expectation when keeping is <span class="math inline">\(5\)</span>. When re-rolling it’s <span class="math inline">\(3.5\)</span> from above. Each is equally likely.</p>
+<p><span class="math inline">\(\mathbb{E}[\text{2 Roll Game}] = 0.5*5 + 0.5*3.5 = 4.25\)</span></p>
+</section>
+<section id="roll-game-2" class="level3">
+<h3 class="anchored" data-anchor-id="roll-game-2">3 Roll Game</h3>
+<p>Finally with 3 rolls, in the first roll we should only keep a <span class="math inline">\({5, 6}\)</span> since we showed that the subsequent 2 roll game is worth <span class="math inline">\(4.25\)</span>. Therefore our strategy is:</p>
+<p>Roll 1: Keep <span class="math inline">\({5, 6}\)</span> otherwise roll again. This happens <span class="math inline">\(\frac{1}{3}\)</span> of the time and the expectation when keeping is <span class="math inline">\(5.5\)</span>.</p>
+<p>Roll 2: Keep <span class="math inline">\({4, 5, 6}\)</span> otherwise roll again. If we get here to Roll 2 then we’re playing the <a href="#roll-game-2">2 Roll Game</a> and know the EV from <a href="#roll-game-2">above</a>.</p>
+<p>Roll 3: Roll with expectation of <span class="math inline">\(3.5\)</span>.</p>
+<p><span class="math display">\[
+\begin{equation}
+\begin{split}
+\mathbb{E}[\text{3 Roll Game}] &amp;= [\text{Val if Keep Roll 1}]*Pr(\text{Roll 1 is 5 or 6}) \\
+  &amp;\quad + [\text{Val 2 Roll Game}]*Pr(\text{Roll 1 is not 5 or 6})\\
+  &amp;= 5.5\frac{1}{3} + 4.25\frac{2}{3} \\
+  &amp;= 4.67
+\end{split}
+\end{equation}
+\]</span></p>
 
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

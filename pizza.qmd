@@ -8,7 +8,7 @@ format:
 
 Sorry, this is about value and not expected value. There's an assumption that at a pizza restaurant ordering by the full pizza is a better deal than ordering by the slice and also that ordering larger pizzas is a better deal than ordering smaller ones.  
 
-Last week I ate my first San Francisco pizza at [Gioia's](https://www.gioiapizzeria.com/san-francisco). I of course got a margherita pizza (I don't eat meat on pizza and don't like vegetables on pizza cause then they remind me of omelettes (I also don't like vegetables in omelettes)). 
+Last week I ate my first San Francisco pizza at [Gioia's](https://www.gioiapizzeria.com/san-francisco). I of course got a margherita pizza (I don't eat meat on pizza and don't like vegetables on pizza cause then they remind me of omelettes (I also don't like vegetables in omelettes)). [Note: I now found out that they actually have a plain cheese pizza that is even more plain and chepaer!]
 
 The menu was like this:
 
@@ -84,7 +84,7 @@ Therefore if you want less than 8 large slices, it's probably best to just order
 How many slices from the 18" pizza would it take to match the size of the 14"? The 14" is 153.94 sq in. and the 18" slices are 31.81 sq in. 
 
 $$
-\text{How many slices?} = 153.94/31.81 = 4.84 \text{ in.}^2
+\text{How many slices?} = 153.94/31.81 = 4.84
 $$
 
 How much would it cost for 4.84 slices? 
@@ -113,9 +113,9 @@ Therefore you would have $5.33*31.81 - 153.94 = 15.61$ bonus sq in., or about ha
 
 How to not make this mistake yourself? The above situation seems fairly rare. 
 
-The more common scenario is that larger pizzas are actually *way* cheaper than smaller ones per sq in.  
+The more common scenario is that larger pizzas are actually *way* cheaper than smaller ones per sq in and so the error is to ever get a small pizza. 
 
-Here are some prices for Domino's (most well known) and Lou Malnati's (finest pizza around).
+Here are some prices for Domino's (most well known) and Lou Malnati's (finest).
 
 | Pizza Type    | Price   | Square Inches | Square Inch per Dollar |
 |---------------|---------|---------------|------------------------|
@@ -152,9 +152,7 @@ $$
 
 If you want to compare two pizzas and you know the sizes and prices, you can use a shortcut and take the ratios. 
 
-Let's formalize and clarify this: 
-
-General Pizza $i$ with diameter $d$, radius $d/2 = r$, price $p$
+Let's formalize and clarify this for general pizza $i$ with diameter $d$, radius $d/2 = r$, and price $p$
 
 $$
 \text{Sq In. per Dollar} = \frac{\pi*(\frac{d_i}{2})^2}{p_i}

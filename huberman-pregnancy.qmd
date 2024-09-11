@@ -99,7 +99,7 @@ We can see this on the graph below where $\Pr(\text{Pregnancy}) = 0.2$. The x-ax
 ![Pregnancy graph with p = 0.2](./assets/misc/preggraph.png)
 
 ## Generalized Pregnancy Equation
-Finally, even more generally, we can say that after $ x $ attempts and the more general $\Pr(\text{Pregnancy}) = p$ (i.e. using probability $p$ instead of $0.2$): 
+Finally, even more generally, we can say that after $x$ attempts and the more general $\Pr(\text{Pregnancy}) = p$ (i.e. using probability $p$ instead of $0.2$): 
 
 $$
 \begin{equation}

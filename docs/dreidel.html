@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Expected Value Example: Dreidel – The EV Foundation</title>
+<title>EV Example: Dreidel – The EV Foundation</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -107,10 +107,10 @@ window.Quarto = {
 };
 </script>
 
-<meta property="og:title" content="Expected Value Example: Dreidel – The EV Foundation">
+<meta property="og:title" content="EV Example: Dreidel – The EV Foundation">
 <meta property="og:description" content="">
 <meta property="og:site_name" content="The EV Foundation">
-<meta name="twitter:title" content="Expected Value Example: Dreidel – The EV Foundation">
+<meta name="twitter:title" content="EV Example: Dreidel – The EV Foundation">
 <meta name="twitter:description" content="">
 <meta name="twitter:creator" content="@chisness">
 <meta name="twitter:card" content="summary">
@@ -154,7 +154,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <h1 class="quarto-secondary-nav-title no-breadcrumbs">Expected Value Example: Dreidel</h1>
+        <h1 class="quarto-secondary-nav-title no-breadcrumbs">EV Example: Dreidel</h1>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -299,15 +299,21 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#example" id="toc-example" class="nav-link active" data-scroll-target="#example">Example</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Expected Value Example: Dreidel</h1>
+<h1 class="title d-none d-lg-block">EV Example: Dreidel</h1>
 </div>
 
 
@@ -357,8 +363,20 @@ window.Quarto = {
 </tr>
 </tbody>
 </table>
+<p>The general expected value of a spin with pot size <span class="math inline">\(p\)</span> is:</p>
+<p><span class="math display">\[
+\begin{equation}
+\begin{split}
+\mathbb{E}[\text{Dreidel Spin}] &amp;= 0*\frac{1}{4} + p*\frac{1}{4} + \frac{p}{2}*\frac{1}{4} + (-1)*\frac{1}{4} \\
+  &amp;= 0 + \frac{p}{4} + \frac{p}{8} + (-0.25) \\
+  &amp;= \frac{3p}{8} - 0.25
+\end{split}
+\end{equation}
+\]</span></p>
+<section id="example" class="level2">
+<h2 class="anchored" data-anchor-id="example">Example</h2>
 <p>Suppose it’s your turn to spin and the pot has 6 pieces in it.</p>
-<p>The outcomes are:</p>
+<p>The possible outcomes are:</p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -404,6 +422,7 @@ window.Quarto = {
 
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
