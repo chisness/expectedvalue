@@ -5,7 +5,7 @@ resources:
     - CNAME
 ---
 ## What is expected value?
-\text{Expected Value} = \text{(Probability of an outcome)} × (Value of that outcome)
+Expected Value = (Probability of an outcome) × (Value of that outcome)
 
 Imagine a raffle where:
 
