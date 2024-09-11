@@ -131,7 +131,7 @@ They gave me an extra small piece for my troubles. While blatantly too small and
 imagePath = FileAttachment("assets/salmon/plate.png").url()
 
 viewof rawWeight = Inputs.range([14, 16], {step: 0.1, label: "Raw Weight (oz)", value: 15})
-viewof shrinkagePercent = Inputs.range([15, 25], {step: 0.1, label: "Shrinkage (%)", value: 20})
+viewof shrinkagePercent = Inputs.range([10, 25], {step: 0.1, label: "Shrinkage (%)", value: 20})
 viewof actualCookedWeight = Inputs.range([9, 16], {step: 0.1, label: "Actual Cooked Weight (oz)", value: 9})
 cookedWeight = rawWeight * (1 - shrinkagePercent / 100)
 
@@ -140,7 +140,7 @@ md`The actual cooked weight is ${actualCookedWeight} oz.`
 
 function createChart() {
   const minRawWeight = 9;
-  const maxRawWeight = 16;
+  const maxRawWeight = 18; // Increased to accommodate larger actual weights
   const data = [];
   for (let weight = minRawWeight; weight <= maxRawWeight; weight += 0.1) {
     data.push({
@@ -164,12 +164,12 @@ function createChart() {
   const height = 400 - margin.top - margin.bottom;
 
   const x = d3.scaleLinear()
-    .domain([minRawWeight, maxRawWeight])
+    .domain([minRawWeight, Math.max(maxRawWeight, actualPoint.x)])
     .range([0, width]);
 
   const y = d3.scaleLinear()
-    .domain([Math.min(d3.min(data, d => d.y), actualCookedWeight) * 0.9, 
-             Math.max(d3.max(data, d => d.y), rawWeight) * 1.1])
+    .domain([Math.min(d3.min(data, d => d.y), 9) * 0.9, 
+             Math.max(d3.max(data, d => d.y), actualCookedWeight, rawWeight) * 1.1])
     .range([height, 0]);
 
   const line = d3.line()
@@ -185,9 +185,9 @@ function createChart() {
     .attr("transform", `translate(${margin.left},${margin.top})`);
 
   // Add the plate images along y = 9
-  const imgWidth = 40;  // Adjust as needed
-  const imgHeight = 30;  // Adjust as needed
-  const numPlates = Math.floor(width / (imgWidth * 1.5));  // Space plates out a bit
+  const imgWidth = 40;
+  const imgHeight = 30;
+  const numPlates = Math.floor(width / (imgWidth * 1.5));
   for (let i = 0; i < numPlates; i++) {
     g.append("image")
       .attr("xlink:href", imagePath)
