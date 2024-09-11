@@ -4,27 +4,30 @@ format:
   html:
     math: true
 ---
-Salmon on a bed of pasta is my favorite meal in the world (@fig-pasta).
+## Salmon
+Salmon on a bed of pasta is my favorite meal in the world. Salmon on a bed of rice is for some reason the thing that I eat more frequently.
 
-::: {.column-margin}
-![My dream meal](assets/salmon/salmonpasta.jpg){#fig-pasta}
+::: {layout-ncol=2}
+![](assets/salmon/salmonpasta.jpg)
+
+![](assets/salmon/salmonrice.jpg)
 :::
 
-Salmon on a bed of rice is for some reason the thing that I eat more frequently. My standard dinner is salmon with Costco stir-fry vegetables (frozen) sometimes with a cup of rice (@fig-standard). (A dietician recently told me this is too much salmon/mercury.)
+ My standard dinner is salmon with Costco stir-fry vegetables (frozen) sometimes with a cup of rice. (A dietician recently told me this is too much salmon/mercury.)
 
-::: {.column-margin}
-![My typical meal](assets/salmon/salmonstandard.jpg){#fig-standard}
+::: {layout="[[1,1]]"}
+![](assets/salmon/salmonstandard.jpg)
+
+![](assets/salmon/salmonvariation.jpg)
 :::
 
 ## A Restaurant Incident
-Because I eat salmon multiple times a week, I tend to go for other items at restaurants. Two major exceptions: 
+Because I eat salmon multiple times a week, I tend to go for other items at restaurants. There are two major exceptions: 
 
-::: {.column-margin}
-![Cheesecake Factory](assets/salmon/cheesecake.jpg){#fig-cheesecake}
-:::
-
-1. The Cheesecake Factory makes an excellent salmon meal (albeit farmed, @fig-cheesecake)
+1. The Cheesecake Factory makes an excellent salmon meal (albeit farmed)
 2. Fish restaurants often have special kinds of salmon
+
+![Cheesecake Factory](assets/salmon/cheesecake.jpg){width=50%}
 
 In 2021, I went to a fish restaurant in the Chicago suburbs. I had eaten there pre-COVID and was excited for the large portions. Prices had gone up from the tremendous pre-COVID value, but still seemed reasonable. 
 
@@ -70,13 +73,13 @@ While a little odd that a fish restaurant wouldn't be more specific about the ty
 
 When it arrived, it looked way too small. 
 
-::: {layout-ncol=2}
+::: {layout="[[1,1]]"}
 ![Salmon portion (sides not shown)](assets/salmon/restaurant.jpeg)
 
 ![Previous portion at same restaurant (sides shown)](assets/salmon/restaurantbefore.jpg)
 :::
 
-By standard restaurant serving sizes, this would be perfectly acceptable, but the menu claimed 14-16 oz. As a frequent salmon consumer, I knew this was wrong. 
+By standard restaurant serving sizes, this would be perfectly acceptable, but the menu claimed 14-16 oz. As a frequent salmon consumer, I knew something was wrong. 
 
 I mentioned the size issue to the food runner who escalated the matter to the waiter. The waiter told me that this was in fact the correct size. I said no I don't think so and he said yes and then left without resolving the issue. 
 
@@ -90,41 +93,38 @@ Apparently the restaurant norm is to advertise the *uncooked* weight of food, e.
 
 ### Size Specifics
 
-In the case of salmon, Claude claims that we should expect a weight loss of "15-25%". Given this, let's look at some estimates for the size of fish that we could expect. 
+In the case of salmon, Claude claims that we should expect a weight loss of "15-25%". ChatGPT says "10-20%". We'll therefore say a 17.5% average loss. Given this, let's look at some estimates for the size of fish that we could expect. 
 
-**Largest without shrinkage: **
+**Largest without shrinkage:**
 A 16 oz piece
 
-**Largest with shrinkage: **
-Start with a 16 oz piece, with 15% shrinkage: 
+**Largest with shrinkage:**
+Start with a 16 oz piece, with 10% shrinkage: 
 
-Resulting size $= 16*0.85 = 13.6$ oz
+$\text{Resulting size} = 16*0.9 = 14.4 \text{oz}$
 
-**Average with shrinkage: **
-Start with a 15 oz piece, with 20% shrinkage: 
-$\text{Resulting Size} = 15*0.8 = 12 \text{oz}$
+**Average with shrinkage:**
+Start with a 15 oz piece, with 17.5% shrinkage: 
+$\text{Resulting Size} = 15*0.825 = 12.38 \text{oz}$
 
-**Smallest with shrinkage: **
+**Smallest with shrinkage:**
 Start with a 14 oz piece, with 25% shrinkage: 
 $\text{Resulting Size} = 14*0.75 = 10.5 \text{oz}$
 
 Hmm, so technically even a 10.5 oz piece would have been in the acceptable range. Admittedly, I think I would have (lightly) complained about approximately anything <12 oz, but this size seemed even smaller. 
 
-After a brief and polite conversation raising my previous time at this restaurant and my deep general salmon experience, I insisted that we go to the kitchen to solve this the right way: on the scale (@fig-scale). 
+After a brief and polite conversation raising my previous time at this restaurant and my deep general salmon experience, I insisted that we go to the kitchen to solve this the right way: on the scale. Unfortunately not the best photo: 
 
-::: {.column-margin}
-![Salmon on the scale](assets/salmon/scale.jpg){#fig-scale}
-:::
+![Salmon on the scale](assets/salmon/scale.jpg)
 
 After weighing the plate with the salmon and a separate empty plate, we concluded that the salmon size was about **9 oz**! 
 
-Recall from above that we have 10.5 oz as the minimum size, 12 oz as the average size, and 15 oz as the average size without any shrinkage. This means this was too small by: 
+Recall from above that we have 10.5 oz as the minimum size and 12.4 oz as the average size. And 15 oz would be the average size without any shrinkage. This means this was too small by minimum 1.5 oz and on average over 3 oz and often over 4 oz, a substantial percentage! 
 
-9/10.5 = 1
+### Results
+They gave me an extra small piece for my troubles. While blatantly too small and annoying that it got that far, at least it *wasn't* on a date. That would've been a real conundrum. 
 
-9/12 = 1
-
-9/15 = 1
+## Salmon Size Interactive
 
 ```{ojs}
 //| echo: false
@@ -274,3 +274,37 @@ function createChart() {
 md`### Salmon Weight Comparison`
 createChart()
 ```
+
+## Salmon Photo Gallery
+
+Purchases from the excellent [Tanner's Alaskan Seafood](https://www.tannersfish.com/): 
+
+::: {layout="[[1,1]]"}
+![](assets/salmon/tanners1.jpg)
+
+![](assets/salmon/tanners2.jpg)
+:::
+
+Great and rare Whole Foods value on King salmon: 
+
+::: {layout="[[1,1]]"}
+![](assets/salmon/wf1.jpg)
+
+![](assets/salmon/wf2.jpg)
+:::
+
+Farmed salmon looks beautiful (avoid!): 
+
+::: {layout="[[1,1]]"}
+![](assets/salmon/farmed1.jpg)
+
+![](assets/salmon/farmed2.jpg)
+:::
+
+Sashimi in the Amsterdam Airport and the rare Whole Foods smoked salmon freeroll: 
+
+::: {layout="[[1,1]]"}
+![](assets/salmon/sashimi.jpg)
+
+![](assets/salmon/wfr.jpg)
+:::
