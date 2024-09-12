@@ -5,7 +5,6 @@ format:
     math: true
 ---
 ## Gioia's Pizza in SF
-
 Sorry, this is about value and not expected value. There's an assumption that at a pizza restaurant ordering by the full pizza is a better deal than ordering by the slice and also that ordering larger pizzas is a better deal than ordering smaller ones.  
 
 Last week I ate my first San Francisco pizza at [Gioia's](https://www.gioiapizzeria.com/san-francisco). I of course got a margherita pizza (I don't eat meat on pizza and don't like vegetables on pizza cause then they remind me of omelettes (I also don't like vegetables in omelettes)). [Note: I now found out that they actually have a plain cheese pizza that is even more plain and chepaer!]
@@ -17,6 +16,8 @@ The menu was like this:
 | 14" Pizza   | $24    | 6 slices per pizza      |
 | 18" Pizza   | $34    | 8 slices per pizza      |
 | 18" Pizza Slice   | $4.50  | Slice from 18" |
+
+![](assets/pizza/g.jpg)
 
 ## General Pizza and Circle Computatations
 
