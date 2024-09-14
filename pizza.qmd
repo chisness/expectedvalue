@@ -4,6 +4,19 @@ format:
   html:
     math: true
 ---
+## TLDR
+Larger pizza sizes are often way better value than smaller pizza sizes. 
+
+You can use this equation to see how much better the value is in terms of square inches per dollar. 
+
+Let Pizza 1 be the larger one with price $p_1$ and diameter $d_1$. Let Pizza 2 be the smaller one with price $p_2$ and diameter $d_2$.
+
+$$
+\text{Value of Pizza 1 Compared to Pizza 2} = \frac{p_2*d_1^2}{p_1*d_2^2}
+$$
+
+Read on for all the details! 
+
 ## Gioia's Pizza in SF
 Sorry, this is about value and not expected value. There's an assumption that at a pizza restaurant ordering by the full pizza is a better deal than ordering by the slice and also that ordering larger pizzas is a better deal than ordering smaller ones.  
 

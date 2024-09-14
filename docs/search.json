@@ -88,7 +88,19 @@
     "href": "pizza.html",
     "title": "Value Example: Pizza",
     "section": "",
-    "text": "Sorry, this is about value and not expected value. There’s an assumption that at a pizza restaurant ordering by the full pizza is a better deal than ordering by the slice and also that ordering larger pizzas is a better deal than ordering smaller ones.\nLast week I ate my first San Francisco pizza at Gioia’s. I of course got a margherita pizza (I don’t eat meat on pizza and don’t like vegetables on pizza cause then they remind me of omelettes (I also don’t like vegetables in omelettes)). [Note: I now found out that they actually have a plain cheese pizza that is even more plain and chepaer!]\nThe menu was like this:\n\n\n\nPizza Type\nPrice\nNotes\n\n\n\n\n14” Pizza\n$24\n6 slices per pizza\n\n\n18” Pizza\n$34\n8 slices per pizza\n\n\n18” Pizza Slice\n$4.50\nSlice from 18”",
+    "text": "Larger pizza sizes are often way better value than smaller pizza sizes.\nYou can use this equation to see how much better the value is in terms of square inches per dollar.\nLet Pizza 1 be the larger one with price \\(p_1\\) and diameter \\(d_1\\). Let Pizza 2 be the smaller one with price \\(p_2\\) and diameter \\(d_2\\).\n\\[\n\\text{Value of Pizza 1 Compared to Pizza 2} = \\frac{p_2*d_1^2}{p_1*d_2^2}\n\\]\nRead on for all the details!",
+    "crumbs": [
+      "About",
+      "FOOD",
+      "Pizza"
+    ]
+  },
+  {
+    "objectID": "pizza.html#tldr",
+    "href": "pizza.html#tldr",
+    "title": "Value Example: Pizza",
+    "section": "",
+    "text": "Larger pizza sizes are often way better value than smaller pizza sizes.\nYou can use this equation to see how much better the value is in terms of square inches per dollar.\nLet Pizza 1 be the larger one with price \\(p_1\\) and diameter \\(d_1\\). Let Pizza 2 be the smaller one with price \\(p_2\\) and diameter \\(d_2\\).\n\\[\n\\text{Value of Pizza 1 Compared to Pizza 2} = \\frac{p_2*d_1^2}{p_1*d_2^2}\n\\]\nRead on for all the details!",
     "crumbs": [
       "About",
       "FOOD",
@@ -99,8 +111,8 @@
     "objectID": "pizza.html#gioias-pizza-in-sf",
     "href": "pizza.html#gioias-pizza-in-sf",
     "title": "Value Example: Pizza",
-    "section": "",
-    "text": "Sorry, this is about value and not expected value. There’s an assumption that at a pizza restaurant ordering by the full pizza is a better deal than ordering by the slice and also that ordering larger pizzas is a better deal than ordering smaller ones.\nLast week I ate my first San Francisco pizza at Gioia’s. I of course got a margherita pizza (I don’t eat meat on pizza and don’t like vegetables on pizza cause then they remind me of omelettes (I also don’t like vegetables in omelettes)). [Note: I now found out that they actually have a plain cheese pizza that is even more plain and chepaer!]\nThe menu was like this:\n\n\n\nPizza Type\nPrice\nNotes\n\n\n\n\n14” Pizza\n$24\n6 slices per pizza\n\n\n18” Pizza\n$34\n8 slices per pizza\n\n\n18” Pizza Slice\n$4.50\nSlice from 18”",
+    "section": "Gioia’s Pizza in SF",
+    "text": "Gioia’s Pizza in SF\nSorry, this is about value and not expected value. There’s an assumption that at a pizza restaurant ordering by the full pizza is a better deal than ordering by the slice and also that ordering larger pizzas is a better deal than ordering smaller ones.\nLast week I ate my first San Francisco pizza at Gioia’s. I of course got a margherita pizza (I don’t eat meat on pizza and don’t like vegetables on pizza cause then they remind me of omelettes (I also don’t like vegetables in omelettes)). [Note: I now found out that they actually have a plain cheese pizza that is even more plain and chepaer!]\nThe menu was like this:\n\n\n\nPizza Type\nPrice\nNotes\n\n\n\n\n14” Pizza\n$24\n6 slices per pizza\n\n\n18” Pizza\n$34\n8 slices per pizza\n\n\n18” Pizza Slice\n$4.50\nSlice from 18”",
     "crumbs": [
       "About",
       "FOOD",
@@ -616,7 +628,7 @@
     "href": "dice.html#multiple-roll-ev",
     "title": "EV Example: Dice",
     "section": "Multiple Roll EV",
-    "text": "Multiple Roll EV\n\nYou have the option to throw a die up to three times. You will earn the face value of the die. You have the option to stop after each throw and walk away with the money earned. The earnings are not additive. What is the expected payoff of this game?\n\n\n1 Roll Game\nWe showed above that the expectation of a single roll is:\n\\(\\mathbb{E}[\\text{1 Roll Game}] = 3.5\\)\n\n\n2 Roll Game\nIn a 2 roll game, if the first roll is \\({1, 2, 3}\\) then we would choose to roll again since \\(3.5\\) is higher. If it’s \\({4, 5, 6}\\) then we would keep it.\nSince \\({4, 5, 6}\\) are all equally likely, the expectation when keeping is \\(5\\). When re-rolling it’s \\(3.5\\) from above. Each is equally likely.\n\\(\\mathbb{E}[\\text{2 Roll Game}] = 0.5*5 + 0.5*3.5 = 4.25\\)\n\n\n3 Roll Game\nFinally with 3 rolls, in the first roll we should only keep a \\({5, 6}\\) since we showed that the subsequent 2 roll game is worth \\(4.25\\). Therefore our strategy is:\nRoll 1: Keep \\({5, 6}\\) otherwise roll again. This happens \\(\\frac{1}{3}\\) of the time and the expectation when keeping is \\(5.5\\).\nRoll 2: Keep \\({4, 5, 6}\\) otherwise roll again. If we get here to Roll 2 then we’re playing the 2 Roll Game and know the EV from above.\nRoll 3: Roll with expectation of \\(3.5\\).\n\\[\n\\begin{equation}\n\\begin{split}\n\\mathbb{E}[\\text{3 Roll Game}] &= [\\text{Val if Keep Roll 1}]*Pr(\\text{Roll 1 is 5 or 6}) \\\\\n  &\\quad + [\\text{Val 2 Roll Game}]*Pr(\\text{Roll 1 is not 5 or 6})\\\\\n  &= 5.5\\frac{1}{3} + 4.25\\frac{2}{3} \\\\\n  &= 4.67\n\\end{split}\n\\end{equation}\n\\]",
+    "text": "Multiple Roll EV\n\nYou have the option to throw a die up to three times. You will earn the face value of the die. You have the option to stop after each throw and walk away with the money earned. The earnings are not additive. What is the expected payoff of this game?\n\n\n1 Roll Game\nWe showed above that the expectation of a single roll is:\n\\(\\mathbb{E}[\\text{1 Roll Game}] = 3.5\\)\n\n\n2 Roll Game\nIn a 2 roll game, if the first roll is \\({1, 2, 3}\\) then we would choose to roll again since \\(3.5\\) is higher. If it’s \\({4, 5, 6}\\) then we would keep it.\nSince \\({4, 5, 6}\\) are all equally likely, the expectation when keeping is \\(5\\). When re-rolling it’s \\(3.5\\) from above. Each is equally likely.\n\\(\\mathbb{E}[\\text{2 Roll Game}] = 0.5*5 + 0.5*3.5 = 4.25\\)\n\n\n3 Roll Game\nFinally with 3 rolls, in the first roll we should only keep a \\({5, 6}\\) since we showed that the subsequent 2 roll game is worth \\(4.25\\). Therefore our strategy is:\nRoll 1: Keep \\({5, 6}\\) otherwise roll again. This happens \\(\\frac{1}{3}\\) of the time and the expectation when keeping is \\(5.5\\).\nRoll 2: Keep \\({4, 5, 6}\\) otherwise roll again. If we get here to Roll 2 then we’re playing the 2 Roll Game and know the EV from above.\nRoll 3: Roll with expectation of \\(3.5\\).\n\\[\n\\begin{equation}\n\\begin{split}\n\\mathbb{E}[\\text{3 Roll Game}] &= [\\text{Val if Keep Roll 1}]*Pr(\\text{Roll 1 is 5 or 6}) \\\\\n  &\\quad + [\\text{Val 2 Roll Game}]*Pr(\\text{Roll 1 is not 5 or 6})\\\\\n  &= 5.5*\\frac{1}{3} + 4.25*\\frac{2}{3} \\\\\n  &= 4.67\n\\end{split}\n\\end{equation}\n\\]",
     "crumbs": [
       "About",
       "GAMBLING",

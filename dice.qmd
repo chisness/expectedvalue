@@ -59,7 +59,7 @@ $$
 \begin{split}
 \mathbb{E}[\text{3 Roll Game}] &= [\text{Val if Keep Roll 1}]*Pr(\text{Roll 1 is 5 or 6}) \\
   &\quad + [\text{Val 2 Roll Game}]*Pr(\text{Roll 1 is not 5 or 6})\\
-  &= 5.5\frac{1}{3} + 4.25\frac{2}{3} \\
+  &= 5.5*\frac{1}{3} + 4.25*\frac{2}{3} \\
   &= 4.67
 \end{split}
 \end{equation}
