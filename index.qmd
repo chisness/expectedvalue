@@ -155,7 +155,7 @@ Let's go back to the marble example:
 - Blue marble (2 cookies): 3/10 probability
 - Green marble (0 cookies): 2/10 probability
 
-$ E(X) = 1 \cdot \frac{5}{10} + 2 \cdot \frac{3}{10} + 0 \cdot \frac{2}{10} = 0.5 + 0.6 + 0 = 1.1 $
+$\mathbb{E}(X) = 1 * \frac{5}{10} + 2 * \frac{3}{10} + 0 * \frac{2}{10} = 0.5 + 0.6 + 0 = 1.1$
 
 So, on average, you can expect to get 1.1 cookies per draw.
 
