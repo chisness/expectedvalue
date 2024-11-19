@@ -7,6 +7,10 @@ format:
 Expected value is fundamental in decision-making under uncertainty. It allows us to make choices that maximize positive impact, even when outcomes are uncertain.
 
 ## Endorsements 
+Nate Silver in *On the Edge*: 
+
+> Society would be generally better off--I'll confidently contend--if people understood the nature of expected value and specifically the importance of low-probability, high-impact events, whether they come in teh form of fantastic protential payoffs or catastrophic risks.
+
  Effective Altruism (EA) is a movement that aims to find the best ways to help others using evidence and reason. [This post in the Effective Altruism (EA) forum](https://forum.effectivealtruism.org/posts/xw7TpRLu5cCEDrkPA/what-is-the-top-concept-that-all-eas-should-understand) asks what the top concept is that all EAs should understand: 
 
 ![](assets/eaforum1.png){width=50%}

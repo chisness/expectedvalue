@@ -215,7 +215,7 @@
     "href": "evimp.html#endorsements",
     "title": "Why is EV important?",
     "section": "Endorsements",
-    "text": "Endorsements\nEffective Altruism (EA) is a movement that aims to find the best ways to help others using evidence and reason. This post in the Effective Altruism (EA) forum asks what the top concept is that all EAs should understand:\n\nThe most highly upvoted answer was expected value!\n\nThis tweet emphasizes the reliance on EV for using evidence and reason:",
+    "text": "Endorsements\nNate Silver in On the Edge:\n\nSociety would be generally better off–I’ll confidently contend–if people understood the nature of expected value and specifically the importance of low-probability, high-impact events, whether they come in teh form of fantastic protential payoffs or catastrophic risks.\n\nEffective Altruism (EA) is a movement that aims to find the best ways to help others using evidence and reason. This post in the Effective Altruism (EA) forum asks what the top concept is that all EAs should understand:\n\nThe most highly upvoted answer was expected value!\n\nThis tweet emphasizes the reliance on EV for using evidence and reason:",
     "crumbs": [
       "About",
       "EXPECTED VALUE",
@@ -227,28 +227,102 @@
     "href": "ev-flaws.html",
     "title": "Expected Value Flaws",
     "section": "",
-    "text": "Issues Risk tolerance: Expected value doesn’t account for individual risk preferences. Two options might have the same expected value, but one could be much riskier. Non-linear utility: The subjective value (utility) of money often doesn’t scale linearly. Gaining $1000 might be more than twice as valuable to someone as gaining $500. Frequency of events: For rare events or one-time decisions, the law of large numbers doesn’t apply, making expected value less reliable. Uncertainty in probabilities: Often, the probabilities used in calculations are estimates, which can lead to inaccurate results if they’re off. Neglect of qualitative factors: Expected value focuses on quantifiable outcomes, potentially overlooking important qualitative considerations. Assumption of independence: Many expected value calculations assume events are independent, which isn’t always true in real-life scenarios. Short-term vs. long-term outcomes: As you mentioned, time value of money isn’t typically factored in, nor are potential long-term consequences. Ethical considerations: Purely quantitative decision-making based on expected value might lead to ethically questionable choices in some situations. Complexity of real-world scenarios: Many situations involve multiple, interrelated variables that are difficult to capture in a simple expected value calculation. Behavioral biases: People often don’t act rationally according to expected value, due to various cognitive biases and emotional factors. Black swan events: Rare, high-impact events that are hard to predict can significantly affect outcomes but are often not accounted for in expected value calculations. Changing circumstances: Expected value calculations assume static conditions, but real-world situations can change rapidly.\nTime Value of Money:\nAs you mentioned, EV calculations typically do not account for the time value of money. Future cash flows need to be discounted to present value to make a proper comparison. Risk and Uncertainty:\nEV does not account for risk preferences or aversion. Two options with the same EV might have different levels of risk, which can significantly affect decision-making. Probability Estimation:\nAccurate probability estimation is crucial for EV calculations. Inaccurate or biased estimates can lead to misleading results. Utility:\nEV assumes linear utility of money, but in reality, the utility of money can be nonlinear. For example, losing $100 might feel worse than gaining $100 feels good. Rare Events:\nEV can be heavily influenced by rare, high-impact events. While these events may have a significant effect on the EV, their actual occurrence might be so infrequent that they should be considered differently. Decision Context:\nEV calculations do not always consider the broader context or other qualitative factors that may influence a decision. Opportunity Cost:\nEV does not inherently account for opportunity costs, which are the benefits you miss out on when choosing one alternative over another. Behavioral Factors:\nHuman behavior often deviates from rational decision-making models. Factors such as emotions, cognitive biases, and social influences can impact decisions beyond what EV can capture. Data Quality:\nThe quality and reliability of the data used to calculate probabilities and outcomes are critical. Poor data can lead to inaccurate EV calculations. Interdependencies:\nEV calculations typically assume independent outcomes, but in reality, events can be interdependent, affecting the overall decision-making process. Long-Term vs. Short-Term:\nEV may not distinguish between long-term and short-term benefits and costs, which can be important depending on the decision context. Scalability:\nEV is additive and may not scale well with large numbers of small probabilities, potentially leading to overestimation of the value of combining many low-probability events.\nev only part of picture, because if bet is big part of bankroll then not good!\nhttps://blog.givewell.org/2011/08/18/why-we-cant-take-expected-value-estimates-literally-even-when-theyre-unbiased/"
+    "text": "Issues Risk tolerance: Expected value doesn’t account for individual risk preferences. Two options might have the same expected value, but one could be much riskier. Non-linear utility: The subjective value (utility) of money often doesn’t scale linearly. Gaining $1000 might be more than twice as valuable to someone as gaining $500. Frequency of events: For rare events or one-time decisions, the law of large numbers doesn’t apply, making expected value less reliable. Uncertainty in probabilities: Often, the probabilities used in calculations are estimates, which can lead to inaccurate results if they’re off. Neglect of qualitative factors: Expected value focuses on quantifiable outcomes, potentially overlooking important qualitative considerations. Assumption of independence: Many expected value calculations assume events are independent, which isn’t always true in real-life scenarios. Short-term vs. long-term outcomes: As you mentioned, time value of money isn’t typically factored in, nor are potential long-term consequences. Ethical considerations: Purely quantitative decision-making based on expected value might lead to ethically questionable choices in some situations. Complexity of real-world scenarios: Many situations involve multiple, interrelated variables that are difficult to capture in a simple expected value calculation. Behavioral biases: People often don’t act rationally according to expected value, due to various cognitive biases and emotional factors. Black swan events: Rare, high-impact events that are hard to predict can significantly affect outcomes but are often not accounted for in expected value calculations. Changing circumstances: Expected value calculations assume static conditions, but real-world situations can change rapidly.\nTime Value of Money:\nAs you mentioned, EV calculations typically do not account for the time value of money. Future cash flows need to be discounted to present value to make a proper comparison. Risk and Uncertainty:\nEV does not account for risk preferences or aversion. Two options with the same EV might have different levels of risk, which can significantly affect decision-making. Probability Estimation:\nAccurate probability estimation is crucial for EV calculations. Inaccurate or biased estimates can lead to misleading results. Utility:\nEV assumes linear utility of money, but in reality, the utility of money can be nonlinear. For example, losing $100 might feel worse than gaining $100 feels good. Rare Events:\nEV can be heavily influenced by rare, high-impact events. While these events may have a significant effect on the EV, their actual occurrence might be so infrequent that they should be considered differently. Decision Context:\nEV calculations do not always consider the broader context or other qualitative factors that may influence a decision. Opportunity Cost:\nEV does not inherently account for opportunity costs, which are the benefits you miss out on when choosing one alternative over another. Behavioral Factors:\nHuman behavior often deviates from rational decision-making models. Factors such as emotions, cognitive biases, and social influences can impact decisions beyond what EV can capture. Data Quality:\nThe quality and reliability of the data used to calculate probabilities and outcomes are critical. Poor data can lead to inaccurate EV calculations. Interdependencies:\nEV calculations typically assume independent outcomes, but in reality, events can be interdependent, affecting the overall decision-making process. Long-Term vs. Short-Term:\nEV may not distinguish between long-term and short-term benefits and costs, which can be important depending on the decision context. Scalability:\nEV is additive and may not scale well with large numbers of small probabilities, potentially leading to overestimation of the value of combining many low-probability events.\nev only part of picture, because if bet is big part of bankroll then not good!\nhttps://blog.givewell.org/2011/08/18/why-we-cant-take-expected-value-estimates-literally-even-when-theyre-unbiased/\nRelatedly, a lot of innovation can’t be identified in advance. You can’t centrally plan it for the same reasons you can’t centrally plan an economy. Michael Nielsen explained this well:\nIf you’d been an effective altruist in the 1660s trying to decide whether or not to fund Isaac Newton, the theologian and astrologer and alchemist, he had no legible project at all. It would have looked just very strange. You would have had no way of making any sense of what he was doing in terms of sort of an EV point of view, you know, he was laying the foundations for a worldview that would enable the industrial revolution and a complete transformation in what humanity was about.\nThat’s true for a lot of the things that have been the most impactful things only made sense. After they were done, sometimes a long time after they were done, we didn’t understand the printing press until after it was done. We certainly didn’t understand writing or the alphabet, what those things meant until a long time after I don’t think I’m making much sense based on the expression on your on your face, I’m trying to say, I think of expected value calculations as things that you do when you understand your state space really well and when, but most of the things which have mattered the most. https://podcasts.apple.com/us/podcast/critiquing-effective-altruism-with-michael-nielsen/id1535406429?i=1000576650310\nhttps://eriktorenberg.substack.com/p/reconciling-effective-altruism-and\nst petersburg paradox"
   },
   {
-    "objectID": "medicine.html#section-2",
-    "href": "medicine.html#section-2",
-    "title": "Expected Value Example: Medicine",
-    "section": "Section 2",
-    "text": "Section 2\n\nSection 2.1\n\n\nSection 2.2"
+    "objectID": "index_old.html",
+    "href": "index_old.html",
+    "title": "The EV Foundation",
+    "section": "",
+    "text": "Imagine you have a big jar of different colored marbles. Some are red, some are blue, and some are green. Your friend says, “If you pick a red marble, I’ll give you a cookie. If you pick a blue one, I’ll give you two cookies. If you pick a green one, you don’t get any cookies.”\nNow, let’s say there are:\n\n5 red marbles\n3 blue marbles\n2 green marbles\n\nIf you reach into the jar without looking, what can you expect? This is what we call “expected value.” It’s like guessing how many cookies you might get on average if you played this game many, many times.\nLet’s count it out. On average if you reach into the jar 10 times (assume that each time the jar resets to the original marble quantities):\nRed marbles give you 5 cookies (1 cookie × 5 marbles) Blue marbles give you 6 cookies (2 cookies × 3 marbles) Green marbles give you 0 cookies (0 cookies × 2 marbles)\nThat’s 11 cookies in total.\nSo, if we divide 11 cookies by 10 marbles, we get 1.1 cookies.\nThis means, on average, you can expect to get about 1 cookie (and a tiny bit more) each time you pick a marble!\n\n\n\n\n\n\nTry it yourself!\n\n\n\nImagine reaching into the jar 10 times. How many cookies do you think you’d get? Try it out and see.\n\n\n\n\n  Cookies: 0\n  Picks: 0\n  Average: 0 cookies per pick\n  Pick a Marble\n  Reset\n  Last picked: None"
   },
   {
-    "objectID": "medicine.html#section-3",
-    "href": "medicine.html#section-3",
-    "title": "Expected Value Example: Medicine",
-    "section": "Section 3",
-    "text": "Section 3\n\nSection 3.1\n\n\nSection 3.2\n\n\nSection 3.3"
+    "objectID": "index_old.html#explain-it-like-im-5",
+    "href": "index_old.html#explain-it-like-im-5",
+    "title": "The EV Foundation",
+    "section": "",
+    "text": "Imagine you have a big jar of different colored marbles. Some are red, some are blue, and some are green. Your friend says, “If you pick a red marble, I’ll give you a cookie. If you pick a blue one, I’ll give you two cookies. If you pick a green one, you don’t get any cookies.”\nNow, let’s say there are:\n\n5 red marbles\n3 blue marbles\n2 green marbles\n\nIf you reach into the jar without looking, what can you expect? This is what we call “expected value.” It’s like guessing how many cookies you might get on average if you played this game many, many times.\nLet’s count it out. On average if you reach into the jar 10 times (assume that each time the jar resets to the original marble quantities):\nRed marbles give you 5 cookies (1 cookie × 5 marbles) Blue marbles give you 6 cookies (2 cookies × 3 marbles) Green marbles give you 0 cookies (0 cookies × 2 marbles)\nThat’s 11 cookies in total.\nSo, if we divide 11 cookies by 10 marbles, we get 1.1 cookies.\nThis means, on average, you can expect to get about 1 cookie (and a tiny bit more) each time you pick a marble!\n\n\n\n\n\n\nTry it yourself!\n\n\n\nImagine reaching into the jar 10 times. How many cookies do you think you’d get? Try it out and see.\n\n\n\n\n  Cookies: 0\n  Picks: 0\n  Average: 0 cookies per pick\n  Pick a Marble\n  Reset\n  Last picked: None"
   },
   {
-    "objectID": "medicine.html#section-4",
-    "href": "medicine.html#section-4",
-    "title": "Expected Value Example: Medicine",
-    "section": "Section 4",
-    "text": "Section 4"
+    "objectID": "index_old.html#mathematical-explanation",
+    "href": "index_old.html#mathematical-explanation",
+    "title": "The EV Foundation",
+    "section": "Mathematical Explanation",
+    "text": "Mathematical Explanation\nExpected value is a concept in probability theory that represents the average outcome of an experiment if it is repeated many times. It’s calculated by multiplying each possible outcome by its probability of occurrence and then summing these products.\nAccording to Wikipedia: “The expected value of a random variable with a finite number of outcomes is a weighted average of all possible outcomes”.\nMathematically, for a discrete random variable \\(X\\) with possible values \\(x_1, x_2, ..., x_n\\) and corresponding probabilities \\(p_1, p_2, ..., p_n\\), the expected value \\(\\mathbb{E}(X)\\) is:\n\\(\\mathbb{E}[X] = \\sum_{i=1}^n x_i p_i = x_1 p_1 + x_2 p_2 + ... + x_k p_k\\)\nWhat is a random variable? It represents possible outcomes. A random variable is defined by its possible outcomes and the probability of each outcome.\nLet’s go back to the marble example:\n\nRed marble (1 cookie): 5/10 probability\nBlue marble (2 cookies): 3/10 probability\nGreen marble (0 cookies): 2/10 probability\n\n\\(\\mathbb{E}(X) = 1 * \\frac{5}{10} + 2 * \\frac{3}{10} + 0 * \\frac{2}{10} = 0.5 + 0.6 + 0 = 1.1\\)\nSo, on average, you can expect to get 1.1 cookies per draw.\n\n\n\n\n\n\nTry it yourself!\n\n\n\nYou can use this tool to calculate any expected value. Just put the probabilities in the left column and the values in the right column. It’s pre-set with the cookie marble experiment. Remember that probabilities must sum to 1.\nThinking about something else to try? How about a 6-sided die? Each probability is 1/6 and the values are the 6 different die values.\n\n\n\n\n  \n    \n      Probability\n      Value\n    \n    \n  \n  Add Row\n  Calculate\n  Expected Value: 0"
+  },
+  {
+    "objectID": "index_old.html#advanced-math",
+    "href": "index_old.html#advanced-math",
+    "title": "The EV Foundation",
+    "section": "Advanced Math",
+    "text": "Advanced Math\nIn more complex scenarios, expected value becomes a powerful tool for decision-making under uncertainty. It’s particularly useful in fields like finance, economics, and data science. We give a bunch of examples on this site on the left nav menu.\nFor continuous random variables, the expected value is defined as an integral:\n\\(\\mathbb{E}(X) = \\int_{-\\infty}^{\\infty} x f(x) dx\\)\nwhere \\(f(x)\\) is the probability density function of \\(X\\).\nExpected value has several important properties:\n\nLinearity: \\(\\mathbb{E}(aX + bY) = a\\mathbb{E}(X) + b\\mathbb{E}(Y)\\) for constants \\(a\\) and \\(b\\)\nLaw of the unconscious statistician: \\(\\mathbb{E}[g(X)] = \\int_{-\\infty}^{\\infty} g(x) f(x) dx\\)\n\nIn decision theory, we often use expected utility instead of expected value. This takes into account the decision-maker’s risk preferences:\n\\(\\mathbb{E}[U(X)] = \\sum_{i=1}^n U(x_i) p_i\\)\nwhere \\(U(x)\\) is the utility function.\n\n\n\n\n\n\nConsiderations\n\n\n\nWhile expected value is a useful tool, it doesn’t account for the variance or risk associated with different outcomes. In some cases, especially with non-linear utility functions or when dealing with rare, high-impact events, decisions based solely on expected value may lead to suboptimal results."
+  },
+  {
+    "objectID": "basicecon.html",
+    "href": "basicecon.html",
+    "title": "EV Example: Basic Economy",
+    "section": "",
+    "text": "Suppose that you are considering booking a flight and as a value-conscious consumer are considering Basic Economy vs. Regular Economy.\nThere are quite a few restrictions with a basic economy ticket as shown in the image below:\n\nThe tickets generally cost $50 less than a regular economy ticket on the same flight:\n\nIf you needed a full-sized carry-on (which actually is included if you have certain statuses or a United credit card) or to sit with your family, then there isn’t much to even evaluate, and the regular economy option will usually be best.\nBut let’s look at this specific scenario:\n\nSolo traveler\nIndifferent to seat (you can still pay for a seat or hope to get lucky)\nHas status to bring full-sized carry-on\n\nSo the main consideration is the flight change. A basic economy ticket cannot be changed. It can only be canceled for a $49.50 cancellation fee. The rest of the refund will come back as a United flight credit. (Even with a regular economy ticket, a cancellation will be refunded as flight credit, and we assume going forward that this is as good as a cash refund.)",
+    "crumbs": [
+      "About",
+      "TRAVEL",
+      "Basic Economy"
+    ]
+  },
+  {
+    "objectID": "basicecon.html#basic-econ-vs.-regular-econ",
+    "href": "basicecon.html#basic-econ-vs.-regular-econ",
+    "title": "EV Example: Basic Economy",
+    "section": "",
+    "text": "Suppose that you are considering booking a flight and as a value-conscious consumer are considering Basic Economy vs. Regular Economy.\nThere are quite a few restrictions with a basic economy ticket as shown in the image below:\n\nThe tickets generally cost $50 less than a regular economy ticket on the same flight:\n\nIf you needed a full-sized carry-on (which actually is included if you have certain statuses or a United credit card) or to sit with your family, then there isn’t much to even evaluate, and the regular economy option will usually be best.\nBut let’s look at this specific scenario:\n\nSolo traveler\nIndifferent to seat (you can still pay for a seat or hope to get lucky)\nHas status to bring full-sized carry-on\n\nSo the main consideration is the flight change. A basic economy ticket cannot be changed. It can only be canceled for a $49.50 cancellation fee. The rest of the refund will come back as a United flight credit. (Even with a regular economy ticket, a cancellation will be refunded as flight credit, and we assume going forward that this is as good as a cash refund.)",
+    "crumbs": [
+      "About",
+      "TRAVEL",
+      "Basic Economy"
+    ]
+  },
+  {
+    "objectID": "basicecon.html#ev-basic-vs.-regular-on-united",
+    "href": "basicecon.html#ev-basic-vs.-regular-on-united",
+    "title": "EV Example: Basic Economy",
+    "section": "EV Basic vs. Regular on United",
+    "text": "EV Basic vs. Regular on United\nSuppose that a basic economy ticket is available for \\(\\$x\\) and a regular economy ticket is available for \\(\\$x+50\\).\nSuppose that before the flight, we either decide to change to another flight that costs \\(\\$n\\) or stick with the original flight.\n\nCase 1: Stick with Original Flight\nTotal costs if just getting original flight\n\\(\\mathbb{E}[\\text{Basic Economy}] = \\$x\\)\n\\(\\mathbb{E}[\\text{Regular Economy}] = \\$x + 50\\)\n\n\nCase 2: Change Flight\nTotal costs in the case of changing the flight\n\\(\\mathbb{E}[\\text{Basic Economy}] = \\$n + 49.50\\)\n\\(\\mathbb{E}[\\text{Regular Economy}] = \\$n\\)\n\n\nEVs\nAssume the probability of changing the flight is \\(c\\)\n\\(\\mathbb{E}[\\text{Basic Economy}] = (x)(1-c) + (n+49.50)c\\)\n\\(\\mathbb{E}[\\text{Regular Economy}] = (x+50)(1-c) + (n)c\\)\nWhat \\(c\\) makes these equal?\n\\[\n\\begin{equation}\n\\begin{split}\n(1-c)(x) + c(n+49.50) &= (1-c)(x+50) + c(n) \\\\\nx - x*c + c*n + 49.50*c &= x + 50 - c*x -50*c + c*n \\\\\n49.50*c  &= 50 - 50*c \\\\\n99.50*c &= 50 \\\\\nc &= 0.503\n\\end{split}\n\\end{equation}\n\\]\nTherefore when \\(c\\) is lower than \\(0.503\\), you are better off taking Basic Economy, and otherwise better off taking Regular Economy. In other words, if your chance of needing to switch is less than \\(1/2\\), then you are better off in Basic.",
+    "crumbs": [
+      "About",
+      "TRAVEL",
+      "Basic Economy"
+    ]
+  },
+  {
+    "objectID": "basicecon.html#american-airlines",
+    "href": "basicecon.html#american-airlines",
+    "title": "EV Example: Basic Economy",
+    "section": "American Airlines",
+    "text": "American Airlines\nAmerican Airlines has a \\(\\$99\\) fee instead of the \\(\\$49.50\\) fee from United!\nLet’s see how this changes things.\n\\[\n\\begin{equation}\n\\begin{split}\n(1-c)(x) + c(n+99) &= (1-c)(x+50) + c(n) \\\\\nx - x*c + c*n + 99*c &= x + 50 - c*x -50*c + c*n \\\\\n99*c  &= 50 - 50*c \\\\\n149*c &= 50 \\\\\nc &= 0.336\n\\end{split}\n\\end{equation}\n\\]\nNow you only get better value with the Basic Economy ticket when you switch less than \\(0.336\\), or about 1/3 of the time.",
+    "crumbs": [
+      "About",
+      "TRAVEL",
+      "Basic Economy"
+    ]
+  },
+  {
+    "objectID": "basicecon.html#numerical-example",
+    "href": "basicecon.html#numerical-example",
+    "title": "EV Example: Basic Economy",
+    "section": "Numerical Example",
+    "text": "Numerical Example\nSuppose that you the original price of the flight was \\(\\$200\\) in Basic Economy and \\(\\$250\\) in Regular Economy.\nIf you want to change your flight, what happens in each of these scenarios? We’ll see that Basic Economy always ends up costing the Regular Economy price plus an additional \\(\\$49.50\\) for the cancellation fee.\n\nChanged Flight Price Down\nIf the price goes down to \\(\\$100\\), Basic Economy will cost \\(\\$100 + 49.50\\) for the flight change, for a total of \\(\\$149.50\\).\nRegular Economy will just cost the \\(\\$100\\) new price.\n\n\nChanged Flight Same Price\nIf the price stays at \\(\\$150\\), Basic Economy will cost \\(\\$150 + 49.50\\) for the flight change, for a total of \\(\\$199.50\\).\nRegular Economy will just cost the \\(\\$150\\) price.\n\n\nChanged Flight Price Up\nIf the price goes up to \\(\\$300\\), Basic Economy will cost \\(\\$300 + 49.50\\) for the flight change, for a total of \\(\\$349.50\\).\nRegular Economy will just cost the \\(\\$300\\) price.\nLet’s analyze this case a bit more. If at the original purchase time we estimate a \\(25\\%\\) chance of needing to switch, what would be our EV?\n\\[\n\\begin{equation}\n\\begin{split}\n\\mathbb{E}(\\text{Basic Economy}) &= \\text{Price}_{(\\text{Basic})}*P(\\text{Stay}) + \\text{Price}_{(\\text{After\\_Switch})}*P(\\text{Switch}) \\\\\n&= 200*0.75 + 349.50*0.25 \\\\\n&= \\$237.38\n\\end{split}\n\\end{equation}\n\\]\n\\[\n\\begin{equation}\n\\begin{split}\n\\mathbb{E}(\\text{Regular Economy}) &= \\text{Price}_{(\\text{Regular})}*P(\\text{Stay}) + \\text{Price}_{(\\text{After\\_Switch})}*P(\\text{Switch}) \\\\\n&= 250*0.75 + 300*0.25 \\\\\n&= \\$262.50\n\\end{split}\n\\end{equation}\n\\]\nAs we expected, with the probability of switching less than the \\(0.503\\) value that we derived earlier, we expect the Basic Economy option to be better value and indeed it would have saved \\(262.50 - 237.38 = \\$25.12\\) in this case!",
+    "crumbs": [
+      "About",
+      "TRAVEL",
+      "Basic Economy"
+    ]
+  },
+  {
+    "objectID": "ev-benefits.html",
+    "href": "ev-benefits.html",
+    "title": "Expected Value Benefits",
+    "section": "",
+    "text": "Pros: Expected value calculations offer several important benefits, which is why they remain a valuable tool in decision-making and analysis. Here are some key advantages:\nQuantitative framework: Provides a structured, numerical approach to comparing different options or scenarios. Objectivity: Helps reduce emotional bias in decision-making by focusing on probabilities and outcomes. Risk assessment: Allows for the incorporation of risk and uncertainty into decision-making processes. Comparative analysis: Facilitates easy comparison between multiple options, even when they have different probabilities and outcomes. Long-term perspective: Encourages thinking about the average outcome over many repetitions, which can be valuable for recurring decisions. Simplification of complex scenarios: Distills complicated situations into more manageable components (probabilities and payoffs). Identification of high-value opportunities: Helps in recognizing options that may have low probability but high potential payoff. Resource allocation: Assists in determining where to best allocate limited resources for maximum expected return. Decision consistency: Provides a consistent method for evaluating different scenarios across an organization or over time. Scenario planning: Useful in modeling various potential futures and their likelihood, aiding in strategic planning. Probabilistic thinking: Encourages consideration of multiple possible outcomes rather than just focusing on the most likely scenario. Foundation for more complex models: Serves as a basis for more sophisticated decision-making tools and risk analysis techniques. Learning tool: Helps in developing a more nuanced understanding of probability and its role in outcomes. Communication aid: Offers a clear way to explain the reasoning behind decisions to stakeholders.\nQuantitative Analysis:\nEV provides a clear, numerical method to evaluate and compare different options based on their potential outcomes and associated probabilities. Objective Decision-Making:\nBy focusing on probabilities and outcomes, EV helps reduce the influence of emotions and biases, leading to more rational and objective decisions. Informed Risk Assessment:\nEV allows decision-makers to quantify and assess the risks associated with different choices, enabling better risk management. Consistency:\nApplying EV consistently across different decisions ensures a systematic approach to evaluating options, promoting consistency in decision-making processes. Simplification:\nEV simplifies complex decisions by reducing them to a single value, making it easier to compare and contrast different scenarios. Strategic Planning:\nEV can be used in strategic planning to evaluate long-term projects and investments, helping organizations prioritize initiatives based on their expected returns. Resource Allocation:\nEV helps in optimal resource allocation by identifying the options with the highest expected returns, ensuring efficient use of resources. Identifying Best Practices:\nBy analyzing the EV of past decisions, organizations can identify best practices and improve future decision-making processes. Clarifying Trade-offs:\nEV highlights the trade-offs between different options, making it easier to understand the potential costs and benefits of each choice. Probability Sensitivity:\nEV calculations can reveal how sensitive a decision is to changes in probabilities, helping identify key factors that impact outcomes. Encourages Data-Driven Decisions:\nEV promotes the use of data and empirical evidence in decision-making, leading to more reliable and accurate evaluations. Facilitates Communication:\nEV provides a common framework for discussing and comparing different options, making it easier to communicate decisions to stakeholders. Supports Optimization:\nEV can be used in optimization problems to find the best possible decision given constraints and objectives. Cost-Benefit Analysis:\nEV is a fundamental component of cost-benefit analysis, helping to evaluate whether the benefits of a decision outweigh the costs. Decision Justification:\nEV offers a logical and transparent basis for justifying decisions, making it easier to explain and defend choices to others. Balancing Short-Term and Long-Term Goals:\nEV can help balance short-term and long-term goals by providing a framework to evaluate the expected value of immediate versus future benefits."
   },
   {
     "objectID": "huberman-pregnancy.html",
@@ -335,71 +409,25 @@
     ]
   },
   {
-    "objectID": "ev-benefits.html",
-    "href": "ev-benefits.html",
-    "title": "Expected Value Benefits",
-    "section": "",
-    "text": "Pros: Expected value calculations offer several important benefits, which is why they remain a valuable tool in decision-making and analysis. Here are some key advantages:\nQuantitative framework: Provides a structured, numerical approach to comparing different options or scenarios. Objectivity: Helps reduce emotional bias in decision-making by focusing on probabilities and outcomes. Risk assessment: Allows for the incorporation of risk and uncertainty into decision-making processes. Comparative analysis: Facilitates easy comparison between multiple options, even when they have different probabilities and outcomes. Long-term perspective: Encourages thinking about the average outcome over many repetitions, which can be valuable for recurring decisions. Simplification of complex scenarios: Distills complicated situations into more manageable components (probabilities and payoffs). Identification of high-value opportunities: Helps in recognizing options that may have low probability but high potential payoff. Resource allocation: Assists in determining where to best allocate limited resources for maximum expected return. Decision consistency: Provides a consistent method for evaluating different scenarios across an organization or over time. Scenario planning: Useful in modeling various potential futures and their likelihood, aiding in strategic planning. Probabilistic thinking: Encourages consideration of multiple possible outcomes rather than just focusing on the most likely scenario. Foundation for more complex models: Serves as a basis for more sophisticated decision-making tools and risk analysis techniques. Learning tool: Helps in developing a more nuanced understanding of probability and its role in outcomes. Communication aid: Offers a clear way to explain the reasoning behind decisions to stakeholders.\nQuantitative Analysis:\nEV provides a clear, numerical method to evaluate and compare different options based on their potential outcomes and associated probabilities. Objective Decision-Making:\nBy focusing on probabilities and outcomes, EV helps reduce the influence of emotions and biases, leading to more rational and objective decisions. Informed Risk Assessment:\nEV allows decision-makers to quantify and assess the risks associated with different choices, enabling better risk management. Consistency:\nApplying EV consistently across different decisions ensures a systematic approach to evaluating options, promoting consistency in decision-making processes. Simplification:\nEV simplifies complex decisions by reducing them to a single value, making it easier to compare and contrast different scenarios. Strategic Planning:\nEV can be used in strategic planning to evaluate long-term projects and investments, helping organizations prioritize initiatives based on their expected returns. Resource Allocation:\nEV helps in optimal resource allocation by identifying the options with the highest expected returns, ensuring efficient use of resources. Identifying Best Practices:\nBy analyzing the EV of past decisions, organizations can identify best practices and improve future decision-making processes. Clarifying Trade-offs:\nEV highlights the trade-offs between different options, making it easier to understand the potential costs and benefits of each choice. Probability Sensitivity:\nEV calculations can reveal how sensitive a decision is to changes in probabilities, helping identify key factors that impact outcomes. Encourages Data-Driven Decisions:\nEV promotes the use of data and empirical evidence in decision-making, leading to more reliable and accurate evaluations. Facilitates Communication:\nEV provides a common framework for discussing and comparing different options, making it easier to communicate decisions to stakeholders. Supports Optimization:\nEV can be used in optimization problems to find the best possible decision given constraints and objectives. Cost-Benefit Analysis:\nEV is a fundamental component of cost-benefit analysis, helping to evaluate whether the benefits of a decision outweigh the costs. Decision Justification:\nEV offers a logical and transparent basis for justifying decisions, making it easier to explain and defend choices to others. Balancing Short-Term and Long-Term Goals:\nEV can help balance short-term and long-term goals by providing a framework to evaluate the expected value of immediate versus future benefits."
+    "objectID": "medicine.html#section-2",
+    "href": "medicine.html#section-2",
+    "title": "Expected Value Example: Medicine",
+    "section": "Section 2",
+    "text": "Section 2\n\nSection 2.1\n\n\nSection 2.2"
   },
   {
-    "objectID": "basicecon.html",
-    "href": "basicecon.html",
-    "title": "EV Example: Basic Economy",
-    "section": "",
-    "text": "Suppose that you are considering booking a flight and as a value-conscious consumer are considering Basic Economy vs. Regular Economy.\nThere are quite a few restrictions with a basic economy ticket as shown in the image below:\n\nThe tickets generally cost $50 less than a regular economy ticket on the same flight:\n\nIf you needed a full-sized carry-on (which actually is included if you have certain statuses or a United credit card) or to sit with your family, then there isn’t much to even evaluate, and the regular economy option will usually be best.\nBut let’s look at this specific scenario:\n\nSolo traveler\nIndifferent to seat (you can still pay for a seat or hope to get lucky)\nHas status to bring full-sized carry-on\n\nSo the main consideration is the flight change. A basic economy ticket cannot be changed. It can only be canceled for a $49.50 cancellation fee. The rest of the refund will come back as a United flight credit. (Even with a regular economy ticket, a cancellation will be refunded as flight credit, and we assume going forward that this is as good as a cash refund.)",
-    "crumbs": [
-      "About",
-      "TRAVEL",
-      "Basic Economy"
-    ]
+    "objectID": "medicine.html#section-3",
+    "href": "medicine.html#section-3",
+    "title": "Expected Value Example: Medicine",
+    "section": "Section 3",
+    "text": "Section 3\n\nSection 3.1\n\n\nSection 3.2\n\n\nSection 3.3"
   },
   {
-    "objectID": "basicecon.html#basic-econ-vs.-regular-econ",
-    "href": "basicecon.html#basic-econ-vs.-regular-econ",
-    "title": "EV Example: Basic Economy",
-    "section": "",
-    "text": "Suppose that you are considering booking a flight and as a value-conscious consumer are considering Basic Economy vs. Regular Economy.\nThere are quite a few restrictions with a basic economy ticket as shown in the image below:\n\nThe tickets generally cost $50 less than a regular economy ticket on the same flight:\n\nIf you needed a full-sized carry-on (which actually is included if you have certain statuses or a United credit card) or to sit with your family, then there isn’t much to even evaluate, and the regular economy option will usually be best.\nBut let’s look at this specific scenario:\n\nSolo traveler\nIndifferent to seat (you can still pay for a seat or hope to get lucky)\nHas status to bring full-sized carry-on\n\nSo the main consideration is the flight change. A basic economy ticket cannot be changed. It can only be canceled for a $49.50 cancellation fee. The rest of the refund will come back as a United flight credit. (Even with a regular economy ticket, a cancellation will be refunded as flight credit, and we assume going forward that this is as good as a cash refund.)",
-    "crumbs": [
-      "About",
-      "TRAVEL",
-      "Basic Economy"
-    ]
-  },
-  {
-    "objectID": "basicecon.html#ev-basic-vs.-regular-on-united",
-    "href": "basicecon.html#ev-basic-vs.-regular-on-united",
-    "title": "EV Example: Basic Economy",
-    "section": "EV Basic vs. Regular on United",
-    "text": "EV Basic vs. Regular on United\nSuppose that a basic economy ticket is available for \\(\\$x\\) and a regular economy ticket is available for \\(\\$x+50\\).\nSuppose that before the flight, we either decide to change to another flight that costs \\(\\$n\\) or stick with the original flight.\n\nCase 1: Stick with Original Flight\nTotal costs if just getting original flight\n\\(\\mathbb{E}[\\text{Basic Economy}] = \\$x\\)\n\\(\\mathbb{E}[\\text{Regular Economy}] = \\$x + 50\\)\n\n\nCase 2: Change Flight\nTotal costs in the case of changing the flight\n\\(\\mathbb{E}[\\text{Basic Economy}] = \\$n + 49.50\\)\n\\(\\mathbb{E}[\\text{Regular Economy}] = \\$n\\)\n\n\nEVs\nAssume the probability of changing the flight is \\(c\\)\n\\(\\mathbb{E}[\\text{Basic Economy}] = (x)(1-c) + (n+49.50)c\\)\n\\(\\mathbb{E}[\\text{Regular Economy}] = (x+50)(1-c) + (n)c\\)\nWhat \\(c\\) makes these equal?\n\\[\n\\begin{equation}\n\\begin{split}\n(1-c)(x) + c(n+49.50) &= (1-c)(x+50) + c(n) \\\\\nx - x*c + c*n + 49.50*c &= x + 50 - c*x -50*c + c*n \\\\\n49.50*c  &= 50 - 50*c \\\\\n99.50*c &= 50 \\\\\nc &= 0.503\n\\end{split}\n\\end{equation}\n\\]\nTherefore when \\(c\\) is lower than \\(0.503\\), you are better off taking Basic Economy, and otherwise better off taking Regular Economy. In other words, if your chance of needing to switch is less than \\(1/2\\), then you are better off in Basic.",
-    "crumbs": [
-      "About",
-      "TRAVEL",
-      "Basic Economy"
-    ]
-  },
-  {
-    "objectID": "basicecon.html#american-airlines",
-    "href": "basicecon.html#american-airlines",
-    "title": "EV Example: Basic Economy",
-    "section": "American Airlines",
-    "text": "American Airlines\nAmerican Airlines has a \\(\\$99\\) fee instead of the \\(\\$49.50\\) fee from United!\nLet’s see how this changes things.\n\\[\n\\begin{equation}\n\\begin{split}\n(1-c)(x) + c(n+99) &= (1-c)(x+50) + c(n) \\\\\nx - x*c + c*n + 99*c &= x + 50 - c*x -50*c + c*n \\\\\n99*c  &= 50 - 50*c \\\\\n149*c &= 50 \\\\\nc &= 0.336\n\\end{split}\n\\end{equation}\n\\]\nNow you only get better value with the Basic Economy ticket when you switch less than \\(0.336\\), or about 1/3 of the time.",
-    "crumbs": [
-      "About",
-      "TRAVEL",
-      "Basic Economy"
-    ]
-  },
-  {
-    "objectID": "basicecon.html#numerical-example",
-    "href": "basicecon.html#numerical-example",
-    "title": "EV Example: Basic Economy",
-    "section": "Numerical Example",
-    "text": "Numerical Example\nSuppose that you the original price of the flight was \\(\\$200\\) in Basic Economy and \\(\\$250\\) in Regular Economy.\nIf you want to change your flight, what happens in each of these scenarios? We’ll see that Basic Economy always ends up costing the Regular Economy price plus an additional \\(\\$49.50\\) for the cancellation fee.\n\nChanged Flight Price Down\nIf the price goes down to \\(\\$100\\), Basic Economy will cost \\(\\$100 + 49.50\\) for the flight change, for a total of \\(\\$149.50\\).\nRegular Economy will just cost the \\(\\$100\\) new price.\n\n\nChanged Flight Same Price\nIf the price stays at \\(\\$150\\), Basic Economy will cost \\(\\$150 + 49.50\\) for the flight change, for a total of \\(\\$199.50\\).\nRegular Economy will just cost the \\(\\$150\\) price.\n\n\nChanged Flight Price Up\nIf the price goes up to \\(\\$300\\), Basic Economy will cost \\(\\$300 + 49.50\\) for the flight change, for a total of \\(\\$349.50\\).\nRegular Economy will just cost the \\(\\$300\\) price.\nLet’s analyze this case a bit more. If at the original purchase time we estimate a \\(25\\%\\) chance of needing to switch, what would be our EV?\n\\[\n\\begin{equation}\n\\begin{split}\n\\mathbb{E}(\\text{Basic Economy}) &= \\text{Price}_{(\\text{Basic})}*P(\\text{Stay}) + \\text{Price}_{(\\text{After\\_Switch})}*P(\\text{Switch}) \\\\\n&= 200*0.75 + 349.50*0.25 \\\\\n&= \\$237.38\n\\end{split}\n\\end{equation}\n\\]\n\\[\n\\begin{equation}\n\\begin{split}\n\\mathbb{E}(\\text{Regular Economy}) &= \\text{Price}_{(\\text{Regular})}*P(\\text{Stay}) + \\text{Price}_{(\\text{After\\_Switch})}*P(\\text{Switch}) \\\\\n&= 250*0.75 + 300*0.25 \\\\\n&= \\$262.50\n\\end{split}\n\\end{equation}\n\\]\nAs we expected, with the probability of switching less than the \\(0.503\\) value that we derived earlier, we expect the Basic Economy option to be better value and indeed it would have saved \\(262.50 - 237.38 = \\$25.12\\) in this case!",
-    "crumbs": [
-      "About",
-      "TRAVEL",
-      "Basic Economy"
-    ]
+    "objectID": "medicine.html#section-4",
+    "href": "medicine.html#section-4",
+    "title": "Expected Value Example: Medicine",
+    "section": "Section 4",
+    "text": "Section 4"
   },
   {
     "objectID": "hindsight-neglect.html",
@@ -440,37 +468,23 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Expected Value: From Simple to Advanced",
+    "title": "The Expected Value Foundation",
     "section": "",
-    "text": "Expected Value = (Probability of an outcome) × (Value of that outcome)\nImagine a raffle where:\n\nYou buy 1 ticket for $1\nThere is a 1 in 100 chance of winning\nThe prize is $150\n\nTo calculate the expected value:\n\nProbability of winning: 1/100 = 0.01\nValue of winning: $150\nExpected Value = 0.01 × $150 = $1.50\n\nThis means that, on average, each ticket is “worth” $1.50.\nSince the ticket costs $1, and its expected value is $1.50, it’s a good deal in the long run. However, remember that this doesn’t guarantee you’ll win – it’s an average over many tries.\nThis simple calculation helps you make decisions by weighing the likelihood of outcomes against their potential value. It’s a basic tool for comparing options with different risks and rewards."
+    "text": "expectedvalue.org: Learn about expected value\nPoker Camp: In-person workshops and courses on poker and applied rationality and AI poker\n\nIn the works:\n\nExpected value workshops\nOne Life Pledge and poker tournament\nExpected Value and Effective Giving Day\nMicro-grants\nEV Fellowship"
   },
   {
-    "objectID": "index.html#what-is-expected-value",
-    "href": "index.html#what-is-expected-value",
-    "title": "Expected Value: From Simple to Advanced",
+    "objectID": "index.html#welcome",
+    "href": "index.html#welcome",
+    "title": "The Expected Value Foundation",
     "section": "",
-    "text": "Expected Value = (Probability of an outcome) × (Value of that outcome)\nImagine a raffle where:\n\nYou buy 1 ticket for $1\nThere is a 1 in 100 chance of winning\nThe prize is $150\n\nTo calculate the expected value:\n\nProbability of winning: 1/100 = 0.01\nValue of winning: $150\nExpected Value = 0.01 × $150 = $1.50\n\nThis means that, on average, each ticket is “worth” $1.50.\nSince the ticket costs $1, and its expected value is $1.50, it’s a good deal in the long run. However, remember that this doesn’t guarantee you’ll win – it’s an average over many tries.\nThis simple calculation helps you make decisions by weighing the likelihood of outcomes against their potential value. It’s a basic tool for comparing options with different risks and rewards."
+    "text": "expectedvalue.org: Learn about expected value\nPoker Camp: In-person workshops and courses on poker and applied rationality and AI poker\n\nIn the works:\n\nExpected value workshops\nOne Life Pledge and poker tournament\nExpected Value and Effective Giving Day\nMicro-grants\nEV Fellowship"
   },
   {
-    "objectID": "index.html#explain-it-like-im-5",
-    "href": "index.html#explain-it-like-im-5",
-    "title": "Expected Value: From Simple to Advanced",
-    "section": "Explain It Like I’m 5",
-    "text": "Explain It Like I’m 5\nImagine you have a big jar of different colored marbles. Some are red, some are blue, and some are green. Your friend says, “If you pick a red marble, I’ll give you a cookie. If you pick a blue one, I’ll give you two cookies. If you pick a green one, you don’t get any cookies.”\nNow, let’s say there are:\n\n5 red marbles\n3 blue marbles\n2 green marbles\n\nIf you reach into the jar without looking, what can you expect? This is what we call “expected value.” It’s like guessing how many cookies you might get on average if you played this game many, many times.\nLet’s count it out. On average if you reach into the jar 10 times (assume that each time the jar resets to the original marble quantities):\nRed marbles give you 5 cookies (1 cookie × 5 marbles) Blue marbles give you 6 cookies (2 cookies × 3 marbles) Green marbles give you 0 cookies (0 cookies × 2 marbles)\nThat’s 11 cookies in total.\nSo, if we divide 11 cookies by 10 marbles, we get 1.1 cookies.\nThis means, on average, you can expect to get about 1 cookie (and a tiny bit more) each time you pick a marble!\n\n\n\n\n\n\nTry it yourself!\n\n\n\nImagine reaching into the jar 10 times. How many cookies do you think you’d get? Try it out and see.\n\n\n\n\n  Cookies: 0\n  Picks: 0\n  Average: 0 cookies per pick\n  Pick a Marble\n  Reset\n  Last picked: None"
-  },
-  {
-    "objectID": "index.html#mathematical-explanation",
-    "href": "index.html#mathematical-explanation",
-    "title": "Expected Value: From Simple to Advanced",
-    "section": "Mathematical Explanation",
-    "text": "Mathematical Explanation\nExpected value is a concept in probability theory that represents the average outcome of an experiment if it is repeated many times. It’s calculated by multiplying each possible outcome by its probability of occurrence and then summing these products.\nAccording to Wikipedia: “The expected value of a random variable with a finite number of outcomes is a weighted average of all possible outcomes”.\nMathematically, for a discrete random variable \\(X\\) with possible values \\(x_1, x_2, ..., x_n\\) and corresponding probabilities \\(p_1, p_2, ..., p_n\\), the expected value \\(\\mathbb{E}(X)\\) is:\n\\(\\mathbb{E}[X] = \\sum_{i=1}^n x_i p_i = x_1 p_1 + x_2 p_2 + ... + x_k p_k\\)\nWhat is a random variable? It represents possible outcomes. A random variable is defined by its possible outcomes and the probability of each outcome.\nLet’s go back to the marble example:\n\nRed marble (1 cookie): 5/10 probability\nBlue marble (2 cookies): 3/10 probability\nGreen marble (0 cookies): 2/10 probability\n\n\\(\\mathbb{E}(X) = 1 * \\frac{5}{10} + 2 * \\frac{3}{10} + 0 * \\frac{2}{10} = 0.5 + 0.6 + 0 = 1.1\\)\nSo, on average, you can expect to get 1.1 cookies per draw.\n\n\n\n\n\n\nTry it yourself!\n\n\n\nYou can use this tool to calculate any expected value. Just put the probabilities in the left column and the values in the right column. It’s pre-set with the cookie marble experiment. Remember that probabilities must sum to 1.\nThinking about something else to try? How about a 6-sided die? Each probability is 1/6 and the values are the 6 different die values.\n\n\n\n\n  \n    \n      Probability\n      Value\n    \n    \n  \n  Add Row\n  Calculate\n  Expected Value: 0"
-  },
-  {
-    "objectID": "index.html#advanced-math",
-    "href": "index.html#advanced-math",
-    "title": "Expected Value: From Simple to Advanced",
-    "section": "Advanced Math",
-    "text": "Advanced Math\nIn more complex scenarios, expected value becomes a powerful tool for decision-making under uncertainty. It’s particularly useful in fields like finance, economics, and data science. We give a bunch of examples on this site on the left nav menu.\nFor continuous random variables, the expected value is defined as an integral:\n\\(\\mathbb{E}(X) = \\int_{-\\infty}^{\\infty} x f(x) dx\\)\nwhere \\(f(x)\\) is the probability density function of \\(X\\).\nExpected value has several important properties:\n\nLinearity: \\(\\mathbb{E}(aX + bY) = a\\mathbb{E}(X) + b\\mathbb{E}(Y)\\) for constants \\(a\\) and \\(b\\)\nLaw of the unconscious statistician: \\(\\mathbb{E}[g(X)] = \\int_{-\\infty}^{\\infty} g(x) f(x) dx\\)\n\nIn decision theory, we often use expected utility instead of expected value. This takes into account the decision-maker’s risk preferences:\n\\(\\mathbb{E}[U(X)] = \\sum_{i=1}^n U(x_i) p_i\\)\nwhere \\(U(x)\\) is the utility function.\n\n\n\n\n\n\nConsiderations\n\n\n\nWhile expected value is a useful tool, it doesn’t account for the variance or risk associated with different outcomes. In some cases, especially with non-linear utility functions or when dealing with rare, high-impact events, decisions based solely on expected value may lead to suboptimal results."
+    "objectID": "index.html#what-is-expected-value-ev",
+    "href": "index.html#what-is-expected-value-ev",
+    "title": "The Expected Value Foundation",
+    "section": "What is Expected Value (EV)?",
+    "text": "What is Expected Value (EV)?\nExpected Value = (Probability of an outcome) × (Value of that outcome)\nImagine a raffle where:\n\nYou buy 1 ticket for $1\nThere is a 1 in 100 chance of winning\nThe prize is $150\n\nTo calculate the expected value:\n\nProbability of winning: 1/100 = 0.01\nValue of winning: $150\nExpected Value = 0.01 × $150 = $1.50\n\nThis means that, on average, each ticket is “worth” $1.50.\nSince the ticket costs $1, and its expected value is $1.50, it’s a good deal in the long run. However, remember that this doesn’t guarantee you’ll win – it’s an average over many tries.\nThis simple calculation helps you make decisions by weighing the likelihood of outcomes against their potential value. It’s a basic tool for comparing options with different risks and rewards."
   },
   {
     "objectID": "salmon.html",
