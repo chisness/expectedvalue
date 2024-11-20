@@ -61,7 +61,7 @@ website:
 format:
   html:
     theme: 
-      - cerulean
+      - flatly
     grid:
       sidebar-width: 260px
     math: true 
