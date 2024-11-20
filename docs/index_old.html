@@ -77,8 +77,22 @@ gtag('js', new Date());
 gtag('config', 'G-P015KRTLYQ', { 'anonymize_ip': true});
 </script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -110,10 +124,6 @@ window.Quarto = {
 <meta property="og:title" content="The EV Foundation">
 <meta property="og:description" content="">
 <meta property="og:site_name" content="The EV Foundation">
-<meta name="twitter:title" content="The EV Foundation">
-<meta name="twitter:description" content="">
-<meta name="twitter:creator" content="@chisness">
-<meta name="twitter:card" content="summary">
 </head>
 
 <body class="nav-sidebar docked nav-fixed">
@@ -144,8 +154,6 @@ window.Quarto = {
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
-    <a href="https://x.com/chisness" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-twitter"></i></a>
-    <a href="https://github.com/chisness/expectedvalue" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -154,7 +162,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <h1 class="quarto-secondary-nav-title no-breadcrumbs"></h1>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -429,8 +437,8 @@ Try it yourself!
 <h2 class="anchored" data-anchor-id="mathematical-explanation">Mathematical Explanation</h2>
 <p>Expected value is a concept in probability theory that represents the average outcome of an experiment if it is repeated many times. It’s calculated by multiplying each possible outcome by its probability of occurrence and then summing these products.</p>
 <p>According to <a href="https://en.wikipedia.org/wiki/Expected_value">Wikipedia</a>: “The expected value of a random variable with a finite number of outcomes is a weighted average of all possible outcomes”.</p>
-<p>Mathematically, for a discrete random variable <span class="math inline">\(X\)</span> with possible values <span class="math inline">\(x_1, x_2, ..., x_n\)</span> and corresponding probabilities <span class="math inline">\(p_1, p_2, ..., p_n\)</span>, the expected value <span class="math inline">\(\mathbb{E}(X)\)</span> is:</p>
-<p><span class="math inline">\(\mathbb{E}[X] = \sum_{i=1}^n x_i p_i = x_1 p_1 + x_2 p_2 + ... + x_k p_k\)</span></p>
+<p>Mathematically, for a discrete random variable <span class="math inline">X</span> with possible values <span class="math inline">x_1, x_2, ..., x_n</span> and corresponding probabilities <span class="math inline">p_1, p_2, ..., p_n</span>, the expected value <span class="math inline">\mathbb{E}(X)</span> is:</p>
+<p><span class="math inline">\mathbb{E}[X] = \sum_{i=1}^n x_i p_i = x_1 p_1 + x_2 p_2 + ... + x_k p_k</span></p>
 <p>What is a random variable? It represents possible outcomes. A random variable is defined by its possible outcomes and the probability of each outcome.</p>
 <p>Let’s go back to the marble example:</p>
 <ul>
@@ -438,7 +446,7 @@ Try it yourself!
 <li>Blue marble (2 cookies): 3/10 probability</li>
 <li>Green marble (0 cookies): 2/10 probability</li>
 </ul>
-<p><span class="math inline">\(\mathbb{E}(X) = 1 * \frac{5}{10} + 2 * \frac{3}{10} + 0 * \frac{2}{10} = 0.5 + 0.6 + 0 = 1.1\)</span></p>
+<p><span class="math inline">\mathbb{E}(X) = 1 * \frac{5}{10} + 2 * \frac{3}{10} + 0 * \frac{2}{10} = 0.5 + 0.6 + 0 = 1.1</span></p>
 <p>So, on average, you can expect to get 1.1 cookies per draw.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -564,16 +572,16 @@ Try it yourself!
 <h2 class="anchored" data-anchor-id="advanced-math">Advanced Math</h2>
 <p>In more complex scenarios, expected value becomes a powerful tool for decision-making under uncertainty. It’s particularly useful in fields like finance, economics, and data science. We give a bunch of examples on this site on the left nav menu.</p>
 <p>For continuous random variables, the expected value is defined as an integral:</p>
-<p><span class="math inline">\(\mathbb{E}(X) = \int_{-\infty}^{\infty} x f(x) dx\)</span></p>
-<p>where <span class="math inline">\(f(x)\)</span> is the probability density function of <span class="math inline">\(X\)</span>.</p>
+<p><span class="math inline">\mathbb{E}(X) = \int_{-\infty}^{\infty} x f(x) dx</span></p>
+<p>where <span class="math inline">f(x)</span> is the probability density function of <span class="math inline">X</span>.</p>
 <p>Expected value has several important properties:</p>
 <ol type="1">
-<li>Linearity: <span class="math inline">\(\mathbb{E}(aX + bY) = a\mathbb{E}(X) + b\mathbb{E}(Y)\)</span> for constants <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span></li>
-<li>Law of the unconscious statistician: <span class="math inline">\(\mathbb{E}[g(X)] = \int_{-\infty}^{\infty} g(x) f(x) dx\)</span></li>
+<li>Linearity: <span class="math inline">\mathbb{E}(aX + bY) = a\mathbb{E}(X) + b\mathbb{E}(Y)</span> for constants <span class="math inline">a</span> and <span class="math inline">b</span></li>
+<li>Law of the unconscious statistician: <span class="math inline">\mathbb{E}[g(X)] = \int_{-\infty}^{\infty} g(x) f(x) dx</span></li>
 </ol>
 <p>In decision theory, we often use expected utility instead of expected value. This takes into account the decision-maker’s risk preferences:</p>
-<p><span class="math inline">\(\mathbb{E}[U(X)] = \sum_{i=1}^n U(x_i) p_i\)</span></p>
-<p>where <span class="math inline">\(U(x)\)</span> is the utility function.</p>
+<p><span class="math inline">\mathbb{E}[U(X)] = \sum_{i=1}^n U(x_i) p_i</span></p>
+<p>where <span class="math inline">U(x)</span> is the utility function.</p>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">

@@ -113,7 +113,7 @@ Let's analyze this case a bit more. If at the original purchase time we estimate
 $$
 \begin{equation}
 \begin{split}
-\mathbb{E}(\text{Basic Economy}) &= \text{Price}_{(\text{Basic})}*P(\text{Stay}) + \text{Price}_{(\text{After\_Switch})}*P(\text{Switch}) \\
+\mathbb{E}(\text{Basic Economy}) &= \text{Price}_{(\text{Basic})}*p(\text{Stay}) + \text{Price}_{(\text{After\_Switch})}*p(\text{Switch}) \\
 &= 200*0.75 + 349.50*0.25 \\
 &= \$237.38
 \end{split}
@@ -123,7 +123,7 @@ $$
 $$
 \begin{equation}
 \begin{split}
-\mathbb{E}(\text{Regular Economy}) &= \text{Price}_{(\text{Regular})}*P(\text{Stay}) + \text{Price}_{(\text{After\_Switch})}*P(\text{Switch}) \\
+\mathbb{E}(\text{Regular Economy}) &= \text{Price}_{(\text{Regular})}*p(\text{Stay}) + \text{Price}_{(\text{After\_Switch})}*p(\text{Switch}) \\
 &= 250*0.75 + 300*0.25 \\
 &= \$262.50
 \end{split}

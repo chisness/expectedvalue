@@ -77,8 +77,22 @@ gtag('js', new Date());
 gtag('config', 'G-P015KRTLYQ', { 'anonymize_ip': true});
 </script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -110,10 +124,6 @@ window.Quarto = {
 <meta property="og:title" content="Pregnancy Probability Starring Andrew Huberman – The EV Foundation">
 <meta property="og:description" content="">
 <meta property="og:site_name" content="The EV Foundation">
-<meta name="twitter:title" content="Pregnancy Probability Starring Andrew Huberman – The EV Foundation">
-<meta name="twitter:description" content="">
-<meta name="twitter:creator" content="@chisness">
-<meta name="twitter:card" content="summary">
 </head>
 
 <body class="nav-sidebar docked nav-fixed">
@@ -144,8 +154,6 @@ window.Quarto = {
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
-    <a href="https://x.com/chisness" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-twitter"></i></a>
-    <a href="https://github.com/chisness/expectedvalue" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -154,7 +162,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <h1 class="quarto-secondary-nav-title no-breadcrumbs">Pregnancy Probability Starring Andrew Huberman</h1>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./huberman-pregnancy.html">CURRENT EVENTS</a></li><li class="breadcrumb-item"><a href="./huberman-pregnancy.html">Andrew Huberman Pregnancy Probability</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -326,9 +334,9 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./huberman-pregnancy.html">CURRENT EVENTS</a></li><li class="breadcrumb-item"><a href="./huberman-pregnancy.html">Andrew Huberman Pregnancy Probability</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Pregnancy Probability Starring Andrew Huberman</h1>
+<h1 class="title">Pregnancy Probability Starring Andrew Huberman</h1>
 </div>
 
 
@@ -362,9 +370,9 @@ Andrew Huberman says that having sex 6 times gives you a 120% chance of getting 
 — BuccoCapital Bloke (<span class="citation" data-cites="buccocapital">@buccocapital</span>) <a href="https://twitter.com/buccocapital/status/1788575303889035600?ref_src=twsrc%5Etfw">May 9, 2024</a>
 </blockquote>
 <script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-<p>He was specifically talking about cumulative probabilities and he said that if the <span class="math inline">\(\Pr(\text{Pregnancy}) = 0.2\)</span> per attempt, then the <span class="math inline">\(\Pr(\text{Pregnancy})\)</span> after <span class="math inline">\(6\)</span> attempts is <span class="math inline">\(1.2\)</span>, i.e.&nbsp;<span class="math inline">\(120\%\)</span>.</p>
+<p>He was specifically talking about cumulative probabilities and he said that if the <span class="math inline">\Pr(\text{Pregnancy}) = 0.2</span> per attempt, then the <span class="math inline">\Pr(\text{Pregnancy})</span> after <span class="math inline">6</span> attempts is <span class="math inline">1.2</span>, i.e.&nbsp;<span class="math inline">120\%</span>.</p>
 <p>In other words, he did this:</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \begin{equation}
 \begin{split}
 \Pr(\text{Preg after 6 attempts}) &amp;= 6 * \Pr(\text{Preg after 1 attempt}) \\
@@ -373,11 +381,11 @@ Andrew Huberman says that having sex 6 times gives you a 120% chance of getting 
   &amp;= 120\%
 \end{split}
 \end{equation}
-\]</span></p>
+</span></p>
 <section id="huberman-calculation-issues" class="level2">
 <h2 class="anchored" data-anchor-id="huberman-calculation-issues">Huberman Calculation Issues</h2>
-<p>There are many issues here. To start, since probabilities are by definition between <span class="math inline">\(0\)</span> and <span class="math inline">\(1\)</span>, he clearly made an error. <span class="math inline">\(10\)</span> pregnancy attempts by his logic would make you <span class="math inline">\(200\%\)</span> likely to be pregnant, which doesn’t really make too much sense.</p>
-<p>Huberman was <em>adding</em> <span class="math inline">\(20\%\)</span> for each attempt, which is not the correct approach. In this post, we’ll explain how the actual theory works.</p>
+<p>There are many issues here. To start, since probabilities are by definition between <span class="math inline">0</span> and <span class="math inline">1</span>, he clearly made an error. <span class="math inline">10</span> pregnancy attempts by his logic would make you <span class="math inline">200\%</span> likely to be pregnant, which doesn’t really make too much sense.</p>
+<p>Huberman was <em>adding</em> <span class="math inline">20\%</span> for each attempt, which is not the correct approach. In this post, we’ll explain how the actual theory works.</p>
 <blockquote class="twitter-tweet blockquote">
 <p lang="en" dir="ltr" style="text-align: center;">
 I made a visualization for you all. <a href="https://t.co/LMTECq70HZ">https://t.co/LMTECq70HZ</a> <a href="https://t.co/IGIL1HyGQl">pic.twitter.com/IGIL1HyGQl</a>
@@ -394,13 +402,13 @@ I made a visualization for you all. <a href="https://t.co/LMTECq70HZ">https://t.
 <section id="correctly-calculating-pregnancy-probabilities" class="level1">
 <h1>Correctly Calculating Pregnancy Probabilities</h1>
 <p>We’re not here to critique an error, but rather to LEARN PROBABILITY! So how DO you calculate this probability?</p>
-<p>For a single attempt, we use the Huberman assumption that <span class="math inline">\(\Pr(\text{Pregnancy}) = 0.2\)</span>. We’ll define this as <span class="math inline">\(p = 0.2\)</span>.</p>
-<p>We also then know that <span class="math inline">\(\Pr(\text{No Pregnancy}) = 1 - p = 1 - 0.2 = 0.8\)</span>.</p>
+<p>For a single attempt, we use the Huberman assumption that <span class="math inline">\Pr(\text{Pregnancy}) = 0.2</span>. We’ll define this as <span class="math inline">p = 0.2</span>.</p>
+<p>We also then know that <span class="math inline">\Pr(\text{No Pregnancy}) = 1 - p = 1 - 0.2 = 0.8</span>.</p>
 <section id="pregnancy-attempts" class="level2">
 <h2 class="anchored" data-anchor-id="pregnancy-attempts">6 Pregnancy Attempts</h2>
-<p>So after <span class="math inline">\(6\)</span> attempts, we can say that the <span class="math inline">\(\Pr(\text{Preg after 6 attempts})\)</span> is equal to the inverse of the probability of <em>not</em> getting pregnant <span class="math inline">\(6\)</span> times in a row. Why? The probability of an event and its complement always sum to <span class="math inline">\(1\)</span>. For example, if it’s <span class="math inline">\(70\%\)</span> to be sunny tomorrow, then it’s <span class="math inline">\(30\%\)</span> to be not-sunny.</p>
+<p>So after <span class="math inline">6</span> attempts, we can say that the <span class="math inline">\Pr(\text{Preg after 6 attempts})</span> is equal to the inverse of the probability of <em>not</em> getting pregnant <span class="math inline">6</span> times in a row. Why? The probability of an event and its complement always sum to <span class="math inline">1</span>. For example, if it’s <span class="math inline">70\%</span> to be sunny tomorrow, then it’s <span class="math inline">30\%</span> to be not-sunny.</p>
 <p>Mathematically, we can write:</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \begin{equation}
 \begin{split}
 \Pr(\text{Preg after 6 attempts}) &amp;= 1 - \Pr(\text{Not Preg after 6 attempts}) \\
@@ -409,16 +417,16 @@ I made a visualization for you all. <a href="https://t.co/LMTECq70HZ">https://t.
   &amp;= 73.8\%
 \end{split}
 \end{equation}
-\]</span></p>
+</span></p>
 <section id="independent-probabilities" class="level3">
 <h3 class="anchored" data-anchor-id="independent-probabilities">Independent Probabilities</h3>
-<p>Why is it <span class="math inline">\(1 - (0.8)^6\)</span>? This is because when we are calculating probabilities involving independent events, they are multiplied. Each case of not becoming pregnant has an independent probability of <span class="math inline">\(0.8\)</span> (note that this is a simplification because probabilities would generally vary for each attempt). Multiplying this <span class="math inline">\(6\)</span> times gets us the probability of <em>not</em> being pregnant after <span class="math inline">\(6\)</span> attempts. So to get the probability <em>of</em> being pregnant after <span class="math inline">\(6\)</span> attempts, we take <span class="math inline">\(1\)</span> minus this, therefore getting <span class="math inline">\(1 - (0.8)^6\)</span>.</p>
+<p>Why is it <span class="math inline">1 - (0.8)^6</span>? This is because when we are calculating probabilities involving independent events, they are multiplied. Each case of not becoming pregnant has an independent probability of <span class="math inline">0.8</span> (note that this is a simplification because probabilities would generally vary for each attempt). Multiplying this <span class="math inline">6</span> times gets us the probability of <em>not</em> being pregnant after <span class="math inline">6</span> attempts. So to get the probability <em>of</em> being pregnant after <span class="math inline">6</span> attempts, we take <span class="math inline">1</span> minus this, therefore getting <span class="math inline">1 - (0.8)^6</span>.</p>
 </section>
 </section>
 <section id="x-pregnancy-attempts" class="level2">
 <h2 class="anchored" data-anchor-id="x-pregnancy-attempts">x Pregnancy Attempts</h2>
-<p>More generally, after <span class="math inline">\(x\)</span> attempts, we can say:</p>
-<p><span class="math display">\[
+<p>More generally, after <span class="math inline">x</span> attempts, we can say:</p>
+<p><span class="math display">
 \begin{equation}
 \begin{split}
 \Pr(\text{Preg after x attempts}) &amp;= 1 - \Pr(\text{Not Preg after x attempts}) \\
@@ -426,12 +434,12 @@ I made a visualization for you all. <a href="https://t.co/LMTECq70HZ">https://t.
   &amp;= 1 - (0.8)^x
 \end{split}
 \end{equation}
-\]</span></p>
+</span></p>
 </section>
 <section id="likelihood-of-pregnancy" class="level2">
 <h2 class="anchored" data-anchor-id="likelihood-of-pregnancy">99% Likelihood of Pregnancy</h2>
-<p>So assuming that <span class="math inline">\(\Pr(\text{Pregnancy}) = 0.2\)</span>, when are you <span class="math inline">\(99\%\)</span> to be pregnant?</p>
-<p><span class="math display">\[
+<p>So assuming that <span class="math inline">\Pr(\text{Pregnancy}) = 0.2</span>, when are you <span class="math inline">99\%</span> to be pregnant?</p>
+<p><span class="math display">
 \begin{equation}
 \begin{split}
 0.99 &amp;= 1 - \Pr(\text{Not Preg after x attempts}) &amp;&amp; \Rightarrow \text{ Set pregnancy likelihood to } 0.99 \\
@@ -441,9 +449,9 @@ I made a visualization for you all. <a href="https://t.co/LMTECq70HZ">https://t.
   x &amp;= 20.64 &amp;&amp; \Rightarrow \text{ Use calculator to solve}
 \end{split}
 \end{equation}
-\]</span></p>
-<p>Therefore after <strong><span class="math inline">\(21\)</span></strong> pregnancy attempts where each attempt has a <span class="math inline">\(20\%\)</span> likelihood, your cumulative likelihood of being pregant exceeds <span class="math inline">\(99\%\)</span>. (We round up from <span class="math inline">\(20.64\)</span> because each one is discrete and at <span class="math inline">\(20\)</span> the probability would be under <span class="math inline">\(99\%\)</span>, so only <em>after</em> <span class="math inline">\(20.64\)</span> does it exceed <span class="math inline">\(99\%\)</span>, which means it exceeds at attempt <span class="math inline">\(21\)</span>.)</p>
-<p>We can see this on the graph below where <span class="math inline">\(\Pr(\text{Pregnancy}) = 0.2\)</span>. The x-axis is the number of attempts and the y-axis is the cumulative (overall) probability of pregnancy after that many attempts. Note that the graph approaches, but will never exceed the probability of <span class="math inline">\(1\)</span>.</p>
+</span></p>
+<p>Therefore after <strong><span class="math inline">21</span></strong> pregnancy attempts where each attempt has a <span class="math inline">20\%</span> likelihood, your cumulative likelihood of being pregant exceeds <span class="math inline">99\%</span>. (We round up from <span class="math inline">20.64</span> because each one is discrete and at <span class="math inline">20</span> the probability would be under <span class="math inline">99\%</span>, so only <em>after</em> <span class="math inline">20.64</span> does it exceed <span class="math inline">99\%</span>, which means it exceeds at attempt <span class="math inline">21</span>.)</p>
+<p>We can see this on the graph below where <span class="math inline">\Pr(\text{Pregnancy}) = 0.2</span>. The x-axis is the number of attempts and the y-axis is the cumulative (overall) probability of pregnancy after that many attempts. Note that the graph approaches, but will never exceed the probability of <span class="math inline">1</span>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="./assets/misc/preggraph.png" class="img-fluid figure-img"></p>
@@ -453,15 +461,15 @@ I made a visualization for you all. <a href="https://t.co/LMTECq70HZ">https://t.
 </section>
 <section id="generalized-pregnancy-equation" class="level2">
 <h2 class="anchored" data-anchor-id="generalized-pregnancy-equation">Generalized Pregnancy Equation</h2>
-<p>Finally, even more generally, we can say that after <span class="math inline">\(x\)</span> attempts and the more general <span class="math inline">\(\Pr(\text{Pregnancy}) = p\)</span> (i.e.&nbsp;using probability <span class="math inline">\(p\)</span> instead of <span class="math inline">\(0.2\)</span>):</p>
-<p><span class="math display">\[
+<p>Finally, even more generally, we can say that after <span class="math inline">x</span> attempts and the more general <span class="math inline">\Pr(\text{Pregnancy}) = p</span> (i.e.&nbsp;using probability <span class="math inline">p</span> instead of <span class="math inline">0.2</span>):</p>
+<p><span class="math display">
 \begin{equation}
 \begin{split}
 \Pr(\text{Preg after x attempts}) &amp;= 1 - \Pr(\text{Not Preg after x attempts}) \\
   &amp;= 1 - (1-p)^x \\
 \end{split}
 \end{equation}
-\]</span></p>
+</span></p>
 
 
 

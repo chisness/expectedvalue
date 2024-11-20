@@ -7,13 +7,13 @@ resources:
 ## Welcome! 
 
 - [expectedvalue.org](https://expectedvalue.org): Learn about expected value
-- [Poker Camp](https://poker.camp): In-person workshops and courses on poker and applied rationality and AI poker
+- [Poker Camp](https://poker.camp): In-person workshops and courses on AI poker and applied rationality
 
 In the works: 
 
 - Expected value workshops
 - One Life Pledge and poker tournament
-- Expected Value and Effective Giving Day
+- Expected Value Day
 - Micro-grants
 - EV Fellowship
 

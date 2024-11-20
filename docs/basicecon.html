@@ -77,8 +77,22 @@ gtag('js', new Date());
 gtag('config', 'G-P015KRTLYQ', { 'anonymize_ip': true});
 </script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -110,10 +124,6 @@ window.Quarto = {
 <meta property="og:title" content="EV Example: Basic Economy – The EV Foundation">
 <meta property="og:description" content="">
 <meta property="og:site_name" content="The EV Foundation">
-<meta name="twitter:title" content="EV Example: Basic Economy – The EV Foundation">
-<meta name="twitter:description" content="">
-<meta name="twitter:creator" content="@chisness">
-<meta name="twitter:card" content="summary">
 </head>
 
 <body class="nav-sidebar docked nav-fixed">
@@ -144,8 +154,6 @@ window.Quarto = {
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
-    <a href="https://x.com/chisness" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-twitter"></i></a>
-    <a href="https://github.com/chisness/expectedvalue" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -154,7 +162,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <h1 class="quarto-secondary-nav-title no-breadcrumbs">EV Example: Basic Economy</h1>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./basicecon.html">TRAVEL</a></li><li class="breadcrumb-item"><a href="./basicecon.html">Basic Economy</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -324,9 +332,9 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./basicecon.html">TRAVEL</a></li><li class="breadcrumb-item"><a href="./basicecon.html">Basic Economy</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">EV Example: Basic Economy</h1>
+<h1 class="title">EV Example: Basic Economy</h1>
 </div>
 
 
@@ -361,27 +369,27 @@ window.Quarto = {
 </section>
 <section id="ev-basic-vs.-regular-on-united" class="level2">
 <h2 class="anchored" data-anchor-id="ev-basic-vs.-regular-on-united">EV Basic vs.&nbsp;Regular on United</h2>
-<p>Suppose that a basic economy ticket is available for <span class="math inline">\(\$x\)</span> and a regular economy ticket is available for <span class="math inline">\(\$x+50\)</span>.</p>
-<p>Suppose that before the flight, we either decide to change to another flight that costs <span class="math inline">\(\$n\)</span> or stick with the original flight.</p>
+<p>Suppose that a basic economy ticket is available for <span class="math inline">\$x</span> and a regular economy ticket is available for <span class="math inline">\$x+50</span>.</p>
+<p>Suppose that before the flight, we either decide to change to another flight that costs <span class="math inline">\$n</span> or stick with the original flight.</p>
 <section id="case-1-stick-with-original-flight" class="level3">
 <h3 class="anchored" data-anchor-id="case-1-stick-with-original-flight">Case 1: Stick with Original Flight</h3>
 <p>Total costs if just getting original flight</p>
-<p><span class="math inline">\(\mathbb{E}[\text{Basic Economy}] = \$x\)</span></p>
-<p><span class="math inline">\(\mathbb{E}[\text{Regular Economy}] = \$x + 50\)</span></p>
+<p><span class="math inline">\mathbb{E}[\text{Basic Economy}] = \$x</span></p>
+<p><span class="math inline">\mathbb{E}[\text{Regular Economy}] = \$x + 50</span></p>
 </section>
 <section id="case-2-change-flight" class="level3">
 <h3 class="anchored" data-anchor-id="case-2-change-flight">Case 2: Change Flight</h3>
 <p>Total costs in the case of changing the flight</p>
-<p><span class="math inline">\(\mathbb{E}[\text{Basic Economy}] = \$n + 49.50\)</span></p>
-<p><span class="math inline">\(\mathbb{E}[\text{Regular Economy}] = \$n\)</span></p>
+<p><span class="math inline">\mathbb{E}[\text{Basic Economy}] = \$n + 49.50</span></p>
+<p><span class="math inline">\mathbb{E}[\text{Regular Economy}] = \$n</span></p>
 </section>
 <section id="evs" class="level3">
 <h3 class="anchored" data-anchor-id="evs">EVs</h3>
-<p>Assume the probability of changing the flight is <span class="math inline">\(c\)</span></p>
-<p><span class="math inline">\(\mathbb{E}[\text{Basic Economy}] = (x)(1-c) + (n+49.50)c\)</span></p>
-<p><span class="math inline">\(\mathbb{E}[\text{Regular Economy}] = (x+50)(1-c) + (n)c\)</span></p>
-<p>What <span class="math inline">\(c\)</span> makes these equal?</p>
-<p><span class="math display">\[
+<p>Assume the probability of changing the flight is <span class="math inline">c</span></p>
+<p><span class="math inline">\mathbb{E}[\text{Basic Economy}] = (x)(1-c) + (n+49.50)c</span></p>
+<p><span class="math inline">\mathbb{E}[\text{Regular Economy}] = (x+50)(1-c) + (n)c</span></p>
+<p>What <span class="math inline">c</span> makes these equal?</p>
+<p><span class="math display">
 \begin{equation}
 \begin{split}
 (1-c)(x) + c(n+49.50) &amp;= (1-c)(x+50) + c(n) \\
@@ -391,15 +399,15 @@ x - x*c + c*n + 49.50*c &amp;= x + 50 - c*x -50*c + c*n \\
 c &amp;= 0.503
 \end{split}
 \end{equation}
-\]</span></p>
-<p>Therefore when <span class="math inline">\(c\)</span> is lower than <span class="math inline">\(0.503\)</span>, you are better off taking Basic Economy, and otherwise better off taking Regular Economy. In other words, if your chance of needing to switch is less than <span class="math inline">\(1/2\)</span>, then you are better off in Basic.</p>
+</span></p>
+<p>Therefore when <span class="math inline">c</span> is lower than <span class="math inline">0.503</span>, you are better off taking Basic Economy, and otherwise better off taking Regular Economy. In other words, if your chance of needing to switch is less than <span class="math inline">1/2</span>, then you are better off in Basic.</p>
 </section>
 </section>
 <section id="american-airlines" class="level2">
 <h2 class="anchored" data-anchor-id="american-airlines">American Airlines</h2>
-<p>American Airlines has a <span class="math inline">\(\$99\)</span> fee instead of the <span class="math inline">\(\$49.50\)</span> fee from United!</p>
+<p>American Airlines has a <span class="math inline">\$99</span> fee instead of the <span class="math inline">\$49.50</span> fee from United!</p>
 <p>Let’s see how this changes things.</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \begin{equation}
 \begin{split}
 (1-c)(x) + c(n+99) &amp;= (1-c)(x+50) + c(n) \\
@@ -409,47 +417,47 @@ x - x*c + c*n + 99*c &amp;= x + 50 - c*x -50*c + c*n \\
 c &amp;= 0.336
 \end{split}
 \end{equation}
-\]</span></p>
-<p>Now you only get better value with the Basic Economy ticket when you switch less than <span class="math inline">\(0.336\)</span>, or about 1/3 of the time.</p>
+</span></p>
+<p>Now you only get better value with the Basic Economy ticket when you switch less than <span class="math inline">0.336</span>, or about 1/3 of the time.</p>
 </section>
 <section id="numerical-example" class="level2">
 <h2 class="anchored" data-anchor-id="numerical-example">Numerical Example</h2>
-<p>Suppose that you the original price of the flight was <span class="math inline">\(\$200\)</span> in Basic Economy and <span class="math inline">\(\$250\)</span> in Regular Economy.</p>
-<p>If you want to change your flight, what happens in each of these scenarios? We’ll see that Basic Economy always ends up costing the Regular Economy price plus an additional <span class="math inline">\(\$49.50\)</span> for the cancellation fee.</p>
+<p>Suppose that you the original price of the flight was <span class="math inline">\$200</span> in Basic Economy and <span class="math inline">\$250</span> in Regular Economy.</p>
+<p>If you want to change your flight, what happens in each of these scenarios? We’ll see that Basic Economy always ends up costing the Regular Economy price plus an additional <span class="math inline">\$49.50</span> for the cancellation fee.</p>
 <section id="changed-flight-price-down" class="level3">
 <h3 class="anchored" data-anchor-id="changed-flight-price-down">Changed Flight Price Down</h3>
-<p>If the price goes down to <span class="math inline">\(\$100\)</span>, Basic Economy will cost <span class="math inline">\(\$100 + 49.50\)</span> for the flight change, for a total of <span class="math inline">\(\$149.50\)</span>.</p>
-<p>Regular Economy will just cost the <span class="math inline">\(\$100\)</span> new price.</p>
+<p>If the price goes down to <span class="math inline">\$100</span>, Basic Economy will cost <span class="math inline">\$100 + 49.50</span> for the flight change, for a total of <span class="math inline">\$149.50</span>.</p>
+<p>Regular Economy will just cost the <span class="math inline">\$100</span> new price.</p>
 </section>
 <section id="changed-flight-same-price" class="level3">
 <h3 class="anchored" data-anchor-id="changed-flight-same-price">Changed Flight Same Price</h3>
-<p>If the price stays at <span class="math inline">\(\$150\)</span>, Basic Economy will cost <span class="math inline">\(\$150 + 49.50\)</span> for the flight change, for a total of <span class="math inline">\(\$199.50\)</span>.</p>
-<p>Regular Economy will just cost the <span class="math inline">\(\$150\)</span> price.</p>
+<p>If the price stays at <span class="math inline">\$150</span>, Basic Economy will cost <span class="math inline">\$150 + 49.50</span> for the flight change, for a total of <span class="math inline">\$199.50</span>.</p>
+<p>Regular Economy will just cost the <span class="math inline">\$150</span> price.</p>
 </section>
 <section id="changed-flight-price-up" class="level3">
 <h3 class="anchored" data-anchor-id="changed-flight-price-up">Changed Flight Price Up</h3>
-<p>If the price goes up to <span class="math inline">\(\$300\)</span>, Basic Economy will cost <span class="math inline">\(\$300 + 49.50\)</span> for the flight change, for a total of <span class="math inline">\(\$349.50\)</span>.</p>
-<p>Regular Economy will just cost the <span class="math inline">\(\$300\)</span> price.</p>
-<p>Let’s analyze this case a bit more. If at the original purchase time we estimate a <span class="math inline">\(25\%\)</span> chance of needing to switch, what would be our EV?</p>
-<p><span class="math display">\[
+<p>If the price goes up to <span class="math inline">\$300</span>, Basic Economy will cost <span class="math inline">\$300 + 49.50</span> for the flight change, for a total of <span class="math inline">\$349.50</span>.</p>
+<p>Regular Economy will just cost the <span class="math inline">\$300</span> price.</p>
+<p>Let’s analyze this case a bit more. If at the original purchase time we estimate a <span class="math inline">25\%</span> chance of needing to switch, what would be our EV?</p>
+<p><span class="math display">
 \begin{equation}
 \begin{split}
-\mathbb{E}(\text{Basic Economy}) &amp;= \text{Price}_{(\text{Basic})}*P(\text{Stay}) + \text{Price}_{(\text{After\_Switch})}*P(\text{Switch}) \\
+\mathbb{E}(\text{Basic Economy}) &amp;= \text{Price}_{(\text{Basic})}*p(\text{Stay}) + \text{Price}_{(\text{After\_Switch})}*p(\text{Switch}) \\
 &amp;= 200*0.75 + 349.50*0.25 \\
 &amp;= \$237.38
 \end{split}
 \end{equation}
-\]</span></p>
-<p><span class="math display">\[
+</span></p>
+<p><span class="math display">
 \begin{equation}
 \begin{split}
-\mathbb{E}(\text{Regular Economy}) &amp;= \text{Price}_{(\text{Regular})}*P(\text{Stay}) + \text{Price}_{(\text{After\_Switch})}*P(\text{Switch}) \\
+\mathbb{E}(\text{Regular Economy}) &amp;= \text{Price}_{(\text{Regular})}*p(\text{Stay}) + \text{Price}_{(\text{After\_Switch})}*p(\text{Switch}) \\
 &amp;= 250*0.75 + 300*0.25 \\
 &amp;= \$262.50
 \end{split}
 \end{equation}
-\]</span></p>
-<p>As we expected, with the probability of switching less than the <span class="math inline">\(0.503\)</span> value that we derived <a href="#evs">earlier</a>, we expect the Basic Economy option to be better value and indeed it would have saved <span class="math inline">\(262.50 - 237.38 = \$25.12\)</span> in this case!</p>
+</span></p>
+<p>As we expected, with the probability of switching less than the <span class="math inline">0.503</span> value that we derived <a href="#evs">earlier</a>, we expect the Basic Economy option to be better value and indeed it would have saved <span class="math inline">262.50 - 237.38 = \$25.12</span> in this case!</p>
 
 
 

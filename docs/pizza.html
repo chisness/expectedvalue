@@ -77,8 +77,22 @@ gtag('js', new Date());
 gtag('config', 'G-P015KRTLYQ', { 'anonymize_ip': true});
 </script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -110,10 +124,6 @@ window.Quarto = {
 <meta property="og:title" content="Value Example: Pizza – The EV Foundation">
 <meta property="og:description" content="">
 <meta property="og:site_name" content="The EV Foundation">
-<meta name="twitter:title" content="Value Example: Pizza – The EV Foundation">
-<meta name="twitter:description" content="">
-<meta name="twitter:creator" content="@chisness">
-<meta name="twitter:card" content="summary">
 </head>
 
 <body class="nav-sidebar docked nav-fixed">
@@ -144,8 +154,6 @@ window.Quarto = {
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
-    <a href="https://x.com/chisness" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-twitter"></i></a>
-    <a href="https://github.com/chisness/expectedvalue" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -154,7 +162,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <h1 class="quarto-secondary-nav-title no-breadcrumbs">Value Example: Pizza</h1>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./pizza.html">FOOD</a></li><li class="breadcrumb-item"><a href="./pizza.html">Pizza</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -324,9 +332,9 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./pizza.html">FOOD</a></li><li class="breadcrumb-item"><a href="./pizza.html">Pizza</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Value Example: Pizza</h1>
+<h1 class="title">Value Example: Pizza</h1>
 </div>
 
 
@@ -347,10 +355,10 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="tldr">TLDR</h2>
 <p>Larger pizza sizes are often way better value than smaller pizza sizes.</p>
 <p>You can use this equation to see how much better the value is in terms of square inches per dollar.</p>
-<p>Let Pizza 1 be the larger one with price <span class="math inline">\(p_1\)</span> and diameter <span class="math inline">\(d_1\)</span>. Let Pizza 2 be the smaller one with price <span class="math inline">\(p_2\)</span> and diameter <span class="math inline">\(d_2\)</span>.</p>
-<p><span class="math display">\[
+<p>Let Pizza 1 be the larger one with price <span class="math inline">p_1</span> and diameter <span class="math inline">d_1</span>. Let Pizza 2 be the smaller one with price <span class="math inline">p_2</span> and diameter <span class="math inline">d_2</span>.</p>
+<p><span class="math display">
 \text{Value of Pizza 1 Compared to Pizza 2} = \frac{p_2*d_1^2}{p_1*d_2^2}
-\]</span></p>
+</span></p>
 <p>Read on for all the details!</p>
 </section>
 <section id="gioias-pizza-in-sf" class="level2">
@@ -389,22 +397,22 @@ window.Quarto = {
 <section id="general-pizza-and-circle-computatations" class="level2">
 <h2 class="anchored" data-anchor-id="general-pizza-and-circle-computatations">General Pizza and Circle Computatations</h2>
 <p>Pizzas are approximately circular. The equation to calculate the area of a circle is below. Note that pizzas are shown with their <em>diameter</em>, but the equation uses radius, so we have to divide the diameters in 2 before using them.</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \text{Area} = \pi * r^2
-\]</span></p>
+</span></p>
 </section>
 <section id="area-of-pizzas" class="level2">
 <h2 class="anchored" data-anchor-id="area-of-pizzas">Area of Pizzas</h2>
 <p>Let’s get the area of each pizza so they are directly comparable.</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \text{14" Pizza Area} = \pi * 7^2 = 153.94 \text{ in.}^2
-\]</span></p>
-<p><span class="math display">\[
+</span></p>
+<p><span class="math display">
 \text{18" Pizza Area} = \pi * 9^2 = 254.47 \text{ in.}^2
-\]</span></p>
-<p>There are 8 slices in the 18” pizza, so we can compute the area per slice: <span class="math display">\[
+</span></p>
+<p>There are 8 slices in the 18” pizza, so we can compute the area per slice: <span class="math display">
 \text{18" Pizza Slice Area} = 254.47/8 = 31.81 \text{ in.}^2
-\]</span></p>
+</span></p>
 <p>Let’s review:</p>
 <table class="caption-top table">
 <thead>
@@ -440,15 +448,15 @@ window.Quarto = {
 <section id="price-per-area-of-pizzas" class="level2">
 <h2 class="anchored" data-anchor-id="price-per-area-of-pizzas">Price per Area of Pizzas</h2>
 <p>Now let’s run the numbers on the square inches per dollar.</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \text{14" Pizza Sq In. per Dollar} = 153.94/\$24 = 6.41
-\]</span></p>
-<p><span class="math display">\[
+</span></p>
+<p><span class="math display">
 \text{18" Pizza Sq In. per Dollar} = 254.47/\$34 = 7.48
-\]</span></p>
-<p><span class="math display">\[
+</span></p>
+<p><span class="math display">
 \text{18" Slice Sq In. per Dollar} = 31.81/\$4.50 = 7.07
-\]</span></p>
+</span></p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 16%">
@@ -498,23 +506,23 @@ window.Quarto = {
 <p>The 14” pizza is the most expensive option at $24 for the pizza, getting only <strong>6.41 sq in. per dollar</strong>.</p>
 <p>Therefore if you want less than 8 large slices, it’s probably best to just order by the slice at <strong>7.07 sq in. per dollar</strong>.</p>
 <p>How many slices from the 18” pizza would it take to match the size of the 14”? The 14” is 153.94 sq in. and the 18” slices are 31.81 sq in.</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \text{How many slices?} = 153.94/31.81 = 4.84
-\]</span></p>
+</span></p>
 <p>How much would it cost for 4.84 slices?</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \text{Cost of 4.84 slices} = \$4.50*4.84 = \$21.78
-\]</span></p>
+</span></p>
 <p>This means we can get the <strong>same amount of pizza for $21.78</strong>, except we can’t actually order 4.84 slices. So how about 5?</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \text{Cost of 5 slices} = \$4.50*5 = \$22.00
-\]</span></p>
-<p>The small pizza is a terrible deal! You can get 5 slices from the 18” pizza, which is slightly more pizza area (<span class="math inline">\(31.81*5-153.94 = 5.11\)</span> bonus sq in.) and is $2 cheaper!</p>
+</span></p>
+<p>The small pizza is a terrible deal! You can get 5 slices from the 18” pizza, which is slightly more pizza area (<span class="math inline">31.81*5-153.94 = 5.11</span> bonus sq in.) and is $2 cheaper!</p>
 <p>And finally, if you spent the $24 you would have on the small pizza on slices, how many could you get?</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \text{Slices for \$24?} = \$24/\$4.5 = 5.33
-\]</span></p>
-<p>Therefore you would have <span class="math inline">\(5.33*31.81 - 153.94 = 15.61\)</span> bonus sq in., or about half a slice bonus for the same price.</p>
+</span></p>
+<p>Therefore you would have <span class="math inline">5.33*31.81 - 153.94 = 15.61</span> bonus sq in., or about half a slice bonus for the same price.</p>
 </section>
 <section id="other-restaurants" class="level2">
 <h2 class="anchored" data-anchor-id="other-restaurants">Other Restaurants</h2>
@@ -587,7 +595,7 @@ window.Quarto = {
 </tr>
 </tbody>
 </table>
-<p>As you can see, the square inch per dollar values tend to go up significantly as pizzas get larger. You might think that getting two 6” pizzas instead of 12” makes sense, but the area equation is based on the <em>square</em> of the radius, and <span class="math inline">\(3^2\)</span> is much smaller than <span class="math inline">\(6^2\)</span> (it’s <span class="math inline">\(1/4\)</span>!).</p>
+<p>As you can see, the square inch per dollar values tend to go up significantly as pizzas get larger. You might think that getting two 6” pizzas instead of 12” makes sense, but the area equation is based on the <em>square</em> of the radius, and <span class="math inline">3^2</span> is much smaller than <span class="math inline">6^2</span> (it’s <span class="math inline">1/4</span>!).</p>
 <p>At Lou Malnati’s if you got two 6” pizzas, you’d be paying $21.18 for 56.54 sq in. of pizza, compared to a 12” for $21.49 that gives you 113.10 sq in. of pizza. The bigger one is exactly double the size for just about the same price!</p>
 <section id="whole-foods" class="level3">
 <h3 class="anchored" data-anchor-id="whole-foods">Whole Foods</h3>
@@ -597,21 +605,21 @@ window.Quarto = {
 <section id="general-equations" class="level2">
 <h2 class="anchored" data-anchor-id="general-equations">General Equations</h2>
 <p>The general equation for sq in. per dollar is:</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \begin{equation}
 \begin{split}
 \text{Sq In. per Dollar} &amp;= \frac{\text{Area}}{{\text{Price}}} \\ \\
 &amp;= \frac{\pi*r^2}{\text{Price}}
 \end{split}
 \end{equation}
-\]</span></p>
+</span></p>
 <p>If you want to compare two pizzas and you know the sizes and prices, you can use a shortcut and take the ratios.</p>
-<p>Let’s formalize and clarify this for general pizza <span class="math inline">\(i\)</span> with diameter <span class="math inline">\(d\)</span>, radius <span class="math inline">\(d/2 = r\)</span>, and price <span class="math inline">\(p\)</span></p>
-<p><span class="math display">\[
+<p>Let’s formalize and clarify this for general pizza <span class="math inline">i</span> with diameter <span class="math inline">d</span>, radius <span class="math inline">d/2 = r</span>, and price <span class="math inline">p</span></p>
+<p><span class="math display">
 \text{Sq In. per Dollar} = \frac{\pi*(\frac{d_i}{2})^2}{p_i}
-\]</span></p>
+</span></p>
 <p>To compare two, we can take the ratios:</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \begin{equation}
 \begin{split}
 \text{Sq In. per Dollar} &amp;= \frac{\frac{\pi*(\frac{d_1}{2})^2}{p_1}}{\frac{\pi*(\frac{d_2}{2})^2}{p_2}} \\
@@ -619,15 +627,15 @@ window.Quarto = {
 &amp;= \frac{p_2*d_1^2}{p_1*d_2^2}
 \end{split}
 \end{equation}
-\]</span></p>
-<p>Note that <span class="math inline">\(\pi\)</span> and the denominator of <span class="math inline">\(d/2 = r\)</span> drop out, so we only need to use <span class="math inline">\(p_1\)</span>, <span class="math inline">\(p_2\)</span>, <span class="math inline">\(d_1\)</span>, and <span class="math inline">\(d_2\)</span>.</p>
+</span></p>
+<p>Note that <span class="math inline">\pi</span> and the denominator of <span class="math inline">d/2 = r</span> drop out, so we only need to use <span class="math inline">p_1</span>, <span class="math inline">p_2</span>, <span class="math inline">d_1</span>, and <span class="math inline">d_2</span>.</p>
 <section id="the-comparison-equation" class="level3">
 <h3 class="anchored" data-anchor-id="the-comparison-equation">The Comparison Equation</h3>
 <p><strong>This is the important equation that you should use in real life pizza value scenarios!</strong></p>
 <p>Let Pizza 1 be the larger one for consistency.</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \text{Value of Pizza 1 Compared to Pizza 2} = \frac{p_2*d_1^2}{p_1*d_2^2}
-\]</span></p>
+</span></p>
 <p>Here’s an example using Lou Malnati’s 12” and 6” pizzas from above:</p>
 <table class="caption-top table">
 <thead>
@@ -651,7 +659,7 @@ window.Quarto = {
 </tbody>
 </table>
 <p>Now we can use our equation:</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \begin{equation}
 \begin{split}
 \text{Value of Pizza 1 Compared to Pizza 2} &amp;= \frac{p_2*d_1^2}{p_1*d_2^2} \\
@@ -659,7 +667,7 @@ window.Quarto = {
 &amp;= 1.97
 \end{split}
 \end{equation}
-\]</span></p>
+</span></p>
 <p>This shows us that Pizza 1 is about 1.97x better value than Pizza 2 (in terms of square inches per dollar)!</p>
 
 

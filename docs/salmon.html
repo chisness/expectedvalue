@@ -113,8 +113,22 @@ gtag('config', 'G-P015KRTLYQ', { 'anonymize_ip': true});
 <script type="module" src="site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
 <link href="site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -146,10 +160,6 @@ window.Quarto = {
 <meta property="og:title" content="Value Example: Salmon – The EV Foundation">
 <meta property="og:description" content="">
 <meta property="og:site_name" content="The EV Foundation">
-<meta name="twitter:title" content="Value Example: Salmon – The EV Foundation">
-<meta name="twitter:description" content="">
-<meta name="twitter:creator" content="@chisness">
-<meta name="twitter:card" content="summary">
 </head>
 
 <body class="nav-sidebar docked nav-fixed">
@@ -180,8 +190,6 @@ window.Quarto = {
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
-    <a href="https://x.com/chisness" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-twitter"></i></a>
-    <a href="https://github.com/chisness/expectedvalue" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -190,7 +198,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <h1 class="quarto-secondary-nav-title no-breadcrumbs">Value Example: Salmon</h1>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./pizza.html">FOOD</a></li><li class="breadcrumb-item"><a href="./salmon.html">Salmon</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -355,9 +363,9 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./pizza.html">FOOD</a></li><li class="breadcrumb-item"><a href="./salmon.html">Salmon</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Value Example: Salmon</h1>
+<h1 class="title">Value Example: Salmon</h1>
 </div>
 
 
@@ -562,11 +570,11 @@ Cooked vs.&nbsp;Uncooked Weight Interlude
 <p>In the case of salmon, Claude claims that we should expect a weight loss of “15-25%”. ChatGPT says “10-20%”. We’ll therefore say a 17.5% average loss. Given this, let’s look at some estimates for the size of fish that we could expect.</p>
 <p><strong>Largest without shrinkage:</strong> A 16 oz piece</p>
 <p><strong>Largest with shrinkage:</strong> Start with a 16 oz piece, with 10% shrinkage:</p>
-<p><span class="math inline">\(\text{Resulting size} = 16*0.9 = 14.4 \text{oz}\)</span></p>
+<p><span class="math inline">\text{Resulting size} = 16*0.9 = 14.4 \text{oz}</span></p>
 <p><strong>Average with shrinkage:</strong> Start with a 15 oz piece, with 17.5% shrinkage:</p>
-<p><span class="math inline">\(\text{Resulting Size} = 15*0.825 = 12.38 \text{oz}\)</span></p>
+<p><span class="math inline">\text{Resulting Size} = 15*0.825 = 12.38 \text{oz}</span></p>
 <p><strong>Smallest with shrinkage:</strong> Start with a 14 oz piece, with 25% shrinkage:</p>
-<p><span class="math inline">\(\text{Resulting Size} = 14*0.75 = 10.5 \text{oz}\)</span></p>
+<p><span class="math inline">\text{Resulting Size} = 14*0.75 = 10.5 \text{oz}</span></p>
 <p>Hmm, so technically even a 10.5 oz piece would have been in the acceptable range. Admittedly, I think I would have (lightly) complained about approximately anything &lt;12 oz, but this size seemed even smaller.</p>
 <p>After a brief and polite conversation raising my previous time at this restaurant and my deep general salmon experience, I insisted that we go to the kitchen to solve this the right way: on the scale.</p>
 <div class="quarto-figure quarto-figure-center">

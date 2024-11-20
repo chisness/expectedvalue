@@ -7,20 +7,13 @@ website:
   open-graph: true
   google-analytics: G-P015KRTLYQ
   favicon: assets/favicon.svg
-  twitter-card:
-    creator: "@chisness"
   navbar: 
-    background: primary
+    background: dark
     right: 
       - text: "About"
         href: about.qmd
       - text: "Poker Camp"
         href: https://poker.camp
-    tools: 
-      - icon: twitter
-        href: https://x.com/chisness
-      - icon: github
-        href: https://github.com/chisness/expectedvalue
   sidebar:
     style: docked
     background: light
@@ -67,13 +60,11 @@ website:
 
 format:
   html:
-    theme: flatly
-    page-navigation: false
-    bread-crumbs: false
+    theme: 
+      - cerulean
+    grid:
+      sidebar-width: 260px
     math: true 
+    html-math-method: katex
     toc: true
     toc-expand: true
-    mathjax: 
-      config: 
-        text: 
-          inlineMath: [['$', '$'], ['\\(', '\\)']]
