@@ -20,7 +20,7 @@ website:
     contents: 
       - section: "EXPECTED VALUE"
         contents: 
-          - text: Tutorial (Soon)
+          - text: Tutorial (soon)
           - href: evimp.qmd 
             text: EV Importance
           # - text: EV Benefits
