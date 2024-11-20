@@ -8,6 +8,7 @@ website:
   google-analytics: G-P015KRTLYQ
   favicon: assets/favicon.svg
   navbar: 
+    logo: assets/favicon.svg
     background: primary
     right: 
       - text: "About"

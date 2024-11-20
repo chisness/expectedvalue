@@ -1,4 +1,34 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <rect width="32" height="32" fill="#2c3e50"/>
-  <text x="16" y="24" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="#ffffff">EV</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <!-- Die face - main square -->
+  <rect x="40" y="40" width="120" height="120" 
+        fill="white" 
+        stroke="black" 
+        stroke-width="8"/>
+  
+  <!-- Circles for the 3 pattern with letters -->
+  <circle cx="70" cy="70" r="18" fill="black"/>
+  <circle cx="100" cy="100" r="18" fill="black"/>
+  <circle cx="130" cy="130" r="18" fill="black"/>
+  
+  <!-- Letters inside circles -->
+  <text x="70" y="77" 
+        text-anchor="middle" 
+        font-family="Helvetica, Arial" 
+        font-weight="bold" 
+        font-size="18" 
+        fill="white">E</text>
+  
+  <text x="100" y="107" 
+        text-anchor="middle" 
+        font-family="Helvetica, Arial" 
+        font-weight="bold" 
+        font-size="18" 
+        fill="white">V</text>
+  
+  <text x="130" y="137" 
+        text-anchor="middle" 
+        font-family="Helvetica, Arial" 
+        font-weight="bold" 
+        font-size="18" 
+        fill="white">F</text>
 </svg>
