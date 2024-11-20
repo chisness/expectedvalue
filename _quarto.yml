@@ -8,7 +8,7 @@ website:
   google-analytics: G-P015KRTLYQ
   favicon: assets/favicon.svg
   navbar: 
-    background: dark
+    background: primary
     right: 
       - text: "About"
         href: about.qmd
@@ -60,8 +60,9 @@ website:
 
 format:
   html:
-    theme: 
-      - flatly
+    theme: flatly
+    page-navigation: false
+    bread-crumbs: false
     grid:
       sidebar-width: 260px
     math: true 
