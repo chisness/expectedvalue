@@ -20,13 +20,14 @@ website:
     contents: 
       - section: "EXPECTED VALUE"
         contents: 
+          - text: Tutorial (Soon)
           - href: evimp.qmd 
             text: EV Importance
           # - text: EV Benefits
           # - text: EV Flaws
       - section: "SPORTS"
         contents: 
-          - text: Soon!
+          - text: Soon
       - section: "TRAVEL"
         contents: 
           - href: basicecon.qmd
