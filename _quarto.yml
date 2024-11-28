@@ -8,7 +8,7 @@ website:
   google-analytics: G-P015KRTLYQ
   favicon: assets/faviconb.svg
   navbar: 
-    logo: assets/favicon.png
+    logo: assets/faviconb.png
     background: primary
     right: 
       - text: "About"
@@ -63,6 +63,7 @@ website:
 format:
   html:
     theme: flatly
+    css: custom.css
     page-navigation: false
     bread-crumbs: false
     grid:
