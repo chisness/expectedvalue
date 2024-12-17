@@ -320,7 +320,8 @@ window.Quarto = {
    
   <ul>
   <li><a href="#welcome" id="toc-welcome" class="nav-link active" data-scroll-target="#welcome">Welcome!</a></li>
-  <li><a href="#what-is-expected-value-ev" id="toc-what-is-expected-value-ev" class="nav-link" data-scroll-target="#what-is-expected-value-ev">What is Expected Value (EV)?</a></li>
+  <li><a href="#what-is-expected-value-ev" id="toc-what-is-expected-value-ev" class="nav-link" data-scroll-target="#what-is-expected-value-ev">What is expected value (EV)?</a></li>
+  <li><a href="#what-we-do" id="toc-what-we-do" class="nav-link" data-scroll-target="#what-we-do">What we do</a></li>
   </ul>
 </nav>
     </div>
@@ -348,37 +349,60 @@ window.Quarto = {
 
 <section id="welcome" class="level2">
 <h2 class="anchored" data-anchor-id="welcome">Welcome!</h2>
+<p>We believe that expected value is one of the most important concepts for making better decisions in an uncertain world. Whether evaluating career choices, investment opportunities, or policy decisions, understanding expected value helps us think more clearly about risks, rewards, and tradeoffs.</p>
+<p>Nate Silver in <em>On the Edge</em>:</p>
+<blockquote class="blockquote">
+<p>Society would be generally better off–I’ll confidently contend–if people understood the nature of expected value and specifically the importance of low-probability, high-impact events, whether they come in the form of fantastic potential payoffs or catastrophic risks.</p>
+</blockquote>
+</section>
+<section id="what-is-expected-value-ev" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-expected-value-ev">What is expected value (EV)?</h2>
+<p><span class="math inline">\text{Expected Value} = \text{(Probability of an outcome)} \cdot \text{(Value of that outcome)}</span></p>
+<p><strong>Suppose that you are buying an ice cream:</strong></p>
+<p>The store is selling an ice cream cone for <strong>$7</strong>.</p>
+<p>They also have a special offer:</p>
 <ul>
-<li><a href="https://expectedvalue.org">expectedvalue.org</a>: Learn about expected value</li>
-<li><a href="https://poker.camp">Poker Camp</a>: In-person workshops and courses on AI poker and applied rationality</li>
+<li>Flip a coin</li>
+<li>If the coin is <strong>heads</strong>, you buy the ice cream for <strong>$10</strong></li>
+<li>If the coin is <strong>tails</strong>, you get the ice cream for <strong>free</strong></li>
 </ul>
+<p><strong>What is the expected value of the coin flip?</strong></p>
+<ol type="1">
+<li><p>What is the probability of each outcome? Since it’s a coin flip, each is 50% likely.</p></li>
+<li><p>What is the value of each outcome? The cost for heads is $10 and the cost for tails is $0.</p></li>
+<li><p>The expected value of the coin flip is as follows, where <span class="math inline">P</span> represents probability and <span class="math inline">V</span> represents value.</p></li>
+</ol>
+<p><span class="math display">
+\begin{aligned}
+\text{EV} &amp;= P(\text{Heads}) \cdot V(\text{Heads}) + P(\text{Tails}) \cdot V(\text{Tails}) \\
+   &amp;= (0.5) \cdot (\$10) + (0.5) \cdot (\$0) \\
+   &amp;= \$5
+\end{aligned}
+</span></p>
+<p>This means that the <em>expected value</em> of the coin flip is <strong>$5</strong>, a better deal than the standard price of <strong>$7</strong>.</p>
+<p>The EV calculation helps make decisions by providing a framework to evaluate options with uncertain outcomes. In most cases, the better expected value means that that is the better decision, and we should therefore <strong>take the coin flip option</strong>.</p>
+<p>But not always. There are other considerations like risk tolerance (some prefer a guaranteed price of $7 to chancing a price of $10) and resource constraints ($10 could be a large strain on the budget).</p>
+</section>
+<section id="what-we-do" class="level2">
+<h2 class="anchored" data-anchor-id="what-we-do">What we do</h2>
+<ul>
+<li><a href="https://expectedvalue.org">expectedvalue.org</a>: Learn about expected value through our tutorial and interactive examples</li>
+<li><a href="https://poker.camp">Poker Camp</a>: In-person workshops and courses on AI and applied rationality through the lens of poker</li>
+<li>In-person expected value workshops</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/dakar1.jpg" class="img-fluid figure-img"></p>
+<figcaption>EV workshop at Ecole les Hirondelles Mermoz in Dakar, Senegal (December, 2024)</figcaption>
+</figure>
+</div>
 <p>In the works:</p>
 <ul>
-<li>Expected value workshops</li>
 <li>One Life Pledge and poker tournament</li>
 <li>Expected Value Day</li>
 <li>Micro-grants</li>
 <li>EV Fellowship</li>
 </ul>
-</section>
-<section id="what-is-expected-value-ev" class="level2">
-<h2 class="anchored" data-anchor-id="what-is-expected-value-ev">What is Expected Value (EV)?</h2>
-<p>Expected Value = (Probability of an outcome) × (Value of that outcome)</p>
-<p><strong>Imagine a raffle where:</strong></p>
-<ul>
-<li>You buy 1 ticket for $1</li>
-<li>There is a 1 in 100 chance of winning</li>
-<li>The prize is $150</li>
-</ul>
-<p><strong>To calculate the expected value:</strong></p>
-<ul>
-<li>Probability of winning: 1/100 = 0.01</li>
-<li>Value of winning: $150</li>
-<li><strong>Expected Value =</strong> 0.01 × $150 = $1.50</li>
-</ul>
-<p>This means that, on average, <strong>each ticket is “worth” $1.50</strong>.</p>
-<p>Since the ticket costs $1, and its expected value is $1.50, it’s a good deal in the long run. However, remember that this doesn’t guarantee you’ll win – it’s an average over many tries.</p>
-<p>This simple calculation helps you make decisions by weighing the likelihood of outcomes against their potential value. It’s a basic tool for comparing options with different risks and rewards.</p>
 
 
 
