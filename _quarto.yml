@@ -20,8 +20,8 @@ website:
         - text: "Poker Camp"
           href: https://poker.camp
     right: 
-      - text: "Fellows"
-        href: fellows.qmd
+      - text: "EV Fellowship"
+        href: fellowship.qmd
       - text: "About"
         href: about.qmd
     tools: 

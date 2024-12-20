@@ -18,25 +18,16 @@ Expected value (EV) is the average of all possible outcomes. It's computed by ad
 
 $\text{Expected Value} =  \text{(Probability of each outcome)} \cdot \text{(Value of each outcome)}$
 
-We take the probability times the value for each outcome and sum all of them together. 
-
 In math terms:
 
 $\mathbb{E}[X] = \sum\limits_{i} P(X=x_i) \cdot x_i$
 
 ### Drawing a card
-Here's a simple card game where you get to draw 1 card and get the prize indicated on that card. 
+Here's a simple card game where you get to draw 1 card and get the prize indicated on that card.
 
 ![](card-game.svg){fig-alt="A visualization showing four playing cards displaying numbers 1, 1, 2, and 3, each with a 1/4 chance of being drawn"}
 
-There are 4 possible outcomes. Note that the probabilities (weights) always sum to 1 because they describe all possible outcomes. 
-
-| Probability | Value |
-|------------|-------|
-| 1/4        | 1     |
-| 1/4        | 1     |
-| 1/4        | 2     |
-| 1/4        | 3     |
+Each card is equally likely to be selected with probability $P=1/4$. Note that the probabilities (weights) always sum to 1 because they describe all possible outcomes. 
 
 Let's compute the EV: 
 
@@ -377,4 +368,4 @@ But not always. There are other considerations like risk tolerance (some prefer 
 - [Poker Camp](https://poker.camp): Workshops and courses on AI and applied rationality through the lens of poker
 - [EV Fellowship](fellows.qmd): Contribute your strengths to the EVF in areas like research, coding, writing, logistics, running workshops, and creating videos
 
-![EV workshop at Ecole les Hirondelles Mermoz in Dakar, Senegal (December, 2024)](assets/dakar1.jpg){width=75%}
+![EV workshop at Ecole les Hirondelles Mermoz in Dakar, Senegal (December, 2024)](assets/dakar1.jpg)
