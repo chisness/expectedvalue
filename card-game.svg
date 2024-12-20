@@ -26,8 +26,16 @@
         </pattern>
     </defs>
     
+    <!-- Probabilities -->
+    <g transform="translate(0,25)">
+        <text x="80" y="0" font-family="Arial" font-size="14" text-anchor="middle" fill="#555555">P = 1/4</text>
+        <text x="160" y="0" font-family="Arial" font-size="14" text-anchor="middle" fill="#555555">P = 1/4</text>
+        <text x="240" y="0" font-family="Arial" font-size="14" text-anchor="middle" fill="#555555">P = 1/4</text>
+        <text x="320" y="0" font-family="Arial" font-size="14" text-anchor="middle" fill="#555555">P = 1/4</text>
+    </g>
+    
     <!-- Cards -->
-    <g transform="translate(50,10)">
+    <g transform="translate(50,35)">
         <!-- Card 1 -->
         <g filter="url(#shadow)">
             <rect x="0" y="0" width="60" height="90" rx="8" fill="url(#cardGradient)" stroke="#2196f3" stroke-width="2"/>
@@ -36,7 +44,7 @@
         </g>
     </g>
     
-    <g transform="translate(130,10)">
+    <g transform="translate(130,35)">
         <!-- Card 2 -->
         <g filter="url(#shadow)">
             <rect x="0" y="0" width="60" height="90" rx="8" fill="url(#cardGradient)" stroke="#2196f3" stroke-width="2"/>
@@ -45,7 +53,7 @@
         </g>
     </g>
     
-    <g transform="translate(210,10)">
+    <g transform="translate(210,35)">
         <!-- Card 3 -->
         <g filter="url(#shadow)">
             <rect x="0" y="0" width="60" height="90" rx="8" fill="url(#cardGradient)" stroke="#2196f3" stroke-width="2"/>
@@ -54,20 +62,12 @@
         </g>
     </g>
     
-    <g transform="translate(290,10)">
+    <g transform="translate(290,35)">
         <!-- Card 4 -->
         <g filter="url(#shadow)">
             <rect x="0" y="0" width="60" height="90" rx="8" fill="url(#cardGradient)" stroke="#2196f3" stroke-width="2"/>
             <rect x="5" y="5" width="50" height="80" rx="6" fill="url(#cardPattern)" fill-opacity="0.1"/>
             <text x="30" y="55" font-family="Arial" font-weight="bold" font-size="28" text-anchor="middle" fill="#e74c3c">3</text>
         </g>
-    </g>
-    
-    <!-- Probabilities -->
-    <g transform="translate(0,115)">
-        <text x="80" y="0" font-family="Arial" font-size="14" text-anchor="middle" fill="#555555">P = 1/4</text>
-        <text x="160" y="0" font-family="Arial" font-size="14" text-anchor="middle" fill="#555555">P = 1/4</text>
-        <text x="240" y="0" font-family="Arial" font-size="14" text-anchor="middle" fill="#555555">P = 1/4</text>
-        <text x="320" y="0" font-family="Arial" font-size="14" text-anchor="middle" fill="#555555">P = 1/4</text>
     </g>
 </svg>

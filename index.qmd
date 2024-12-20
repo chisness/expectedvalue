@@ -69,36 +69,41 @@ cards = [
 // Expected value
 expectedValue = 1.75
 
-// Create individual buttons with proper styling
+// Create individual buttons
 viewof drawOne = Inputs.button("Draw 1 Card", {
   style: `
-    background: black;
+    background: #1a1a1a;
     color: white;
     border: none;
     padding: 8px 16px;
     border-radius: 6px;
-  `
-})
-viewof drawTen = Inputs.button("Draw 10 Cards", {
-  style: `
-    background: black;
-    color: white;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 6px;
-  `
-})
-viewof drawHundred = Inputs.button("Draw 100 Cards", {
-  style: `
-    background: black;
-    color: white;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 6px;
+    cursor: pointer;
   `
 })
 
-// Wrap the buttons in a flex container
+viewof drawTen = Inputs.button("Draw 10 Cards", {
+  style: `
+    background: #1a1a1a;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+  `
+})
+
+viewof drawHundred = Inputs.button("Draw 100 Cards", {
+  style: `
+    background: #1a1a1a;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+  `
+})
+
+// Button container
 buttonsContainer = html`
 <div style="display: flex; gap: 10px; align-items: center; margin-bottom: 20px;">
   ${viewof drawOne}
@@ -107,35 +112,47 @@ buttonsContainer = html`
 </div>
 `
 
-// State management
+// State management for drawn cards
 values = {
   let currentValues = window._cardValues || [];
   
-  // Determine the action based on which button was pressed
+  // Track previous button states to detect changes
+  const prevStates = window._prevButtonStates || {
+    drawOne: drawOne,
+    drawTen: drawTen,
+    drawHundred: drawHundred
+  };
+  
+  // Detect which button was clicked by comparing with previous state
   let action = null;
-  if (drawOne) action = "drawOne";
-  if (drawTen) action = "drawTen";
-  if (drawHundred) action = "drawHundred";
-
+  if (drawOne !== prevStates.drawOne) {
+    action = "drawOne";
+  } else if (drawTen !== prevStates.drawTen) {
+    action = "drawTen";
+  } else if (drawHundred !== prevStates.drawHundred) {
+    action = "drawHundred";
+  }
+  
+  // Update previous states
+  window._prevButtonStates = {
+    drawOne,
+    drawTen,
+    drawHundred
+  };
+  
+  // Handle drawing based on action
   if (action === "drawOne") {
-    const card = cards[Math.floor(Math.random() * cards.length)];
-    currentValues = [...currentValues, card];
-  }
-  
-  if (action === "drawTen") {
+    currentValues.push(cards[Math.floor(Math.random() * cards.length)]);
+  } else if (action === "drawTen") {
     for (let i = 0; i < 10; i++) {
-      const card = cards[Math.floor(Math.random() * cards.length)];
-      currentValues.push(card);
+      currentValues.push(cards[Math.floor(Math.random() * cards.length)]);
+    }
+  } else if (action === "drawHundred") {
+    for (let i = 0; i < 100; i++) {
+      currentValues.push(cards[Math.floor(Math.random() * cards.length)]);
     }
   }
   
-  if (action === "drawHundred") {
-    for (let i = 0; i < 100; i++) {
-      const card = cards[Math.floor(Math.random() * cards.length)];
-      currentValues.push(card);
-    }
-  }
-
   window._cardValues = currentValues;
   return currentValues;
 }
@@ -154,9 +171,82 @@ cardCounts = values.reduce((acc, card) => {
 
 // Stats
 totalDraws = values.length
-currentAverage = runningAverages.length > 0 ? runningAverages[runningAverages.length - 1].y.toFixed(3) : "N/A"
+currentAverage = runningAverages.length > 0 ? 
+  runningAverages[runningAverages.length - 1].y.toFixed(3) : 
+  "N/A"
 
-// Create the plot and place a small info box inside
+// Helper functions for display
+percent = (id) => {
+  if (totalDraws === 0) return "0%";
+  const p = (cardCounts[id] || 0) / totalDraws * 100;
+  return p.toFixed(1) + "%";
+}
+
+count = (id) => cardCounts[id] || 0
+
+// Card display SVG
+smallCardsSVG = html`
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 130">
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="1"/>
+      <feOffset dx="1" dy="1" result="offsetblur"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.2"/>
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <linearGradient id="cardGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#f8f9fa;stop-opacity:1"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Cards -->
+  <g transform="translate(15,20)">
+    <!-- Card 1a -->
+    <g transform="translate(0,0)" filter="url(#shadow)">
+      <text x="22" y="-5" font-family="Arial" font-size="10" text-anchor="middle" fill="#555555">P = 1/4</text>
+      <rect width="44" height="66" rx="6" fill="url(#cardGradient)" stroke="#2196f3" stroke-width="1.5"/>
+      <text x="22" y="40" font-family="Arial" font-weight="bold" font-size="22" text-anchor="middle" fill="#e74c3c">1</text>
+      <text x="22" y="85" font-family="Arial" font-size="10" text-anchor="middle" fill="#333333">Count: ${count("1a")}</text>
+      <text x="22" y="98" font-family="Arial" font-size="10" text-anchor="middle" fill="#333333">${percent("1a")}</text>
+    </g>
+    
+    <!-- Card 1b -->
+    <g transform="translate(60,0)" filter="url(#shadow)">
+      <text x="22" y="-5" font-family="Arial" font-size="10" text-anchor="middle" fill="#555555">P = 1/4</text>
+      <rect width="44" height="66" rx="6" fill="url(#cardGradient)" stroke="#2196f3" stroke-width="1.5"/>
+      <text x="22" y="40" font-family="Arial" font-weight="bold" font-size="22" text-anchor="middle" fill="#e74c3c">1</text>
+      <text x="22" y="85" font-family="Arial" font-size="10" text-anchor="middle" fill="#333333">Count: ${count("1b")}</text>
+      <text x="22" y="98" font-family="Arial" font-size="10" text-anchor="middle" fill="#333333">${percent("1b")}</text>
+    </g>
+    
+    <!-- Card 2 -->
+    <g transform="translate(120,0)" filter="url(#shadow)">
+      <text x="22" y="-5" font-family="Arial" font-size="10" text-anchor="middle" fill="#555555">P = 1/4</text>
+      <rect width="44" height="66" rx="6" fill="url(#cardGradient)" stroke="#2196f3" stroke-width="1.5"/>
+      <text x="22" y="40" font-family="Arial" font-weight="bold" font-size="22" text-anchor="middle" fill="#e74c3c">2</text>
+      <text x="22" y="85" font-family="Arial" font-size="10" text-anchor="middle" fill="#333333">Count: ${count("2")}</text>
+      <text x="22" y="98" font-family="Arial" font-size="10" text-anchor="middle" fill="#333333">${percent("2")}</text>
+    </g>
+    
+    <!-- Card 3 -->
+    <g transform="translate(180,0)" filter="url(#shadow)">
+      <text x="22" y="-5" font-family="Arial" font-size="10" text-anchor="middle" fill="#555555">P = 1/4</text>
+      <rect width="44" height="66" rx="6" fill="url(#cardGradient)" stroke="#2196f3" stroke-width="1.5"/>
+      <text x="22" y="40" font-family="Arial" font-weight="bold" font-size="22" text-anchor="middle" fill="#e74c3c">3</text>
+      <text x="22" y="85" font-family="Arial" font-size="10" text-anchor="middle" fill="#333333">Count: ${count("3")}</text>
+      <text x="22" y="98" font-family="Arial" font-size="10" text-anchor="middle" fill="#333333">${percent("3")}</text>
+    </g>
+  </g>
+</svg>
+`
+
+// Chart container
 chartContainer = {
   const chart = Plot.plot({
     width: 800,
@@ -200,137 +290,47 @@ chartContainer = {
   const container = html`<div style="position: relative; width: fit-content;">`;
   container.appendChild(chart);
   
-  // Info box overlay
+  // Cards box - moved to center (right: 250px)
+  const cardsBox = html`<div style="
+    position: absolute; 
+    top: 10px; 
+    right: 250px;
+    background: rgba(255,255,255,0.9); 
+    padding: 10px; 
+    border-radius: 3px; 
+    font-size: 12px;
+    font-family: system-ui, -apple-system;
+    border: 1px solid #ccc;
+    width: 260px;
+  ">
+    ${smallCardsSVG}
+  </div>`;
+
+  // Info box - kept at original position (right: 50px)
   const infoBox = html`<div style="
     position: absolute; 
     top: 10px; 
-    right: 10px; 
+    right: 50px; 
     background: rgba(255,255,255,0.9); 
-    padding: 5px 10px; 
+    padding: 4px 8px; 
     border-radius: 3px; 
-    font-size: 12px; 
+    font-size: 11px; 
     font-family: system-ui, -apple-system;
     border: 1px solid #ccc;">
     <div><strong>Total draws:</strong> ${totalDraws}</div>
     <div><strong>Current average:</strong> ${currentAverage}</div>
   </div>`;
-  
+
+  container.appendChild(cardsBox);
   container.appendChild(infoBox);
+  
   return container;
 }
 
-// Compute percentages for each card
-percent = (id) => {
-  if (totalDraws === 0) return "0%";
-  const p = (cardCounts[id] || 0) / totalDraws * 100;
-  return p.toFixed(1) + "%";
-}
-
-// Get counts (defaulting to 0 if not drawn)
-count = (id) => cardCounts[id] || 0
-
-// Show SVG with cards, counts, and percentages on two separate lines
-cardsDisplay = {
-  const svg = html`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 180">
-  <defs>
-      <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
-          <feGaussianBlur in="SourceAlpha" stdDeviation="2"/>
-          <feOffset dx="2" dy="2" result="offsetblur"/>
-          <feComponentTransfer>
-              <feFuncA type="linear" slope="0.2"/>
-          </feComponentTransfer>
-          <feMerge>
-              <feMergeNode/>
-              <feMergeNode in="SourceGraphic"/>
-          </feMerge>
-      </filter>
-      
-      <linearGradient id="cardGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1"/>
-          <stop offset="100%" style="stop-color:#f8f9fa;stop-opacity:1"/>
-      </linearGradient>
-      
-      <pattern id="cardPattern" x="0" y="0" width="10" height="10" patternUnits="userSpaceOnUse">
-          <circle cx="5" cy="5" r="0.5" fill="#e0e0e0"/>
-      </pattern>
-  </defs>
-  
-  <!-- Cards Row -->
-  <!-- Card 1a -->
-  <g transform="translate(50,10)" filter="url(#shadow)">
-      <rect x="0" y="0" width="60" height="90" rx="8" fill="url(#cardGradient)" stroke="#2196f3" stroke-width="2"/>
-      <rect x="5" y="5" width="50" height="80" rx="6" fill="url(#cardPattern)" fill-opacity="0.1"/>
-      <text x="30" y="55" font-family="Arial" font-weight="bold" font-size="28" text-anchor="middle" fill="#e74c3c">1</text>
-  </g>
-  
-  <!-- Card 1b -->
-  <g transform="translate(130,10)" filter="url(#shadow)">
-      <rect x="0" y="0" width="60" height="90" rx="8" fill="url(#cardGradient)" stroke="#2196f3" stroke-width="2"/>
-      <rect x="5" y="5" width="50" height="80" rx="6" fill="url(#cardPattern)" fill-opacity="0.1"/>
-      <text x="30" y="55" font-family="Arial" font-weight="bold" font-size="28" text-anchor="middle" fill="#e74c3c">1</text>
-  </g>
-  
-  <!-- Card 2 -->
-  <g transform="translate(210,10)" filter="url(#shadow)">
-      <rect x="0" y="0" width="60" height="90" rx="8" fill="url(#cardGradient)" stroke="#2196f3" stroke-width="2"/>
-      <rect x="5" y="5" width="50" height="80" rx="6" fill="url(#cardPattern)" fill-opacity="0.1"/>
-      <text x="30" y="55" font-family="Arial" font-weight="bold" font-size="28" text-anchor="middle" fill="#e74c3c">2</text>
-  </g>
-  
-  <!-- Card 3 -->
-  <g transform="translate(290,10)" filter="url(#shadow)">
-      <rect x="0" y="0" width="60" height="90" rx="8" fill="url(#cardGradient)" stroke="#2196f3" stroke-width="2"/>
-      <rect x="5" y="5" width="50" height="80" rx="6" fill="url(#cardPattern)" fill-opacity="0.1"/>
-      <text x="30" y="55" font-family="Arial" font-weight="bold" font-size="28" text-anchor="middle" fill="#e74c3c">3</text>
-  </g>
-  
-  <!-- Probabilities row -->
-  <g transform="translate(0,115)">
-      <text x="80" y="0" font-family="Arial" font-size="14" text-anchor="middle" fill="#555555">P = 1/4</text>
-      <text x="160" y="0" font-family="Arial" font-size="14" text-anchor="middle" fill="#555555">P = 1/4</text>
-      <text x="240" y="0" font-family="Arial" font-size="14" text-anchor="middle" fill="#555555">P = 1/4</text>
-      <text x="320" y="0" font-family="Arial" font-size="14" text-anchor="middle" fill="#555555">P = 1/4</text>
-  </g>
-  
-  <!-- Counts and percentages row -->
-  <g transform="translate(0,140)">
-    <!-- Counts line -->
-    <text x="80"  y="0" font-family="Arial" font-size="14" text-anchor="middle" fill="#333333">
-      Count: ${count("1a")}
-    </text>
-    <text x="160" y="0" font-family="Arial" font-size="14" text-anchor="middle" fill="#333333">
-      Count: ${count("1b")}
-    </text>
-    <text x="240" y="0" font-family="Arial" font-size="14" text-anchor="middle" fill="#333333">
-      Count: ${count("2")}
-    </text>
-    <text x="320" y="0" font-family="Arial" font-size="14" text-anchor="middle" fill="#333333">
-      Count: ${count("3")}
-    </text>
-    
-    <!-- Percentages line (20px below the counts) -->
-    <text x="80"  y="20" font-family="Arial" font-size="14" text-anchor="middle" fill="#333333">
-      ${percent("1a")}
-    </text>
-    <text x="160" y="20" font-family="Arial" font-size="14" text-anchor="middle" fill="#333333">
-      ${percent("1b")}
-    </text>
-    <text x="240" y="20" font-family="Arial" font-size="14" text-anchor="middle" fill="#333333">
-      ${percent("2")}
-    </text>
-    <text x="320" y="20" font-family="Arial" font-size="14" text-anchor="middle" fill="#333333">
-      ${percent("3")}
-    </text>
-  </g>
-</svg>`;
-  return svg;
-}
-
-// Finally, display everything
+// Display everything
 html`
 ${buttonsContainer}
 ${chartContainer}
-${cardsDisplay}
 `
 ```
 
