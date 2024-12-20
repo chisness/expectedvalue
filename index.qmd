@@ -1,5 +1,7 @@
 ---
 title: "The Expected Value Foundation"
+execute:
+  echo: false
 format: html
 resources: 
     - CNAME
@@ -11,10 +13,12 @@ Nate Silver in *On the Edge*:
 
 > Society would be generally better off--I'll confidently contend--if people understood the nature of expected value and specifically the importance of low-probability, high-impact events, whether they come in the form of fantastic potential payoffs or catastrophic risks.
 
-## What is expected value (EV)?
-EV is the average of all possible outcomes. It's computed by adding each possible outcome weighted by its probability of occurring: 
+## What is expected value?
+Expected value (EV) is the average of all possible outcomes. It's computed by adding each possible outcome weighted by its probability of occurring: 
 
-$\text{Expected Value} = \text{Add up for all possible outcomes: } \text{(Probability of each outcome)} \cdot \text{(Value of that outcome)}$
+$\text{Expected Value} =  \text{(Probability of each outcome)} \cdot \text{(Value of each outcome)}$
+
+We take the probability times the value for each outcome and sum all of them together. 
 
 In math terms:
 
@@ -51,79 +55,111 @@ Note that EV is not a possible outcome (we couldn't actually draw 1.75), but rat
 
 ```{ojs}
 //| echo: false
-// Create buttons with proper styling
+import {Inputs} from "@observablehq/inputs"
+import {Plot} from "@observablehq/plot"
+
+// Define distinct cards
+cards = [
+  {value: 1, id: "1a"},
+  {value: 1, id: "1b"},
+  {value: 2, id: "2"},
+  {value: 3, id: "3"}
+]
+
+// Expected value
+expectedValue = 1.75
+
+// Create individual buttons with proper styling
 viewof drawOne = Inputs.button("Draw 1 Card", {
+  reduce: () => "drawOne",
   style: `
     background: black;
     color: white;
     border: none;
     padding: 8px 16px;
     border-radius: 6px;
-    margin-right: 8px;
   `
 })
 
 viewof drawTen = Inputs.button("Draw 10 Cards", {
+  reduce: () => "drawTen",
   style: `
     background: black;
     color: white;
     border: none;
     padding: 8px 16px;
     border-radius: 6px;
-    margin-right: 8px;
   `
 })
 
 viewof drawHundred = Inputs.button("Draw 100 Cards", {
+  reduce: () => "drawHundred",
   style: `
     background: black;
     color: white;
     border: none;
     padding: 8px 16px;
     border-radius: 6px;
-    margin-right: 8px;
   `
 })
 
 viewof resetBtn = Inputs.button("Reset", {
+  reduce: () => "reset",
   style: `
     background: white;
     color: black;
-    border: 1px solid black;
+    border: 2px solid black;
     padding: 8px 16px;
     border-radius: 6px;
+    font-weight: bold;
   `
 })
 
-// Constants
-cards = [1, 1, 2, 3]
-expectedValue = 1.75
+// Wrap the buttons in a flex container to display them inline
+buttonsContainer = html`
+<div style="display: flex; gap: 10px; align-items: center; margin-bottom: 20px;">
+  ${viewof drawOne}
+  ${viewof drawTen}
+  ${viewof drawHundred}
+  ${viewof resetBtn}
+</div>
+`
 
 // State management
 values = {
   let currentValues = window._cardValues || [];
   
-  drawOne, drawTen, drawHundred, resetBtn;
-  
-  if (resetBtn) {
+  // Check which button was pressed
+  let action = null;
+  if (drawOne === "drawOne") action = "drawOne";
+  if (drawTen === "drawTen") action = "drawTen";
+  if (drawHundred === "drawHundred") action = "drawHundred";
+  if (resetBtn === "reset") action = "reset";
+
+  if (action === "reset") {
     window._cardValues = [];
     return [];
   }
   
-  if (drawOne) {
-    currentValues = [...currentValues, cards[Math.floor(Math.random() * cards.length)]];
+  if (action === "drawOne") {
+    const card = cards[Math.floor(Math.random() * cards.length)];
+    currentValues = [...currentValues, card];
   }
-  if (drawTen) {
+  
+  if (action === "drawTen") {
     for (let i = 0; i < 10; i++) {
-      currentValues = [...currentValues, cards[Math.floor(Math.random() * cards.length)]];
-    }
-  }
-  if (drawHundred) {
-    for (let i = 0; i < 100; i++) {
-      currentValues = [...currentValues, cards[Math.floor(Math.random() * cards.length)]];
+      const card = cards[Math.floor(Math.random() * cards.length)];
+      currentValues.push(card);
     }
   }
   
+  if (action === "drawHundred") {
+    for (let i = 0; i < 100; i++) {
+      const card = cards[Math.floor(Math.random() * cards.length)];
+      currentValues.push(card);
+    }
+  }
+
   window._cardValues = currentValues;
   return currentValues;
 }
@@ -131,61 +167,195 @@ values = {
 // Calculate running averages
 runningAverages = values.map((_, i) => ({
   x: i + 1,
-  y: values.slice(0, i + 1).reduce((a, b) => a + b, 0) / (i + 1)
+  y: values.slice(0, i + 1).reduce((a, b) => a + b.value, 0) / (i + 1)
 }))
 
-// Stats display
-currentAverage = runningAverages.length > 0 ? runningAverages[runningAverages.length - 1].y.toFixed(3) : "N/A"
+// Compute counts for each card type
+cardCounts = values.reduce((acc, card) => {
+  acc[card.id] = (acc[card.id] || 0) + 1;
+  return acc;
+}, {})
+
+// Stats
 totalDraws = values.length
-lastDraw = values.length > 0 ? values[values.length - 1] : "N/A"
+currentAverage = runningAverages.length > 0 ? runningAverages[runningAverages.length - 1].y.toFixed(3) : "N/A"
 
-md`
-<div style="font-family: system-ui, -apple-system; margin: 20px 0; font-size: 16px; line-height: 1.5;">
-  <div><strong>Last draw:</strong> ${lastDraw}</div>
-  <div><strong>Total draws:</strong> ${totalDraws}</div>
-  <div><strong>Current average:</strong> ${currentAverage}</div>
-</div>
+// Create the plot and place a small info box inside
+chartContainer = {
+  const chart = Plot.plot({
+    width: 800,
+    height: 400,
+    margin: 50,
+    grid: true,
+    style: {
+      fontSize: 12,
+      fontFamily: "system-ui, -apple-system"
+    },
+    y: {
+      domain: [0, 4],
+      label: "↑ Running Average",
+      grid: true
+    },
+    x: {
+      label: "Number of Draws →",
+      grid: true
+    },
+    marks: [
+      Plot.line(runningAverages, {
+        x: "x", 
+        y: "y", 
+        stroke: "#2196f3",
+        strokeWidth: 1.5
+      }),
+      Plot.ruleY([expectedValue], {
+        stroke: "red", 
+        strokeDasharray: "5,5",
+        strokeOpacity: 0.5
+      }),
+      Plot.text([{x: runningAverages.length, y: expectedValue}], {
+        text: ["Expected Value (1.75)"],
+        dx: 10,
+        fill: "red",
+        fontSize: 10
+      })
+    ]
+  });
+  
+  const container = html`<div style="position: relative; width: fit-content;">`;
+  container.appendChild(chart);
+  
+  // Info box overlay
+  const infoBox = html`<div style="
+    position: absolute; 
+    top: 10px; 
+    right: 10px; 
+    background: rgba(255,255,255,0.9); 
+    padding: 5px 10px; 
+    border-radius: 3px; 
+    font-size: 12px; 
+    font-family: system-ui, -apple-system;
+    border: 1px solid #ccc;">
+    <div><strong>Total draws:</strong> ${totalDraws}</div>
+    <div><strong>Current average:</strong> ${currentAverage}</div>
+  </div>`;
+  
+  container.appendChild(infoBox);
+  return container;
+}
+
+// Compute percentages for each card
+percent = (id) => {
+  if (totalDraws === 0) return "0%";
+  const p = (cardCounts[id] || 0) / totalDraws * 100;
+  return p.toFixed(1) + "%";
+}
+
+// Get counts (defaulting to 0 if not drawn)
+count = (id) => cardCounts[id] || 0
+
+// Show SVG with cards, counts, and percentages underneath
+cardsDisplay = {
+  const svg = html`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 180">
+  <defs>
+      <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+          <feGaussianBlur in="SourceAlpha" stdDeviation="2"/>
+          <feOffset dx="2" dy="2" result="offsetblur"/>
+          <feComponentTransfer>
+              <feFuncA type="linear" slope="0.2"/>
+          </feComponentTransfer>
+          <feMerge>
+              <feMergeNode/>
+              <feMergeNode in="SourceGraphic"/>
+          </feMerge>
+      </filter>
+      
+      <linearGradient id="cardGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1"/>
+          <stop offset="100%" style="stop-color:#f8f9fa;stop-opacity:1"/>
+      </linearGradient>
+      
+      <pattern id="cardPattern" x="0" y="0" width="10" height="10" patternUnits="userSpaceOnUse">
+          <circle cx="5" cy="5" r="0.5" fill="#e0e0e0"/>
+      </pattern>
+  </defs>
+  
+  <!-- Cards Row -->
+  <!-- Card 1a -->
+  <g transform="translate(50,10)" filter="url(#shadow)">
+      <rect x="0" y="0" width="60" height="90" rx="8" fill="url(#cardGradient)" stroke="#2196f3" stroke-width="2"/>
+      <rect x="5" y="5" width="50" height="80" rx="6" fill="url(#cardPattern)" fill-opacity="0.1"/>
+      <text x="30" y="55" font-family="Arial" font-weight="bold" font-size="28" text-anchor="middle" fill="#e74c3c">1</text>
+  </g>
+  
+  <!-- Card 1b -->
+  <g transform="translate(130,10)" filter="url(#shadow)">
+      <rect x="0" y="0" width="60" height="90" rx="8" fill="url(#cardGradient)" stroke="#2196f3" stroke-width="2"/>
+      <rect x="5" y="5" width="50" height="80" rx="6" fill="url(#cardPattern)" fill-opacity="0.1"/>
+      <text x="30" y="55" font-family="Arial" font-weight="bold" font-size="28" text-anchor="middle" fill="#e74c3c">1</text>
+  </g>
+  
+  <!-- Card 2 -->
+  <g transform="translate(210,10)" filter="url(#shadow)">
+      <rect x="0" y="0" width="60" height="90" rx="8" fill="url(#cardGradient)" stroke="#2196f3" stroke-width="2"/>
+      <rect x="5" y="5" width="50" height="80" rx="6" fill="url(#cardPattern)" fill-opacity="0.1"/>
+      <text x="30" y="55" font-family="Arial" font-weight="bold" font-size="28" text-anchor="middle" fill="#e74c3c">2</text>
+  </g>
+  
+  <!-- Card 3 -->
+  <g transform="translate(290,10)" filter="url(#shadow)">
+      <rect x="0" y="0" width="60" height="90" rx="8" fill="url(#cardGradient)" stroke="#2196f3" stroke-width="2"/>
+      <rect x="5" y="5" width="50" height="80" rx="6" fill="url(#cardPattern)" fill-opacity="0.1"/>
+      <text x="30" y="55" font-family="Arial" font-weight="bold" font-size="28" text-anchor="middle" fill="#e74c3c">3</text>
+  </g>
+  
+  <!-- Probabilities row -->
+  <g transform="translate(0,115)">
+      <text x="80" y="0" font-family="Arial" font-size="14" text-anchor="middle" fill="#555555">P = 1/4</text>
+      <text x="160" y="0" font-family="Arial" font-size="14" text-anchor="middle" fill="#555555">P = 1/4</text>
+      <text x="240" y="0" font-family="Arial" font-size="14" text-anchor="middle" fill="#555555">P = 1/4</text>
+      <text x="320" y="0" font-family="Arial" font-size="14" text-anchor="middle" fill="#555555">P = 1/4</text>
+  </g>
+  
+  <!-- Counts and percentages row -->
+  <g transform="translate(0,140)">
+    <!-- Counts line -->
+    <text x="80"  y="0" font-family="Arial" font-size="14" text-anchor="middle" fill="#333333">
+      Count: ${count("1a")}
+    </text>
+    <text x="160" y="0" font-family="Arial" font-size="14" text-anchor="middle" fill="#333333">
+      Count: ${count("1b")}
+    </text>
+    <text x="240" y="0" font-family="Arial" font-size="14" text-anchor="middle" fill="#333333">
+      Count: ${count("2")}
+    </text>
+    <text x="320" y="0" font-family="Arial" font-size="14" text-anchor="middle" fill="#333333">
+      Count: ${count("3")}
+    </text>
+    
+    <!-- Percentages line (20px below the counts) -->
+    <text x="80"  y="20" font-family="Arial" font-size="14" text-anchor="middle" fill="#333333">
+      ${percent("1a")}
+    </text>
+    <text x="160" y="20" font-family="Arial" font-size="14" text-anchor="middle" fill="#333333">
+      ${percent("1b")}
+    </text>
+    <text x="240" y="20" font-family="Arial" font-size="14" text-anchor="middle" fill="#333333">
+      ${percent("2")}
+    </text>
+    <text x="320" y="20" font-family="Arial" font-size="14" text-anchor="middle" fill="#333333">
+      ${percent("3")}
+    </text>
+  </g>
+</svg>`;
+  return svg;
+};
+
+// Finally, display everything
+html`
+${buttonsContainer}
+${chartContainer}
+${cardsDisplay}
 `
-
-// Create the plot
-Plot.plot({
-  width: 800,
-  height: 400,
-  margin: 50,
-  grid: true,
-  style: {
-    fontSize: 12,
-    fontFamily: "system-ui, -apple-system"
-  },
-  y: {
-    domain: [0, 4],
-    label: "↑ Running Average",
-    grid: true
-  },
-  x: {
-    label: "Number of Draws →",
-    grid: true
-  },
-  marks: [
-    Plot.line(runningAverages, {
-      x: "x", 
-      y: "y", 
-      stroke: "#2196f3",
-      strokeWidth: 1.5
-    }),
-    Plot.ruleY([expectedValue], {
-      stroke: "red", 
-      strokeDasharray: "5,5",
-      strokeOpacity: 0.5
-    }),
-    Plot.text([{x: runningAverages.length, y: expectedValue}], {
-      text: ["Expected Value (1.75)"],
-      dx: 10,
-      fill: "red",
-      fontSize: 10
-    })
-  ]
-})
 ```
 
 ### Buying ice cream
@@ -225,10 +395,10 @@ The EV calculation helps make decisions by providing a framework to evaluate opt
 But not always. There are other considerations like risk tolerance (some prefer a guaranteed price of $7 to chancing a price of $10), resource constraints ($10 could be a large strain on the budget), and others. 
 
 ## What we do
-- [expectedvalue.org](tutorial/): Learn about expected value through our tutorial and interactive examples
+- [EV Tutorial (this website)](tutorial/): Learn about expected value through our tutorial and interactive examples
 - [EV Workshops](workshops/): In-person workshops on expected value
-- [EV Day](evday2025/): A day of EV-centric and adjacent workshops and a poker tournament
+- [EV Day](evday2025/): A day of EV-centric and adjacent workshops, along with a charity poker tournament
 - [Poker Camp](https://poker.camp): Workshops and courses on AI and applied rationality through the lens of poker
 - [EV Fellowship](fellows.qmd): Contribute your strengths to the EVF in areas like research, coding, writing, logistics, running workshops, and creating videos
 
-![EV workshop at Ecole les Hirondelles Mermoz in Dakar, Senegal (December, 2024)](assets/dakar1.jpg){width=50%}
+![EV workshop at Ecole les Hirondelles Mermoz in Dakar, Senegal (December, 2024)](assets/dakar1.jpg){width=75%}
