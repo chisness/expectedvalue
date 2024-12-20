@@ -71,7 +71,6 @@ expectedValue = 1.75
 
 // Create individual buttons with proper styling
 viewof drawOne = Inputs.button("Draw 1 Card", {
-  reduce: () => "drawOne",
   style: `
     background: black;
     color: white;
@@ -80,9 +79,7 @@ viewof drawOne = Inputs.button("Draw 1 Card", {
     border-radius: 6px;
   `
 })
-
 viewof drawTen = Inputs.button("Draw 10 Cards", {
-  reduce: () => "drawTen",
   style: `
     background: black;
     color: white;
@@ -91,9 +88,7 @@ viewof drawTen = Inputs.button("Draw 10 Cards", {
     border-radius: 6px;
   `
 })
-
 viewof drawHundred = Inputs.button("Draw 100 Cards", {
-  reduce: () => "drawHundred",
   style: `
     background: black;
     color: white;
@@ -103,25 +98,12 @@ viewof drawHundred = Inputs.button("Draw 100 Cards", {
   `
 })
 
-viewof resetBtn = Inputs.button("Reset", {
-  reduce: () => "reset",
-  style: `
-    background: white;
-    color: black;
-    border: 2px solid black;
-    padding: 8px 16px;
-    border-radius: 6px;
-    font-weight: bold;
-  `
-})
-
-// Wrap the buttons in a flex container to display them inline
+// Wrap the buttons in a flex container
 buttonsContainer = html`
 <div style="display: flex; gap: 10px; align-items: center; margin-bottom: 20px;">
   ${viewof drawOne}
   ${viewof drawTen}
   ${viewof drawHundred}
-  ${viewof resetBtn}
 </div>
 `
 
@@ -129,18 +111,12 @@ buttonsContainer = html`
 values = {
   let currentValues = window._cardValues || [];
   
-  // Check which button was pressed
+  // Determine the action based on which button was pressed
   let action = null;
-  if (drawOne === "drawOne") action = "drawOne";
-  if (drawTen === "drawTen") action = "drawTen";
-  if (drawHundred === "drawHundred") action = "drawHundred";
-  if (resetBtn === "reset") action = "reset";
+  if (drawOne) action = "drawOne";
+  if (drawTen) action = "drawTen";
+  if (drawHundred) action = "drawHundred";
 
-  if (action === "reset") {
-    window._cardValues = [];
-    return [];
-  }
-  
   if (action === "drawOne") {
     const card = cards[Math.floor(Math.random() * cards.length)];
     currentValues = [...currentValues, card];
@@ -253,7 +229,7 @@ percent = (id) => {
 // Get counts (defaulting to 0 if not drawn)
 count = (id) => cardCounts[id] || 0
 
-// Show SVG with cards, counts, and percentages underneath
+// Show SVG with cards, counts, and percentages on two separate lines
 cardsDisplay = {
   const svg = html`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 180">
   <defs>
@@ -348,7 +324,7 @@ cardsDisplay = {
   </g>
 </svg>`;
   return svg;
-};
+}
 
 // Finally, display everything
 html`
