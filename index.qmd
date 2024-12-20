@@ -51,41 +51,81 @@ Note that EV is not a possible outcome (we couldn't actually draw 1.75), but rat
 
 ```{ojs}
 //| echo: false
-// Create buttons
-viewof drawOne = Inputs.button("Draw 1 Card")
-viewof drawTen = Inputs.button("Draw 10 Cards")
-viewof drawHundred = Inputs.button("Draw 100 Cards")
-viewof resetBtn = Inputs.button("Reset")
+// Create buttons with proper styling
+viewof drawOne = Inputs.button("Draw 1 Card", {
+  style: `
+    background: black;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    margin-right: 8px;
+  `
+})
+
+viewof drawTen = Inputs.button("Draw 10 Cards", {
+  style: `
+    background: black;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    margin-right: 8px;
+  `
+})
+
+viewof drawHundred = Inputs.button("Draw 100 Cards", {
+  style: `
+    background: black;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    margin-right: 8px;
+  `
+})
+
+viewof resetBtn = Inputs.button("Reset", {
+  style: `
+    background: white;
+    color: black;
+    border: 1px solid black;
+    padding: 8px 16px;
+    border-radius: 6px;
+  `
+})
 
 // Constants
 cards = [1, 1, 2, 3]
 expectedValue = 1.75
 
-// State management using Observable's mutable method
+// State management
 values = {
-  if (!window._cardValues) window._cardValues = [];
+  let currentValues = window._cardValues || [];
   
   drawOne, drawTen, drawHundred, resetBtn;
   
   if (resetBtn) {
     window._cardValues = [];
+    return [];
   }
   
   if (drawOne) {
-    window._cardValues.push(cards[Math.floor(Math.random() * cards.length)]);
+    currentValues = [...currentValues, cards[Math.floor(Math.random() * cards.length)]];
   }
   if (drawTen) {
     for (let i = 0; i < 10; i++) {
-      window._cardValues.push(cards[Math.floor(Math.random() * cards.length)]);
+      currentValues = [...currentValues, cards[Math.floor(Math.random() * cards.length)]];
     }
   }
   if (drawHundred) {
     for (let i = 0; i < 100; i++) {
-      window._cardValues.push(cards[Math.floor(Math.random() * cards.length)]);
+      currentValues = [...currentValues, cards[Math.floor(Math.random() * cards.length)]];
     }
   }
   
-  return window._cardValues.slice();
+  window._cardValues = currentValues;
+  return currentValues;
 }
 
 // Calculate running averages
@@ -94,17 +134,16 @@ runningAverages = values.map((_, i) => ({
   y: values.slice(0, i + 1).reduce((a, b) => a + b, 0) / (i + 1)
 }))
 
-// Display current stats
+// Stats display
 currentAverage = runningAverages.length > 0 ? runningAverages[runningAverages.length - 1].y.toFixed(3) : "N/A"
 totalDraws = values.length
 lastDraw = values.length > 0 ? values[values.length - 1] : "N/A"
 
-// Stats display using markdown
 md`
-<div style="margin: 20px 0;">
-  <strong>Last draw:</strong> ${lastDraw}<br>
-  <strong>Total draws:</strong> ${totalDraws}<br>
-  <strong>Current average:</strong> ${currentAverage}
+<div style="font-family: system-ui, -apple-system; margin: 20px 0; font-size: 16px; line-height: 1.5;">
+  <div><strong>Last draw:</strong> ${lastDraw}</div>
+  <div><strong>Total draws:</strong> ${totalDraws}</div>
+  <div><strong>Current average:</strong> ${currentAverage}</div>
 </div>
 `
 
@@ -114,29 +153,36 @@ Plot.plot({
   height: 400,
   margin: 50,
   grid: true,
+  style: {
+    fontSize: 12,
+    fontFamily: "system-ui, -apple-system"
+  },
   y: {
     domain: [0, 4],
-    label: "Running Average"
+    label: "↑ Running Average",
+    grid: true
   },
   x: {
-    label: "Number of Draws"
+    label: "Number of Draws →",
+    grid: true
   },
   marks: [
     Plot.line(runningAverages, {
       x: "x", 
       y: "y", 
       stroke: "#2196f3",
-      strokeWidth: 2
+      strokeWidth: 1.5
     }),
     Plot.ruleY([expectedValue], {
       stroke: "red", 
-      strokeDasharray: "5,5"
+      strokeDasharray: "5,5",
+      strokeOpacity: 0.5
     }),
     Plot.text([{x: runningAverages.length, y: expectedValue}], {
       text: ["Expected Value (1.75)"],
       dx: 10,
       fill: "red",
-      fontSize: 12
+      fontSize: 10
     })
   ]
 })
