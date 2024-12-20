@@ -24,50 +24,54 @@ website:
         href: fellows.qmd
       - text: "About"
         href: about.qmd
+    tools: 
+      - icon: mailbox2-flag
+        href: mailto:max@expectedvalue.org 
   sidebar:
-    style: docked
-    background: light
-    contents: 
-      - section: "EXPECTED VALUE"
-        contents: 
-          - text: Tutorial (soon)
-          - href: evimp.qmd 
-            text: EV Importance
-          # - text: EV Benefits
-          # - text: EV Flaws
-      - section: "SPORTS"
-        contents: 
-          - text: Soon
-      - section: "TRAVEL"
-        contents: 
-          - href: basicecon.qmd
-            text: Basic Economy
-      - section: "FOOD"
-        contents: 
-          - href: pizza.qmd
-            text: Pizza
-          - href: salmon.qmd
-            text: Salmon
-      - section: "GAMBLING"
-        contents: 
-          - href: dice.qmd
-            text: Dice
-          - href: dreidel.qmd
-            text: Dreidel
-          # - href: blackjack.qmd
-          #   text: Blackjack
-          # - href: gambler.qmd
-          #   text: Gambler Problem
-      - section: "CURRENT EVENTS"
-        contents: 
-          - href: huberman-pregnancy.qmd 
-            text: Andrew Huberman Pregnancy Probability
-          # - href: vice-president.qmd
-          #   text: Vice President Selection
-      - section: "OTHER"
-        contents: 
-          - href: hindsight-neglect.qmd
-            text: LLM Hindsight Neglect
+    - id: tutorial
+      style: docked
+      background: light
+      contents: 
+        - section: "EXPECTED VALUE"
+          contents: 
+            - text: Tutorial (soon)
+            - href: evimp.qmd 
+              text: EV Importance
+            # - text: EV Benefits
+            # - text: EV Flaws
+        - section: "SPORTS"
+          contents: 
+            - text: Soon
+        - section: "TRAVEL"
+          contents: 
+            - href: basicecon.qmd
+              text: Basic Economy
+        - section: "FOOD"
+          contents: 
+            - href: pizza.qmd
+              text: Pizza
+            - href: salmon.qmd
+              text: Salmon
+        - section: "GAMBLING"
+          contents: 
+            - href: dice.qmd
+              text: Dice
+            - href: dreidel.qmd
+              text: Dreidel
+            # - href: blackjack.qmd
+            #   text: Blackjack
+            # - href: gambler.qmd
+            #   text: Gambler Problem
+        - section: "CURRENT EVENTS"
+          contents: 
+            - href: huberman-pregnancy.qmd 
+              text: Andrew Huberman Pregnancy Probability
+            # - href: vice-president.qmd
+            #   text: Vice President Selection
+        - section: "OTHER"
+          contents: 
+            - href: hindsight-neglect.qmd
+              text: LLM Hindsight Neglect
 
 format:
   html:

@@ -1,5 +1,6 @@
 ---
 title: "EV Tutorial"
+sidebar: tutorial
 format:
   html:
     math: true
