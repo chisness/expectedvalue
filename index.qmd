@@ -4,6 +4,21 @@ format: html
 resources: 
     - CNAME
 ---
+We know what an average of set of n values is, it's sum of values divided by n. e.g. 3 die rolls. like weighted sum of the values. weights add up to 1. 
+
+probabilistic process that generates value, ev is average of all possible outcomes, each possible outcome weighted by its probability of occurring. 
+
+EV = E[X] = sum(i) prob(x=x_i)*x_i
+weights sum to 1
+
+can do for die roll
+EV is not a possible outcome, but summarizes set of possible outcomes 
+
+E[X + Y] = E[X] + E[Y]
+E[a*X] = a*E[X]
+EV of 3 die rolls is sum 3.5 + 3.5 + 3.5 
+
+
 ## Welcome! 
 We believe that expected value is one of the most important concepts for making better decisions in an uncertain world. Whether evaluating career choices, investment opportunities, or policy decisions, understanding expected value helps us think more clearly about risks, rewards, and tradeoffs.
 
@@ -26,7 +41,7 @@ They also have a special offer:
 
 **What is the expected value of the coin flip?**
 
-1. What is the probability of each outcome? Since it's a coin flip, each is 50% likely. 
+1. What is the probability of each outcome? Heads and tails are both 50% likely. 
 
 2. What is the value of each outcome? The cost for heads is $10 and the cost for tails is $0. 
 

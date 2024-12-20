@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>The Expected Value Foundation – The EV Foundation</title>
+<title>Fellows – The EV Foundation</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -122,7 +122,7 @@ window.Quarto = {
 </script>
 
 <link rel="stylesheet" href="custom.css">
-<meta property="og:title" content="The Expected Value Foundation – The EV Foundation">
+<meta property="og:title" content="Fellows – The EV Foundation">
 <meta property="og:description" content="">
 <meta property="og:site_name" content="The EV Foundation">
 </head>
@@ -166,7 +166,7 @@ window.Quarto = {
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./fellows.html"> 
+    <a class="nav-link active" href="./fellows.html" aria-current="page"> 
 <span class="menu-text">Fellows</span></a>
   </li>  
   <li class="nav-item">
@@ -184,7 +184,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <h1 class="quarto-secondary-nav-title no-breadcrumbs">The Expected Value Foundation</h1>
+        <h1 class="quarto-secondary-nav-title no-breadcrumbs">Fellows</h1>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -332,23 +332,15 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#welcome" id="toc-welcome" class="nav-link active" data-scroll-target="#welcome">Welcome!</a></li>
-  <li><a href="#what-is-expected-value-ev" id="toc-what-is-expected-value-ev" class="nav-link" data-scroll-target="#what-is-expected-value-ev">What is expected value (EV)?</a></li>
-  <li><a href="#what-we-do" id="toc-what-we-do" class="nav-link" data-scroll-target="#what-we-do">What we do</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">The Expected Value Foundation</h1>
+<h1 class="title d-none d-lg-block">Fellows</h1>
 </div>
 
 
@@ -365,71 +357,10 @@ window.Quarto = {
 </header>
 
 
-<p>We know what an average of set of n values is, it’s sum of values divided by n.&nbsp;e.g.&nbsp;3 die rolls. like weighted sum of the values. weights add up to 1.</p>
-<p>probabilistic process that generates value, ev is average of all possible outcomes, each possible outcome weighted by its probability of occurring.</p>
-<p>EV = E[X] = sum(i) prob(x=x_i)*x_i weights sum to 1</p>
-<p>can do for die roll EV is not a possible outcome, but summarizes set of possible outcomes</p>
-<p>E[X + Y] = E[X] + E[Y] E[a*X] = a*E[X] EV of 3 die rolls is sum 3.5 + 3.5 + 3.5</p>
-<section id="welcome" class="level2">
-<h2 class="anchored" data-anchor-id="welcome">Welcome!</h2>
-<p>We believe that expected value is one of the most important concepts for making better decisions in an uncertain world. Whether evaluating career choices, investment opportunities, or policy decisions, understanding expected value helps us think more clearly about risks, rewards, and tradeoffs.</p>
-<p>Nate Silver in <em>On the Edge</em>:</p>
-<blockquote class="blockquote">
-<p>Society would be generally better off–I’ll confidently contend–if people understood the nature of expected value and specifically the importance of low-probability, high-impact events, whether they come in the form of fantastic potential payoffs or catastrophic risks.</p>
-</blockquote>
-</section>
-<section id="what-is-expected-value-ev" class="level2">
-<h2 class="anchored" data-anchor-id="what-is-expected-value-ev">What is expected value (EV)?</h2>
-<p><span class="math inline">\text{Expected Value} = \text{(Probability of an outcome)} \cdot \text{(Value of that outcome)}</span></p>
-<p><strong>Suppose that you are buying an ice cream:</strong></p>
-<p>The store is selling an ice cream cone for <strong>$7</strong>.</p>
-<p>They also have a special offer:</p>
-<ul>
-<li>Flip a coin</li>
-<li>If the coin is <strong>heads</strong>, you buy the ice cream for <strong>$10</strong></li>
-<li>If the coin is <strong>tails</strong>, you get the ice cream for <strong>free</strong></li>
-</ul>
-<p><strong>What is the expected value of the coin flip?</strong></p>
-<ol type="1">
-<li><p>What is the probability of each outcome? Heads and tails are both 50% likely.</p></li>
-<li><p>What is the value of each outcome? The cost for heads is $10 and the cost for tails is $0.</p></li>
-<li><p>The expected value of the coin flip is as follows, where <span class="math inline">P</span> represents probability and <span class="math inline">V</span> represents value.</p></li>
-</ol>
-<p><span class="math display">
-\begin{aligned}
-\text{EV} &amp;= P(\text{Heads}) \cdot V(\text{Heads}) + P(\text{Tails}) \cdot V(\text{Tails}) \\
-   &amp;= (0.5) \cdot (\$10) + (0.5) \cdot (\$0) \\
-   &amp;= \$5
-\end{aligned}
-</span></p>
-<p>This means that the <em>expected value</em> of the coin flip is <strong>$5</strong>, a better deal than the standard price of <strong>$7</strong>.</p>
-<p>The EV calculation helps make decisions by providing a framework to evaluate options with uncertain outcomes. In most cases, the better expected value means that that is the better decision, and we should therefore <strong>take the coin flip option</strong>.</p>
-<p>But not always. There are other considerations like risk tolerance (some prefer a guaranteed price of $7 to chancing a price of $10), resource constraints ($10 could be a large strain on the budget), and others.</p>
-</section>
-<section id="what-we-do" class="level2">
-<h2 class="anchored" data-anchor-id="what-we-do">What we do</h2>
-<ul>
-<li><a href="https://expectedvalue.org">expectedvalue.org</a>: Learn about expected value through our tutorial and interactive examples</li>
-<li><a href="https://poker.camp">Poker Camp</a>: In-person workshops and courses on AI and applied rationality through the lens of poker</li>
-<li>In-person expected value workshops</li>
-</ul>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="assets/dakar1.jpg" class="img-fluid figure-img"></p>
-<figcaption>EV workshop at Ecole les Hirondelles Mermoz in Dakar, Senegal (December, 2024)</figcaption>
-</figure>
-</div>
-<p>In the works:</p>
-<ul>
-<li>One Life Pledge and poker tournament</li>
-<li>Expected Value Day</li>
-<li>Micro-grants</li>
-<li>EV Fellowship</li>
-</ul>
+<p>The Expected Value Foundation is run by <a href="https://maxchiswick.com">Max Chiswick</a>.</p>
 
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

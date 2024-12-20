@@ -10,11 +10,20 @@ website:
   navbar: 
     logo: assets/faviconb.png
     background: primary
+    left: 
+        - text: "EV Tutorial"
+          href: /tutorial
+        - text: "EV Workshops"
+          href: /workshops
+        - text: "EV Day 2025"
+          href: /evday2025
+        - text: "Poker Camp"
+          href: https://poker.camp
     right: 
+      - text: "Fellows"
+        href: fellows.qmd
       - text: "About"
         href: about.qmd
-      - text: "Poker Camp"
-        href: https://poker.camp
   sidebar:
     style: docked
     background: light
