@@ -1,5 +1,5 @@
 ---
-title: "The Expected Value Foundation"
+title: "Expected Value Foundation"
 execute:
   echo: false
 format: html
@@ -22,7 +22,21 @@ In math terms:
 
 $\mathbb{E}[X] = \sum\limits_{i} P(X=x_i) \cdot x_i$
 
-Let's look at a couple examples. 
+## EV: Rolling a die
+
+What's the expected value of rolling a single die? 
+
+There are 6 faces (1, 2, 3, 4, 5, 6) and each has probability of 1/6.
+
+$$
+\begin{align*}
+\mathbb{E}[\text{Single Die Roll}] &= \frac{1}{6}(1) + \frac{1}{6}(2) + \frac{1}{6}(3) + \frac{1}{6}(4) + \frac{1}{6}(5) + \frac{1}{6}(6) \\
+&= \frac{1}{6} + \frac{2}{6} + \frac{3}{6} + \frac{4}{6} + \frac{5}{6} + \frac{6}{6} = \frac{21}{6} = \frac{7}{2} \\
+&= 3.5
+\end{align*}
+$$
+
+The expected value is **3.5**. 
 
 ## EV: Ice cream coin flip
 ![](icecreamcoins.svg)
