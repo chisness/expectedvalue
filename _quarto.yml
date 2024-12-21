@@ -3,7 +3,7 @@ project:
   output-dir: docs
 
 website:
-  title: "The EV Foundation"
+  title: "EV Foundation"
   open-graph: true
   google-analytics: G-P015KRTLYQ
   favicon: assets/faviconb.svg
