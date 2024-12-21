@@ -6,9 +6,9 @@ website:
   title: "EV Foundation"
   open-graph: true
   google-analytics: G-P015KRTLYQ
-  favicon: assets/faviconb.svg
+  favicon: assets/favicon5b.svg
   navbar: 
-    logo: assets/faviconb.png
+    logo: assets/favicon5b.png
     background: primary
     left: 
         - text: "EV Tutorial"
