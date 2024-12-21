@@ -25,7 +25,111 @@ $\mathbb{E}[X] = \sum\limits_{i} P(X=x_i) \cdot x_i$
 ### Drawing a card
 Here's a simple card game where you get to draw 1 card and get the prize indicated on that card.
 
-![](card-game.svg){fig-alt="A visualization showing four playing cards displaying numbers 1, 1, 2, and 3, each with a 1/4 chance of being drawn"}
+```{ojs}
+//| echo: false
+import {Inputs} from "@observablehq/inputs"
+import {Plot} from "@observablehq/plot"
+
+// Define distinct cards
+cards = [
+  {value: 1, id: "1a"},
+  {value: 1, id: "1b"},
+  {value: 2, id: "2"},
+  {value: 3, id: "3"}
+]
+
+// Expected value
+expectedValue = 1.75
+
+// Create SVG cards with dynamically updating stats
+cardsDisplay = html`
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 180">
+    <!-- Definitions for reusable elements -->
+    <defs>
+        <!-- Card shadow -->
+        <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+            <feGaussianBlur in="SourceAlpha" stdDeviation="2"/>
+            <feOffset dx="2" dy="2" result="offsetblur"/>
+            <feComponentTransfer>
+                <feFuncA type="linear" slope="0.2"/>
+            </feComponentTransfer>
+            <feMerge>
+                <feMergeNode/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+        
+        <!-- Card gradient -->
+        <linearGradient id="cardGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1"/>
+            <stop offset="100%" style="stop-color:#f8f9fa;stop-opacity:1"/>
+        </linearGradient>
+        
+        <!-- Pattern for card decoration -->
+        <pattern id="cardPattern" x="0" y="0" width="10" height="10" patternUnits="userSpaceOnUse">
+            <circle cx="5" cy="5" r="0.5" fill="#e0e0e0"/>
+        </pattern>
+    </defs>
+    
+    <!-- Probabilities -->
+    <g transform="translate(0,25)">
+        <text x="80" y="0" font-family="Arial" font-size="14" text-anchor="middle" fill="#555555">P = 1/4</text>
+        <text x="160" y="0" font-family="Arial" font-size="14" text-anchor="middle" fill="#555555">P = 1/4</text>
+        <text x="240" y="0" font-family="Arial" font-size="14" text-anchor="middle" fill="#555555">P = 1/4</text>
+        <text x="320" y="0" font-family="Arial" font-size="14" text-anchor="middle" fill="#555555">P = 1/4</text>
+    </g>
+    
+    <!-- Cards -->
+    <g transform="translate(50,35)">
+        <!-- Card 1a -->
+        <g filter="url(#shadow)">
+            <rect x="0" y="0" width="60" height="90" rx="8" fill="url(#cardGradient)" stroke="#2196f3" stroke-width="2"/>
+            <rect x="5" y="5" width="50" height="80" rx="6" fill="url(#cardPattern)" fill-opacity="0.1"/>
+            <text x="30" y="55" font-family="Arial" font-weight="bold" font-size="28" text-anchor="middle" fill="#e74c3c">1</text>
+        </g>
+        <!-- Stats for Card 1a -->
+        <text x="30" y="115" font-family="Arial" font-size="12" text-anchor="middle" fill="#333333">Count: ${count("1a")}</text>
+        <text x="30" y="130" font-family="Arial" font-size="12" text-anchor="middle" fill="#333333">${percent("1a")}</text>
+    </g>
+    
+    <g transform="translate(130,35)">
+        <!-- Card 1b -->
+        <g filter="url(#shadow)">
+            <rect x="0" y="0" width="60" height="90" rx="8" fill="url(#cardGradient)" stroke="#2196f3" stroke-width="2"/>
+            <rect x="5" y="5" width="50" height="80" rx="6" fill="url(#cardPattern)" fill-opacity="0.1"/>
+            <text x="30" y="55" font-family="Arial" font-weight="bold" font-size="28" text-anchor="middle" fill="#e74c3c">1</text>
+        </g>
+        <!-- Stats for Card 1b -->
+        <text x="30" y="115" font-family="Arial" font-size="12" text-anchor="middle" fill="#333333">Count: ${count("1b")}</text>
+        <text x="30" y="130" font-family="Arial" font-size="12" text-anchor="middle" fill="#333333">${percent("1b")}</text>
+    </g>
+    
+    <g transform="translate(210,35)">
+        <!-- Card 2 -->
+        <g filter="url(#shadow)">
+            <rect x="0" y="0" width="60" height="90" rx="8" fill="url(#cardGradient)" stroke="#2196f3" stroke-width="2"/>
+            <rect x="5" y="5" width="50" height="80" rx="6" fill="url(#cardPattern)" fill-opacity="0.1"/>
+            <text x="30" y="55" font-family="Arial" font-weight="bold" font-size="28" text-anchor="middle" fill="#e74c3c">2</text>
+        </g>
+        <!-- Stats for Card 2 -->
+        <text x="30" y="115" font-family="Arial" font-size="12" text-anchor="middle" fill="#333333">Count: ${count("2")}</text>
+        <text x="30" y="130" font-family="Arial" font-size="12" text-anchor="middle" fill="#333333">${percent("2")}</text>
+    </g>
+    
+    <g transform="translate(290,35)">
+        <!-- Card 3 -->
+        <g filter="url(#shadow)">
+            <rect x="0" y="0" width="60" height="90" rx="8" fill="url(#cardGradient)" stroke="#2196f3" stroke-width="2"/>
+            <rect x="5" y="5" width="50" height="80" rx="6" fill="url(#cardPattern)" fill-opacity="0.1"/>
+            <text x="30" y="55" font-family="Arial" font-weight="bold" font-size="28" text-anchor="middle" fill="#e74c3c">3</text>
+        </g>
+        <!-- Stats for Card 3 -->
+        <text x="30" y="115" font-family="Arial" font-size="12" text-anchor="middle" fill="#333333">Count: ${count("3")}</text>
+        <text x="30" y="130" font-family="Arial" font-size="12" text-anchor="middle" fill="#333333">${percent("3")}</text>
+    </g>
+</svg>
+`
+```
 
 Each card is equally likely to be selected with probability $P=1/4$. Note that the probabilities (weights) always sum to 1 because they describe all possible outcomes. 
 
@@ -46,19 +150,6 @@ Note that EV is not a possible outcome (we couldn't actually draw 1.75), but rat
 
 ```{ojs}
 //| echo: false
-import {Inputs} from "@observablehq/inputs"
-import {Plot} from "@observablehq/plot"
-
-// Define distinct cards
-cards = [
-  {value: 1, id: "1a"},
-  {value: 1, id: "1b"},
-  {value: 2, id: "2"},
-  {value: 3, id: "3"}
-]
-
-// Expected value
-expectedValue = 1.75
 
 // Create individual buttons
 viewof drawOne = Inputs.button("Draw 1 Card", {
@@ -166,7 +257,7 @@ currentAverage = runningAverages.length > 0 ?
   runningAverages[runningAverages.length - 1].y.toFixed(3) : 
   "N/A"
 
-// Helper functions for display
+// Helper functions
 percent = (id) => {
   if (totalDraws === 0) return "0%";
   const p = (cardCounts[id] || 0) / totalDraws * 100;
@@ -174,68 +265,6 @@ percent = (id) => {
 }
 
 count = (id) => cardCounts[id] || 0
-
-// Card display SVG
-smallCardsSVG = html`
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 80" style="width: 100%; height: auto;">
-  <defs>
-    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur in="SourceAlpha" stdDeviation="1"/>
-      <feOffset dx="1" dy="1" result="offsetblur"/>
-      <feComponentTransfer>
-        <feFuncA type="linear" slope="0.3"/>
-      </feComponentTransfer>
-      <feMerge>
-        <feMergeNode/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
-    <linearGradient id="cardGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1"/>
-      <stop offset="100%" style="stop-color:#f8f9fa;stop-opacity:1"/>
-    </linearGradient>
-  </defs>
-  
-  <!-- Cards -->
-  <g transform="translate(10,12)">
-    <!-- Card 1a -->
-    <g transform="translate(0,0)" filter="url(#shadow)">
-      <text x="14" y="-3" font-family="system-ui, -apple-system" font-size="6" text-anchor="middle" fill="#666666">P = 1/4</text>
-      <rect width="28" height="42" rx="4" fill="url(#cardGradient)" stroke="#2196f3" stroke-width="1"/>
-      <text x="14" y="26" font-family="system-ui, -apple-system" font-weight="bold" font-size="14" text-anchor="middle" fill="#e74c3c">1</text>
-      <text x="14" y="54" font-family="system-ui, -apple-system" font-size="6" text-anchor="middle" fill="#666666">Count: ${count("1a")}</text>
-      <text x="14" y="62" font-family="system-ui, -apple-system" font-size="6" text-anchor="middle" fill="#666666">${percent("1a")}</text>
-    </g>
-    
-    <!-- Card 1b -->
-    <g transform="translate(38,0)" filter="url(#shadow)">
-      <text x="14" y="-3" font-family="system-ui, -apple-system" font-size="6" text-anchor="middle" fill="#666666">P = 1/4</text>
-      <rect width="28" height="42" rx="4" fill="url(#cardGradient)" stroke="#2196f3" stroke-width="1"/>
-      <text x="14" y="26" font-family="system-ui, -apple-system" font-weight="bold" font-size="14" text-anchor="middle" fill="#e74c3c">1</text>
-      <text x="14" y="54" font-family="system-ui, -apple-system" font-size="6" text-anchor="middle" fill="#666666">Count: ${count("1b")}</text>
-      <text x="14" y="62" font-family="system-ui, -apple-system" font-size="6" text-anchor="middle" fill="#666666">${percent("1b")}</text>
-    </g>
-    
-    <!-- Card 2 -->
-    <g transform="translate(76,0)" filter="url(#shadow)">
-      <text x="14" y="-3" font-family="system-ui, -apple-system" font-size="6" text-anchor="middle" fill="#666666">P = 1/4</text>
-      <rect width="28" height="42" rx="4" fill="url(#cardGradient)" stroke="#2196f3" stroke-width="1"/>
-      <text x="14" y="26" font-family="system-ui, -apple-system" font-weight="bold" font-size="14" text-anchor="middle" fill="#e74c3c">2</text>
-      <text x="14" y="54" font-family="system-ui, -apple-system" font-size="6" text-anchor="middle" fill="#666666">Count: ${count("2")}</text>
-      <text x="14" y="62" font-family="system-ui, -apple-system" font-size="6" text-anchor="middle" fill="#666666">${percent("2")}</text>
-    </g>
-    
-    <!-- Card 3 -->
-    <g transform="translate(114,0)" filter="url(#shadow)">
-      <text x="14" y="-3" font-family="system-ui, -apple-system" font-size="6" text-anchor="middle" fill="#666666">P = 1/4</text>
-      <rect width="28" height="42" rx="4" fill="url(#cardGradient)" stroke="#2196f3" stroke-width="1"/>
-      <text x="14" y="26" font-family="system-ui, -apple-system" font-weight="bold" font-size="14" text-anchor="middle" fill="#e74c3c">3</text>
-      <text x="14" y="54" font-family="system-ui, -apple-system" font-size="6" text-anchor="middle" fill="#666666">Count: ${count("3")}</text>
-      <text x="14" y="62" font-family="system-ui, -apple-system" font-size="6" text-anchor="middle" fill="#666666">${percent("3")}</text>
-    </g>
-  </g>
-</svg>
-`
 
 // Chart container
 chartContainer = {
@@ -250,11 +279,11 @@ chartContainer = {
     },
     y: {
       domain: [0, 4],
-      label: "↑ Running Average",
+      label: "Running Average",
       grid: true
     },
     x: {
-      label: "Number of Draws →",
+      label: "Number of Draws",
       grid: true
     },
     marks: [
@@ -278,44 +307,35 @@ chartContainer = {
     ]
   });
   
-  const container = html`<div>
-    <div style="margin-bottom: 1rem; display: flex; flex-direction: row; align-items: center; justify-content: center; gap: 0.75rem;">
-      ${html`<div style="
-        background: rgba(255,255,255,0.95); 
-        padding: 0.5rem 0.75rem; 
-        border-radius: 6px; 
-        font-size: 12px; 
-        font-family: system-ui, -apple-system;
-        border: 1px solid #e0e0e0;
-        box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-      ">
-        <div style="margin-bottom: 0.25rem"><strong>Total draws:</strong> ${totalDraws}</div>
-        <div><strong>Current average:</strong> ${currentAverage}</div>
-      </div>`}
-      ${html`<div style="
-        background: rgba(255,255,255,0.95); 
-        padding: 0.75rem; 
-        border-radius: 6px; 
-        font-size: 12px;
-        font-family: system-ui, -apple-system;
-        border: 1px solid #e0e0e0;
-        box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-        max-width: 140px;
-        width: 100%;
-      ">
-        ${smallCardsSVG}
-      </div>`}
-    </div>
-    ${chart}
+  const container = html`<div style="position: relative; width: fit-content;">`;
+  container.appendChild(chart);
+  
+  // Info box
+  const infoBox = html`<div style="
+    position: absolute; 
+    top: 10px; 
+    right: 50px; 
+    background: rgba(255,255,255,0.9); 
+    padding: 4px 6px; 
+    border-radius: 3px; 
+    font-size: 10px; 
+    font-family: system-ui, -apple-system;
+    border: 1px solid #ccc;">
+    <div><strong>Total draws:</strong> ${totalDraws}</div>
+    <div><strong>Current average:</strong> ${currentAverage}</div>
   </div>`;
+
+  container.appendChild(infoBox);
   
   return container;
 }
 
 // Display everything
 html`
-${buttonsContainer}
-${chartContainer}
+<div style="display: flex; flex-direction: column; gap: 20px;">
+  ${buttonsContainer}
+  ${chartContainer}
+</div>
 `
 ```
 

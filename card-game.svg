@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 130">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 160">
     <!-- Definitions for reusable elements -->
     <defs>
         <!-- Card shadow -->
@@ -36,38 +36,50 @@
     
     <!-- Cards -->
     <g transform="translate(50,35)">
-        <!-- Card 1 -->
+        <!-- Card 1a -->
         <g filter="url(#shadow)">
             <rect x="0" y="0" width="60" height="90" rx="8" fill="url(#cardGradient)" stroke="#2196f3" stroke-width="2"/>
             <rect x="5" y="5" width="50" height="80" rx="6" fill="url(#cardPattern)" fill-opacity="0.1"/>
             <text x="30" y="55" font-family="Arial" font-weight="bold" font-size="28" text-anchor="middle" fill="#e74c3c">1</text>
         </g>
+        <!-- Stats for Card 1a -->
+        <text x="30" y="115" font-family="Arial" font-size="12" text-anchor="middle" fill="#333333">Count: ${count("1a")}</text>
+        <text x="30" y="130" font-family="Arial" font-size="12" text-anchor="middle" fill="#333333">${percent("1a")}</text>
     </g>
     
     <g transform="translate(130,35)">
-        <!-- Card 2 -->
+        <!-- Card 1b -->
         <g filter="url(#shadow)">
             <rect x="0" y="0" width="60" height="90" rx="8" fill="url(#cardGradient)" stroke="#2196f3" stroke-width="2"/>
             <rect x="5" y="5" width="50" height="80" rx="6" fill="url(#cardPattern)" fill-opacity="0.1"/>
             <text x="30" y="55" font-family="Arial" font-weight="bold" font-size="28" text-anchor="middle" fill="#e74c3c">1</text>
         </g>
+        <!-- Stats for Card 1b -->
+        <text x="30" y="115" font-family="Arial" font-size="12" text-anchor="middle" fill="#333333">Count: ${count("1b")}</text>
+        <text x="30" y="130" font-family="Arial" font-size="12" text-anchor="middle" fill="#333333">${percent("1b")}</text>
     </g>
     
     <g transform="translate(210,35)">
-        <!-- Card 3 -->
+        <!-- Card 2 -->
         <g filter="url(#shadow)">
             <rect x="0" y="0" width="60" height="90" rx="8" fill="url(#cardGradient)" stroke="#2196f3" stroke-width="2"/>
             <rect x="5" y="5" width="50" height="80" rx="6" fill="url(#cardPattern)" fill-opacity="0.1"/>
             <text x="30" y="55" font-family="Arial" font-weight="bold" font-size="28" text-anchor="middle" fill="#e74c3c">2</text>
         </g>
+        <!-- Stats for Card 2 -->
+        <text x="30" y="115" font-family="Arial" font-size="12" text-anchor="middle" fill="#333333">Count: ${count("2")}</text>
+        <text x="30" y="130" font-family="Arial" font-size="12" text-anchor="middle" fill="#333333">${percent("2")}</text>
     </g>
     
     <g transform="translate(290,35)">
-        <!-- Card 4 -->
+        <!-- Card 3 -->
         <g filter="url(#shadow)">
             <rect x="0" y="0" width="60" height="90" rx="8" fill="url(#cardGradient)" stroke="#2196f3" stroke-width="2"/>
             <rect x="5" y="5" width="50" height="80" rx="6" fill="url(#cardPattern)" fill-opacity="0.1"/>
             <text x="30" y="55" font-family="Arial" font-weight="bold" font-size="28" text-anchor="middle" fill="#e74c3c">3</text>
         </g>
+        <!-- Stats for Card 3 -->
+        <text x="30" y="115" font-family="Arial" font-size="12" text-anchor="middle" fill="#333333">Count: ${count("3")}</text>
+        <text x="30" y="130" font-family="Arial" font-size="12" text-anchor="middle" fill="#333333">${percent("3")}</text>
     </g>
 </svg>
