@@ -7,7 +7,7 @@ resources:
     - CNAME
 ---
 ## Welcome! 
-We believe that expected value is one of the most important concepts for making better decisions in an uncertain world -- understanding expected value helps us think more clearly about risks, rewards, and tradeoffs.
+We believe that expected value is one of the most important concepts for making better decisions in an uncertain world, and understanding expected value helps us think more clearly about risks, rewards, and tradeoffs.
 
 Nate Silver in *On the Edge*: 
 

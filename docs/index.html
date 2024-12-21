@@ -227,11 +227,9 @@ window.Quarto = {
    
   <ul>
   <li><a href="#welcome" id="toc-welcome" class="nav-link active" data-scroll-target="#welcome">Welcome!</a></li>
-  <li><a href="#what-is-expected-value" id="toc-what-is-expected-value" class="nav-link" data-scroll-target="#what-is-expected-value">What is expected value?</a>
-  <ul class="collapse">
-  <li><a href="#ice-cream-coin-flip" id="toc-ice-cream-coin-flip" class="nav-link" data-scroll-target="#ice-cream-coin-flip">Ice cream coin flip</a></li>
-  <li><a href="#drawing-a-card" id="toc-drawing-a-card" class="nav-link" data-scroll-target="#drawing-a-card">Drawing a card</a></li>
-  </ul></li>
+  <li><a href="#what-is-expected-value" id="toc-what-is-expected-value" class="nav-link" data-scroll-target="#what-is-expected-value">What is expected value?</a></li>
+  <li><a href="#ev-ice-cream-coin-flip" id="toc-ev-ice-cream-coin-flip" class="nav-link" data-scroll-target="#ev-ice-cream-coin-flip">EV: Ice cream coin flip</a></li>
+  <li><a href="#ev-drawing-a-card" id="toc-ev-drawing-a-card" class="nav-link" data-scroll-target="#ev-drawing-a-card">EV: Drawing a card</a></li>
   <li><a href="#what-we-do" id="toc-what-we-do" class="nav-link" data-scroll-target="#what-we-do">What we do</a></li>
   </ul>
 </nav>
@@ -260,7 +258,7 @@ window.Quarto = {
 
 <section id="welcome" class="level2">
 <h2 class="anchored" data-anchor-id="welcome">Welcome!</h2>
-<p>We believe that expected value is one of the most important concepts for making better decisions in an uncertain world. Understanding expected value helps us think more clearly about risks, rewards, and tradeoffs.</p>
+<p>We believe that expected value is one of the most important concepts for making better decisions in an uncertain world, and understanding expected value helps us think more clearly about risks, rewards, and tradeoffs.</p>
 <p>Nate Silver in <em>On the Edge</em>:</p>
 <blockquote class="blockquote">
 <p>Society would be generally better off–I’ll confidently contend–if people understood the nature of expected value and specifically the importance of low-probability, high-impact events, whether they come in the form of fantastic potential payoffs or catastrophic risks.</p>
@@ -268,12 +266,14 @@ window.Quarto = {
 </section>
 <section id="what-is-expected-value" class="level2">
 <h2 class="anchored" data-anchor-id="what-is-expected-value">What is expected value?</h2>
-<p>Expected value (EV) is the average of all possible outcomes. It’s computed by adding each possible outcome weighted by its probability of occurring:</p>
+<p>Expected value (EV) is the average of all possible outcomes. It’s computed by adding each possible outcome weighted by its probability of occurring.</p>
 <p><span class="math inline">\text{Expected Value} =  \text{(Probability of each outcome)} \cdot \text{(Value of each outcome)}</span></p>
 <p>In math terms:</p>
 <p><span class="math inline">\mathbb{E}[X] = \sum\limits_{i} P(X=x_i) \cdot x_i</span></p>
-<section id="ice-cream-coin-flip" class="level3">
-<h3 class="anchored" data-anchor-id="ice-cream-coin-flip">Ice cream coin flip</h3>
+<p>Let’s look at a couple examples.</p>
+</section>
+<section id="ev-ice-cream-coin-flip" class="level2">
+<h2 class="anchored" data-anchor-id="ev-ice-cream-coin-flip">EV: Ice cream coin flip</h2>
 <p><img src="icecreamcoins.svg" class="img-fluid"></p>
 <p>Suppose that you are buying an ice cream. The store is selling an ice cream cone for <strong>$7</strong>.</p>
 <p>They also have a special offer:</p>
@@ -351,7 +351,7 @@ window.Quarto = {
 </ul>
 <p><span class="math display">
 \begin{align*}
-EV &amp;= P(\text{Heads}) \cdot V(\text{Heads}) + P(\text{Tails}) \cdot V(\text{Tails}) \\
+\text{EV} &amp;= P(\text{Heads}) \cdot V(\text{Heads}) + P(\text{Tails}) \cdot V(\text{Tails}) \\
 &amp;= (0.5) \cdot (\$10) + (0.5) \cdot (\$0) \\
 &amp;= \$5
 \end{align*}
@@ -679,8 +679,8 @@ EV &amp;= P(\text{Heads}) \cdot V(\text{Heads}) + P(\text{Tails}) \cdot V(\text{
 <p>The EV calculation helps make decisions by providing a framework to evaluate options with uncertain outcomes. In most cases, the better expected value means that that is the better decision, and we should therefore <strong>take the coin flip option</strong>.</p>
 <p>But not always. There are other considerations like risk tolerance since some prefer a guaranteed price of $7 to chancing a price of $10.</p>
 </section>
-<section id="drawing-a-card" class="level3">
-<h3 class="anchored" data-anchor-id="drawing-a-card">Drawing a card</h3>
+<section id="ev-drawing-a-card" class="level2">
+<h2 class="anchored" data-anchor-id="ev-drawing-a-card">EV: Drawing a card</h2>
 <p>Here’s a simple card game where you get to draw 1 card and get the prize indicated on that card.</p>
 <div class="cell">
 <div class="sourceCode cell-code hidden" id="cb3" data-startfrom="333" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 332;"><span id="cb3-333"><a href="#cb3-333" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> {Inputs} <span class="im">from</span> <span class="st">"@observablehq/inputs"</span></span>
@@ -821,7 +821,7 @@ EV &amp;= P(\text{Heads}) \cdot V(\text{Heads}) + P(\text{Tails}) \cdot V(\text{
 </div>
 </div>
 </div>
-<p>Each card is equally likely to be selected with probability <span class="math inline">P=1/4</span>. Note that the probabilities (weights) always sum to 1 because they describe all possible outcomes.</p>
+<p>Each card is equally likely to be selected with probability <span class="math inline">P=1/4</span>. The probabilities (weights) always sum to 1 because they describe all possible outcomes.</p>
 <p>Let’s compute the EV:</p>
 <p><span class="math display">
 \begin{align*}
@@ -1111,7 +1111,6 @@ EV &amp;= P(\text{Heads}) \cdot V(\text{Heads}) + P(\text{Tails}) \cdot V(\text{
 </div>
 </div>
 </div>
-</section>
 </section>
 <section id="what-we-do" class="level2">
 <h2 class="anchored" data-anchor-id="what-we-do">What we do</h2>
