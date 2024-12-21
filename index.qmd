@@ -7,14 +7,14 @@ resources:
     - CNAME
 ---
 ## Welcome! 
-We believe that expected value is one of the most important concepts for making better decisions in an uncertain world. Understanding expected value helps us think more clearly about risks, rewards, and tradeoffs.
+We believe that expected value is one of the most important concepts for making better decisions in an uncertain world -- understanding expected value helps us think more clearly about risks, rewards, and tradeoffs.
 
 Nate Silver in *On the Edge*: 
 
 > Society would be generally better off--I'll confidently contend--if people understood the nature of expected value and specifically the importance of low-probability, high-impact events, whether they come in the form of fantastic potential payoffs or catastrophic risks.
 
 ## What is expected value?
-Expected value (EV) is the average of all possible outcomes. It's computed by adding each possible outcome weighted by its probability of occurring: 
+Expected value (EV) is the average of all possible outcomes. It's computed by adding each possible outcome weighted by its probability of occurring.
 
 $\text{Expected Value} =  \text{(Probability of each outcome)} \cdot \text{(Value of each outcome)}$
 
@@ -22,7 +22,9 @@ In math terms:
 
 $\mathbb{E}[X] = \sum\limits_{i} P(X=x_i) \cdot x_i$
 
-### Ice cream coin flip
+Let's look at a couple examples. 
+
+## EV: Ice cream coin flip
 ![](icecreamcoins.svg)
 
 Suppose that you are buying an ice cream. The store is selling an ice cream cone for **$7**.
@@ -101,7 +103,7 @@ html`
 
 $$
 \begin{align*}
-EV &= P(\text{Heads}) \cdot V(\text{Heads}) + P(\text{Tails}) \cdot V(\text{Tails}) \\
+\text{EV} &= P(\text{Heads}) \cdot V(\text{Heads}) + P(\text{Tails}) \cdot V(\text{Tails}) \\
 &= (0.5) \cdot (\$10) + (0.5) \cdot (\$0) \\
 &= \$5
 \end{align*}
@@ -323,7 +325,7 @@ The EV calculation helps make decisions by providing a framework to evaluate opt
 
 But not always. There are other considerations like risk tolerance since some prefer a guaranteed price of $7 to chancing a price of $10. 
 
-### Drawing a card
+## EV: Drawing a card
 Here's a simple card game where you get to draw 1 card and get the prize indicated on that card.
 
 ```{ojs}
@@ -432,7 +434,7 @@ cardsDisplay = html`
 `
 ```
 
-Each card is equally likely to be selected with probability $P=1/4$. Note that the probabilities (weights) always sum to 1 because they describe all possible outcomes. 
+Each card is equally likely to be selected with probability $P=1/4$. The probabilities (weights) always sum to 1 because they describe all possible outcomes. 
 
 Let's compute the EV: 
 
